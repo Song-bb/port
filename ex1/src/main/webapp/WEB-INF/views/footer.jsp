@@ -1,12 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>footer</title>
-</head>
-<body id="footer_wrap">
 	
 	<div id="footer_div">
 		<div id="footer_left"><a href="/main"><img id="footer_logo" src="img/footer_logo.jpg"></a></div>

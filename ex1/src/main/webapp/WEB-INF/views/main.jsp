@@ -7,8 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title>메인페이지</title>
-</head>
-<body id="wrap">
 
 	<c:import url="header.jsp"></c:import>
 	
@@ -246,7 +244,3 @@
 	</div>
 	
 	<c:import url="footer.jsp"></c:import>
-
-	
-</body>
-</html>
