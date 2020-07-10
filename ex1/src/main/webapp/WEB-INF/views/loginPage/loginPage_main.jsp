@@ -1,12 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>로그인 페이지</title>
-</head>
-<body>
 
-</body>
-</html>
+<!-- 로그인페이지 -->
+
+
+	<c:import url="../header.jsp"></c:import>
+	
+	
+	
+	
+	
+	
+	
+	
+	<c:import url="../footer.jsp"></c:import>

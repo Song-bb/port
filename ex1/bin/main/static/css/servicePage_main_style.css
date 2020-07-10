@@ -1,1 +1,200 @@
 @charset "UTF-8";
+
+
+#page_wrap {
+    width: 1050px;
+    margin: 0 auto;
+}
+.servicePage_title {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 15px;
+    padding-bottom: 20px;
+}
+.servicePage_left {
+    float:left;
+    padding-top: 30px;
+    width: 200px;
+}
+.servicePage_side_table_div {
+    padding-top: 10px;
+}
+.servicePage_side_table {
+    border: 1px solid rgba(179, 178, 178, 0.507);
+    border-collapse: collapse;
+    width: 200px;
+}
+.servicePage_side_table td {
+    border: 1px solid rgba(179, 178, 178, 0.507);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    color: rgb(129, 127, 127);
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 45px;
+}
+.servicePage_side_table td div:first-child {
+    float: left;
+}
+.servicePage_side_table td div:last-child {
+    float: right;
+}
+.servicePage_side_table td a {
+    text-decoration: none;
+    color: rgb(129, 127, 127);
+}
+.servicePage_side_table tr {
+    border: 1px solid rgba(179, 178, 178, 0.507);
+}
+.servicePage_side_btn_div {
+    padding-top: 15px; 
+}
+.servicePage_side_btn_div button {
+    width: 200px;
+    border: none;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    color: rgb(129, 127, 127);
+    padding-left: 10px;
+    border-radius: 0 20px 20px 0;
+    height: 45px;
+}
+.servicePage_side_btn_div button a {
+    text-decoration: none;
+    color: rgb(129, 127, 127);
+}
+.servicePage_title span {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: normal;
+    font-size: 13px;
+    padding-left: 20px;
+    color: rgb(100, 100, 100);
+}
+.servicePage_right {
+    float: right;
+    padding-top: 30px;
+    width: 800px;
+}
+.office_board {
+    width: 800px;
+}
+.office_board_table {
+    width: 800px;
+    border-collapse: collapse;
+    border-top: 2px solid #459356;
+    border-bottom: 2px solid #459356;
+    margin-bottom: 40px;
+}
+.office_board_table_td {
+    border-top: 1px solid rgba(179, 178, 178, 0.507);
+    height: 45px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    color: rgb(100, 100, 100);
+}
+.office_board_table_td a {
+    text-decoration: none;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    color: rgb(100, 100, 100);
+}
+.office_td1 {
+    width: 50px;
+}
+.office_td2 {
+    width: 500px;
+}
+.office_td3 {
+    width: 100px;
+}
+.office_td4 {
+    width: 100px;
+}
+.office_td5 {
+    width: 50px;
+}
+.select_page_div {
+    height: 30px;
+    width: 800px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #459356;
+    margin-bottom: 20px;
+}
+.select_page_table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+.select_page_table_td {
+    border: 1px solid rgba(179, 178, 178, 0.507);
+    height: 15px;
+    width: 30px;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: rgb(100, 100, 100);
+    text-align: center;
+}
+.select_page_table_td a {
+    text-decoration: none;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    color: rgb(100, 100, 100);
+}
+.order_search_div {
+    width: 800px;   
+}
+.order_search_filter {
+    float: left;
+}
+.order_search_filter2 {
+    float: right;
+}
+.order_search_filter_label {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    color: rgb(100, 100, 100);
+}
+.order_search_filter_label1 {
+    padding-right: 15px;
+}
+.order_search_filter2 div {
+    position: relative;
+    height: 200px;
+}
+.order_search_form {
+    position: absolute;
+    right: 0;
+    height: 25px;
+}
+.order_search_form_text {
+    position: absolute;
+    right: 0;
+    width: 250px;
+    height: 25px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    color: rgb(100, 100, 100);
+    border: 1px solid rgba(179, 178, 178, 0.507);
+}
+.order_search_form_text:focus {
+    border-radius: 5px;
+}
+.order_search_form_btn {
+    position: absolute;
+    right: 0;
+    height: 29px;
+    width: 29px;
+    border: 1px solid #459356;
+    overflow: hidden;
+    color: white;
+    background-color: #459356;
+}
+.order_search_form_btn_i {
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    border: none;
+    background-color: none;
+    top: 5px;
+    left: -1px;
+}
