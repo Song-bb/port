@@ -74,6 +74,13 @@ public class MyContoller {
 		return "event/event_main";
 	}
 	
+	// 이벤트메인(관리자 DB)추가
+		@RequestMapping("/event_sub")
+		public String event_sub() {
+			
+			return "event/event_sub";
+		}
+	
 	// 장바구니메인
 	@RequestMapping("/myCart")
 	public String myCart() {

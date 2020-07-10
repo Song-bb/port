@@ -9,7 +9,7 @@
     <div id="about_content">
         <div>
             <div class="about_img">
-                <img src="http://kiwi23.dothome.co.kr/img/about_img1.png">
+                <img src="img/about_img1.png">
             </div>
             <h2>과일장수 장사 시작!</h2>
             <p>신선한 과일은 어디서나 쉽게 구할 수 있지만, 혼자 살기 시작하면 박스째 담아두고 먹던 과일은 부담스러운 음식이 되어버립니다. 
@@ -20,7 +20,7 @@
         </div>
         <div>
             <div class="about_img">
-                <img src="http://kiwi23.dothome.co.kr/img/about_img2.png">
+                <img src="img/about_img2.png">
             </div>
             <h2>과일장수가 약속 드리는 당도 높~은 진심!</h2>
             <p>

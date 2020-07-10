@@ -20,3 +20,40 @@
     display: inline-block;
     height: 100%;
 }
+#event_sub{
+    width: 1050px;
+    margin:auto;
+    margin-bottom: 30px;
+    position: relative;
+}
+#event_board > div{
+    border-bottom: 1px solid rgba(211, 211, 211, 0.472);
+}
+#event_board > div:first-child{
+    height: 100px;
+    line-height: 100px;
+}
+#event_board > div:nth-child(2){
+    height: 40px;
+    line-height: 40px;
+    font-size: 0.8em;
+}
+#event_board > div:nth-child(2) > span:last-child{
+	float:right;
+}
+#event_board > div:nth-child(3) {
+    
+}
+#event_board > .button{
+    width: 100px;
+    margin-top: 10px;
+    padding: 10px 0;
+    background-color: #459356;
+    color: white;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+}
+
