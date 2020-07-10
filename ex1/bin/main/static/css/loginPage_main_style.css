@@ -1,1 +1,68 @@
 @charset "UTF-8";
+
+#login_wrap{
+    width: 700px;
+    margin: 0 auto;
+}
+#login_form{
+    width: 500px;
+    height: 400px;
+    margin: 0 auto;
+}
+#login_form h2{
+	margin-top: 50px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.login_input{
+    width:450px;
+    height:50px;
+    background:url('input_bg.jpg') no-repeat;
+    border: 2px solid rgb(185, 185, 185);
+    border-radius: 5px;
+    padding:15px;
+    margin: 10px;
+    font-size:16px;
+    color:#aaa;
+}
+#login_btn_1{
+    width: 450px;
+    height: 50px;
+    border: 1px solid #459356;
+    background-color: #459356;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 12px;
+}
+#login_btn_1:hover{
+    border: 1px solid #276d36;
+    background-color: #276d36;
+}
+#login_btn_2{
+    width: 450px;
+    height: 50px;
+    border: 1px solid rgb(255, 178, 90);
+    background-color: rgb(255, 178, 90);
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-left: 12px;
+}
+#login_btn_2:hover{
+    border: 1px solid rgb(255, 161, 54);
+    background-color: rgb(255, 161, 54);
+}
+a{
+    text-decoration: none;
+}
+#login_id_pw_found{
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 180px;
+    height: 15px;
+    float: right;
+}
