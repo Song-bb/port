@@ -1,0 +1,31 @@
+*{
+    margin:0 auto;
+    padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+#about_content {
+    margin:auto;
+    max-width: 1050px;
+    text-align: center;
+}
+.about_img{
+    width: 1050px;
+    height: 350px;
+    overflow: hidden;
+}
+#about_content h2 {
+    padding: 20px 0;
+    font-size: 2em;
+}
+#about_content p {
+    text-align:justify;
+    font-size: 1.1em;
+    line-height: 2;
+    margin-bottom: 50px;
+}
+
+#about_content > div:last-child p{
+    text-align: center;
+}

@@ -1,11 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>과일장수::신선한과일을집에서!</title>
 
-    <link rel="stylesheet" href="css/MyStyle.css">
+    <link rel="stylesheet" href="css/main_style.css">
+    <link rel="stylesheet" href="css/about_style.css">
+    <link rel="stylesheet" href="css/agreement_style.css">
+    <link rel="stylesheet" href="css/event_main_style.css">
+    <link rel="stylesheet" href="css/fallenFruit_main_style.css">
+    <link rel="stylesheet" href="css/fruitInSeason_main_style.css">
+    <link rel="stylesheet" href="css/importedFruit_main_style.css">
+    <link rel="stylesheet" href="css/joinPage_main_style.css">
+    <link rel="stylesheet" href="css/loginPage_main_style.css">
+    <link rel="stylesheet" href="css/myCart_style.css">
+    <link rel="stylesheet" href="css/policyInform_style.css">
+    <link rel="stylesheet" href="css/regularOrder_main_style.css">
+    <link rel="stylesheet" href="css/servicePage_main_style.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
 </head>
 <body>
+
+	<!-- header -->
+
 	<div id="header">
 		<div id="header_top_adv">
 			<a href="" >
