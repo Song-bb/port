@@ -275,6 +275,7 @@ a {
 	width: 1050px;
 	height: 260px;
 	margin: 0 auto;
+	clear: both;
 }
 #footer_left{
 	float: left;
