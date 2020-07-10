@@ -14,23 +14,23 @@
             공지사항 <span>과일장수의 새로운 소식들과 유용한 정보들을 한곳에서 확인하세요.</span>
         </div>
         <div class="office_board_table_div">
-            <table class="office_board_table">
-                <tr class="office_board_table_tr">
-                    <th class="office_board_table_th">제목</th>
-                    <td class="office_board_table_td" colspan="3">[과일장수]title1</td>
+            <table class="office_board_table2">
+                <tr class="office_board_table2_tr">
+                    <th class="office_board_table2_th">제목</th>
+                    <td class="office_board_table2_td" colspan="3">[과일장수]title1</td>
                 </tr>
-                <tr class="office_board_table_tr">
-                    <th class="office_board_table_th">작성자</th>
-                    <td class="office_board_table_td" colspan="3">FruitManager</td>
+                <tr class="office_board_table2_tr">
+                    <th class="office_board_table2_th">작성자</th>
+                    <td class="office_board_table2_td" colspan="3">FruitManager</td>
                 </tr>
-                <tr class="office_board_table_tr">
-                    <th class="office_board_table_th">작성일</th>
-                    <td class="office_board_table_td2">2020-07-10</td>
-                    <th class="office_board_table_th">조회수</th>
-                    <td class="office_board_table_td3">8</td>
+                <tr class="office_board_table2_tr">
+                    <th class="office_board_table2_th">작성일</th>
+                    <td class="office_board_table2_td2">2020-07-10</td>
+                    <th class="office_board_table2_th">조회수</th>
+                    <td class="office_board_table2_td3">8</td>
                 </tr>
-                <tr class="office_board_table_tr">
-                    <td class="office_board_table_td4" colspan="4">
+                <tr class="office_board_table2_tr">
+                    <td class="office_board_table2_td4" colspan="4">
                         고객님 안녕하세요,<bf></bf>
                         ~~<br>
                         내용~~~<br>
@@ -42,18 +42,18 @@
                         과일장수 드림<br>
                     </td>
                 </tr>
-                <tr class="office_board_table_tr">
-                    <td class="office_board_table_td5" colspan="4">
-                        <button class="office_board_table_btn" type="button">목록</button>
+                <tr class="office_board_table2_tr">
+                    <td class="office_board_table2_td5" colspan="4">
+                        <button class="office_board_table2_btn" type="button">목록</button>
                     </td>
                 </tr>
-                <tr class="office_board_table_tr">
-                    <td class="office_board_table_td6">^ 이전글</td>
-                    <td class="office_board_table_td8" colspan="3"><a href="">[과일장수]title2</a></td>
+                <tr class="office_board_table2_tr">
+                    <td class="office_board_table2_td6">^ 이전글</td>
+                    <td class="office_board_table2_td8" colspan="3"><a href="">[과일장수]title2</a></td>
                 </tr>
-                <tr class="office_board_table_tr">
-                    <td class="office_board_table_td7">v 다음글</td>
-                    <td class="office_board_table_td9" colspan="3"><a href="">[과일장수]title0</a></td>
+                <tr class="office_board_table2_tr">
+                    <td class="office_board_table2_td7">v 다음글</td>
+                    <td class="office_board_table2_td9" colspan="3"><a href="">[과일장수]title0</a></td>
                 </tr>
             </table>
         </div>

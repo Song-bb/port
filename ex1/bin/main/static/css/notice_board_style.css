@@ -12,7 +12,7 @@
 .office_board_content_header span {
     font-weight: bold;
 }
-.office_board_table {
+.office_board_table2 {
     border-collapse: collapse;
     border-top: 2px solid #459356;
     border-bottom: 2px solid #459356;
@@ -21,13 +21,13 @@
     color: rgb(100, 100, 100);
     width: 1050px;
 }
-.office_board_table_td  {
+.office_board_table2_td  {
     border-top: 1px solid rgba(179, 178, 178, 0.507);
     height: 45px;
     padding-left: 20px;
     width: 930px;
 }
-.office_board_table_th {
+.office_board_table2_th {
     width: 200px;
     background-color: #4593561a;
     text-align: left;
@@ -35,58 +35,58 @@
     border-top: 1px solid rgba(179, 178, 178, 0.507);
     height: 45px;
 }
-.office_board_table_td2 {
+.office_board_table2_td2 {
     border-top: 1px solid rgba(179, 178, 178, 0.507);
     height: 45px;
     padding-left: 20px;
     width: 250px;
 }
-.office_board_table_td3 {
+.office_board_table2_td3 {
     border-top: 1px solid rgba(179, 178, 178, 0.507);
     height: 45px;
     padding-left: 20px;
     width: 610px;
 }
-.office_board_table_td4 {
+.office_board_table2_td4 {
     padding: 15px;
     border-bottom: 1px solid #459356;
 }
-.office_board_table_td5 {
+.office_board_table2_td5 {
     padding: 20px 0;
     text-align: right;
     border-bottom: 2px solid #459356;
 }
-.office_board_table_btn {
+.office_board_table2_btn {
     width: 150px;
     height: 45px;
     background-color: #459356c0;
     border: none;
     color: white;
 }
-.office_board_table_btn:hover {
+.office_board_table2_btn:hover {
     width: 150px;
     height: 45px;
     background-color: #459356;
     border: none;
     color: white;
 }
-.office_board_table_td6 {
+.office_board_table2_td6 {
     height: 40px;
     border-bottom: 1px solid rgba(179, 178, 178, 0.507);
     border-right: 1px solid rgba(179, 178, 178, 0.507);
     width: 100px;
     padding-left: 20px;
 }
-.office_board_table_td7 {
+.office_board_table2_td7 {
     height: 40px;
     width: 100px;
     padding-left: 20px;
     border-right: 1px solid rgba(179, 178, 178, 0.507);
 }
-.office_board_table_td8 {
+.office_board_table2_td8 {
     border-bottom: 1px solid rgba(179, 178, 178, 0.507);
     padding-left: 20px;
 }
-.office_board_table_td9 {
+.office_board_table2_td9 {
     padding-left: 20px;
 }
