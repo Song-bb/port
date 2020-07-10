@@ -101,7 +101,13 @@ public class MyContoller {
 		
 		return "servicePage/policyInform";
 	}
-	
+
+	// 공지사항 글 (db 추가 필요)
+	@RequestMapping("/notice_board")
+	public String notice_board() {
+		
+		return "servicePage/notice_board";
+	}	
 	
 	
 	

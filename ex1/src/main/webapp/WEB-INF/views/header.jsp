@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="css/policyInform_style.css">
     <link rel="stylesheet" href="css/regularOrder_main_style.css">
     <link rel="stylesheet" href="css/servicePage_main_style.css">
+    <link rel="stylesheet" href="css/notice_board_style.css">
     
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
