@@ -40,14 +40,14 @@
                     </tr>
                     <tr class="office_board_table_tr">
                         <td class="office_board_table_td office_td1">공지</td>
-                        <td class="office_board_table_td office_td2"><a href="">title1</a></td>
+                        <td class="office_board_table_td office_td2"><a href="">[과일장수]title1</a></td>
                         <td class="office_board_table_td office_td3">장희망</td>
                         <td class="office_board_table_td office_td4">2020-07-10</td>
                         <td class="office_board_table_td office_td5">22</td>
                     </tr>
                     <tr class="office_board_table_tr">
                         <td class="office_board_table_td office_td1">공지</td>
-                        <td class="office_board_table_td office_td2"><a href="">title2</a></td>
+                        <td class="office_board_table_td office_td2"><a href="">[과일장수]title2</a></td>
                         <td class="office_board_table_td office_td3">장탱구</td>
                         <td class="office_board_table_td office_td4">2020-07-10</td>
                         <td class="office_board_table_td office_td5">23</td>
@@ -92,5 +92,6 @@
             </div>
         </div>
     </div>
+    <div id="servicePage_main_end"></div>
 	
 	<c:import url="../footer.jsp"></c:import>

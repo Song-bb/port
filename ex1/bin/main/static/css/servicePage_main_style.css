@@ -141,7 +141,8 @@
     color: rgb(100, 100, 100);
 }
 .order_search_div {
-    width: 800px;   
+    width: 800px;  
+    padding-bottom: 20px; 
 }
 .order_search_filter {
     float: left;
@@ -170,7 +171,7 @@
     position: absolute;
     right: 0;
     width: 250px;
-    height: 25px;
+    height: 30px;
     font-family: 'Noto Sans KR', sans-serif;
     font-size: 14px;
     color: rgb(100, 100, 100);
@@ -182,8 +183,8 @@
 .order_search_form_btn {
     position: absolute;
     right: 0;
-    height: 29px;
-    width: 29px;
+    height: 30px;
+    width: 30px;
     border: 1px solid #459356;
     overflow: hidden;
     color: white;
@@ -197,4 +198,7 @@
     background-color: none;
     top: 5px;
     left: -1px;
+}
+#servicePage_main_end {
+	clear:both;
 }

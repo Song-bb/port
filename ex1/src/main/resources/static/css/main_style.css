@@ -273,13 +273,13 @@ a {
 #footer_div {
 	padding-top: 60px;
 	width: 1050px;
-	height: 230px;
+	height: 260px;
 	margin: 0 auto;
 }
 #footer_left{
 	float: left;
 	width: 240px;
-	padding-left: 30px;
+	padding-left: 60px;
 }
 #footer_logo {
 	width: 160px;
@@ -292,6 +292,7 @@ a {
 #footer_center {
 	width: 220px;
 	float:left;
+	padding-left: 80px;
 }
 #inform_jangsu1 a {
 	text-decoration: none;
@@ -322,7 +323,7 @@ inform_jangsu1 span{
 	padding-top: 10px;
 	padding-bottom: 10px;
 	 
-	font-size: 20px;
+	font-size: 23px;
 	font-style: bold;
 }
 #jangsu_service3 {
