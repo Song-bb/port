@@ -13,7 +13,7 @@
             <div class="servicePage_side_table_div">
                 <table class="servicePage_side_table">
                     <tr>
-                        <td><div><a href="/servicePage_main">공지사항</div><div>></div></a></td>
+                        <td class="selected_page_td"><div><a href="/servicePage_main">공지사항</div><div>></div></a></td>
                     </tr>
                     <tr>
                         <td><div><a href="/fre_ask_questions">자주하는 질문</div><div>></div></a></td>
