@@ -18,10 +18,10 @@
                 <button type="submit" id="login_btn_1">로그인</button>
             </form>
             <div id="login_btn">
-                <button type="" id="login_btn_2">회원가입</button>  
+                <button type="button" id="login_btn_2" onclick="location.href='/joinPage_main'">회원가입</button>  
             </div>
             <div id="login_id_pw_found">
-                <label><a href="">아이디 | 비밀번호 찾기</a></label>   
+                <label><a href="/foundId">아이디 | 비밀번호 찾기</a></label>   
             </div>
         </div>
     </div>

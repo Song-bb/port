@@ -6,7 +6,6 @@
 
 <c:import url="../header.jsp"></c:import>
 
- <link rel="stylesheet" href="myFoundId_style.css">
     <div id="idfound_wrap">
         <div class="idfound_leftnav">
             <div class="idfound_title">아이디 / 비밀번호 찾기</div>

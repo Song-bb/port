@@ -13,18 +13,18 @@
             <div class="servicePage_side_table_div">
                 <table class="servicePage_side_table">
                     <tr>
-                        <td><div><a href="">공지사항</div><div>></div></a></td>
+                        <td><div><a href="/servicePage_main">공지사항</div><div>></div></a></td>
                     </tr>
                     <tr>
-                        <td><div><a href="">자주하는 질문</div><div>></div></a></td>
+                        <td><div><a href="/fre_ask_questions">자주하는 질문</div><div>></div></a></td>
                     </tr>
                     <tr>
-                        <td><div><a href="">1:1 문의</div><div>></div></a></td>
+                        <td><div><a href="/personal_question">1:1 문의</div><div>></div></a></td>
                     </tr>
                 </table>
             </div>
             <div class="servicePage_side_btn_div">
-                <button type="button"><a href="">도움이 필요하신가요?<br>1:1 문의하기</a></button>
+                <button type="button"><a href="/personal_question">도움이 필요하신가요?<br>1:1 문의하기</a></button>
             </div>
         </div>
         <div class="servicePage_right">

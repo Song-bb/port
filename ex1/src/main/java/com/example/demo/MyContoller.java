@@ -115,6 +115,27 @@ public class MyContoller {
 		
 		return "servicePage/notice_board";
 	}	
+
+	// 아이디,비밀번호찾기 페이지
+	@RequestMapping("/foundId")
+	public String foundId() {
+		
+		return "myPage/myFoundId";
+	}
+
+	// 자주하는질문 페이지
+	@RequestMapping("/fre_ask_questions")
+	public String fre_ask_questions() {
+		
+		return "servicePage/fre_ask_questions";
+	}
+
+	// 1:1문의 페이지
+	@RequestMapping("/personal_question")
+	public String personal_question() {
+		
+		return "servicePage/personal_question";
+	}
 	
 	
 	
