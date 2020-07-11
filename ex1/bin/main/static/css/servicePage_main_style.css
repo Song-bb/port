@@ -88,9 +88,11 @@
 }
 .office_board_table_td {
     border-top: 1px solid rgba(179, 178, 178, 0.507);
-    height: 45px;
+    height: 18px;
+    padding: 20px 0;
+    vertical-align: middle;
     font-family: 'Noto Sans KR', sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     color: rgb(100, 100, 100);
 }
 .office_board_table_td a {
