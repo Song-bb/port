@@ -136,7 +136,7 @@ public class MyContoller {
 		
 		return "servicePage/personal_question";
 	}
-	
+
 	// 1:1문의 글쓰기 페이지
 	@RequestMapping("/personal_question_write")
 	public String personal_question_write() {

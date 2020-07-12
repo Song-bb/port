@@ -68,15 +68,8 @@
                     </tr>
                 </table>
             </div>
-            <div class="order_search_div">
-                <div class="fre_ask_search">
-                    <div>
-                        <form class="fre_ask_search_form">
-                            <input class="fre_ask_search_text" type="text">
-                            <button class="fre_ask_search_btn" type="submit"><i id="fre_ask_search_btn_i" class="fa fa-search"></i></button>
-                        </form>
-                    </div>
-                </div>
+            <div class="personal_que_write_btn_div">
+                <button class="personal_que_write_btn" onclick = "location.href='/personal_question_write'" type="button">글쓰기</button>
             </div>
         </div>
     </div>
