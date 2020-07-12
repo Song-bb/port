@@ -22,10 +22,10 @@
                     <td>
                         <div class="imported_item">
                             <div class="item_img">
-                                <a href=""><img src="http://placehold.it/250x320"></a>	
+                                <a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
                             </div>
                             <div class="item_desc">
-                                <p><a href="">[워싱턴] 한입체리</a></p>
+                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
                                 <p>5,000 원</p>
                             </div>
                         </div>
@@ -33,10 +33,10 @@
                     <td>
                         <div class="imported_item">
                             <div class="item_img">
-                                <a href=""><img src="http://placehold.it/250x320"></a>	
+                                <a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
                             </div>
                             <div class="item_desc">
-                                <p><a href="">[워싱턴] 한입체리</a></p>
+                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
                                 <p>5,000 원</p>
                             </div>
                         </div>
@@ -44,47 +44,10 @@
                     <td>
                         <div class="imported_item">
                             <div class="item_img">
-                                <a href=""><img src="http://placehold.it/250x320"></a>	
+                                <a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
                             </div>
                             <div class="item_desc">
-                                <p><a href="">[워싱턴] 한입체리</a></p>
-                                <p>5,000 원</p>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-            <table class="item_table">
-                <tr>
-                    <td>
-                        <div class="imported_item">
-                            <div class="item_img">
-                                <a href=""><img src="http://placehold.it/250x320"></a>	
-                            </div>
-                            <div class="item_desc">
-                                <p><a href="">[워싱턴] 한입체리</a></p>
-                                <p>5,000 원</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="imported_item">
-                            <div class="item_img">
-                                <a href=""><img src="http://placehold.it/250x320"></a>	
-                            </div>
-                            <div class="item_desc">
-                                <p><a href="">[워싱턴] 한입체리</a></p>
-                                <p>5,000 원</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="imported_item">
-                            <div class="item_img">
-                                <a href=""><img src="http://placehold.it/250x320"></a>	
-                            </div>
-                            <div class="item_desc">
-                                <p><a href="">[워싱턴] 한입체리</a></p>
+                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
                                 <p>5,000 원</p>
                             </div>
                         </div>
@@ -96,10 +59,10 @@
                     <td>
                         <div class="imported_item">
                             <div class="item_img">
-                                <a href=""><img src="http://placehold.it/250x320"></a>	
+                                <a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
                             </div>
                             <div class="item_desc">
-                                <p><a href="">[워싱턴] 한입체리</a></p>
+                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
                                 <p>5,000 원</p>
                             </div>
                         </div>
@@ -107,10 +70,10 @@
                     <td>
                         <div class="imported_item">
                             <div class="item_img">
-                                <a href=""><img src="http://placehold.it/250x320"></a>	
+                                <a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
                             </div>
                             <div class="item_desc">
-                                <p><a href="">[워싱턴] 한입체리</a></p>
+                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
                                 <p>5,000 원</p>
                             </div>
                         </div>
@@ -118,47 +81,10 @@
                     <td>
                         <div class="imported_item">
                             <div class="item_img">
-                                <a href=""><img src="http://placehold.it/250x320"></a>	
+                                <a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
                             </div>
                             <div class="item_desc">
-                                <p><a href="">[워싱턴] 한입체리</a></p>
-                                <p>5,000 원</p>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-            <table class="item_table">
-                <tr>
-                    <td>
-                        <div class="imported_item">
-                            <div class="item_img">
-                                <a href=""><img src="http://placehold.it/250x320"></a>	
-                            </div>
-                            <div class="item_desc">
-                                <p><a href="">[워싱턴] 한입체리</a></p>
-                                <p>5,000 원</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="imported_item">
-                            <div class="item_img">
-                                <a href=""><img src="http://placehold.it/250x320"></a>	
-                            </div>
-                            <div class="item_desc">
-                                <p><a href="">[워싱턴] 한입체리</a></p>
-                                <p>5,000 원</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="imported_item">
-                            <div class="item_img">
-                                <a href=""><img src="http://placehold.it/250x320"></a>	
-                            </div>
-                            <div class="item_desc">
-                                <p><a href="">[워싱턴] 한입체리</a></p>
+                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
                                 <p>5,000 원</p>
                             </div>
                         </div>
@@ -170,10 +96,10 @@
                     <td>
                         <div class="imported_item">
                             <div class="item_img">
-                                <a href=""><img src="http://placehold.it/250x320"></a>	
+                                <a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
                             </div>
                             <div class="item_desc">
-                                <p><a href="">[워싱턴] 한입체리</a></p>
+                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
                                 <p>5,000 원</p>
                             </div>
                         </div>
@@ -181,10 +107,10 @@
                     <td>
                         <div class="imported_item">
                             <div class="item_img">
-                                <a href=""><img src="http://placehold.it/250x320"></a>	
+                                <a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
                             </div>
                             <div class="item_desc">
-                                <p><a href="">[워싱턴] 한입체리</a></p>
+                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
                                 <p>5,000 원</p>
                             </div>
                         </div>
@@ -192,10 +118,84 @@
                     <td>
                         <div class="imported_item">
                             <div class="item_img">
-                                <a href=""><img src="http://placehold.it/250x320"></a>	
+                                <a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
                             </div>
                             <div class="item_desc">
-                                <p><a href="">[워싱턴] 한입체리</a></p>
+                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
+                                <p>5,000 원</p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <table class="item_table">
+                <tr>
+                    <td>
+                        <div class="imported_item">
+                            <div class="item_img">
+                                <a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
+                            </div>
+                            <div class="item_desc">
+                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
+                                <p>5,000 원</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="imported_item">
+                            <div class="item_img">
+                                <a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
+                            </div>
+                            <div class="item_desc">
+                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
+                                <p>5,000 원</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="imported_item">
+                            <div class="item_img">
+                                <a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
+                            </div>
+                            <div class="item_desc">
+                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
+                                <p>5,000 원</p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <table class="item_table">
+                <tr>
+                    <td>
+                        <div class="imported_item">
+                            <div class="item_img">
+                                <a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
+                            </div>
+                            <div class="item_desc">
+                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
+                                <p>5,000 원</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="imported_item">
+                            <div class="item_img">
+                                <a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
+                            </div>
+                            <div class="item_desc">
+                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
+                                <p>5,000 원</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="imported_item">
+                            <div class="item_img">
+                                <a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
+                            </div>
+                            <div class="item_desc">
+                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
                                 <p>5,000 원</p>
                             </div>
                         </div>
