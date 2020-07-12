@@ -8,7 +8,6 @@
 	<c:import url="../header.jsp"></c:import>
 	
 	
-	
 	    <div id="seasonpage_wrap">
         <div id="seasonpage_top">
             <h2>제철 과일</h2>
