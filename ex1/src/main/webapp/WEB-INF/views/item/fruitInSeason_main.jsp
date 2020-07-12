@@ -15,7 +15,7 @@
         </div>
         <div id="seasonpage_top_nav"><a href="">최신순 </a> | <a href="">낮은 가격 순 </a> | <a href="">높은 가격 순 </a></div>
         <div id="seasonpage_mid">
-            <table>
+            <table class="item_table">
                 <tr>
                     <td>
                         <div class="season_item">
@@ -52,7 +52,7 @@
                     </td>
                 </tr>
             </table>
-            <table>
+            <table class="item_table">
                 <tr>
                     <td>
                         <div class="season_item">
@@ -89,7 +89,7 @@
                     </td>
                 </tr>
             </table>
-            <table>
+            <table class="item_table">
                 <tr>
                     <td>
                         <div class="season_item">
@@ -126,7 +126,7 @@
                     </td>
                 </tr>
             </table>
-            <table>
+            <table class="item_table">
                 <tr>
                     <td>
                         <div class="season_item">
@@ -163,7 +163,7 @@
                     </td>
                 </tr>
             </table>
-            <table>
+            <table class="item_table">
                 <tr>
                     <td>
                         <div class="season_item">
