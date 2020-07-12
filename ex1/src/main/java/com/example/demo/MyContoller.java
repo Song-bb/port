@@ -143,6 +143,14 @@ public class MyContoller {
 		
 		return "servicePage/personal_question_write";
 	}
+
+	// 상품상세페이지
+	@RequestMapping("/item_detail")
+	public String item_detail() {
+		
+		return "item/item_detail";
+	}
+	
 	
 	
 	
