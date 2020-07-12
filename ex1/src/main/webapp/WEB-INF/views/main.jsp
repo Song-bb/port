@@ -7,7 +7,49 @@
 	<c:import url="header.jsp"></c:import>
 	
 	<div id="banner_middle">
-		<a href=""><div></div></a>
+	<!-- Swiper -->
+	  <div class="swiper-container">
+	    <div class="swiper-wrapper">
+	      <div class="swiper-slide" style="background-image: url('/img/main2_banner.jpg')"></div>
+	      <div class="swiper-slide" style="background-image: url('/img/main2_banner.jpg')"></div>
+	      <div class="swiper-slide" style="background-image: url('/img/main2_banner.jpg')"></div>
+	      <div class="swiper-slide" style="background-image: url('/img/main2_banner.jpg')"></div>
+	      <div class="swiper-slide" style="background-image: url('/img/main2_banner.jpg')"></div>
+	    </div>
+	    <!-- Add Pagination -->
+	    <div class="swiper-pagination swiper-pagination-white"></div>
+	    <!-- Add Arrows -->
+	    <div class="swiper-button-next swiper-button-white"></div>
+	    <div class="swiper-button-prev swiper-button-white"></div>
+	  </div>
+	
+	  <!-- Swiper JS -->
+	  <script src="../package/swiper-bundle.min.js"></script>
+	
+	  <!-- Initialize Swiper -->
+	  <script>
+	    var swiper = new Swiper('.swiper-container', {
+	      slidesPerView: 1,
+	      spaceBetween: 30,
+	      loop: true,
+	      autoplay: {
+	          delay: 2500,
+	          disableOnInteraction: false,
+	        },
+	      pagination: {
+	        el: '.swiper-pagination',
+	        clickable: true,
+	      },
+	      navigation: {
+	        nextEl: '.swiper-button-next',
+	        prevEl: '.swiper-button-prev',
+	      },
+	    });
+	  </script>
+		
+		
+	
+		<!-- <a href=""><div></div></a> -->
 	</div>
 	<div class="main_bg">
 		<div class="main_1">

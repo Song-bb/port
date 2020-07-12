@@ -21,6 +21,12 @@
     <link rel="stylesheet" href="css/servicePage_main_style.css">
     <link rel="stylesheet" href="css/notice_board_style.css">
     <link rel="stylesheet" href="css/myFoundId_style.css">
+    
+    <!-- swiper(슬라이드) -->
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+	<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
