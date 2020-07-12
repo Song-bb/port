@@ -69,7 +69,7 @@
                 </table>
             </div>
             <div class="personal_que_write_btn_div">
-                <button class="personal_que_write_btn" type="button">글쓰기</button>
+                <button class="personal_que_write_btn" onclick = "location.href='/personal_question_write'" type="button">글쓰기</button>
             </div>
         </div>
     </div>
