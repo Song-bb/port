@@ -8,7 +8,7 @@
 
     <div id="idfound_wrap">
         <div class="idfound_leftnav">
-            <div class="idfound_title">아이디 / 비밀번호 찾기</div>
+            <div class="idfound_title">마이 과장</div>
             <div class="idfound_side_table_div">
                 <table class="idfound_side_table">
                     <tr>
