@@ -44,7 +44,7 @@
                 </tr>
                 <tr class="office_board_table2_tr">
                     <td class="office_board_table2_td5" colspan="4">
-                        <button class="office_board_table2_btn" onclick = "location.href='/servicePage_main'" type="button">목록</button>
+                        <button class="office_board_table2_btn" onclick="location.href='/servicePage_main'" type="button">목록</button>
                     </td>
                 </tr>
                 <tr class="office_board_table2_tr">

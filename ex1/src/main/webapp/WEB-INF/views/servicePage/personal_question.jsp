@@ -40,14 +40,14 @@
                     <tr class="office_board_table_tr">
                         <td class="fre_ask_table_td2 personal_td1">2</td>
                         <td class="fre_ask_table_td2 personal_td2">주문/결제</a></td>
-                        <td class="fre_ask_table_td2 personal_td3"><a href="/personal_question_write">title2</a></td>
+                        <td class="fre_ask_table_td2 personal_td3"><a href="">title2</a></td>
                         <td class="fre_ask_table_td2 personal_td4">장탱구</td>
                         <td class="fre_ask_table_td2 personal_td5">2020-07-12</td>
                     </tr>
                     <tr class="office_board_table_tr">
                         <td class="fre_ask_table_td2 personal_td1">1</td>
                         <td class="fre_ask_table_td2 personal_td2">배송문의</a></td>
-                        <td class="fre_ask_table_td2 personal_td3"><a href="/personal_question_write">title1</a></td>
+                        <td class="fre_ask_table_td2 personal_td3"><a href="">title1</a></td>
                         <td class="fre_ask_table_td2 personal_td4">장희망</td>
                         <td class="fre_ask_table_td2 personal_td5">2020-07-12</td>
                     </tr>
@@ -69,7 +69,7 @@
                 </table>
             </div>
             <div class="personal_que_write_btn_div">
-                <button class="personal_que_write_btn" onclick = "location.href='/personal_question_write'" type="button">글쓰기</button>
+                <button class="personal_que_write_btn" onclick="location.href='/personal_question_write'" type="button">글쓰기</button>
             </div>
         </div>
     </div>
