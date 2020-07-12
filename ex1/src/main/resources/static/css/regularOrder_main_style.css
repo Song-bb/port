@@ -7,19 +7,27 @@
 #regularOrder_main > div:first-child > img{
     width: 100%;
 }
+#regularOrder_main form {
+	text-align: center;
+	margin: 80px 0 100px 0;
+}
 #regularOrder_main button{
     width: 50%;
     height: 100px;
+    padding: 10px;
+    border-radius: 20px;
     background-color: orange;
-    margin:auto;
     cursor: pointer;
     color: white;
     border: none;
-    font-size: 2em;
+    font-size: 1.8em;
     font-weight: bold;
 }
 #regularOrder_main button:hover{
     background-color: #459356;
+}
+#Month_delivery_item h3{
+	text-align: center;
 }
 #Month_delivery_item {
 	margin-top: 20px;

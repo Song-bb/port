@@ -12,10 +12,10 @@
             <img src="img/regularOrder_img.jpg" alt="배송">
         </div>
         <form>
-            <button type="submit" formaction="/regularOrder_sub"> 정기배송<br> 신청하기</button>
+            <button type="submit" formaction="/regularOrder_sub"> 정기배송 신청하기</button>
         </form>
         <div id="Month_delivery_item">
-            <h3>이번달 정기배송 패키지 상품</h3>
+            <h3>[ 이번달 정기배송 패키지 상품 ]</h3>
             <div>
                 <!-- 아이템 DB -->
                 <!-- 클래스 season_item -->
