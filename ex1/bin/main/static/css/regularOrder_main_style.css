@@ -1,1 +1,26 @@
 @charset "UTF-8";
+
+#regularOrder_main{
+    max-width: 1050px;
+    margin:auto;
+}
+#regularOrder_main > div:first-child > img{
+    width: 100%;
+}
+#regularOrder_main button{
+    width: 50%;
+    height: 100px;
+    background-color: orange;
+    margin:auto;
+    cursor: pointer;
+    color: white;
+    border: none;
+    font-size: 2em;
+    font-weight: bold;
+}
+#regularOrder_main button:hover{
+    background-color: #459356;
+}
+#Month_delivery_item {
+	margin-top: 20px;
+}
