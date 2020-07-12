@@ -34,11 +34,13 @@
     padding-right: 10px;
     height: 45px;
 }
-.servicePage_side_table td div:first-child {
-    float: left;
+.servicePage_side_table td div {
+    text-align: left;
+    position: relative;
 }
-.servicePage_side_table td div:last-child {
-    float: right;
+.servicePage_side_table td div span {
+    position: absolute;
+    right: 0;
 }
 .servicePage_side_table td a {
     text-decoration: none;

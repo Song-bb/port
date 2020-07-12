@@ -12,13 +12,13 @@
             <div class="servicePage_side_table_div">
                 <table class="servicePage_side_table">
                     <tr>
-                        <td><div><a href="/servicePage_main">공지사항</div><div>></div></a></td>
+                        <td><a href="/servicePage_main"><div>공지사항<span>></span></div></a></td>
                     </tr>
                     <tr>
-                        <td><div><a href="/fre_ask_questions">자주하는 질문</div><div>></div></a></td>
+                        <td><a href="/fre_ask_questions"><div>자주하는 질문<span>></span></div></a></td>
                     </tr>
                     <tr>
-                        <td class="selected_page_td"><div><a href="/personal_question">1:1 문의</div><div>></div></a></td>
+                        <td class="selected_page_td"><a href="/personal_question"><div>1:1 문의<span>></span></div></a></td>
                     </tr>
                 </table>
             </div>
