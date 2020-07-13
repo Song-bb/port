@@ -71,7 +71,8 @@ public class MyContoller {
 				System.out.println("로그인 성공.");
 				
 				HttpSession session = request.getSession();
-				session.setAttribute("user_id", user_pw);
+				session.setAttribute("user_id", user_id);
+				session.setAttribute("user_pw", user_pw);
 				
 				return "main";
 			} else {
