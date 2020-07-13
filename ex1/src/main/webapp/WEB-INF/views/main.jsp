@@ -10,11 +10,11 @@
 	<!-- Swiper -->
 	  <div class="swiper-container">
 	    <div class="swiper-wrapper">
-	      <div class="swiper-slide" style="background-image: url('/img/main2_banner.jpg')"></div>
-	      <div class="swiper-slide" style="background-image: url('/img/main2_banner.jpg')"></div>
-	      <div class="swiper-slide" style="background-image: url('/img/main2_banner.jpg')"></div>
-	      <div class="swiper-slide" style="background-image: url('/img/main2_banner.jpg')"></div>
-	      <div class="swiper-slide" style="background-image: url('/img/main2_banner.jpg')"></div>
+	      <div class="swiper-slide" style="background-image: url('/img/main_banner_1.jpg')"><a href="#"></a></div>
+	      <div class="swiper-slide" style="background-image: url('/img/main_banner_2.jpg')"><a href="#"></a></div>
+	      <div class="swiper-slide" style="background-image: url('/img/main_banner_3.jpg')"><a href="#"></a></div>
+	      <div class="swiper-slide" style="background-image: url('/img/main_banner_4.jpg')"><a href="#"></a></div>
+	      <div class="swiper-slide" style="background-image: url('/img/main_banner_5.jpg')"><a href="#"></a></div>
 	    </div>
 	    <!-- Add Pagination -->
 	    <div class="swiper-pagination swiper-pagination-white"></div>
@@ -22,34 +22,7 @@
 	    <div class="swiper-button-next swiper-button-white"></div>
 	    <div class="swiper-button-prev swiper-button-white"></div>
 	  </div>
-	
-	  <!-- Swiper JS -->
-	  <script src="../package/swiper-bundle.min.js"></script>
-	
-	  <!-- Initialize Swiper -->
-	  <script>
-	    var swiper = new Swiper('.swiper-container', {
-	      slidesPerView: 1,
-	      spaceBetween: 30,
-	      loop: true,
-	      autoplay: {
-	          delay: 2500,
-	          disableOnInteraction: false,
-	        },
-	      pagination: {
-	        el: '.swiper-pagination',
-	        clickable: true,
-	      },
-	      navigation: {
-	        nextEl: '.swiper-button-next',
-	        prevEl: '.swiper-button-prev',
-	      },
-	    });
-	  </script>
-		
-		
-	
-		<!-- <a href=""><div></div></a> -->
+
 	</div>
 	<div class="main_bg">
 		<div class="main_1">
@@ -266,7 +239,7 @@
 					</td>
 					<td class="main_item">
 						<div class="item_img">
-							<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
+							<a href="/item_detail"><img src="http://placehold.it/250x320"></a>
 						</div>
 						<div class="item_desc">
 							<p><a href="/item_detail">[워싱턴] 한입체리</a></p>
@@ -282,3 +255,24 @@
 	</div>
 	
 	<c:import url="footer.jsp"></c:import>
+	
+	<!-- Initialize Swiper ------->
+	  <script>
+	    var swiper = new Swiper('.swiper-container', {
+	      slidesPerView: 1,
+	      spaceBetween: 30,
+	      loop: true,
+	      autoplay: {
+	          delay: 2500,
+	          disableOnInteraction: false,
+	        },
+	      pagination: {
+	        el: '.swiper-pagination',
+	        clickable: true,
+	      },
+	      navigation: {
+	        nextEl: '.swiper-button-next',
+	        prevEl: '.swiper-button-prev',
+	      },
+	    });
+	  </script>

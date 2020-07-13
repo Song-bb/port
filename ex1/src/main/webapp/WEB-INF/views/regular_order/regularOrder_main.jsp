@@ -63,11 +63,11 @@
        		<h3>[ 지난달 정기배송 패키지 상품 모음 ]</h3>
 			<div class="swiper-container">
 			    <div class="swiper-wrapper">
-			      <div class="swiper-slide">Slide 1</div>
-			      <div class="swiper-slide">Slide 2</div>
-			      <div class="swiper-slide">Slide 3</div>
-			      <div class="swiper-slide">Slide 4</div>
-			      <div class="swiper-slide">Slide 5</div>
+			    	<div class="swiper-slide"><a href="#">7월</a></div>
+			    	<div class="swiper-slide"><a href="#">6월</a></div>
+			    	<div class="swiper-slide"><a href="#">5월</a></div>
+			    	<div class="swiper-slide"><a href="#">4월</a></div>
+			    	<div class="swiper-slide"><a href="#">3월</a></div>
 			    </div>
 			    <!-- Add Pagination -->
 			    <div class="swiper-pagination swiper-pagination-white"></div>
@@ -77,8 +77,10 @@
 			  </div>
        	</div><!-- /lastMonth_delivery -->
     </div><!-- /regularOrder_main -->
-    
-    <script>
+	
+	<c:import url="../footer.jsp"></c:import>
+	 
+	 <script>
 	    var swiper = new Swiper('.swiper-container', {
 	      slidesPerView: 3,
 	      spaceBetween: 30,
@@ -98,5 +100,3 @@
 		      },
 	    });
 	  </script>
-	
-	<c:import url="../footer.jsp"></c:import>

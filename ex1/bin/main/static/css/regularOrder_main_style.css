@@ -35,19 +35,28 @@
 
 #lastMonth_delivery{
 	width: 100%;
-	height: 400px;
+	height: 100%;
 }
 #lastMonth_delivery h3 {
-	margin: 20px 0;
+	margin: 20px 0 50px 0;
+	text-align: center;
 }
 
 #lastMonth_delivery .swiper-container {
-  width: 100%;
-  height: 100%;
+  	width: 100%;
+	height: 330px;
 }
 
 #lastMonth_delivery .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: green;
+  background-color:orange;
+  line-height: 330px;
+  
+  
+}
+#lastMonth_delivery .swiper-slide a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
 }
