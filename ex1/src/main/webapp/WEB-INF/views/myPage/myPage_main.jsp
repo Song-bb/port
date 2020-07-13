@@ -13,7 +13,7 @@
                     <div class="myPage_main_profile1_gradle">
                         <div class="myPage_main_profile1_gradle_icon">앵두</div>
                         <div class="myPage_main_profile1_gradle_text1">
-                            <strong>장탱구 </strong>님<br>
+                            <strong><%= session.getAttribute("user_name") %> </strong>님<br>
                             <br>
                             5% 적립 + 최초 1회 무료배송
                         </div>

@@ -208,7 +208,7 @@ public class MyContoller {
 		return "item/item_detail";
 	}
 	
-	// 상품상세페이지
+	// 마이페이지 메인
 	@RequestMapping("/myPage_main")
 	public String myPage_main() {
 		

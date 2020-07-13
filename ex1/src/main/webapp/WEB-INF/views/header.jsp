@@ -60,7 +60,7 @@
 						<a href="/servicePage_main">고객센터</a> | 
 						<a href="/delevery_place">배송지역 검색</a>
 					<% } else { %>
-						<a href=""><%= session.getAttribute("user_name") %> 님</a> | 
+						<a href="/myPage_main"><%= session.getAttribute("user_name") %> 님</a> | 
 						<a href="/logout">로그아웃</a> | 
 						<a href="/servicePage_main">고객센터</a> | 
 						<a href="/delevery_place">배송지역 검색</a>
