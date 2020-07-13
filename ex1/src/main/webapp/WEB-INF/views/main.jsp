@@ -251,7 +251,7 @@
 		</div>
 	</div>
 	<div id="main_bottom_banner">
-		<a href=""><img src="img/delevery_banner.jpg"></a>
+		<a href="regularOrder_main"><img src="img/delevery_banner.jpg"></a>
 	</div>
 	
 	<c:import url="footer.jsp"></c:import>
