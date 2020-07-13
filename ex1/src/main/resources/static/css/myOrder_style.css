@@ -1,102 +1,5 @@
 @charset "UTF-8";
 
-/* 마이페이지 메인 정보 */
-
-/* #page_wrap1{
-    width: 1050px;
-    margin: 0 auto;
-}
-.myPage_main_profile {
-    background-color: #f7f7f7;
-    padding: 50px 0;
-    margin-bottom: 20px;
-}
-.myPage_main_profile_1 {
-    width: 1050px;
-    margin: 0 auto;
-    height: 175px;
-}
-.myPage_main_profile1 {
-    float: left;
-    width: 685px;
-    padding: 28px 0 30px 30px;
-    background-color: #fff;
-    margin-right: 5px;
-    height: 100%;
-    box-sizing: border-box;
-}
-.myPage_main_profile2 {
-    float: right;
-    width: 350px;
-    padding: 28px 0 30px 30px;
-    background-color: #fff;
-    height: 100%;
-    box-sizing: border-box;
-}
-.myPage_main_profile1_gradle {
-    width: 100%;
-    padding-right: 25px;
-}   
-.myPage_main_profile1_gradle_icon {
-    float: left;
-    width: 65px;
-    height: 65px;
-    margin: 2px 20px 0 0;
-    border-radius: 3px;
-    font-size: 16px;
-    text-align: center;
-    border: 1px solid #949296;
-    background-color: #fff;
-    color: #949296;
-    line-height: 65px;
-}
-.myPage_main_profile1_gradle_text1 {
-    height: 65px;
-}
-.myPage_main_profile1_gradle2 {
-    overflow: hidden;
-    width: 100%;
-    padding: 22px 0 0 84px;
-}
-.myPage_main_profile1_gradle2_1 {
-    float: left;
-    height: 30px;
-    margin-right: 10px;
-    border: 1px solid #f4f4f3;
-    border-radius: 15px;
-    background-color: #f4f4f4;
-    font-size: 14px;
-    color: #333;
-    line-height: 30px;
-    text-align: center;
-    width: 120px;
-}
-.myPage_main_profile1_gradle2_2 {
-    float: left;
-    height: 30px;
-    margin-right: 10px;
-    border: 1px solid #f4f4f3;
-    border-radius: 15px;
-    background-color: #f4f4f4;
-    font-size: 14px;
-    color: #333;
-    line-height: 30px;
-    text-align: center;
-    width: 170px;
-}
-.myPage_main_profile2_1 {
-    color: #459356;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 28px;
-}
-.myPage_main_profile2_2 {
-    padding-top: 12px;
-    font-size: 12px;
-    color: #999;
-    line-height: 16px;
-} */
-
 /* 사이드 메뉴 */
 
 .mypage_detail_left {
@@ -316,4 +219,48 @@
     padding-bottom: 20px;
     border-bottom: 2px solid rgba(179, 178, 178, 0.507);
     font-size: 1.2em;
+}
+
+/* 배송지 정보 */
+#mypage_detail_box_info{
+    width: 800px;
+    float: right;
+}
+#mypage_detail_box_info_header {
+    width: 800px;
+    height: 60px;
+    padding-bottom: 20px;
+}
+#mypage_detail_box_info_header h3{
+	margin-top: 80px;
+    float: left;
+    width: 300px;
+}
+#mypage_detail_box_info_body {
+    width: 800px;
+    border-top: 2px solid #459356;
+}
+
+#mypage_detail_box_info_table{
+    margin-top: 20px;
+    width: 800px;
+    border-collapse: collapse;
+    padding: 30px;
+    border-top: 2px solid #459356;
+}
+.box_info_table_td_1{
+	width: 200px;
+    padding-left: 10px;
+    padding-top: 15px;
+    text-align: left;
+}
+.box_info_table_td_2{
+	width: 550px;
+    padding-right: 10px;
+    padding-top: 15px;
+    text-align: left;
+}
+.box_info_table_tr_result td{
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(179, 178, 178, 0.507);
 }

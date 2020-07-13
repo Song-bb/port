@@ -143,6 +143,31 @@
                             </table>
                         </div>
                     </div>
+                    <div id="mypage_detail_box_info">
+                        <div id="mypage_detail_box_info_header">
+                            <h3>받는 사람 정보</h3>
+                        </div>
+                        <div id="mypage_detail_box_info_body">
+                            <table id="mypage_detail_box_info_table">
+                                <tr class="box_info_table_tr">
+                                    <td class="box_info_table_td_1">받는 사람</td>
+                                    <td class="box_info_table_td_2">장탱구</td>
+                                </tr>
+                                <tr class="box_info_table_tr box_info_table_tr_last">
+                                    <td class="box_info_table_td_1">연락처</td>
+                                    <td class="box_info_table_td_2">010-111-2222</td>
+                                </tr>
+                                <tr class="box_info_table_tr">
+                                    <td class="box_info_table_td_1">주소</td>
+                                    <td class="box_info_table_td_2">00000 경기도 의정부시 ㅇㅇ로 ㅇㅇㅇ 111동 1222호( oo동, oo아파트)</td>
+                                </tr>
+                                <tr class="box_info_table_tr box_info_table_tr_result">
+                                    <td class="box_info_table_td_1">배송 요청 사항</td>
+                                    <td class="box_info_table_td_2">직접 받고 부재 시 문 앞</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div id="mypage_detail_main_end"></div>
