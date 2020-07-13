@@ -142,11 +142,30 @@
     width: 50px;
 }
 
-.total_goods_price > p{
-    display: inline-block;
+.total_goods {
+	height: 100pxl
 }
-
-
+.total_goods_price > p{
+	text-align: right;
+}
+.total_goods_price > p:last-child{
+	font-weight: blod;
+}
+button.orderbutton {
+	width: 49%;
+	height: 50px;
+	color: white;
+	display:inline-block;
+	border:none;
+	background-color: #459356;
+	cursor: pointer;
+}
+button.goCart{
+	background-color: white;
+	color: #459356;
+	font-weight: bold;
+	border: 2px solid #459356;
+}
 
 
 

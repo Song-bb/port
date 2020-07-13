@@ -62,12 +62,14 @@
                         </div>
                         <div class="total_goods_price">
                             <p>총 상품 금액</p>
-                                     <!--  count                             dcPrice*count -->
-                            <p><span>총 수량 1개</span><span class="total_price">00,000원</span></p>
+                                  <!--  count -->
+                            <p><span>총 수량 1개</span>&nbsp;&nbsp;
+                            						<!-- dcPrice*count -->
+                            	<span class="total_price">00,000원</span></p>
                         </div>
                         <div class="goods_order">
-                            <button class="goOrder" type="submit">구매하기</button>
-                            <button class="goCart" tyle="submit">장바구니</button>
+                            <button class="goCart orderbutton" type="submit">장바구니</button>
+                        	<button class="goOrder orderbutton" type="submit">구매하기</button>
                         </div>                  
                     </div>
                 </div>
