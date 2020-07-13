@@ -51,10 +51,18 @@
 			<div id="header_body_1">
 				<div><a href=""><img src="img/delevery1.JPG"></a></div>
 				<div>
-					<a href="/joinPage_main">회원가입</a> | 
-					<a href="/loginPage_main">로그인</a> | 
-					<a href="/servicePage_main">고객센터</a> | 
-					<a href="/delevery_place">배송지역 검색</a>
+
+					<% if( session.getAttribute("user_id") == null ){ %>
+						<a href="/joinPage_main">회원가입</a> | 
+						<a href="/loginPage_main">로그인</a> | 
+						<a href="/servicePage_main">고객센터</a> | 
+						<a href="/delevery_place">배송지역 검색</a>
+					<% } else { %>
+						<a href=""><%= session.getAttribute("user_name") %> 님</a> | 
+						<a href="/logout">로그아웃</a> | 
+						<a href="/servicePage_main">고객센터</a> | 
+						<a href="/delevery_place">배송지역 검색</a>
+					<% } %>
 				</div>
 			</div>
 			<div id="header_logo_div">

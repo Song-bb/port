@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.example.demo.Service.IMyService;
 import com.example.demo.dto.dto_members;
@@ -72,7 +72,10 @@ public class MyContoller {
 				
 				HttpSession session = request.getSession();
 				session.setAttribute("user_id", user_id);
-				session.setAttribute("user_pw", user_pw);
+				session.setAttribute("user_name", list.get(0).getUser_name());
+				
+				System.out.println( user_id );
+				System.out.println( list.get(0).getUser_name());
 				
 				return "main";
 			} else {
@@ -82,6 +85,15 @@ public class MyContoller {
 			}
 
 		}
+	}
+	
+	// 로그아웃
+	@RequestMapping("/logout")
+	public String logout(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        session.invalidate();
+
+		return "main";
 	}
 	
 	// 정기배송메인
