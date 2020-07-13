@@ -12,7 +12,8 @@
             <img src="img/regularOrder_img.jpg" alt="배송">
         </div>
         <form>
-            <button type="submit" formaction="/regularOrder_sub"> 정기배송 신청하기</button>
+        	<!-- 정기배송 패키지 상품 상세페이지로 연동 -->
+            <button type="submit" formaction="#"> 정기배송 신청하기</button>
         </form>
         <div id="Month_delivery_item">
             <h3>[ 이번달 정기배송 패키지 상품 ]</h3>

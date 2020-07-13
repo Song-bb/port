@@ -6,10 +6,7 @@
 
 
 	<c:import url="../header.jsp"></c:import>
-	
-	
-	
-		
+
 	    <div id="importedpage_wrap">
         <div id="importedpage_top">
             <h2>수입 과일</h2>

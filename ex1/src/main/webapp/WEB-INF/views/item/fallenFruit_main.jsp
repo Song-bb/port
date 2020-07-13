@@ -5,9 +5,6 @@
 <!-- 낙과채널 -->
 
 	<c:import url="../header.jsp"></c:import>
-	
-	
-	
 		
 	    <div id="fallenpage_wrap">
         <div id="fallenpage_top">
