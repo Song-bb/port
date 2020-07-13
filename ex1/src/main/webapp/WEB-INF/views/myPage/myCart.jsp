@@ -29,7 +29,7 @@
                     <td class="cart_select"><input type="checkbox" name="cart_item_select" /></td>
                     <td class="cart_number">1</td>
                     <td class="cart_info">
-                        <div class="cart_info_img"><a href=""><img src="http://placehold.it/150x220"></a></div>
+                        <div class="cart_info_img"><a href=""><img src="http://placehold.it/150x150"></a></div>
                         <div class="cart_info_name">상품 이름</div>
                         <div class="cart_info_price">상품 가격</div>
                     </td>
@@ -41,7 +41,7 @@
                     <td class="cart_select"><input type="checkbox" name="cart_item_select" /></td>
                     <td class="cart_number">2</td>
                     <td class="cart_info">
-                        <div class="cart_info_img"><a href=""><img src="http://placehold.it/150x220"></a></div>
+                        <div class="cart_info_img"><a href=""><img src="http://placehold.it/150x150"></a></div>
                         <div class="cart_info_name">상품 이름</div>
                         <div class="cart_info_price">상품 가격</div>
                     </td>
