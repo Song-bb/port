@@ -39,7 +39,7 @@
                 </tr>
                 <tr class="cart_table_item">
                     <td class="cart_select"><input type="checkbox" name="cart_item_select" /></td>
-                    <td class="cart_number">1</td>
+                    <td class="cart_number">2</td>
                     <td class="cart_info">
                         <div class="cart_info_img"><a href=""><img src="http://placehold.it/150x220"></a></div>
                         <div class="cart_info_name">상품 이름</div>
@@ -49,14 +49,18 @@
                     <td class="cart_price">10,000원</td>
                     <td class="cart_point">10원</td>
                 </tr>
-                <tr class="cart_table_select">
-                    <td><input type="checkbox" id="checkall" /><p id="checkbox_text">전체선택</p></td>
-                </tr>
             </table>
+            <div>
+	            <input type="checkbox" id="checkall" /><p id="checkbox_text">전체선택</p>
+	            <a href="" id=cart_btn_1>선택 삭제</a>
+            </div>
         </div>
         <div id="cart_table_under"></div>
         <div id="cart_foot">
             <div id="cart_foot_info">총 상품 금액</div><div id="cart_foot_price"><h2>0,0000원</h2></div>
+            <div id="cart_table_btn">
+                <a href="" id=cart_btn_2>결제하기</a>
+            </div>
         </div>
     </div>
 
