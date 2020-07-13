@@ -151,6 +151,13 @@ public class MyContoller {
 		return "item/item_detail";
 	}
 	
+	// 상품상세페이지
+	@RequestMapping("/myPage_main")
+	public String myPage_main() {
+		
+		return "myPage/myPage_main";
+	}
+	
 	
 	
 	
