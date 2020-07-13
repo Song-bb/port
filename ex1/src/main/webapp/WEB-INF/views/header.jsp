@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="css/servicePage_main_style.css">
     <link rel="stylesheet" href="css/notice_board_style.css">
     <link rel="stylesheet" href="css/myFoundId_style.css">
+    <link rel="stylesheet" href="css/myPage_main_style.css">
     
     <!-- swiper(슬라이드) -->
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
