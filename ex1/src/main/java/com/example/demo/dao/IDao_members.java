@@ -12,7 +12,6 @@ public interface IDao_members {
 	public List<dto_members> listDao_member();
 	public List<dto_members> login(String user_id, String user_pw);
 		
-	
 }
 
 

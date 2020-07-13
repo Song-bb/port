@@ -56,31 +56,25 @@ public class MyContoller {
 	// 로그인 확인 페이지
 	@RequestMapping("/login_ok")
 	public String login_ok(HttpServletRequest request, Model model) {
-		
 		String user_id = request.getParameter("user_id");
 		String user_pw = request.getParameter("user_pw");
 
 		List<dto_members> list = service.login( user_id, user_pw );
 
-		if( list.isEmpty() ) {
+		if( list.isEmpty() ) { // 아이디 없음
 			System.out.println("아이디를 확인하세요");
-
 			return "loginPage/loginPage_main";
-		} else {
-			if( list.get(0).getUser_pw().equals(user_pw) ) {
-				System.out.println("로그인 성공.");
-				
-				HttpSession session = request.getSession();
-				session.setAttribute("user_id", user_id);
-				session.setAttribute("user_name", list.get(0).getUser_name());
-				
-				System.out.println( user_id );
-				System.out.println( list.get(0).getUser_name());
+		} else { // 아이디 있음
+			if( list.get(0).getUser_pw().equals(user_pw) ) { // 비밀번호 일치
+				HttpSession session = request.getSession(); // 세션 시작
+				session.setAttribute("user_id", user_id); // id 세션 저장
+				session.setAttribute("user_name", list.get(0).getUser_name()); // 이름 세션 저장
+				session.setAttribute("user_grade", list.get(0).getUser_grade()); // 등급 세션 저장
+
 				
 				return "main";
-			} else {
+			} else { // 비밀번호 불일치
 				System.out.println("비밀번호를 확인하세요.");
-				
 				return "loginPage/loginPage_main";
 			}
 

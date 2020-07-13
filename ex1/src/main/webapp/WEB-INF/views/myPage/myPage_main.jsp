@@ -11,7 +11,7 @@
             <div class="myPage_main_profile_1">
                 <div class="myPage_main_profile1">
                     <div class="myPage_main_profile1_gradle">
-                        <div class="myPage_main_profile1_gradle_icon">앵두</div>
+                        <div class="myPage_main_profile1_gradle_icon"><%= session.getAttribute("user_grade") %></div>
                         <div class="myPage_main_profile1_gradle_text1">
                             <strong><%= session.getAttribute("user_name") %> </strong>님<br>
                             <br>

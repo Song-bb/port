@@ -13,9 +13,9 @@
             <div class="myPage_main_profile_1">
                 <div class="myPage_main_profile1">
                     <div class="myPage_main_profile1_gradle">
-                        <div class="myPage_main_profile1_gradle_icon">앵두</div>
+                        <div class="myPage_main_profile1_gradle_icon"><%= session.getAttribute("user_grade") %></div>
                         <div class="myPage_main_profile1_gradle_text1">
-                            <strong>장탱구 </strong>님<br>
+                            <strong><%= session.getAttribute("user_name") %> </strong>님<br>
                             <br>
                             5% 적립 + 최초 1회 무료배송
                         </div>
@@ -28,7 +28,7 @@
                 <div class="myPage_main_profile2">
                     적립금<br>
                     <br>
-                    <a href=""><span class="myPage_main_profile2_1">0</span><span class="myPage_main_profile2_1"> 원 </span>></a><br>
+                    <a href=""><span class="myPage_main_profile2_1"><%= session.getAttribute("user_point") %></span><span class="myPage_main_profile2_1"> 원 </span>></a><br>
                     <br>
                     <a href=""><span class="myPage_main_profile2_2">소멸예정 : <span>0</span> 원</span></a>
                 </div>
@@ -47,7 +47,7 @@
                                 <td><a href=""><div>정기배송 내역<span>></span></div></a></td>
                             </tr>
                             <tr>
-                                <td><a href=""><div>장바구니<span>></span></div></a></td>
+                                <td><a href="/myCart"><div>장바구니<span>></span></div></a></td>
                             </tr>
                             <tr>
                                 <td><a href=""><div>상품후기<span>></span></div></a></td>
