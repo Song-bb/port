@@ -22,6 +22,7 @@
 .idfound_side_table_div {
 	width: 200px;
     padding-top: 10px;
+    margin: 0;
 }
 .idfound_side_table {
     border: 1px solid rgba(179, 178, 178, 0.507);
