@@ -6,8 +6,8 @@
     
 <mapper namespace="com.example.demo.dao.IDao_members">
 	
-	<select id="login" resultType="com.example.demo.dto.dto_members"> 
-			SELECT * FROM members WHERE user_id = #{param1} 
+	<select id="login_ok" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members WHERE user_id = #{user_id} 
 	</select>
 
 	

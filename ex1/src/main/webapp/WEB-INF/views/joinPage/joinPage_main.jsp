@@ -14,7 +14,7 @@
         <div id="join_body">
             <p>
                 <div id="join_form">
-                    <form action="join_ok.jsp">
+                    <form action="/join_ok">
                         <table id="join_form_table">
                         	<tr>
                                <th id="join_select_infomation">*는 필수입력사항</th>
@@ -57,7 +57,7 @@
                             </tr>
                             <tr>
                                 <th>생년월일</th>
-                                <td><input type="date" max="9999.12.31" class="input_text"></td>
+                                <td><input type="date" name="user_birth" max="9999.12.31" class="input_text"></td>
                             </tr>
                         </table>
                     </form>
@@ -66,10 +66,10 @@
             <div id="join_service_check">
                 <h3>이용약관 동의</h3>
                 <div id="join_service_box">
-                    <input type="checkbox" name="service" class="service_box">서비스이용약관동의(필수) <label><a href="">약관보기 ></a></label> <br>
-                    <input type="checkbox" name="service" class="service_box">개인정보처리방침동의(필수) <label><a href="">약관보기 ></a></label> <br>
-                    <input type="checkbox" name="service" class="service_box">개인정보처리위탁동의(필수) <label><a href="">약관보기 ></a></label> <br>
-                    <input type="checkbox" name="service" class="service_box">마케팅정보제공동의(선택) <label><a href="">약관보기 ></a></label> <br>
+                    <input type="checkbox" name="service" class="service_box" value="1" required="required">서비스이용약관동의(필수) <label><a href="">약관보기 ></a></label> <br>
+                    <input type="checkbox" name="service" class="service_box" value="2"  required="required">개인정보처리방침동의(필수) <label><a href="">약관보기 ></a></label> <br>
+                    <input type="checkbox" name="service" class="service_box" value="3"  required="required">개인정보처리위탁동의(필수) <label><a href="">약관보기 ></a></label> <br>
+                    <input type="checkbox" name="service" class="service_box" value="4" >마케팅정보제공동의(선택) <label><a href="">약관보기 ></a></label> <br>
                 </div>
             </div>
             <div id="join_btn">
