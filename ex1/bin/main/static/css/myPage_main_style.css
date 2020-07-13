@@ -1,1 +1,183 @@
-@charset "UTF-8";
+
+.myPage_main_profile {
+    background-color: #f7f7f7;
+    padding: 50px 0;
+    margin-bottom: 20px;
+}
+.myPage_main_profile_1 {
+    width: 1050px;
+    margin: 0 auto;
+    height: 175px;
+}
+.myPage_main_profile1 {
+    float: left;
+    width: 685px;
+    padding: 28px 0 30px 30px;
+    background-color: #fff;
+    margin-right: 5px;
+    height: 100%;
+    box-sizing: border-box;
+}
+.myPage_main_profile2 {
+    float: right;
+    width: 350px;
+    padding: 28px 0 30px 30px;
+    background-color: #fff;
+    height: 100%;
+    box-sizing: border-box;
+}
+.myPage_main_profile1_gradle {
+    width: 100%;
+    padding-right: 25px;
+}   
+.myPage_main_profile1_gradle_icon {
+    float: left;
+    width: 65px;
+    height: 65px;
+    margin: 2px 20px 0 0;
+    border-radius: 3px;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #949296;
+    background-color: #fff;
+    color: #949296;
+    line-height: 65px;
+}
+.myPage_main_profile1_gradle_text1 {
+    height: 65px;
+}
+.myPage_main_profile1_gradle2 {
+    overflow: hidden;
+    width: 100%;
+    padding: 22px 0 0 84px;
+}
+.myPage_main_profile1_gradle2_1 {
+    float: left;
+    height: 30px;
+    margin-right: 10px;
+    border: 1px solid #f4f4f3;
+    border-radius: 15px;
+    background-color: #f4f4f4;
+    font-size: 14px;
+    color: #333;
+    line-height: 30px;
+    text-align: center;
+    width: 120px;
+}
+.myPage_main_profile1_gradle2_2 {
+    float: left;
+    height: 30px;
+    margin-right: 10px;
+    border: 1px solid #f4f4f3;
+    border-radius: 15px;
+    background-color: #f4f4f4;
+    font-size: 14px;
+    color: #333;
+    line-height: 30px;
+    text-align: center;
+    width: 170px;
+}
+.myPage_main_profile2_1 {
+    color: #459356;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+}
+.myPage_main_profile2_2 {
+    padding-top: 12px;
+    font-size: 12px;
+    color: #999;
+    line-height: 16px;
+}
+.servicePage_title_1 {
+    float: left;
+}
+.select_categori2 {
+    font-size: 12px;
+    padding-bottom: 12px;
+    padding-left: 5px;
+    float: right;
+}
+.select_categori_select2 {
+    margin: 0 2px 0 0;
+    border: 1px solid #bfbfbf;
+    height: 34px;
+    line-height: 34px;
+    vertical-align: middle;
+    padding-bottom: 5px;
+}
+.order_board {
+    width: 800px;
+}
+.order_board_table {
+    width: 800px;
+    border-collapse: collapse;
+    border-top: 2px solid #459356;
+    border-bottom: 2px solid #459356;
+    margin-bottom: 40px;
+}
+.order_board_table_td {
+    border-top: 1px solid rgba(179, 178, 178, 0.507);
+    height: 18px;
+    padding: 20px 0;
+    vertical-align: middle;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 12px;
+    color: rgb(50, 50, 50);
+}
+.order_board_table_td a {
+    text-decoration: none;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+    color: rgb(50, 50, 50);
+}
+.order_td1 {
+    width: 120px;
+}
+.order_td2 {
+    width: 330px;
+}
+.order_td3 {
+    width: 100px;
+}
+.order_td4 {
+    width: 100px;
+}
+.order_td5 {
+    width: 150px;
+}
+.order_td2_1 {
+    float: left;
+}
+.order_td2_2 {
+    float: left;
+    line-height: 150px;
+    padding-left: 10px;
+}
+.order_td6 {
+    text-align: center;
+}
+.order_td7 {
+    text-align: right;
+    padding-right: 10px;
+}
+.order_td5_1 {
+    float: right;
+    line-height: 150px;
+    padding-left: 0px;
+    width: 70px;
+    text-align: center;
+}
+.order_td5_2 {
+    float: right;
+    width: 70px;
+    padding-top: 40px;
+}
+.order_td5_2_1 {
+    width: 70px;
+    height: 30px;
+    border: none;
+    background-color: #459356;
+    color: #fff;
+    margin-top: 3px;
+}
