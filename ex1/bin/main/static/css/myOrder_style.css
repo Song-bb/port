@@ -1,1 +1,319 @@
 @charset "UTF-8";
+
+/* 마이페이지 메인 정보 */
+
+/* #page_wrap1{
+    width: 1050px;
+    margin: 0 auto;
+}
+.myPage_main_profile {
+    background-color: #f7f7f7;
+    padding: 50px 0;
+    margin-bottom: 20px;
+}
+.myPage_main_profile_1 {
+    width: 1050px;
+    margin: 0 auto;
+    height: 175px;
+}
+.myPage_main_profile1 {
+    float: left;
+    width: 685px;
+    padding: 28px 0 30px 30px;
+    background-color: #fff;
+    margin-right: 5px;
+    height: 100%;
+    box-sizing: border-box;
+}
+.myPage_main_profile2 {
+    float: right;
+    width: 350px;
+    padding: 28px 0 30px 30px;
+    background-color: #fff;
+    height: 100%;
+    box-sizing: border-box;
+}
+.myPage_main_profile1_gradle {
+    width: 100%;
+    padding-right: 25px;
+}   
+.myPage_main_profile1_gradle_icon {
+    float: left;
+    width: 65px;
+    height: 65px;
+    margin: 2px 20px 0 0;
+    border-radius: 3px;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #949296;
+    background-color: #fff;
+    color: #949296;
+    line-height: 65px;
+}
+.myPage_main_profile1_gradle_text1 {
+    height: 65px;
+}
+.myPage_main_profile1_gradle2 {
+    overflow: hidden;
+    width: 100%;
+    padding: 22px 0 0 84px;
+}
+.myPage_main_profile1_gradle2_1 {
+    float: left;
+    height: 30px;
+    margin-right: 10px;
+    border: 1px solid #f4f4f3;
+    border-radius: 15px;
+    background-color: #f4f4f4;
+    font-size: 14px;
+    color: #333;
+    line-height: 30px;
+    text-align: center;
+    width: 120px;
+}
+.myPage_main_profile1_gradle2_2 {
+    float: left;
+    height: 30px;
+    margin-right: 10px;
+    border: 1px solid #f4f4f3;
+    border-radius: 15px;
+    background-color: #f4f4f4;
+    font-size: 14px;
+    color: #333;
+    line-height: 30px;
+    text-align: center;
+    width: 170px;
+}
+.myPage_main_profile2_1 {
+    color: #459356;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+}
+.myPage_main_profile2_2 {
+    padding-top: 12px;
+    font-size: 12px;
+    color: #999;
+    line-height: 16px;
+} */
+
+/* 사이드 메뉴 */
+
+.mypage_detail_left {
+    float:left;
+    padding-top: 30px;
+    width: 200px;
+}
+.mypage_detail_side_table_div {
+    padding-top: 10px;
+}
+.mypage_detail_side_table {
+    border: 1px solid rgba(179, 178, 178, 0.507);
+    border-collapse: collapse;
+    width: 200px;
+}
+.mypage_detail_side_table td {
+    border: 1px solid rgba(179, 178, 178, 0.507);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    color: rgb(129, 127, 127);
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 45px;
+}
+.mypage_detail_side_table td div {
+    text-align: left;
+    position: relative;
+}
+.mypage_detail_side_table td div span {
+    position: absolute;
+    right: 0;
+}
+.mypage_detail_side_table td a {
+    text-decoration: none;
+    color: rgb(129, 127, 127);
+}
+.mypage_detail_side_table tr {
+    border: 1px solid rgba(179, 178, 178, 0.507);
+}
+.mypage_detail_side_btn_div {
+    padding-top: 15px; 
+}
+.mypage_detail_side_btn_div button {
+    width: 200px;
+    border: none;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    color: rgb(129, 127, 127);
+    padding-left: 10px;
+    border-radius: 0 20px 20px 0;
+    height: 45px;
+}
+.mypage_detail_side_btn_div button a {
+    text-decoration: none;
+    color: rgb(129, 127, 127);
+}
+.mypage_detail_right {
+    float: right;
+    padding-top: 30px;
+    width: 800px;
+}
+#mypage_detail_info_div{
+    float: right;
+    width: 800px;
+    height: 70px;
+    border: 3px solid #459356;
+    margin-bottom: 20px;
+    text-align: center;
+    border-radius: 5px;
+    line-height: 70px;
+}
+#mypage_detail_info1{
+    float: left;
+    margin-left: 15px;
+}
+#mypage_detail_info2{
+    float: right;
+    margin-left: 40px;
+}
+#mypage_detail_info2 button{
+    margin-right: 20px;
+    width: 150px;
+    height: 30px;
+}
+
+/* 상품상세 정보 테이블 */
+
+.detail_order_board {
+    width: 800px;
+    float: right;
+}
+.detail_order_board_table {
+    width: 800px;
+    border-collapse: collapse;
+    border-top: 2px solid #459356;
+    border-bottom: 2px solid #459356;
+    margin-bottom: 40px;
+}
+.detail_order_board_table_td {
+    border-top: 1px solid rgba(179, 178, 178, 0.507);
+    height: 18px;
+    padding: 20px 0;
+    vertical-align: middle;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 12px;
+    color: rgb(50, 50, 50);
+}
+.detail_order_board_table_td a {
+    text-decoration: none;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+    color: rgb(50, 50, 50);
+}
+.detail_order_td1 {
+    width: 120px;
+}
+.detail_order_td2 {
+    width: 330px;
+}
+.detail_order_td3 {
+    width: 100px;
+}
+.detail_order_td4 {
+    width: 100px;
+}
+.detail_order_td2_1 {
+    float: left;
+}
+.detail_order_td2_2 {
+    float: left;
+    line-height: 150px;
+    padding-left: 10px;
+}
+.detail_order_td6 {
+    text-align: center;
+}
+.detail_order_td7 {
+    text-align: right;
+    padding-right: 10px;
+}
+.detail_order_td5_1 {
+    float: right;
+    line-height: 150px;
+    padding-left: 0px;
+    width: 70px;
+    text-align: center;
+}
+.detail_order_td5_2 {
+    float: right;
+    width: 70px;
+    padding-top: 40px;
+}
+.detail_order_td5_2_1 {
+    width: 70px;
+    height: 30px;
+    border: none;
+    background-color: #459356;
+    color: #fff;
+    margin-top: 3px;
+}
+
+
+/* 결제정보 테이블 */
+
+#mypage_detail_order_info{
+    width: 800px;
+    float: right;
+}
+#mypage_detail_order_info_header {
+    width: 800px;
+    height: 60px;
+}
+#mypage_detail_order_info_header h3{
+    float: left;
+    width: 300px;
+}
+#mypage_detail_order_info_header_btn{
+    width: 800px;
+}
+#mypage_detail_order_info_header_btn button{
+    float: right;
+    margin-top: 15px;
+    line-height: 30px;
+}
+#mypage_detail_order_info_body {
+    width: 800px;
+    border-top: 2px solid #459356;
+}
+
+#mypage_detail_order_info_table{
+    margin-top: 20px;
+    width: 800px;
+    border-collapse: collapse;
+    padding: 30px;
+}
+.order_info_table_td_title{
+    font-weight: bolder;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(179, 178, 178, 0.507);
+}
+.order_info_table_td_1{
+    padding-left: 10px;
+    padding-top: 15px;
+    text-align: left;
+}
+.order_info_table_td_2{
+    padding-right: 10px;
+    padding-top: 15px;
+    text-align: right;
+}
+.order_info_table_tr_last td{
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(179, 178, 178, 0.507);
+}
+.order_info_table_tr_result td{
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(179, 178, 178, 0.507);
+    font-size: 1.2em;
+}
