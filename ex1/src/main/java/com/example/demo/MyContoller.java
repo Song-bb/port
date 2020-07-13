@@ -1,11 +1,25 @@
 package com.example.demo;
 
+import java.util.Iterator;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.demo.Service.IMyService;
+import com.example.demo.dto.dto_members;
 
 @Controller
 public class MyContoller {
-
+	
+	@Autowired
+	IMyService service;
+	
 	@RequestMapping("/")
 	public String root() throws Exception {
 		return "redirect:main";
@@ -14,7 +28,7 @@ public class MyContoller {
 	// 메인페이지
 	@RequestMapping("/main")
 	public String mainPage() {
-
+		
 		return "main";
 	}
 	
@@ -37,6 +51,36 @@ public class MyContoller {
 	public String loginPage_main() {
 		
 		return "loginPage/loginPage_main";
+	}
+	
+	// 로그인 확인 페이지
+	@RequestMapping("/login_ok")
+	public String login_ok(HttpServletRequest request, Model model) {
+		
+		String user_id = request.getParameter("user_id");
+		String user_pw = request.getParameter("user_pw");
+
+		List<dto_members> list = service.login( user_id, user_pw );
+
+		if( list.isEmpty() ) {
+			System.out.println("아이디를 확인하세요");
+
+			return "loginPage/loginPage_main";
+		} else {
+			if( list.get(0).getUser_pw().equals(user_pw) ) {
+				System.out.println("로그인 성공.");
+				
+				HttpSession session = request.getSession();
+				session.setAttribute("user_id", user_pw);
+				
+				return "main";
+			} else {
+				System.out.println("비밀번호를 확인하세요.");
+				
+				return "loginPage/loginPage_main";
+			}
+
+		}
 	}
 	
 	// 정기배송메인
@@ -158,6 +202,12 @@ public class MyContoller {
 		return "myPage/myPage_main";
 	}
 	
+	// 주문상세내역
+	@RequestMapping("/myOrder")
+	public String myOrder() {
+		
+		return "myPage/myOrder";
+	}
 	
 	
 	

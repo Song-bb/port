@@ -12,7 +12,7 @@
     <div id="login_wrap">
         <div id="login_form">
             <h2>로그인</h2>
-            <form action="login_ok" method="POST">
+            <form action="/login_ok" method="POST">
                 <input type="text" name="user_id" placeholder="아이디를 입력해주세요" required class="login_input"><br>
                 <input type="password" name="user_pw" placeholder="비밀번호를 입력해주세요" required class="login_input"><br>
                 <button type="submit" id="login_btn_1">로그인</button>

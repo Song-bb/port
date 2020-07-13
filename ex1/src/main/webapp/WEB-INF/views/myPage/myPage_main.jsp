@@ -84,7 +84,7 @@
                                 <td class="order_board_table_td order_td5 order_td6">진행상태</td>
                             </tr>
                             <tr class="order_board_table_tr">
-                                <td class="order_board_table_td order_td1 order_td6">2020070200001</td>
+                                <td class="order_board_table_td order_td1 order_td6"><a href="/myOrder">2020070200001</a></td>
                                 <td class="order_board_table_td order_td2">
                                     <div class="order_td2_1">
                                         <a href=""><img src="http://placehold.it/120x150"></a>
