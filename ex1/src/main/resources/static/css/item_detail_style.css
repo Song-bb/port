@@ -43,7 +43,7 @@
     width: 50%;
     height: 800px;
     float:left;
-    border: 1px solid lightgray;
+    border: 1px solid #ededed;
     position: relative;
 }
 
@@ -68,7 +68,7 @@
     width: 50%;
     height: 800px;
     float: left;
-    border: 1px solid lightgray;
+    border: 1px solid #ededed;
     padding: 3%;
 }
 .item_detail_desc > div {
@@ -90,7 +90,7 @@
     float:right;
 }
 #goods_prices span.goods_orPrice {
-    color: lightgray;
+    color: #ededed;
     text-decoration: line-through;
 }
 #goods_prices span.goods_dcPrice {
@@ -98,26 +98,47 @@
     font-size: 1.8em;
     font-weight: bold;
 }
-#goods_info p {
-    padding-bottom: 15px;
-    margin-bottom: 15px;
+
+
+/* -------------goods_info - table */
+
+
+#goods_info table {
+    border-collapse: collapse;
+}
+#goods_info table tr {
     border-bottom: 1px solid rgba(211, 211, 211, 0.486);
+    height: 45px;
 }
 
-#goods_info p > span.goods_info_title{
+#goods_info table td{
+    padding: 12px 0;
+}
+
+#goods_info tr > td.goods_info_title{
+    display: inline-block;
+
+}
+
+#goods_info tr > td.goods_info_title{
     width: 100px;
     display: inline-block;
     color: #666666;
     font-size: 0.8em;
 }
-#goods_info p > span.goods_info_text{
-    min-width: 360px;
+#goods_info tr > td.goods_info_text{
+    min-width: 350px;
     display: inline-block;
     font-size: 0.8em;
 }
-#goods_info p:last-child{
+#goods_info tr:last-child{
     margin:0;
 }
+/* ----------/goods_info */
+
+
+
+
 
 .goods_count {
     padding-bottom: 15px;
@@ -142,14 +163,16 @@
     width: 50px;
 }
 
-.total_goods {
-	height: 100pxl
-}
+
+/* -----------item_goods_price ---------  */
 .total_goods_price > p{
 	text-align: right;
 }
 .total_goods_price > p:last-child{
-	font-weight: blod;
+	font-weight: bold;
+}
+span.total_price{
+	font-size: 2em;
 }
 button.orderbutton {
 	width: 49%;
@@ -173,7 +196,7 @@ button.goCart{
 #item_detail_reviewBox_top{
     clear:both;
     padding: 3%;
-    border: 1px solid lightgray;
+    border: 1px solid #ededed;
 }
 
 #item_detail_reviewBox_top > p.reviewMore, #item_detail_reviewBox_top > h3 {
@@ -182,10 +205,90 @@ button.goCart{
 #item_detail_reviewBox_top > p.reviewMore {
     float:right;
 }
-.item_reviewBox {
+#item_detail_reviewBox_top table{
+    border-collapse: collapse;
+    width: 100%;
+}
+tr.item_reviewBox {
     width: 49%;
     padding: 20px;
     display: inline-block;
 }
+tr.item_reviewBox > td {
+    display: block;
+}
 
 /* =========== item_detail_content2 //상세페이지 ============= */
+
+#item_detail_content2{
+    padding: 20px 0;
+}
+#item_detail_nav{
+    width: 100%;
+    border-bottom: 1px solid #459356;
+    margin: 20px 0;
+}
+#item_detail_nav li {
+    display: inline-block;
+    width: 24.59%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+#item_detail_nav li a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+.on{
+    background-color: #459356;
+    color: white;
+}
+
+/* ==========상품정보 /테이블 ================== */
+
+#goods_info_detail{
+    padding: 20px 0;
+}
+
+#goods_info_detail h4{
+    padding: 10px 0;
+}
+
+
+#goods_info_detail table{
+    border-collapse: collapse;
+    width: 100%;
+    border-top: 1px solid #ededed;
+
+}
+#goods_info_detail table tr {
+    border-bottom: 1px solid #ededed;
+    height: 40px;
+}
+
+#goods_info_detail table td{
+    font-size: 0.8em;
+    color: #333333;
+    padding: 10px 0px 10px 15px;
+}
+#goods_info_detail table td.goods_info_title{
+    color: #6e6e6e;
+    width: 150px;
+
+}
+#goods_info_detail table td.goods_info_text{
+    color: #6e6e6e;
+    width: 350px;
+
+}
+#item_detail_page > p {
+    text-align: center;
+}
+
+/* ============ 리뷰 */
+#item_detail_review table {
+    width: 100%;
+}
+
+
