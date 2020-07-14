@@ -263,6 +263,7 @@
 
             <div id="item_detail_review">
                 <h3>상품리뷰</h3>
+                <p>상품을 구매하신 분들이 작성하신 후기입니다. 리뷰 작성시 포인트가 지급됩니다.</p>
                 <table>
                     <tr class="item_reviewBox">
                         <td class="reviewStar">평점</td>
