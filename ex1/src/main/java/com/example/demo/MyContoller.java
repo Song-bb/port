@@ -13,8 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.Service.IMyService;
 import com.example.demo.dto.dto_members;
@@ -32,22 +30,16 @@ public class MyContoller {
 	
 	// 메인페이지
 	@RequestMapping("/main")
-	public String mainPage() {
-		
+	public String mainPage(Model model) {
+		model.addAttribute("banner_img", service.viewBanner());		
 		return "main";
 	}
 	
 	// 고객센터메인(공지사항)
 	@RequestMapping("/servicePage_main")
 	public String servicePage_main(Model model) {
-		try {
-			model.addAttribute("notice_board_list", service.list1());
-			
-			int nTotalCount = service.count();
-			System.out.println( "게시물의 수 : " + nTotalCount );
-		} catch (Exception e ) {
-			System.out.println( e );
-		}	
+		model.addAttribute("notice_board_list", service.list1());		
+		int nTotalCount = service.count();	
 	return "servicePage/servicePage_main";
 	}
 	

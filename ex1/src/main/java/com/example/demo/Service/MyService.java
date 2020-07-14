@@ -7,10 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
-import org.springframework.transaction.TransactionStatus;
 
+import com.example.demo.dao.IDao_banner_img;
 import com.example.demo.dao.IDao_members;
 import com.example.demo.dao.IDao_noticeBoard;
+import com.example.demo.dto.dto_banner_img;
 import com.example.demo.dto.dto_members;
 import com.example.demo.dto.dto_noticeBoard;
 
@@ -22,10 +23,17 @@ public class MyService implements IMyService {
 	@Autowired
 	IDao_noticeBoard dao_noticeBoard;
 	@Autowired
+	IDao_banner_img dao_banner;
+	
+	
+	@Autowired
 	PlatformTransactionManager transactionManager;
 	@Autowired
 	TransactionDefinition definition;
 	
+	
+	
+	/*  회원관리  */
 	@Override
 	public List<dto_members> login( Map<String, String> map ) {
 		return dao_member.login_ok( map );
@@ -37,6 +45,9 @@ public class MyService implements IMyService {
 		return nResult;
 	}
 	
+	
+	
+	/*  공지사항  */
 	@Override
 	public List<dto_noticeBoard> list1() {
 		return dao_noticeBoard.listDao();
@@ -55,6 +66,14 @@ public class MyService implements IMyService {
 	
 	public void updateViewCount(String notice_index) {
 		dao_noticeBoard.updateViewCount(notice_index);
+	}
+
+	
+	
+	/*  배너 이미지 관련  */
+	@Override
+	public dto_banner_img viewBanner() {
+		return dao_banner.viewDao();
 	}
 
 
