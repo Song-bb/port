@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.example.demo.dao.IDao_noticeBoard">
+	
+	<select id="listDao" resultType="com.example.demo.dto.dto_noticeBoard"> 
+			SELECT * FROM notice_board ORDER BY notice_index desc
+	</select>
+
+	<select id="articleCount" resultType="_int">
+			SELECT COUNT(*) FROM notice_board
+	</select>
+
+	
+	
+</mapper>

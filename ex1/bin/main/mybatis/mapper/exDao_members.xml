@@ -17,20 +17,3 @@
 	
 </mapper>
 	
-<!-- 	<select id="viewDao" resultType="com.study.springboot.dto.SimpleBbsDto">
-	param1 : 첫번째 파라미터를 뜻하는 예약어 
-			SELECT * FROM simple_bbs WHERE id = #{param1} 
-	</select> 
-	
-	<insert id="writeDao"> 
-			INSERT INTO simple_bbs (id, writer, title, content) VALUES (simple_bbs_seq.nextval, #{param1}, #{param2}, #{param3})
-	</insert>
-	
-	<delete id="deleteDao"> 
-			DELETE FROM simple_bbs WHERE id = #{param1}
-	</delete>
-	
-	<update id="updateDao"> 
-			UPDATE simple_bbs SET writer = #{param2}, title = #{param3}, content = #{param4} WHERE id = #{param1}
-	</update> -->
-	

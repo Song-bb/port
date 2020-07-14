@@ -38,20 +38,15 @@
                         <td class="office_board_table_td office_td4">작성일</td>
                         <td class="office_board_table_td office_td5">조회</td>
                     </tr>
+                    <c:forEach items="${ notice_board_list }" var="dto">
                     <tr class="office_board_table_tr">
-                        <td class="office_board_table_td office_td1">공지</td>
-                        <td class="office_board_table_td office_td2"><a href="/notice_board">[과일장수]title1</a></td>
-                        <td class="office_board_table_td office_td3">장희망</td>
-                        <td class="office_board_table_td office_td4">2020-07-10</td>
-                        <td class="office_board_table_td office_td5">22</td>
+                        <td class="office_board_table_td office_td1">${ dto.notice_index }</td>
+                        <td class="office_board_table_td office_td2"><a href="/notice_board?notice_index=${ dto.notice_index }">${ dto.notice_title }</a></td>
+                        <td class="office_board_table_td office_td3">${ dto.notice_writer }</td>
+                        <td class="office_board_table_td office_td4">${ dto.notice_date }</td>
+                        <td class="office_board_table_td office_td5">${ dto.notice_hit }</td>
                     </tr>
-                    <tr class="office_board_table_tr">
-                        <td class="office_board_table_td office_td1">공지</td>
-                        <td class="office_board_table_td office_td2"><a href="/notice_board">[과일장수]title2</a></td>
-                        <td class="office_board_table_td office_td3">장탱구</td>
-                        <td class="office_board_table_td office_td4">2020-07-10</td>
-                        <td class="office_board_table_td office_td5">23</td>
-                    </tr>
+                    </c:forEach>
                 </table>
             </div>
             <div class="select_page_div">

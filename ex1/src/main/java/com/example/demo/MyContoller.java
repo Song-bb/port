@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.Service.IMyService;
 import com.example.demo.dto.dto_members;
+import com.example.demo.dto.dto_noticeBoard;
 
 @Controller
 public class MyContoller {
@@ -35,11 +36,19 @@ public class MyContoller {
 		return "main";
 	}
 	
-	// 고객센터메인
+	// 고객센터메인(공지사항)
 	@RequestMapping("/servicePage_main")
-	public String servicePage_main() {
+	public String servicePage_main(Model model) {
+		try {
+			model.addAttribute("notice_board_list", service.list1());
+			
+			int nTotalCount = service.count();
+			System.out.println( "게시물의 수 : " + nTotalCount );
+		} catch (Exception e ) {
+			System.out.println( e );
+		}
 		
-		return "servicePage/servicePage_main";
+	return "servicePage/servicePage_main";
 	}
 	
 	// 회원가입페이지
@@ -134,9 +143,13 @@ public class MyContoller {
 	
 	// 로그아웃
 	@RequestMapping("/logout")
-	public String logout(HttpServletRequest request) {
+	public String logout(HttpServletRequest request, HttpServletResponse response) throws Exception {
         HttpSession session = request.getSession();
         session.invalidate();
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		out.println("<script>alert('로그아웃 되었습니다.'); location.href='/main';</script>");
+		out.flush();
 		return "main";
 	}
 	
