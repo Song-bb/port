@@ -289,6 +289,7 @@
 	<c:import url="footer.jsp"></c:import>
 	
 	<!-- Initialize Swiper ------->
+	 
 	  <script>
 	    var swiper = new Swiper('.swiper-container', {
 	      slidesPerView: 1,
@@ -308,3 +309,4 @@
 	      },
 	    });
 	  </script>
+	

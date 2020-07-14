@@ -71,22 +71,25 @@
 				<a href="/main"><img id="header_logo" src="img/logo.png"></a>
 			</div>
 		</div>
-		<div id="header_nav">
-			<div>
-				<a href="/regularOrder_main">정기배송</a>
-				<a href="/fruitInSeason_main">제철과일</a>
-				<a href="/importedFruit_main">수입과일</a>
-				<a href="/fallenFruit_main">낙과채널</a>
-				<a href="/event_main">이벤트</a>
-			</div>
-			<div>
-				<div id="search_box">
-					<form id="search_form" action="" method="post">
-						<input id="search" type="text">
-						<button id="search_btn" type="submit"><i id="search_btn_i" class="fa fa-search"></i></button>
-					</form>
-					<a id="cart" href="/myCart"><img id="cart_icon" src="img/cart.png"></a>
+		
+		<div id="header_nav_wrap">
+			<div id="header_nav">
+				<div>
+					<a href="/regularOrder_main">정기배송</a>
+					<a href="/fruitInSeason_main">제철과일</a>
+					<a href="/importedFruit_main">수입과일</a>
+					<a href="/fallenFruit_main">낙과채널</a>
+					<a href="/event_main">이벤트</a>
+				</div>
+				<div>
+					<div id="search_box">
+						<form id="search_form" action="" method="post">
+							<input id="search" type="text">
+							<button id="search_btn" type="submit"><i id="search_btn_i" class="fa fa-search"></i></button>
+						</form>
+						<a id="cart" href="/myCart"><img id="cart_icon" src="img/cart.png"></a>
+					</div>
 				</div>
 			</div>
-		</div>
+		</div><!-- /header_nav_wrap -->
 	</div>
