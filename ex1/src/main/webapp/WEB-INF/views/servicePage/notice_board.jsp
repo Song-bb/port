@@ -17,29 +17,21 @@
             <table class="office_board_table2">
                 <tr class="office_board_table2_tr">
                     <th class="office_board_table2_th">제목</th>
-                    <td class="office_board_table2_td" colspan="3">[과일장수]title1</td>
+                    <td class="office_board_table2_td" colspan="3">${ dto_notice_board.notice_title }</td>
                 </tr>
                 <tr class="office_board_table2_tr">
                     <th class="office_board_table2_th">작성자</th>
-                    <td class="office_board_table2_td" colspan="3">FruitManager</td>
+                    <td class="office_board_table2_td" colspan="3">${ dto_notice_board.notice_writer }</td>
                 </tr>
                 <tr class="office_board_table2_tr">
                     <th class="office_board_table2_th">작성일</th>
-                    <td class="office_board_table2_td2">2020-07-10</td>
+                    <td class="office_board_table2_td2">${ dto_notice_board.notice_date }</td>
                     <th class="office_board_table2_th">조회수</th>
-                    <td class="office_board_table2_td3">8</td>
+                    <td class="office_board_table2_td3">${ dto_notice_board.notice_hit }</td>
                 </tr>
                 <tr class="office_board_table2_tr">
                     <td class="office_board_table2_td4" colspan="4">
-                        고객님 안녕하세요,<bf></bf>
-                        ~~<br>
-                        내용~~~<br>
-                        <br>
-                        항상 좋은 품질, 합리적인 가격으로 만족드릴 수 있도록 항상 최선을 다하겠습니다. <br>
-                        <br>
-                        감사합니다.<br>
-                        <br>
-                        과일장수 드림<br>
+                        ${ dto_notice_board.notice_content }
                     </td>
                 </tr>
                 <tr class="office_board_table2_tr">

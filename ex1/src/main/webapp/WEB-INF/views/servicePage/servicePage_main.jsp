@@ -41,7 +41,7 @@
                     <c:forEach items="${ notice_board_list }" var="dto">
                     <tr class="office_board_table_tr">
                         <td class="office_board_table_td office_td1">${ dto.notice_index }</td>
-                        <td class="office_board_table_td office_td2"><a href="/notice_board?notice_index=${ dto.notice_index }">${ dto.notice_title }</a></td>
+                        <td class="office_board_table_td office_td2"><a href="notice_board?notice_index=${ dto.notice_index }">${ dto.notice_title }</a></td>
                         <td class="office_board_table_td office_td3">${ dto.notice_writer }</td>
                         <td class="office_board_table_td office_td4">${ dto.notice_date }</td>
                         <td class="office_board_table_td office_td5">${ dto.notice_hit }</td>

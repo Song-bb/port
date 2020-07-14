@@ -13,6 +13,9 @@ public interface IMyService {
 	
 	public List<dto_noticeBoard> list1();
 	public int count();
+	public dto_noticeBoard view(String notice_index, String error );
+	public void updateViewCount(String notice_index);
+
 	
 }
 

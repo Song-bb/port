@@ -14,6 +14,14 @@
 			SELECT COUNT(*) FROM notice_board
 	</select>
 
+	<select id="viewDao" resultType="com.example.demo.dto.dto_noticeBoard">
+			SELECT * FROM notice_board WHERE notice_index = #{notice_index} 
+	</select>
 	
+	<update id="updateViewCount"> 
+			UPDATE notice_board SET notice_hit = notice_hit + 1 WHERE notice_index = #{notice_index} 
+	</update>
+
+
 	
 </mapper>

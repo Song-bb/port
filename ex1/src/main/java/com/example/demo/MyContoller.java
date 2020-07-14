@@ -13,10 +13,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.Service.IMyService;
 import com.example.demo.dto.dto_members;
-import com.example.demo.dto.dto_noticeBoard;
 
 @Controller
 public class MyContoller {
@@ -46,8 +47,7 @@ public class MyContoller {
 			System.out.println( "게시물의 수 : " + nTotalCount );
 		} catch (Exception e ) {
 			System.out.println( e );
-		}
-		
+		}	
 	return "servicePage/servicePage_main";
 	}
 	
@@ -223,10 +223,12 @@ public class MyContoller {
 		return "servicePage/policyInform";
 	}
 
-	// 공지사항 글 (db 추가 필요)
+	// 공지사항 글
 	@RequestMapping("/notice_board")
-	public String notice_board() {
-		
+	public String notice_board( HttpServletRequest request, Model model, String error ) {
+		String notice_index = request.getParameter("notice_index");
+		model.addAttribute("dto_notice_board", service.view(notice_index, error));
+		service.updateViewCount(notice_index);
 		return "servicePage/notice_board";
 	}	
 

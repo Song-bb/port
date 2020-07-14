@@ -5,6 +5,9 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.TransactionDefinition;
+import org.springframework.transaction.TransactionStatus;
 
 import com.example.demo.dao.IDao_members;
 import com.example.demo.dao.IDao_noticeBoard;
@@ -18,6 +21,10 @@ public class MyService implements IMyService {
 	IDao_members dao_member;
 	@Autowired
 	IDao_noticeBoard dao_noticeBoard;
+	@Autowired
+	PlatformTransactionManager transactionManager;
+	@Autowired
+	TransactionDefinition definition;
 	
 	@Override
 	public List<dto_members> login( Map<String, String> map ) {
@@ -40,6 +47,18 @@ public class MyService implements IMyService {
 		int nTotalCount = dao_noticeBoard.articleCount();
 		return nTotalCount;
 	}
+
+	@Override
+	public dto_noticeBoard view(String notice_index, String error) {
+		return dao_noticeBoard.viewDao(notice_index);
+	}
+	
+	public void updateViewCount(String notice_index) {
+		dao_noticeBoard.updateViewCount(notice_index);
+	}
+
+
+	
 
 
 }

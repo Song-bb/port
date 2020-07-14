@@ -11,5 +11,8 @@ public interface IDao_noticeBoard {
 	
 	public List<dto_noticeBoard> listDao();
 	public int articleCount();
+	public dto_noticeBoard viewDao(String notice_index);
+	public int noticeViewCount(String notice_index);
+	public void updateViewCount(String notice_index);
 	
 }
