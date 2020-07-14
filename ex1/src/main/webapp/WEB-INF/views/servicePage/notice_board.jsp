@@ -41,11 +41,11 @@
                 </tr>
                 <tr class="office_board_table2_tr">
                     <td class="office_board_table2_td6">^ 이전글</td>
-                    <td class="office_board_table2_td8" colspan="3"><a href="">[과일장수]title2</a></td>
+                    <td class="office_board_table2_td8" colspan="3"><a href="notice_board?notice_index=${ dto_notice_board_before.notice_index }">${ dto_notice_board_before.notice_title }</a></td>
                 </tr>
                 <tr class="office_board_table2_tr">
                     <td class="office_board_table2_td7">v 다음글</td>
-                    <td class="office_board_table2_td9" colspan="3"><a href="">[과일장수]title0</a></td>
+                    <td class="office_board_table2_td9" colspan="3"><a href="notice_board?notice_index=${ dto_notice_board_after.notice_index }">${ dto_notice_board_after.notice_title }</a></td>
                 </tr>
             </table>
         </div>

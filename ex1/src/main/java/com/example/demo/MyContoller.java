@@ -227,15 +227,17 @@ public class MyContoller {
 	@RequestMapping("/notice_board")
 	public String notice_board( HttpServletRequest request, Model model, String error ) {
 		String notice_index = request.getParameter("notice_index");
+		int notice_index_nb = Integer.parseInt(request.getParameter("notice_index"));
 		model.addAttribute("dto_notice_board", service.view(notice_index, error));
-		service.updateViewCount(notice_index);
+		model.addAttribute("dto_notice_board_before", service.view(String.valueOf(notice_index_nb-1), error)); // 이전글
+		model.addAttribute("dto_notice_board_after", service.view(String.valueOf(notice_index_nb+1), error)); // 다음글
+		service.updateViewCount(notice_index); // 조회수 증가
 		return "servicePage/notice_board";
 	}	
 
 	// 아이디,비밀번호찾기 페이지
 	@RequestMapping("/foundId")
 	public String foundId() {
-		
 		return "myPage/myFoundId";
 	}
 
