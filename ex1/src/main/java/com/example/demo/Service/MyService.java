@@ -16,6 +16,7 @@ public class MyService implements IMyService {
 	
 	@Autowired
 	IDao_members dao_member;
+	@Autowired
 	IDao_noticeBoard dao_noticeBoard;
 	
 	@Override
