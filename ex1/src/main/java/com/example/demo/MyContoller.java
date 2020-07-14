@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.Service.IMyService;
 import com.example.demo.dto.dto_members;
@@ -51,32 +52,21 @@ public class MyContoller {
 	
 	// 회원가입 확인 페이지
 	@RequestMapping("/join_ok")
-	public String join_ok(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String user_id = request.getParameter("user_id");
-		String user_pw = request.getParameter("user_pw");
-		String user_pw_ok = request.getParameter("user_pw_ok");
-		String user_email = request.getParameter("email");
-		String user_name = request.getParameter("user_name");
-		String user_phone = request.getParameter("phone"); // 휴대폰번호 숫자만
-		String user_address = request.getParameter("address");
-		String user_gender = request.getParameter("gender_select"); // 남자 1, 여자 2, 선택안함 3
-		String user_birth = request.getParameter("user_birth");
-		
+	public String join_ok(@RequestParam("user_id") String user_id, @RequestParam("user_pw") String user_pw, @RequestParam("user_pw_ok") String user_pw_ok, @RequestParam("email") String user_email, @RequestParam("user_name") String user_name, @RequestParam("phone") String user_phone, @RequestParam("address") String user_address, @RequestParam("gender_select") String user_gender, @RequestParam("user_birth") String user_birth, HttpServletResponse response) throws Exception {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		if( ! (user_pw.equals( user_pw_ok ) )) { // 비밀번호, 확인란 재확인
 			out.println("<script>alert('비밀번호를 다시 확인해주세요'); history.go(-1);</script>");
 			out.flush();
 		}
-	
 		Map<String, String> map = new HashMap<String, String>();
 		map.put( "user_id", user_id );
 		map.put( "user_pw", user_pw );
 		map.put( "user_email", user_email );
 		map.put( "user_name", user_name );
-		map.put( "user_phone", user_phone );
+		map.put( "user_phone", user_phone ); // 휴대폰번호 숫자만
 		map.put( "user_address", user_address );
-		map.put( "user_gender", user_gender );
+		map.put( "user_gender", user_gender ); // 남자 1, 여자 2, 선택안함 3
 		map.put( "user_birth", user_birth );
 			
 		int nResult = service.join_ok( map );
@@ -99,10 +89,7 @@ public class MyContoller {
 	
 	// 로그인 확인 페이지
 	@RequestMapping("/login_ok")
-	public String login_ok(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
-		String user_id = request.getParameter("user_id");
-		String user_pw = request.getParameter("user_pw");
-		
+	public String login_ok(@RequestParam("user_id") String user_id, @RequestParam("user_pw") String user_pw,  HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put( "user_id", user_id );
 		map.put( "user_pw", user_pw );
@@ -110,7 +97,6 @@ public class MyContoller {
 		List<dto_members> list = service.login( map );
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		
 		if( list.isEmpty() ) { // 아이디 없음
 			out.println("<script>alert('아이디를 확인해주세요.'); location.href='/loginPage_main';</script>");
 			out.flush();
@@ -217,9 +203,7 @@ public class MyContoller {
 
 	// 공지사항 글
 	@RequestMapping("/notice_board")
-	public String notice_board( HttpServletRequest request, Model model, String error ) {
-		String notice_index = request.getParameter("notice_index");
-		int notice_index_nb = Integer.parseInt(request.getParameter("notice_index"));
+	public String notice_board( @RequestParam("notice_index") String notice_index, @RequestParam("notice_index") int notice_index_nb, Model model, String error ) {
 		model.addAttribute("dto_notice_board", service.view(notice_index, error));
 		model.addAttribute("dto_notice_board_before", service.view(String.valueOf(notice_index_nb-1), error)); // 이전글
 		model.addAttribute("dto_notice_board_after", service.view(String.valueOf(notice_index_nb+1), error)); // 다음글
