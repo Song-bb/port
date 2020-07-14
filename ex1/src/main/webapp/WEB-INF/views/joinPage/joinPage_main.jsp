@@ -12,9 +12,9 @@
             <h1>회원가입하기</h1>
         </div>
         <div id="join_body">
+        	<form action="/join_ok" method="post">
             <p>
                 <div id="join_form">
-                    <form action="/join_ok">
                         <table id="join_form_table">
                         	<tr>
                                <th id="join_select_infomation">*는 필수입력사항</th>
@@ -41,7 +41,7 @@
                             </tr>
                             <tr>
                                 <th>*휴대폰 </th>
-                                <td><input type="text" name="phone" placeholder="전화번호" required class="input_text"></td>
+                                <td><input type="text" name="phone" placeholder="전화번호(숫자만 입력하세요)" required class="input_text"></td>
                             </tr>
                             <tr>
                                 <th>*주소 </th>
@@ -50,9 +50,9 @@
                             <tr>
                                 <th>성별 </th>
                                 <td>
-                                    <input type="radio" name="gender_select" value="male" class="join_radio">남자
-                                    <input type="radio" name="gender_select" value="female" class="join_radio">여자
-                                    <input type="radio" name="gender_select" value="nothing" class="join_radio">선택 안함
+                                    <input type="radio" name="gender_select" value="1" class="join_radio">남자
+                                    <input type="radio" name="gender_select" value="2" class="join_radio">여자
+                                    <input type="radio" name="gender_select" value="3" class="join_radio">선택 안함
                                 </td>
                             </tr>
                             <tr>
@@ -60,7 +60,6 @@
                                 <td><input type="date" name="user_birth" max="9999.12.31" class="input_text"></td>
                             </tr>
                         </table>
-                    </form>
                 </div>
             </p>
             <div id="join_service_check">
@@ -76,6 +75,7 @@
                 <button type="submit" id="join_btn_1">회원 가입</button>
                 <button type="reset" id="join_btn_2">취소</button>
             </div>
+            </form>
         </div>
     </div>
     
