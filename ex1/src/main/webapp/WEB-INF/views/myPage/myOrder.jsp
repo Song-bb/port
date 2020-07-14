@@ -28,9 +28,9 @@
                 <div class="myPage_main_profile2">
                     적립금<br>
                     <br>
-                    <a href=""><span class="myPage_main_profile2_1"><%= session.getAttribute("user_point") %></span><span class="myPage_main_profile2_1"> 원 </span>></a><br>
+                    <a href="/myPoint"><span class="myPage_main_profile2_1"><%= session.getAttribute("user_point") %></span><span class="myPage_main_profile2_1"> 원 </span>></a><br>
                     <br>
-                    <a href=""><span class="myPage_main_profile2_2">소멸예정 : <span>0</span> 원</span></a>
+                    <a href="/myPoint"><span class="myPage_main_profile2_2">소멸예정 : <span>0</span> 원</span></a>
                 </div>
             </div>  
         </div>
@@ -50,16 +50,13 @@
                                 <td><a href="/myCart"><div>장바구니<span>></span></div></a></td>
                             </tr>
                             <tr>
-                                <td><a href=""><div>상품후기<span>></span></div></a></td>
+                                <td><a href="/myReview"><div>상품후기<span>></span></div></a></td>
                             </tr>
                             <tr>
-                                <td><a href=""><div>적립금<span>></span></div></a></td>
+                                <td><a href="/myPoint"><div>적립금<span>></span></div></a></td>
                             </tr>
                             <tr>
-                                <td><a href=""><div>개인정보수정<span>></span></div></a></td>
-                            </tr>
-                            <tr>
-                                <td><a href=""><div>아이디/비밀번호 찾기<span>></span></div></a></td>
+                                <td><a href="/updateInform"><div>개인정보수정<span>></span></div></a></td>
                             </tr>
                         </table>
                     </div>

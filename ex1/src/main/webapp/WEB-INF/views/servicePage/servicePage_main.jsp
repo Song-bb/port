@@ -57,8 +57,8 @@
             <div class="select_page_div">
                 <table class="select_page_table">
                     <tr class="select_page_table_tr">
-                        <td class="select_page_table_td"><a href="">&laquo;</a></td>
-                        <td class="select_page_table_td"><a href="">&lt;</a></td>
+                        <td class="select_page_table_td"><a href=""><<</a></td>
+                        <td class="select_page_table_td"><a href=""><</a></td>
                         <td class="select_page_table_td"><a href="">1</a></td>
                         <td class="select_page_table_td"><a href="">2</a></td>
                         <td class="select_page_table_td"><a href="">3</a></td>
@@ -69,8 +69,8 @@
                         <td class="select_page_table_td"><a href="">8</a></td>
                         <td class="select_page_table_td"><a href="">9</a></td>
                         <td class="select_page_table_td"><a href="">10</a></td>
-                        <td class="select_page_table_td"><a href="">&gt;</a></td>
-                        <td class="select_page_table_td"><a href="">&raquo;</a></td>
+                        <td class="select_page_table_td"><a href="">></a></td>
+                        <td class="select_page_table_td"><a href="">>></a></td>
                     </tr>
                 </table>
             </div>

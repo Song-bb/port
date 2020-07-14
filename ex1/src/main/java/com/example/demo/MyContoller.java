@@ -80,7 +80,7 @@ public class MyContoller {
 			
 		int nResult = service.join_ok( map );
 		if( nResult < 1 ) {
-			out.println("<script>alert('회원가입 실패.'); location.href='/join_ok';</script>");
+			out.println("<script>alert('회원가입 실패.'); location.href='/joinPage_main';</script>");
 			out.flush();
 			return "main";
 		} else {
@@ -88,7 +88,6 @@ public class MyContoller {
 			out.flush();
 			return "main";
 		}
-
 	}
 	
 	// 로그인페이지
