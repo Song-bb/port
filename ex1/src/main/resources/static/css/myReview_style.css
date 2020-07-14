@@ -1,1 +1,141 @@
 @charset "UTF-8";
+
+/* 사이드 메뉴 */
+
+.mypage_review_left {
+    float:left;
+    padding-top: 30px;
+    width: 200px;
+}
+.mypage_review_side_table_div {
+    padding-top: 10px;
+}
+.mypage_review_side_table {
+    border: 1px solid rgba(179, 178, 178, 0.507);
+    border-collapse: collapse;
+    width: 200px;
+}
+.mypage_review_side_table td {
+    border: 1px solid rgba(179, 178, 178, 0.507);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    color: rgb(129, 127, 127);
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 45px;
+}
+.mypage_review_side_table td div {
+    text-align: left;
+    position: relative;
+}
+.mypage_review_side_table td div span {
+    position: absolute;
+    right: 0;
+}
+.mypage_review_side_table td a {
+    text-decoration: none;
+    color: rgb(129, 127, 127);
+}
+.mypage_review_side_table tr {
+    border: 1px solid rgba(179, 178, 178, 0.507);
+}
+.mypage_review_side_btn_div {
+    padding-top: 15px; 
+}
+.mypage_review_side_btn_div button {
+    width: 200px;
+    border: none;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 14px;
+    color: rgb(129, 127, 127);
+    padding-left: 10px;
+    border-radius: 0 20px 20px 0;
+    height: 45px;
+}
+.mypage_review_side_btn_div button a {
+    text-decoration: none;
+    color: rgb(129, 127, 127);
+}
+.mypage_review_right {
+    float: right;
+    padding-top: 30px;
+    width: 800px;
+}
+.mypage_review_title h2{
+	margin-left: -20px;
+	padding-bottom: 20px;
+	border-bottom: 2px solid #459356;
+}
+#mypage_review_title_nav{
+    margin-right: 20px;
+    width: 150px;
+    height: 30px;
+}
+#mypage_review_info_div{
+    float: right;
+    width: 800px;
+    height: 70px;
+    border: 3px solid #459356;
+    margin-bottom: 30px;
+    text-align: center;
+    border-radius: 5px;
+    line-height: 64px;
+}
+
+/* 상품후기 테이블 */
+#mypage_review_info{
+    width: 800px;
+    float: right;
+}
+#mypage_review_header {
+    width: 800px;
+    height: 60px;
+}
+#mypage_review_header h3{
+    float: left;
+    width: 300px;
+}
+#mypage_review_header_btn{
+    width: 800px;
+}
+#mypage_review_header_btn button{
+    float: right;
+    margin-top: 15px;
+    line-height: 30px;
+}
+#mypage_review_body {
+    width: 800px;
+}
+
+#mypage_review_table{
+    margin-top: 20px;
+    margin-left: 110px;
+    width: 720px;
+    border-collapse: collapse;
+    padding: 30px;
+}
+.review_table_tr{
+	width: 670px;
+}
+.review_table_td_title{
+    font-weight: bolder;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(179, 178, 178, 0.507);
+}
+.review_table_td_1{
+    padding: 20px;
+    text-align: left;
+    border-bottom: 2px solid rgba(179, 178, 178, 0.507);
+}
+.review_table_td_2{
+    padding: 20px;
+    text-align: left;
+    border-bottom: 2px solid rgba(179, 178, 178, 0.507);
+}
+#review_table_td_hidden{
+    float: left;
+    display: block;
+    padding-top: 30px;
+    padding-left: 20px;
+}
+

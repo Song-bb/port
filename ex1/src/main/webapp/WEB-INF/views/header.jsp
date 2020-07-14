@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="css/myPage_main_style.css">
     <link rel="stylesheet" href="css/myOrder_style.css">
     <link rel="stylesheet" href="css/item_detail_style.css">
+    <link rel="stylesheet" href="css/myReview_style.css">
     
     <!-- swiper(슬라이드) -->
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
