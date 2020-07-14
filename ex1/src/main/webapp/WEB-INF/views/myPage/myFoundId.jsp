@@ -12,22 +12,22 @@
             <div class="idfound_side_table_div">
                 <table class="idfound_side_table">
                     <tr>
-                        <td><div><a href="">주문내역</div><div>></div></a></td>
+                        <td><div><a href="/loginPage_main">주문내역</div><div>></div></a></td>
                     </tr>
                     <tr>
-                        <td><div><a href="">장바구니</div><div>></div></a></td>
+                        <td><div><a href="/myCart">장바구니</div><div>></div></a></td>
                     </tr>
                     <tr>
-                        <td><div><a href="">상품후기</div><div>></div></a></td>
+                        <td><div><a href="/loginPage_main">상품후기</div><div>></div></a></td>
                     </tr>
                     <tr>
-                        <td><div><a href="">적립금</div><div>></div></a></td>
+                        <td><div><a href="/loginPage_main">적립금</div><div>></div></a></td>
                     </tr>
                     <tr>
-                        <td><div><a href="">개인정보 수정</div><div>></div></a></td>
+                        <td><div><a href="/loginPage_main">개인정보 수정</div><div>></div></a></td>
                     </tr>
                     <tr>
-                        <td><div><a href="">아이디 / 비밀번호 찾기</div><div>></div></a></td>
+                        <td class="selected_page_td"><div><a href="/foundId">아이디 / 비밀번호 찾기</div><div>></div></a></td>
                     </tr>
                 </table>
             </div>

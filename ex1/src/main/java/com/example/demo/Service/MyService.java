@@ -1,11 +1,13 @@
 package com.example.demo.Service;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.IDao_members;
+import com.example.demo.dto.dto_members;
 
 @Service
 public class MyService implements IMyService {
@@ -14,8 +16,8 @@ public class MyService implements IMyService {
 	IDao_members dao_member;
 	
 	@Override
-	public Map<String, String> login( Map<String, String> map ) {
-		Map<String, String> list = dao_member.login_ok( map );
+	public List<dto_members> login( Map<String, String> map ) {
+		List<dto_members> list = dao_member.login_ok( map );
 		return list;
 	}
 

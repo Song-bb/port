@@ -48,13 +48,13 @@
                                 <td><a href=""><div>장바구니<span>></span></div></a></td>
                             </tr>
                             <tr>
-                                <td><a href=""><div>상품후기<span>></span></div></a></td>
+                                <td><a href="/myReview"><div>상품후기<span>></span></div></a></td>
                             </tr>
                             <tr>
-                                <td><a href=""><div>적립금<span>></span></div></a></td>
+                                <td><a href="/myPoint"><div>적립금<span>></span></div></a></td>
                             </tr>
                             <tr>
-                                <td><a href=""><div>개인정보수정<span>></span></div></a></td>
+                                <td><a href="/updateInform"><div>개인정보수정<span>></span></div></a></td>
                             </tr>
                         </table>
                     </div>
@@ -87,10 +87,10 @@
                                 <td class="order_board_table_td order_td1 order_td6"><a href="/myOrder">2020070200001</a></td>
                                 <td class="order_board_table_td order_td2">
                                     <div class="order_td2_1">
-                                        <a href=""><img src="http://placehold.it/120x150"></a>
+                                        <a href="/myOrder"><img src="http://placehold.it/120x150"></a>
                                     </div>
                                     <div class="order_td2_2">
-                                        <a href="">알찬사과 200g 외</a>
+                                        <a href="/myOrder">알찬사과 200g 외</a>
                                     </div>
                                 </td>
                                 <td class="order_board_table_td order_td3 order_td7">13,900 원<br>(1개)</td>
@@ -104,13 +104,13 @@
                                 </td>
                             </tr>
                             <tr class="order_board_table_tr">
-                                <td class="order_board_table_td order_td1 order_td6">2020070200001</td>
+                                <td class="order_board_table_td order_td1 order_td6"><a href="/myOrder">2020070200001</a></td>
                                 <td class="order_board_table_td order_td2">
                                     <div class="order_td2_1">
-                                        <a href=""><img src="http://placehold.it/120x150"></a>
+                                        <a href="/myOrder"><img src="http://placehold.it/120x150"></a>
                                     </div>
                                     <div class="order_td2_2">
-                                        <a href="">알찬사과 200g 외</a>
+                                        <a href="/myOrder">알찬사과 200g 외</a>
                                     </div>
                                 </td>
                                 <td class="order_board_table_td order_td3 order_td7">13,900 원<br>(1개)</td>

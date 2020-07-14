@@ -5,10 +5,12 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.example.demo.dto.dto_members;
+
 @Mapper
 public interface IDao_members {
 	
-	public Map<String, String> login_ok( Map<String, String> map );
+	public List<dto_members> login_ok( Map<String, String> map );
 	
 	public int join_ok( Map<String, String> map );
 		

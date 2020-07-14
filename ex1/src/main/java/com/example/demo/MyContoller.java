@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.Service.IMyService;
+import com.example.demo.dto.dto_members;
 
 @Controller
 public class MyContoller {
@@ -99,18 +101,18 @@ public class MyContoller {
 		map.put( "user_id", user_id );
 		map.put( "user_pw", user_pw );
 		
-		Map<String, String> list = service.login( map );
+		List<dto_members> list = service.login( map );
 
 		if( list.isEmpty() ) { // 아이디 없음
 			System.out.println("아이디를 확인하세요");
 			return "loginPage/loginPage_main";
 		} else { // 아이디 있음
-			if( user_pw.equals( list.get("user_pw")) ) { // 비밀번호 일치
+			if( user_pw.equals( list.get(0).getUser_pw()) ) { // 비밀번호 일치
 				HttpSession session = request.getSession(); // 세션 시작
 				session.setAttribute("user_id", user_id); // id 세션 저장
-				session.setAttribute("user_name", list.get("user_name") ); // 이름 세션 저장
-				session.setAttribute("user_grade", list.get("user_grade")); // 등급 세션 저장
-				session.setAttribute("user_point", list.get("user_point")); // 적립금 세션 저장
+				session.setAttribute("user_name", list.get(0).getUser_name() ); // 이름 세션 저장
+				session.setAttribute("user_grade", list.get(0).getUser_grade()); // 등급 세션 저장
+				session.setAttribute("user_point", list.get(0).getUser_point()); // 적립금 세션 저장
 				
 				return "main";
 			} else { // 비밀번호 불일치
@@ -166,11 +168,11 @@ public class MyContoller {
 	}
 	
 	// 이벤트서브페이지(관리자 DB)추가
-		@RequestMapping("/event_sub")
-		public String event_sub() {
+	@RequestMapping("/event_sub")
+	public String event_sub() {
 			
-			return "event/event_sub";
-		}
+		return "event/event_sub";
+	}
 	
 	// 장바구니메인
 	@RequestMapping("/myCart")
@@ -255,7 +257,27 @@ public class MyContoller {
 		
 		return "myPage/myOrder";
 	}
+
+	// 상품후기
+	@RequestMapping("/myReview")
+	public String myReview() {
+		
+		return "myPage/myReview";
+	}
 	
+	// 적립금
+	@RequestMapping("/myPoint")
+	public String myPoint() {
+		
+		return "myPage/myPoint";
+	}
+	
+	// 개인정보수정
+	@RequestMapping("/updateInform")
+	public String updateInform() {
+		
+		return "myPage/updateInform";
+	}
 	
 	
 	
