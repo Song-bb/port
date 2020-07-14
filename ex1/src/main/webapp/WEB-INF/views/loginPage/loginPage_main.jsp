@@ -6,9 +6,6 @@
 
 
 	<c:import url="../header.jsp"></c:import>
-	
-	
-	    <link rel="stylesheet" href="loginPage_main_style.css">
     <div id="login_wrap">
         <div id="login_form">
             <h2>로그인</h2>
@@ -27,9 +24,6 @@
     </div>
 
 	<c:import url="../footer.jsp"></c:import>
-	
-</body>
-</html>
 		
 	
 	
