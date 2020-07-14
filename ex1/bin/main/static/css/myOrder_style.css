@@ -61,15 +61,18 @@
     padding-top: 30px;
     width: 800px;
 }
+.mypage_detail_title h2{
+	margin-bottom: 20px;
+}
 #mypage_detail_info_div{
     float: right;
     width: 800px;
     height: 70px;
     border: 3px solid #459356;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     text-align: center;
     border-radius: 5px;
-    line-height: 70px;
+    line-height: 64px;
 }
 #mypage_detail_info1{
     float: left;
@@ -235,6 +238,7 @@
 	margin-top: 80px;
     float: left;
     width: 300px;
+    margin-bottom: 15px;
 }
 #mypage_detail_box_info_body {
     width: 800px;
@@ -263,4 +267,17 @@
 .box_info_table_tr_result td{
     padding-bottom: 20px;
     border-bottom: 2px solid rgba(179, 178, 178, 0.507);
+}
+#mypage_detail_box_info_foot {
+	width: 800px;
+	height: 200px;
+	align-content: center;
+}
+#mypage_detail_box_info_foot button{
+	padding: 10px;
+	margin-top: 20px;
+	margin-left: 325px;
+	background-color: #459356;
+	border: 1px solid #459356;
+	color: white;
 }

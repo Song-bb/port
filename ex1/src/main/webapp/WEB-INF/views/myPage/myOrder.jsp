@@ -167,6 +167,9 @@
                                 </tr>
                             </table>
                         </div>
+                        <div id="mypage_detail_box_info_foot">
+                        	<button>주문목록 돌아가기</button>
+                        </div>
                     </div>
                 </div>
             </div>
