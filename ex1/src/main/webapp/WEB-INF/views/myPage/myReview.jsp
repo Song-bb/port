@@ -87,9 +87,29 @@
                                 <tr class="review_table_tr_hidden">
                                     <td></td>
                                     <td id="review_table_td_hidden">
-                                            상품명 : 알찬사과 200g외<br>
+                                            <p>상품명 : 알찬사과 200g외<br>
                                             주문번호 : 202007020001<br>
-                                            등록평점 : 4.5<br>
+                                            등록평점 : 4.5</p>
+                                            <br>
+                                            <br>
+                                            과일이 아주 신선해요~ 다음에 또 주문할게요~
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr class="review_table_tr">
+                                    <td class="review_table_td_2">2</td>
+                                    <td class="review_table_td_2 review_table_td_title_2">최고에요~</td>
+                                    <td class="review_table_td_2">12</td>
+                                    <td class="review_table_td_2">2020-07-04</td>
+                                </tr>
+                                <tr class="review_table_tr_hidden_2">
+                                    <td></td>
+                                    <td id="review_table_td_hidden">
+                                            <p>상품명 : 알찬사과 200g외<br>
+                                            주문번호 : 202007020001<br>
+                                            등록평점 : 4.5</p>
+                                            <br>
                                             <br>
                                             과일이 아주 신선해요~ 다음에 또 주문할게요~
                                     </td>
@@ -105,8 +125,11 @@
 	
 		<script> 
 			$(document).ready(function(){
-			  $(".review_table_td_2").click(function(){
+			  $(".review_table_td_title").click(function(){
 			    $(".review_table_tr_hidden").slideToggle("slow");
+			  });
+			  $(".review_table_td_title_2").click(function(){
+				    $(".review_table_tr_hidden_2").slideToggle("slow");
 			  });
 			});
 		</script>
