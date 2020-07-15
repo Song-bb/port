@@ -12,3 +12,11 @@ window.onscroll = function() {myFunction()};
         header.classList.remove("sticky");
     }
 }
+
+//togle(detail_page)
+
+$(document).ready(function(){
+    $('.QNA_show').click(function(){
+        $(this).next('.QNA_hide').toggle();
+    });
+});
