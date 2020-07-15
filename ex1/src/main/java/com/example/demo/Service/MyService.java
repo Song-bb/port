@@ -113,11 +113,6 @@ public class MyService implements IMyService {
 		return dao_fre_ask.select(categori);
 	}
 	
-	/*  자주하는 질문 글 상세보기  */
-	@Override
-	public List<dto_fre_ask_board> view2(String idx) {
-		return dao_fre_ask.viewDao(idx);
-	}
 
 
 

@@ -11,6 +11,6 @@ public interface IDao_fre_ask_board {
 
 	public List<dto_fre_ask_board> listDao();
 	public List<dto_fre_ask_board> select(String categori);
-	public List<dto_fre_ask_board> viewDao(String idx);
+
 	
 }

@@ -226,9 +226,8 @@ public class MyContoller {
 
 	// 자주하는질문 페이지
 	@RequestMapping("/fre_ask_questions")
-	public String fre_ask_questions(@RequestParam(value="idx", required=false) String idx, Model model) {
+	public String fre_ask_questions(Model model) {
 		model.addAttribute("fre_que_list", service.list2());
-		model.addAttribute("fre_ask_view", service.view2(idx));
 		return "servicePage/fre_ask_questions";
 	}
 

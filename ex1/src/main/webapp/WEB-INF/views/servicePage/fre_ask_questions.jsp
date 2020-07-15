@@ -48,18 +48,16 @@
                         <td class="fre_ask_table_td2 fre_ask_table_td">카테고리</td>
                         <td class="fre_ask_table_td3 fre_ask_table_td fre_ask_table_td4">제목</td>
                     </tr>
-                    <c:forEach items="${ fre_que_list }" var="dto">
-	                    <tr class="office_board_table_tr">
-	                        <td class="fre_ask_table_td1 fre_ask_table_data fre_ask_table_td">${ dto.idx }</td>
-	                        <td class="fre_ask_table_td2 fre_ask_table_data fre_ask_table_td">${ dto.categori_text }</td>
-	                        <td class="fre_ask_table_td3 fre_ask_table_data fre_ask_table_td"><a href="javascript:void(0);" onClick="showDesc(1)" >${ dto.title }</a></td>
+                    <c:forEach items="${ fre_que_list }" var="dto1">
+	                    <tr class="office_board_table_tr show">
+	                        <td class="fre_ask_table_td1 fre_ask_table_data fre_ask_table_td">${ dto1.idx }</td>
+	                        <td class="fre_ask_table_td2 fre_ask_table_data fre_ask_table_td">${ dto1.categori_text }</td>
+	                        <td class="fre_ask_table_td3 fre_ask_table_data fre_ask_table_td"><a>${ dto1.title }</a></td>
+	                    </tr>
+	                    <tr class="office_board_table_tr hide" >
+	                        <td class="fre_ask_table_data fre_ask_table_td5" colspan="3"><img src="img/answer.png"> ${ dto1.content }</td>
 	                    </tr>
 	                </c:forEach>
-	                <c:forEach items="${ fre_ask_view }" var="dto">
-	                    <tr class="office_board_table_tr" id="menu1" style="display:none">
-	                        <td class="fre_ask_table_data fre_ask_table_td5" colspan="3">${ dto.content }</td>
-	                    </tr>
-                    </c:forEach>
                 </table>
             </div>
             <div class="select_page_div">
@@ -94,18 +92,15 @@
 	<c:import url="../footer.jsp"></c:import>
 	
 	
-	<script type="text/javascript"> 
-	   var menu1 = false; 
-	   var menu2 = false; 
-	   function showDesc(currMenu) { 
-	      if(menu1) { 
-	      document.getElementById("menu1").style.display = "none"; 
-	      menu1 = false; 
-	      } else { 
-	      document.getElementById("menu1").style.display = "block"; 
-	      menu1 = true; 
-	      } 
-	   } //접었다 펼치는 스크립트 
-   </script> 
+
+<!-- 	<script>
+        $(document).ready(function(){
+            $('.show').click(function(){
+                $('.hide').toggle();
+            });
+        });
+   	</script>
+  -->
+
 	
 

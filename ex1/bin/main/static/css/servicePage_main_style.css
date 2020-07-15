@@ -242,8 +242,14 @@
 	text-align: center;
 }
 .fre_ask_table_td5 {
-	padding: 20px 20px 20px 20px;
-	colspan: 3;
+	padding: 20px;
+	font-family: 'Noto Sans KR', sans-serif;
+    font-size: 12px;
+    color: rgb(100, 100, 100);
+}
+.fre_ask_table_td5 img {
+	width: 12px;
+    vertical-align: middle;
 }
 .fre_ask_table_data {
     border-top: 1px solid #bfbfbf;

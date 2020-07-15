@@ -33,7 +33,7 @@ public interface IMyService {
 	/*  자주하는질문  */
 	public List<dto_fre_ask_board> list2();
 	public List<dto_fre_ask_board> select(String categori);
-	public List<dto_fre_ask_board> view2(String idx);
+
 	
 }
 
