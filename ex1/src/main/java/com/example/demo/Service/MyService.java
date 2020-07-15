@@ -9,9 +9,11 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
 
 import com.example.demo.dao.IDao_banner_img;
+import com.example.demo.dao.IDao_fre_ask_board;
 import com.example.demo.dao.IDao_members;
 import com.example.demo.dao.IDao_noticeBoard;
 import com.example.demo.dto.dto_banner_img;
+import com.example.demo.dto.dto_fre_ask_board;
 import com.example.demo.dto.dto_members;
 import com.example.demo.dto.dto_noticeBoard;
 
@@ -24,6 +26,8 @@ public class MyService implements IMyService {
 	IDao_noticeBoard dao_noticeBoard;
 	@Autowired
 	IDao_banner_img dao_banner;
+	@Autowired
+	IDao_fre_ask_board dao_fre_ask;
 	
 	
 	@Autowired
@@ -92,6 +96,29 @@ public class MyService implements IMyService {
 	public dto_banner_img viewBanner() {
 		return dao_banner.viewDao();
 	}
+
+	
+	
+	
+	/*  자주하는질문  */
+	/*  자주하는질문 리스트  */
+	@Override
+	public List<dto_fre_ask_board> list2() {
+		return dao_fre_ask.listDao();
+	}
+	
+	/*  자주하는 질문 카테고리 선택  */
+	@Override
+	public List<dto_fre_ask_board> select(String categori) {
+		return dao_fre_ask.select(categori);
+	}
+	
+	/*  자주하는 질문 글 상세보기  */
+	@Override
+	public List<dto_fre_ask_board> view2(String idx) {
+		return dao_fre_ask.viewDao(idx);
+	}
+
 
 
 

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<!-- 자주하는질문 -->
+<!-- 자주하는질문 > 카테고리 선택 -->
 
 	<c:import url="../header.jsp"></c:import>
 	
@@ -46,13 +46,13 @@
                     <tr class="office_board_table_tr">
                         <td class="fre_ask_table_td1 fre_ask_table_td">번호</td>
                         <td class="fre_ask_table_td2 fre_ask_table_td">카테고리</td>
-                        <td class="fre_ask_table_td3 fre_ask_table_td">제목</td>
+                        <td class="fre_ask_table_td3 fre_ask_table_td fre_ask_table_td4">제목</td>
                     </tr>
-					<c:forEach items="${ fre_que_list }" var="dto">
+                    <c:forEach items="${ dto_fre_ask_select }" var="dto">
 	                    <tr class="office_board_table_tr">
 	                        <td class="fre_ask_table_td1 fre_ask_table_data fre_ask_table_td">${ dto.idx }</td>
 	                        <td class="fre_ask_table_td2 fre_ask_table_data fre_ask_table_td">${ dto.categori_text }</td>
-	                        <td class="fre_ask_table_td3 fre_ask_table_data fre_ask_table_td"><a href="">${ dto.title }</a></td>
+	                        <td class="fre_ask_table_td3 fre_ask_table_data fre_ask_table_td"><a href="/fre_ask_select_view?idx=${ dto.idx }">${ dto.title }</a></td>
 	                    </tr>
                     </c:forEach>
                 </table>

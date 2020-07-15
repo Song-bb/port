@@ -228,13 +228,18 @@
     padding-bottom: 5px;
 }
 .fre_ask_table_td1 {
-    width: 100px;
+    width: 70px;
+    text-align: center;
 }
 .fre_ask_table_td2 {
-    width: 100px;
+    width: 150px;
+    text-align: center;
 }
 .fre_ask_table_td3 {
-    width: 600px;
+    width: 580px;
+}
+.fre_ask_table_td4 {
+	text-align: center;
 }
 .fre_ask_table_data {
     border-top: 1px solid #bfbfbf;

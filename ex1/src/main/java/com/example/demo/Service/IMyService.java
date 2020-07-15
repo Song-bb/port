@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.example.demo.dto.dto_banner_img;
+import com.example.demo.dto.dto_fre_ask_board;
 import com.example.demo.dto.dto_members;
 import com.example.demo.dto.dto_noticeBoard;
 
@@ -26,6 +27,13 @@ public interface IMyService {
 	public dto_noticeBoard view(String notice_index);
 	public void updateViewCount(String notice_index);
 	public List<dto_noticeBoard> search( String search_filter, String search_text);
+	
+	
+	
+	/*  자주하는질문  */
+	public List<dto_fre_ask_board> list2();
+	public List<dto_fre_ask_board> select(String categori);
+	public List<dto_fre_ask_board> view2(String idx);
 	
 }
 
