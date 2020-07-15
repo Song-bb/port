@@ -84,7 +84,7 @@
                                     <td class="review_table_td_2">22</td>
                                     <td class="review_table_td_2">2020-07-02</td>
                                 </tr>
-                                <tr id="review_table_tr_hidden hide">
+                                <tr id="review_table_tr_hidden" class="hide">
                                     <td></td>
                                     <td id="review_table_td_hidden">
                                             <p>상품명 : 알찬사과 200g외<br>
@@ -103,7 +103,7 @@
                                     <td class="review_table_td_2">12</td>
                                     <td class="review_table_td_2">2020-07-04</td>
                                 </tr>
-                                <tr id="review_table_tr_hidden hide">
+                                 <tr id="review_table_tr_hidden" class="hide">
                                     <td></td>
                                     <td id="review_table_td_hidden">
                                             <p>상품명 : 알찬사과 200g외<br>
