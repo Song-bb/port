@@ -146,10 +146,10 @@
     padding-left: 20px;
     width: 300px;
     font-size: 0.75em;
-    display: none;
 }
 #review_table_td_hidden p{
     font-weight: lighter;
+    font-size: 0.5em;
 }
 #review_table_td_hidden_2{
     float: left;
@@ -160,5 +160,6 @@
     font-size: 0.75em;
 }
 #review_table_td_hidden_2 p{
+	font-size: 0.5em;
     font-weight: lighter;
 }
