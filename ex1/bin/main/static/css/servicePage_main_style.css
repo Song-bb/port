@@ -241,6 +241,10 @@
 .fre_ask_table_td4 {
 	text-align: center;
 }
+.fre_ask_table_td5 {
+	padding: 20px 20px 20px 20px;
+	colspan: 3;
+}
 .fre_ask_table_data {
     border-top: 1px solid #bfbfbf;
 }

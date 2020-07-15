@@ -52,7 +52,7 @@
 	                    <tr class="office_board_table_tr">
 	                        <td class="fre_ask_table_td1 fre_ask_table_data fre_ask_table_td">${ dto.idx }</td>
 	                        <td class="fre_ask_table_td2 fre_ask_table_data fre_ask_table_td">${ dto.categori_text }</td>
-	                        <td class="fre_ask_table_td3 fre_ask_table_data fre_ask_table_td"><a href="/fre_ask_select_view?idx=${ dto.idx }">${ dto.title }</a></td>
+	                        <td class="fre_ask_table_td3 fre_ask_table_data fre_ask_table_td"><a href="">${ dto.title }</a></td>
 	                    </tr>
                     </c:forEach>
                 </table>

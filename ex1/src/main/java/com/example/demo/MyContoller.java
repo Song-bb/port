@@ -226,26 +226,18 @@ public class MyContoller {
 
 	// 자주하는질문 페이지
 	@RequestMapping("/fre_ask_questions")
-	public String fre_ask_questions(Model model) {
-		model.addAttribute("fre_que_list", service.list2());		
+	public String fre_ask_questions(@RequestParam(value="idx", required=false) String idx, Model model) {
+		model.addAttribute("fre_que_list", service.list2());
+		model.addAttribute("fre_ask_view", service.view2(idx));
 		return "servicePage/fre_ask_questions";
 	}
-	
+
 	// 자주하는질문 페이지 카테고리 선택
 	@RequestMapping("/fre_que_select")
 	public String fre_que_select(@RequestParam(value="select", required=false) String categori, Model model ) {
 		model.addAttribute("dto_fre_ask_select", service.select( categori ));
 		return "servicePage/fre_que_select";
 	}
-
-	/*
-	 * // 자주하는질문 글 상세보기
-	 * 
-	 * @RequestMapping("/fre_ask_view") public String
-	 * fre_ask_view(@RequestParam("idx") String idx, Model model ) {
-	 * model.addAttribute("fre_ask_view", service.view2( idx )); return
-	 * "servicePage/fre_ask_view"; }
-	 */
 
 	// 1:1문의 페이지
 	@RequestMapping("/personal_question")
