@@ -20,3 +20,23 @@ $(document).ready(function(){
         $(this).next('.QNA_hide').toggle();
     });
 });
+
+
+//togle(myReview)
+
+$(document).ready(function(){
+    $('.show').click(function(){
+        $(this).next('.hide').toggle();
+    });
+});
+
+
+
+//review popup
+
+function reviewPop() { 
+	window.open(
+		"myCart", "a", 
+		"width=600, height=800, left=200, top=0"
+	); 
+}

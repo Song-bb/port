@@ -40,22 +40,22 @@
                     <div class="mypage_review_side_table_div">
                         <table class="mypage_review_side_table">
                             <tr>
-                                <td class="selected_page_td"><a href=""><div>주문 내역<span>></span></div></a></td>
+                                <td class="selected_page_td"><a href="/myPage_main"><div>주문 내역<span>></span></div></a></td>
                             </tr>
                             <tr>
-                                <td><a href=""><div>정기배송 내역<span>></span></div></a></td>
+                                <td><a href="/myPage_main"><div>정기배송 내역<span>></span></div></a></td>
                             </tr>
                             <tr>
                                 <td><a href="/myCart"><div>장바구니<span>></span></div></a></td>
                             </tr>
                             <tr>
-                                <td><a href=""><div>상품후기<span>></span></div></a></td>
+                                <td><a href="/myReview"><div>상품후기<span>></span></div></a></td>
                             </tr>
                             <tr>
-                                <td><a href=""><div>적립금<span>></span></div></a></td>
+                                <td><a href="myPoint"><div>적립금<span>></span></div></a></td>
                             </tr>
                             <tr>
-                                <td><a href=""><div>개인정보수정<span>></span></div></a></td>
+                                <td><a href="updateInform"><div>개인정보수정<span>></span></div></a></td>
                             </tr>
                         </table>
                     </div>
@@ -64,66 +64,62 @@
                     </div>
                 </div>
                 <div class="mypage_review_right">
-                    <div class="mypage_review_title"><h2>상품 후기</h2></div>
-                        <div id="mypage_review_title_nav">
-
-                        </div>
+                    <div class="mypage_review_title">
+                    	<h2>상품 후기</h2>
                     </div>
-                    <div id="mypage_review_order_info">
-                        <div id="mypage_review_body">
-                            <table id="mypage_review_table">
-                                <tr class="review_table_tr">
-                                    <td class="review_table_td_1">번호</td>
-                                    <td class="review_table_td_1">제목</td>
-                                    <td class="review_table_td_1">조회</td>
-                                    <td class="review_table_td_1">작성일</td>
-                                </tr>
-                                <tr class="review_table_tr review_table_tr_click show">
-                                    <td class="review_table_td_2">1</td>
-                                    <td class="review_table_td_2 review_table_td_title">마음에 들어요~</td>
-                                    <td class="review_table_td_2">22</td>
-                                    <td class="review_table_td_2">2020-07-02</td>
-                                </tr>
-                                <tr id="review_table_tr_hidden" class="hide">
-                                    <td></td>
-                                    <td id="review_table_td_hidden">
-                                            <p>상품명 : 알찬사과 200g외<br>
-                                            주문번호 : 202007020001<br>
-                                            등록평점 : 4.5</p>
-                                            <br>
-                                            <br>
-                                            과일이 아주 신선해요~ 다음에 또 주문할게요~
-                                    </td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr class="review_table_tr review_table_tr_click show">
-                                    <td class="review_table_td_2">2</td>
-                                    <td class="review_table_td_2 review_table_td_title_2">최고에요~</td>
-                                    <td class="review_table_td_2">12</td>
-                                    <td class="review_table_td_2">2020-07-04</td>
-                                </tr>
-                                 <tr id="review_table_tr_hidden" class="hide">
-                                    <td></td>
-                                    <td id="review_table_td_hidden">
-                                            <p>상품명 : 알찬사과 200g외<br>
-                                            주문번호 : 202007020001<br>
-                                            등록평점 : 4.5</p>
-                                            <br>
-                                            <br>
-                                            과일이 아주 신선해요~ 다음에 또 주문할게요~
-                                    </td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
+                    
+                    <table id="mypage_review_table">
+                          <tr class="review_table_tr">
+                              <td class="review_table_td_1">번호</td>
+                              <td class="review_table_td_1">제목</td>
+                              <td class="review_table_td_1">조회</td>
+                              <td class="review_table_td_1">작성일</td>
+                          </tr>
+                          <tr class="review_table_tr review_table_tr_click show">
+                              <td class="review_table_td_2">1</td>
+                              <td class="review_table_td_2 review_table_td_title">마음에 들어요~</td>
+                              <td class="review_table_td_2">22</td>
+                              <td class="review_table_td_2">2020-07-02</td>
+                          </tr>
+                          <tr id="review_table_tr_hidden" class="hide">
+                              <td></td>
+                              <td id="review_table_td_hidden">
+                                      <p>상품명 : 알찬사과 200g외<br>
+                                      주문번호 : 202007020001<br>
+                                      등록평점 : 4.5</p>
+                                      <br>
+                                      <br>
+                                      과일이 아주 신선해요~ 다음에 또 주문할게요~
+                              </td>
+                              <td></td>
+                              <td></td>
+                          </tr>
+                          <tr class="review_table_tr review_table_tr_click show">
+                              <td class="review_table_td_2">2</td>
+                              <td class="review_table_td_2 review_table_td_title">최고에요~</td>
+                              <td class="review_table_td_2">12</td>
+                              <td class="review_table_td_2">2020-07-04</td>
+                          </tr>
+                           <tr id="review_table_tr_hidden" class="hide">
+                              <td></td>
+                              <td id="review_table_td_hidden">
+                                      <p>상품명 : 알찬사과 200g외<br>
+                                      주문번호 : 202007020001<br>
+                                      등록평점 : 4.5</p>
+                                      <br>
+                                      <br>
+                                      과일이 아주 신선해요~ 다음에 또 주문할게요~
+                              </td>
+                              <td></td>
+                              <td></td>
+                          </tr>
+                      </table>
+                </div>
                 </div>
             </div>
         </div>
 	
-	
+	<!-- 
 		<script>
 	        $(document).ready(function(){
 	            $('.show').click(function(){
@@ -131,6 +127,6 @@
 	            });
 	        });
     	</script>
-	
+	 -->
 	
 	<c:import url="../footer.jsp"></c:import>

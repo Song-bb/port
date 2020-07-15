@@ -61,15 +61,12 @@
     padding-top: 30px;
     width: 800px;
 }
+.mypage_review_title{
+	padding-bottom: 20px;
+}
 .mypage_review_title h2{
-	margin-left: -20px;
 	padding-bottom: 20px;
 	border-bottom: 2px solid #459356;
-}
-#mypage_review_title_nav{
-    margin-right: 20px;
-    width: 150px;
-    height: 30px;
 }
 #mypage_review_info_div{
     float: right;
@@ -108,9 +105,7 @@
 }
 
 #mypage_review_table{
-    margin-top: 20px;
-    margin-left: 110px;
-    width: 720px;
+    width: 100%;
     border-collapse: collapse;
     padding: 30px;
 }
@@ -118,9 +113,7 @@
 	width: 670px;
 }
 .review_table_td_title{
-    font-weight: bolder;
-    padding-bottom: 20px;
-    border-bottom: 2px solid rgba(179, 178, 178, 0.507);
+	width: 60%;
 }
 .review_table_td_1{
     padding: 20px;
@@ -129,15 +122,10 @@
     font-size: 0.75em;
 }
 .review_table_td_2{
-	width: 50px;
     padding: 20px;
     text-align: left;
     border-bottom: 2px solid rgba(179, 178, 178, 0.507);
     font-size: 0.75em;
-}
-.review_table_td_title{
-	width: 300px;
-	font-size: 0.75em;
 }
 #review_table_td_hidden{
     float: left;
@@ -149,8 +137,7 @@
     padding-bottom: 30px;
 }
 #review_table_td_hidden p{
-    font-weight: lighter;
-    font-size: 0.5em;
+	color: #6e6e6e;
 }
 .hide {
 	display:none;
