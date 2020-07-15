@@ -12,9 +12,6 @@
        <div id="mycart_header">
            <h2>장바구니</h2>
        </div>
-       <div id="mycart_header_2">
-           <p>구매 리스트</p>
-       </div>
         <div id="cart_table_div">
             <table class="cart_table">
                 <tr id="cart_table_head">
@@ -50,17 +47,21 @@
                     <td class="cart_point">10원</td>
                 </tr>
             </table>
-            <div>
-	            <input type="checkbox" id="checkall" /><p id="checkbox_text">전체선택</p>
-	            <a href="" id=cart_btn_1>선택 삭제</a>
+            <div class="checkBoxAll">
+            	<div class="selectAll">
+	            	<input type="checkbox" id="checkall" />
+	            	<p id="checkbox_text">전체선택</p>
+	            </div>
+	            <button id=cart_btn_1>선택 삭제</button>
             </div>
         </div>
         <div id="cart_table_under"></div>
         <div id="cart_foot">
-            <div id="cart_foot_info">총 상품 금액</div><div id="cart_foot_price"><h2>0,0000원</h2></div>
-            <div id="cart_table_btn">
-                <a href="" id=cart_btn_2>결제하기</a>
-            </div>
+        	<div class="cart_footer_top">
+	            <p id="cart_foot_info">총 상품 금액</p>
+	            <p id="cart_foot_price"><span>0,000</span>원</p>
+	        </div>
+            <button id=cart_btn_2>결제하기</button>
         </div>
     </div>
 
