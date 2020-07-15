@@ -7,7 +7,7 @@
 
 	<c:import url="../header.jsp"></c:import>
 	
-	<div id="item_detail_wrap">
+	    <div id="item_detail_wrap">
         <div class="item_detail_titleLink">
             <ul>
                     <!-- 해상 상품 카테고리 페이지 이동 -->
@@ -112,7 +112,7 @@
         <!-- 상세페이지 -->
         <div id="item_detail_content2">
 
-            <div id="item_detail_nav">
+            <div class="item_detail_nav">
                 <ul>
                     <li><a href="#item_detail_content2" class="on">상세정보</a></li>
                     <li><a href="#item_detail_content3">리뷰</a></li>
@@ -252,7 +252,7 @@
 
         <!-- ====================== 리뷰 ========================-->
         <div id="item_detail_content3">
-            <div id="item_detail_nav">
+            <div class="item_detail_nav">
                 <ul>
                     <li><a href="#item_detail_content2">상세정보</a></li>
                     <li><a href="#item_detail_content3" class="on">리뷰</a></li>
@@ -261,61 +261,60 @@
                 </ul>
             </div>
 
-            <div id="item_detail_review">
+            <div class="item_detail_subTitle">
                 <h3>상품리뷰</h3>
                 <p>상품을 구매하신 분들이 작성하신 후기입니다. 리뷰 작성시 포인트가 지급됩니다.</p>
-                <table>
-                    <tr class="item_reviewBox2">
-                        <td class="reviewStar">평점</td>
-                        <td class="reviewWriter"><span>Writer</span><span>Date</span></td>
-                        <td class="reviewContent">
-                        	<p>
-                        	잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-                            </p>
-                        </td>
-                    </tr>
-                </table>
-                <table>
-                    <tr class="item_reviewBox2">
-                        <td class="reviewStar">평점</td>
-                        <td class="reviewWriter"><span>Writer</span><span>Date</span></td>
-                        <td class="reviewContent">
-                        	<p>
-                        	잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-                            </p>
-                        </td>
-                    </tr>
-                </table>
-                <table>
-                    <tr class="item_reviewBox2">
-                        <td class="reviewStar">평점</td>
-                        <td class="reviewWriter"><span>Writer</span><span>Date</span></td>
-                        <td class="reviewContent">
-                        	<p>
-                        	잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-                            </p>
-                        </td>
-                    </tr>
-                </table>
             </div>
-            
+                <table>
+                    <tr class="item_reviewBox2">
+                        <td class="reviewStar">평점</td>
+                        <td class="reviewWriter"><span>Writer</span><span>Date</span></td>
+                        <td class="reviewContent">
+                        	<p>
+                        	잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+                <table>
+                    <tr class="item_reviewBox2">
+                        <td class="reviewStar">평점</td>
+                        <td class="reviewWriter"><span>Writer</span><span>Date</span></td>
+                        <td class="reviewContent">
+                        	<p>
+                        	잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+                <table>
+                    <tr class="item_reviewBox2">
+                        <td class="reviewStar">평점</td>
+                        <td class="reviewWriter"><span>Writer</span><span>Date</span></td>
+                        <td class="reviewContent">
+                        	<p>
+                        	잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            </p>
+                        </td>
+                    </tr>
+                </table>
         </div>
         <!-- 상품문의 /로그인후게시물작성 -->
         <div id="item_detail_content4">
-            <div id="item_detail_nav">
+            <div class="item_detail_nav">
                 <ul>
                     <li><a href="#item_detail_content2">상세정보</a></li>
                     <li><a href="#item_detail_content3">리뷰</a></li>
@@ -323,11 +322,62 @@
                     <li><a href="#item_detail_content5">반품/교환정보</a></li>
                 </ul>
             </div>
+
+            <div class="item_detail_subTitle">
+                <h3>상품문의</h3>
+                <p>구매하려는 상품에 대해 궁금하신 점이 있으신 경우 문의해주세요.</p>
+                <button class="QNAbutton">상품문의하기</button>
+            </div>
+            <table>
+                <tr>
+                    <th>답변상태</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>작성일</th>
+                </tr>
+                <tr class="QNA_show">
+                    <td>답변완료</td>
+                    <td>택배사는 어디인가요?</td>
+                    <td>abc****</td>
+                    <td>2020-08-15 <br> 12:00</td>
+                </tr>
+                <tr class="QNA_hide">
+                    <td></td>
+                    <td>
+                        <p>
+                            안녕하세요 고객님^^ 과일장수를 이용해주셔서 감사합니다.<br>
+                            과일장수는 대한통운사를 이용하고 있습니다.<br>
+                            신선하고 최고의 품질을 빠르고 안전하게 보내기 위해 최선을 다하는 과일장수가 되겠습니다. 감사합니다^^
+                        </p>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="QNA_show">
+                    <td>답변완료</td>
+                    <td>워싱턴 체리인데 원산지는 국산인가요?</td>
+                    <td>bbb****</td>
+                    <td>2020-08-15 <br> 07:23</td>
+                </tr>
+                <tr class="QNA_hide">
+                    <td></td>
+                    <td>
+                        <p>
+                            안녕하세요 고객님^^ 과일장수를 이용해주셔서 감사합니다.<br>
+                            해당 상품은 특정 지역명의 이름을 딴 상품임으로 원산지와는 상관없습니다.<br>
+                            하지만 그 무엇과도 비교할 수 없는 최고의 상품임을 과일장수가 약속드립니다<br>
+                            신선하고 최고의 품질을 빠르고 안전하게 보내기 위해 최선을 다하는 과일장수가 되겠습니다. 감사합니다^^
+                        </p>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
             
         </div>
         <!-- 교환반송안내 -->
         <div id="item_detail_content5">
-            <div id="item_detail_nav">
+            <div class="item_detail_nav">
                 <ul>
                     <li><a href="#item_detail_content2">상세정보</a></li>
                     <li><a href="#item_detail_content3">리뷰</a></li>
@@ -335,6 +385,40 @@
                     <li><a href="#item_detail_content5" class="on">반품/교환정보</a></li>
                 </ul>
             </div>
+
+            <div class="item_detail_subTitle">
+                <h3>교환/반송안내</h3>
+            </div>
+
+            <table>
+                <tr>
+                    <th>판매자 지정택배사</th>
+                    <td>CJ대한통운</td>
+                </tr>
+                <tr>
+                    <th>반품배송비</th>
+                    <td>편도 3,000원 (최초 배송비 무료인 경우  6,000원 부과)</td>
+                </tr>
+                <tr>
+                    <th>보내실곳</th>
+                    <td>과일장수</td>
+                </tr>
+                <tr>
+                    <th>반품/교환 사유에 따른<br> 요청 가능 기간</th>
+                    <td>표시/광고와 상이, 상품하자의 경우 상품 수령 후 3개월 이내 혹은 표시/광고와 다른 사실을 안 날로부터 30일 이내 </td>
+                </tr>
+                <tr>
+                    <th>반품/교환 불가능 사유</th>
+                    <td>
+                        1. 반품요청기간이 지난경우<br>
+                        2. 구매자의 책임있는 사유로 상품등 멸실 또는 훼손된 경우<br>
+                        3. 구매자의 책임있는 사유로 포장이 훼돈되어 상품가치가 현저히 상실된 경우<br>
+                        4. 구매자의 사용 또는 일부 소비에 의하여 상품의 가치가 현저히 감소한 경우
+
+                    </td>
+                </tr>
+
+            </table>
             
         </div>
     </div>

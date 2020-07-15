@@ -228,20 +228,20 @@ tr.item_reviewBox > td {
 #item_detail_content2{
     padding: 20px 0;
 }
-#item_detail_nav{
+.item_detail_nav{
     width: 100%;
     border-bottom: 1px solid #459356;
     margin: 20px 0;
     overflow:hidden;
 }
-#item_detail_nav li {
+.item_detail_nav li {
     display: inline-block;
     width: 24.59%;
     height: 50px;
     line-height: 50px;
     text-align: center;
 }
-#item_detail_nav li a {
+.item_detail_nav li a {
     display: inline-block;
     width: 100%;
     height: 100%;
@@ -293,15 +293,101 @@ tr.item_reviewBox > td {
 }
 
 /* ============ 리뷰 */
-#item_detail_review table {
-    width: 100%;
+#item_detail_content3 {
+    margin-top: 130px;
 }
+#item_detail_content3 table {
+    width: 100%;
+    font-size: 0.8em;
+}
+/* ====================subTitle */
+.item_detail_subTitle {
+    padding: 30px 0 40px 0;
+    border-bottom: 2px solid #333333;
+}
+.item_detail_subTitle > p{
+    font-size: 0.8em;
+    color: #6e6e6e;
+}
+
+
 tr.item_reviewBox2 {
     width: 100%;
     padding: 20px;
+    border-bottom: 1px solid #ededed;
     display: inline-block;
-}tr.item_reviewBox2 > td {
+}
+tr.item_reviewBox2 > td {
     display: block;
 }
 
+/* ============ 상품문의 ============== */
+#item_detail_content4 {
+    margin-top: 130px;
+}
+#item_detail_content4 table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8em;
+    color:#6e6e6e;
+    text-align: center;
+}
+
+.item_detail_subTitle{
+    position: relative;
+}
+
+.QNAbutton {
+    position: absolute;
+    right: 0;
+    top: 32px;
+    border: 1px solid #459356;
+    width: 100px;
+    height: 41px;
+    font-weight: bold;
+    font-size: 0.8em;
+    color: #459356;
+    cursor: pointer;
+    background-color: white;
+}
+
+#item_detail_content4 table tr {
+    border-bottom: 1px solid #ededed;
+    height: 50px;
+}
+#item_detail_content4 table tr td:nth-child(2){
+    width: 70%;
+    text-align:left;
+    cursor: pointer;
+}
+.QNA_hide{
+    display:none;
+}
+.QNA_hide td:nth-child(2){
+    height: 180px;
+}
+
+/* ============ 교환배송안내 ============= */
+#item_detail_content5{
+    margin-top: 130px;
+}
+
+#item_detail_content5 table{
+    width: 100%;
+    font-size: 0.8em;
+    border-collapse: collapse;
+    text-align: left;
+}
+#item_detail_content5 table tr{
+    height: 50px;
+    border-bottom: 1px solid #ededed;
+}
+#item_detail_content5 table th{
+    color: #6e6e6e;
+     font-weight: lighter;
+}
+#item_detail_content5 table td{
+    padding: 10px 0;
+    color: #6e6e6e;
+}
 
