@@ -78,13 +78,13 @@
                                     <td class="review_table_td_1">조회</td>
                                     <td class="review_table_td_1">작성일</td>
                                 </tr>
-                                <tr class="review_table_tr review_table_tr_click">
+                                <tr class="review_table_tr review_table_tr_click show">
                                     <td class="review_table_td_2">1</td>
                                     <td class="review_table_td_2 review_table_td_title">마음에 들어요~</td>
                                     <td class="review_table_td_2">22</td>
                                     <td class="review_table_td_2">2020-07-02</td>
                                 </tr>
-                                <tr id="review_table_tr_hidden">
+                                <tr id="review_table_tr_hidden hide">
                                     <td></td>
                                     <td id="review_table_td_hidden">
                                             <p>상품명 : 알찬사과 200g외<br>
@@ -97,13 +97,13 @@
                                     <td></td>
                                     <td></td>
                                 </tr>
-                                <tr class="review_table_tr review_table_tr_click_2">
+                                <tr class="review_table_tr review_table_tr_click show">
                                     <td class="review_table_td_2">2</td>
                                     <td class="review_table_td_2 review_table_td_title_2">최고에요~</td>
                                     <td class="review_table_td_2">12</td>
                                     <td class="review_table_td_2">2020-07-04</td>
                                 </tr>
-                                <tr id="review_table_tr_hidden_2">
+                                <tr id="review_table_tr_hidden hide">
                                     <td></td>
                                     <td id="review_table_td_hidden">
                                             <p>상품명 : 알찬사과 200g외<br>
@@ -123,20 +123,14 @@
             </div>
         </div>
 	
-		<script> 
-			$(document).ready(function(){
-			 	if($("#review_table_tr_hidden").css("display") == "none"){
-			 		  $(".review_table_tr_click").click(function(){
-		 			    $("#review_table_tr_hidden").show();
-		 			  });
-			 	}
-			 	if($("#review_table_tr_hidden").css("display") == "table-row") {
-			 		 $(".review_table_tr_click").click(function(){
-		 			    $("#review_table_tr_hidden").hide();
-		 			  });
-			 	}
-			});
-		</script>
+	
+		<script>
+	        $(document).ready(function(){
+	            $('.show').click(function(){
+	                $(this).next('.hide').toggle();
+	            });
+	        });
+    	</script>
 	
 	
 	<c:import url="../footer.jsp"></c:import>

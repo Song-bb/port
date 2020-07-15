@@ -86,23 +86,23 @@
                         <tr class="item_reviewBox">
                             <td class="reviewStar">평점</td>
                             <td class="reviewWriter"><span>Writer</span><span>Date</span></td>
-                            <td class="reviewContent">잘먹겠습니다</td>
+                            <td class="reviewContent"><p class="textEllipsis">맛있게 잘먹겠습니다~ 맛있는과일 많이파세요~ 맛있는과일이왔어요배송도빨라요~~~</p></td>
                         </tr>
                         
                         <tr class="item_reviewBox">
                             <td class="reviewStar">평점</td>
                             <td class="reviewWriter"><span>Writer</span><span>Date</span></td>
-                            <td class="reviewContent">잘먹겠습니다</td>
+                            <td class="reviewContent"><p class="textEllipsis">맛있게 잘먹겠습니다~ 맛있는과일 많이파세요~ 맛있는과일이왔어요배송도빨라요~~~</p></td>
                         </tr>
                         <tr class="item_reviewBox">
                             <td class="reviewStar">평점</td>
                             <td class="reviewWriter"><span>Writer</span><span>Date</span></td>
-                            <td class="reviewContent">잘먹겠습니다</td>
+                            <td class="reviewContent"><p class="textEllipsis">맛있게 잘먹겠습니다~ 맛있는과일 많이파세요~ 맛있는과일이왔어요배송도빨라요~~~</p></td>
                         </tr>
                         <tr class="item_reviewBox">
                             <td class="reviewStar">평점</td>
                             <td class="reviewWriter"><span>Writer</span><span>Date</span></td>
-                            <td class="reviewContent">잘먹겠습니다</td>
+                            <td class="reviewContent"><p class="textEllipsis">맛있게 잘먹겠습니다~ 맛있는과일 많이파세요~ 맛있는과일이왔어요배송도빨라요~~~</p></td>
                         </tr>
                     </table>
                 </div>
@@ -265,10 +265,49 @@
                 <h3>상품리뷰</h3>
                 <p>상품을 구매하신 분들이 작성하신 후기입니다. 리뷰 작성시 포인트가 지급됩니다.</p>
                 <table>
-                    <tr class="item_reviewBox">
+                    <tr class="item_reviewBox2">
                         <td class="reviewStar">평점</td>
                         <td class="reviewWriter"><span>Writer</span><span>Date</span></td>
-                        <td class="reviewContent">잘먹겠습니다</td>
+                        <td class="reviewContent">
+                        	<p>
+                        	잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+                <table>
+                    <tr class="item_reviewBox2">
+                        <td class="reviewStar">평점</td>
+                        <td class="reviewWriter"><span>Writer</span><span>Date</span></td>
+                        <td class="reviewContent">
+                        	<p>
+                        	잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+                <table>
+                    <tr class="item_reviewBox2">
+                        <td class="reviewStar">평점</td>
+                        <td class="reviewWriter"><span>Writer</span><span>Date</span></td>
+                        <td class="reviewContent">
+                        	<p>
+                        	잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
+                            </p>
+                        </td>
                     </tr>
                 </table>
             </div>

@@ -217,6 +217,11 @@ tr.item_reviewBox {
 tr.item_reviewBox > td {
     display: block;
 }
+.textEllipsis{
+	text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden; 
+}
 
 /* =========== item_detail_content2 //상세페이지 ============= */
 
@@ -227,6 +232,7 @@ tr.item_reviewBox > td {
     width: 100%;
     border-bottom: 1px solid #459356;
     margin: 20px 0;
+    overflow:hidden;
 }
 #item_detail_nav li {
     display: inline-block;
@@ -289,6 +295,13 @@ tr.item_reviewBox > td {
 /* ============ 리뷰 */
 #item_detail_review table {
     width: 100%;
+}
+tr.item_reviewBox2 {
+    width: 100%;
+    padding: 20px;
+    display: inline-block;
+}tr.item_reviewBox2 > td {
+    display: block;
 }
 
 

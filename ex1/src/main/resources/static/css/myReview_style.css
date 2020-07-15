@@ -152,6 +152,9 @@
     font-weight: lighter;
     font-size: 0.5em;
 }
+.hide {
+	display:none;
+}
 #review_table_tr_hidden{
 	display: none;
 	padding-bottom: 20px;
