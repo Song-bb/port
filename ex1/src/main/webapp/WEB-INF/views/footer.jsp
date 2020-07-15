@@ -38,5 +38,5 @@
 	</div>
 
 </body>
-<script src="js/headerJS.js"></script>
+<script src="js/my_JS.js"></script>
 </html>
