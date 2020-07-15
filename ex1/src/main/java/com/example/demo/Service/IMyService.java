@@ -23,9 +23,9 @@ public interface IMyService {
 	/*  공지사항  */
 	public List<dto_noticeBoard> list1();
 	public int count();
-	public dto_noticeBoard view(String notice_index, String error );
+	public dto_noticeBoard view(String notice_index);
 	public void updateViewCount(String notice_index);
-
+	public List<dto_noticeBoard> search( String search_filter, String search_text);
 	
 }
 

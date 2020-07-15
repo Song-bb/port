@@ -21,6 +21,18 @@
 	<update id="updateViewCount"> 
 			UPDATE notice_board SET notice_hit = notice_hit + 1 WHERE notice_index = #{notice_index} 
 	</update>
+	
+	<select id="search1" resultType="com.example.demo.dto.dto_noticeBoard">
+			SELECT * FROM notice_board WHERE notice_index = #{param1}
+	</select>
+	
+	<select id="search2" resultType="com.example.demo.dto.dto_noticeBoard">
+			SELECT * FROM notice_board WHERE notice_title like CONCAT('%',#{param1},'%') ORDER BY notice_index desc
+	</select>
+	
+	<select id="search3" resultType="com.example.demo.dto.dto_noticeBoard">
+			SELECT * FROM notice_board WHERE notice_content like CONCAT('%',#{param1},'%') ORDER BY notice_index desc
+	</select>
 
 
 	

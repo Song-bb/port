@@ -14,5 +14,8 @@ public interface IDao_noticeBoard {
 	public dto_noticeBoard viewDao(String notice_index);
 	public int noticeViewCount(String notice_index);
 	public void updateViewCount(String notice_index);
+	public List<dto_noticeBoard> search1(String search_text );
+	public List<dto_noticeBoard> search2(String search_text );
+	public List<dto_noticeBoard> search3(String search_text );
 	
 }

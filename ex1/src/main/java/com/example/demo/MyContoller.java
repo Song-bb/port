@@ -32,7 +32,7 @@ public class MyContoller {
 	// 메인페이지
 	@RequestMapping("/main")
 	public String mainPage(Model model) {
-		model.addAttribute("banner_img", service.viewBanner());		
+		model.addAttribute("banner_img", service.viewBanner());	
 		return "main";
 	}
 	
@@ -203,13 +203,20 @@ public class MyContoller {
 
 	// 공지사항 글
 	@RequestMapping("/notice_board")
-	public String notice_board( @RequestParam("notice_index") String notice_index, @RequestParam("notice_index") int notice_index_nb, Model model, String error ) {
-		model.addAttribute("dto_notice_board", service.view(notice_index, error));
-		model.addAttribute("dto_notice_board_before", service.view(String.valueOf(notice_index_nb-1), error)); // 이전글
-		model.addAttribute("dto_notice_board_after", service.view(String.valueOf(notice_index_nb+1), error)); // 다음글
+	public String notice_board( @RequestParam("notice_index") String notice_index, @RequestParam("notice_index") int notice_index_nb, Model model ) {
+		model.addAttribute("dto_notice_board", service.view(notice_index));
+		model.addAttribute("dto_notice_board_before", service.view(String.valueOf(notice_index_nb-1))); // 이전글
+		model.addAttribute("dto_notice_board_after", service.view(String.valueOf(notice_index_nb+1))); // 다음글
 		service.updateViewCount(notice_index); // 조회수 증가
 		return "servicePage/notice_board";
-	}	
+	}
+	
+	// 공지사항 글 검색하기
+	@RequestMapping("/notice_board_search")
+	public String notice_board_search( @RequestParam("search_text") String search_text, @RequestParam(value="search_filter", required=false, defaultValue="notice_title") String search_filter, HttpServletResponse response, Model model ) throws Exception {
+		model.addAttribute("dto_notice_board_search", service.search(search_filter, search_text));
+		return "servicePage/notice_board_search";
+	}
 
 	// 아이디,비밀번호찾기 페이지
 	@RequestMapping("/foundId")

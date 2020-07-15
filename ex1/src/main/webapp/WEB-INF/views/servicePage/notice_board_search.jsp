@@ -2,12 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
-<!-- 고객센터 > 공지사항 -->
+<!-- 공지사항 글 검색 -->
 
 	<c:import url="../header.jsp"></c:import>
-	
-    <div id="page_wrap">
+		
+		    <div id="page_wrap">
         <div class="servicePage_left">
             <div class="servicePage_title">고객센터</div>
             <div class="servicePage_side_table_div">
@@ -38,7 +37,7 @@
                         <td class="office_board_table_td office_td4">작성일</td>
                         <td class="office_board_table_td office_td5">조회</td>
                     </tr>
-                    <c:forEach items="${ notice_board_list }" var="dto">
+                    <c:forEach items="${ dto_notice_board_search }" var="dto">
                     <tr class="office_board_table_tr">
                         <td class="office_board_table_td office_td1">${ dto.notice_index }</td>
                         <td class="office_board_table_td office_td2"><a href="notice_board?notice_index=${ dto.notice_index }">${ dto.notice_title }</a></td>
