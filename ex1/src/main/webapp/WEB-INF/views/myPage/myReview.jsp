@@ -129,7 +129,8 @@
 			 		  $(".review_table_tr_click").click(function(){
 		 			    $("#review_table_tr_hidden").show();
 		 			  });
-			 	} else if($("#review_table_tr_hidden").css("display") != "none") {
+			 	}
+			 	if($("#review_table_tr_hidden").css("display") == "table-row") {
 			 		 $(".review_table_tr_click").click(function(){
 		 			    $("#review_table_tr_hidden").hide();
 		 			  });
