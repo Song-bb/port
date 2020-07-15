@@ -65,10 +65,10 @@
             <div id="join_service_check">
                 <h3>이용약관 동의</h3>
                 <div id="join_service_box">
-                    <input type="checkbox" name="service" class="service_box" value="1" required="required">서비스이용약관동의(필수) <label><a href="">약관보기 ></a></label> <br>
-                    <input type="checkbox" name="service" class="service_box" value="2"  required="required">개인정보처리방침동의(필수) <label><a href="">약관보기 ></a></label> <br>
-                    <input type="checkbox" name="service" class="service_box" value="3"  required="required">개인정보처리위탁동의(필수) <label><a href="">약관보기 ></a></label> <br>
-                    <input type="checkbox" name="service" class="service_box" value="4" >마케팅정보제공동의(선택) <label><a href="">약관보기 ></a></label> <br>
+                    <input type="checkbox" name="service" class="service_box" value="1" required="required">서비스이용약관동의(필수) <label><a href="#">약관보기 ></a></label> <br>
+                    <input type="checkbox" name="service" class="service_box" value="2"  required="required">개인정보처리방침동의(필수) <label><a href="#">약관보기 ></a></label> <br>
+                    <input type="checkbox" name="service" class="service_box" value="3"  required="required">개인정보처리위탁동의(필수) <label><a href="#">약관보기 ></a></label> <br>
+                    <input type="checkbox" name="service" class="service_box" value="4" >마케팅정보제공동의(선택) <label><a href="#">약관보기 ></a></label> <br>
                 </div>
             </div>
             <div id="join_btn">

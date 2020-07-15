@@ -71,7 +71,6 @@
 					</div>
 						<a href="/delevery_place">배송지역 검색</a>
 					<% } else { %>
-					<div>
 					<div class="sub_nav">
 						<a href="/myPage_main"><%= session.getAttribute("user_name") %> 님</a> |
 							<div class="sub_navBox sub_navBox2">
@@ -85,7 +84,6 @@
 								</ul>
 							</div>
 					</div>
-					</div> 
 						<a href="/logout">로그아웃</a> | 
 					<div class="sub_nav"> 
 						<a href="/servicePage_main">고객센터</a> |
