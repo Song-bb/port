@@ -75,7 +75,7 @@
                         <td class="select_page_table_td"><a href="">></a></td>
                         <td class="select_page_table_td"><a href="">>></a></td>
                     </tr>
-                </table>
+                </table><!--  -->
             </div>
             <div class="order_search_div">
                 <div class="fre_ask_search">
