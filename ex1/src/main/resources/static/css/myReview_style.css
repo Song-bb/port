@@ -128,14 +128,19 @@
     border-bottom: 2px solid rgba(179, 178, 178, 0.507);
 }
 .review_table_td_2{
+	width: 50px;
     padding: 20px;
     text-align: left;
     border-bottom: 2px solid rgba(179, 178, 178, 0.507);
+}
+.review_table_td_title{
+	width: 450px;
 }
 #review_table_td_hidden{
     float: left;
     display: block;
     padding-top: 30px;
     padding-left: 20px;
+    width: 450px;
 }
 

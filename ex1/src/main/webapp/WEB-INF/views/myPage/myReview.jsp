@@ -80,7 +80,7 @@
                                 </tr>
                                 <tr class="review_table_tr">
                                     <td class="review_table_td_2">1</td>
-                                    <td class="review_table_td_2">마음에 들어요~</td>
+                                    <td class="review_table_td_2 review_table_td_title">마음에 들어요~</td>
                                     <td class="review_table_td_2">22</td>
                                     <td class="review_table_td_2">2020-07-02</td>
                                 </tr>
@@ -103,7 +103,13 @@
             </div>
         </div>
 	
-	
+		<script> 
+			$(document).ready(function(){
+			  $(".review_table_td_2").click(function(){
+			    $(".review_table_tr_hidden").slideToggle("slow");
+			  });
+			});
+		</script>
 	
 	
 	<c:import url="../footer.jsp"></c:import>
