@@ -64,28 +64,29 @@
                     </div>
                 </div>
            </div>
+           <div id="update_wrap">
+	        <div id="update_title"><h2>비밀번호 재확인</h2></div>
+	        <form action="check_password_ok" method="post">
+	        <input type="hidden" name="user_id" value="<%= session.getAttribute("user_id") %>">
+	        <div id="update_form">
+	                <table id="update_form_table">
+	                    <tr>
+	                        <td colspan="2">비밀번호를 다시 입력해주세요.</td>
+	                    </tr>
+	                    <tr>
+	                        <th>비밀번호 </th>
+	                        <td><input type="password" name="user_pw" placeholder="비밀번호" class="input_text"></td>
+	                    </tr>
+	                </table>   
+	        </div>
+	        <div id="update_btn">
+	            <button type="submit" id="update_btn_1">확인</button>
+	            <button type="reset" id="update_btn_2">취소</button>
+	        </div>
+	        </form>
+	    </div>
       </div>
-        <div id="update_wrap">
-        <div id="update_title"><h2>비밀번호 재확인</h2></div>
-        <form action="check_password_ok" method="post">
-        <input type="hidden" name="user_id" value="<%= session.getAttribute("user_id") %>">
-        <div id="update_form">
-                <table id="update_form_table">
-                    <tr>
-                        <td colspan="2">비밀번호를 다시 입력해주세요.</td>
-                    </tr>
-                    <tr>
-                        <th>비밀번호 </th>
-                        <td><input type="password" name="user_pw" placeholder="비밀번호" class="input_text"></td>
-                    </tr>
-                </table>   
-        </div>
-        <div id="update_btn">
-            <button type="submit" id="update_btn_1">확인</button>
-            <button type="reset" id="update_btn_2">취소</button>
-        </div>
-        </form>
-    </div>
+        
 	
 	
 	

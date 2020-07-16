@@ -64,6 +64,60 @@
                     </div>
                 </div>
            </div>
+           <div id="update_wrap">
+        <div id="update_title"><h2>회원정보 수정하기</h2></div>
+	        <form action="update_ok.jsp">
+	        <div id="update_form">
+	        	<table>
+	        		<tr>
+	      		 		<td><input type="text" placeholder="<%= session.getAttribute("user_id") %>" class="input_text"></td>
+                    </tr>
+                    <tr>
+                        <th>새 비밀번호 </th>
+                        <td><input type="password" name="user_pw" placeholder="비밀번호" class="input_text"></td>
+                    </tr>
+                    <tr>
+                        <th>비밀번호 확인</th>
+                        <td><input type="password" name="user_pw" placeholder="비밀번호 확인" class="input_text"></td>
+                    </tr>
+                    <tr>
+                        <th>이메일</th>
+                        <td><input type="email" name="email" placeholder="이메일" class="input_text"><button type="submit" id="email_button">이메일 인증</button></td>
+                    </tr>
+                    <tr>
+                        <th>이름 </th>
+                        <td><input type="text" name="user_name" placeholder="<%= session.getAttribute("user_name") %>" class="input_text"></td>
+                    </tr>
+                    <tr>
+                        <th>휴대폰 </th>
+                        <td><input type="text" name="phone" placeholder="전화번호" class="input_text"><button type="submit" id="email_button">휴대폰 인증</button></td>
+                    </tr>
+                    <tr>
+                        <th>주소 </th>
+                        <td><input type="text" name="address" placeholder="주소" class="input_text"></td>
+                    </tr>
+                    <tr>
+                        <th>성별 </th>
+                        <td>
+                            <input type="radio" name="gender_select" value="male" class="update_radio">남자
+                            <input type="radio" name="gender_select" value="female" class="update_radio">여자
+                            <input type="radio" name="gender_select" value="nothing" class="update_radio">선택 안함
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>생년월일</th>
+                        <td><input type="date" max="9999.12.31" class="input_text"></td>
+                    </tr>
+                </table>
+            
+        </div>
+        <div id="update_btn">
+            <button type="submit" id="update_btn_1">수정</button>
+            <button type="reset" id="update_btn_2">취소</button>
+            <a href="/withdraw_member"><button type="button" id="update_btn_1">회원 탈퇴</button></a>
+        </div>
+        </form>
+    </div>
       </div>
         <div id="update_wrap">
         <div id="update_title"><h2>회원정보 수정하기</h2></div>
