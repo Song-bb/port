@@ -6,6 +6,7 @@ import java.util.Map;
 import com.example.demo.dto.dto_banner_img;
 import com.example.demo.dto.dto_fre_ask_board;
 import com.example.demo.dto.dto_members;
+import com.example.demo.dto.dto_myOrder;
 import com.example.demo.dto.dto_noticeBoard;
 
 public interface IMyService {
@@ -37,6 +38,12 @@ public interface IMyService {
 	public List<dto_fre_ask_board> select_fre_ask(String categori);
 	public List<dto_fre_ask_board> search_fre_ask( String search_text );
 
+	
+	
+	/*  마이페이지  */
+	public List<dto_myOrder> order_list(String user_id);
+	
+	
 	
 }
 

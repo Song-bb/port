@@ -267,8 +267,10 @@ public class MyContoller {
 	
 	// 마이페이지 메인
 	@RequestMapping("/myPage_main")
-	public String myPage_main() {
-		
+	public String myPage_main( HttpServletRequest request, HttpServletResponse response, Model model ) {
+        HttpSession session = request.getSession();
+        String user_id = session.getAttribute("user_id").toString();
+		model.addAttribute("my_order", service.order_list(user_id));
 		return "myPage/myPage_main";
 	}
 	

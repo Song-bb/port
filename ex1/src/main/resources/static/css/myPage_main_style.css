@@ -149,6 +149,10 @@
 .order_td2_1 {
     float: left;
 }
+#order_td2_1_img {
+    width: 120px;
+    heiht: 150px;
+}
 .order_td2_2 {
     float: left;
     line-height: 150px;

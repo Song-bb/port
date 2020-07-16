@@ -83,47 +83,29 @@
                                 <td class="order_board_table_td order_td4 order_td7">배송비</td>
                                 <td class="order_board_table_td order_td5 order_td6">진행상태</td>
                             </tr>
+                            <c:forEach items="${ my_order }" var="dto">
                             <tr class="order_board_table_tr">
-                                <td class="order_board_table_td order_td1 order_td6"><a href="/myOrder">2020070200001</a></td>
+                                <td class="order_board_table_td order_td1 order_td6"><a href="/myOrder">${ dto.order_number }</a></td>
                                 <td class="order_board_table_td order_td2">
                                     <div class="order_td2_1">
-                                        <a href="/myOrder"><img src="http://placehold.it/120x150"></a>
+                                        <a href="/myOrder"><img id="order_td2_1_img"" src="${ dto.item_img }"></a>
                                     </div>
                                     <div class="order_td2_2">
-                                        <a href="/myOrder">알찬사과 200g 외</a>
+                                        <a href="/myOrder">${ dto.item_text }</a>
                                     </div>
                                 </td>
-                                <td class="order_board_table_td order_td3 order_td7">13,900 원<br>(1개)</td>
-                                <td class="order_board_table_td order_td4 order_td7">2,500 원</td>
+                                <td class="order_board_table_td order_td3 order_td7">${ dto.price_actual } 원<br>(${ dto.count } 개)</td>
+                                <td class="order_board_table_td order_td4 order_td7">${ dto.price_delevery } 원</td>
                                 <td class="order_board_table_td order_td5">
                                     <div class="order_td5_2">
                                     												<!-- 팝업이벤트파일 : my_JS.js  -->				
                                             <button class="order_td5_2_1" type="button" onclick="reviewPop();">리뷰쓰기</button>
                                             <button class="order_td5_2_1" type="button" onclick="location.href=''">주문내역</button>
                                     </div>
-                                    <div class="order_td5_1">구매확정</div>
+                                    <div class="order_td5_1">${ dto.statement }</div>
                                 </td>
                             </tr>
-                            <tr class="order_board_table_tr">
-                                <td class="order_board_table_td order_td1 order_td6"><a href="/myOrder">2020070200001</a></td>
-                                <td class="order_board_table_td order_td2">
-                                    <div class="order_td2_1">
-                                        <a href="/myOrder"><img src="http://placehold.it/120x150"></a>
-                                    </div>
-                                    <div class="order_td2_2">
-                                        <a href="/myOrder">알찬사과 200g 외</a>
-                                    </div>
-                                </td>
-                                <td class="order_board_table_td order_td3 order_td7">13,900 원<br>(1개)</td>
-                                <td class="order_board_table_td order_td4 order_td7">2,500 원</td>
-                                <td class="order_board_table_td order_td5">
-                                    <div class="order_td5_2">
-                                            <button class="order_td5_2_1" type="button" onclick="reviewPop();">리뷰쓰기</button>
-                                            <button class="order_td5_2_1" type="button" onclick="location.href=''">주문내역</button>
-                                    </div>
-                                    <div class="order_td5_1">구매확정</div>
-                                </td>
-                            </tr>
+                            </c:forEach>
                         </table>
                     </div>
                 </div>

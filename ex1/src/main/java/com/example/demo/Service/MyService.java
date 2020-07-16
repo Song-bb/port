@@ -11,10 +11,12 @@ import org.springframework.transaction.TransactionDefinition;
 import com.example.demo.dao.IDao_banner_img;
 import com.example.demo.dao.IDao_fre_ask_board;
 import com.example.demo.dao.IDao_members;
+import com.example.demo.dao.IDao_myOrder;
 import com.example.demo.dao.IDao_noticeBoard;
 import com.example.demo.dto.dto_banner_img;
 import com.example.demo.dto.dto_fre_ask_board;
 import com.example.demo.dto.dto_members;
+import com.example.demo.dto.dto_myOrder;
 import com.example.demo.dto.dto_noticeBoard;
 
 @Service
@@ -28,6 +30,8 @@ public class MyService implements IMyService {
 	IDao_banner_img dao_banner;
 	@Autowired
 	IDao_fre_ask_board dao_fre_ask;
+	@Autowired
+	IDao_myOrder dao_myOrder;
 	
 	
 	@Autowired
@@ -130,6 +134,16 @@ public class MyService implements IMyService {
 		} else {
 			return dao_fre_ask.searchDao1(search_text);
 		}
+	}
+
+
+	
+	
+	/*  마이페이지  */
+	/* 마이오더-리스트 */
+	@Override
+	public List<dto_myOrder> order_list(String user_id) {
+		return dao_myOrder.myOrder(user_id);
 	}
 
 
