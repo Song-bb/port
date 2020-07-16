@@ -14,6 +14,13 @@
 			SELECT * FROM fre_ask_board WHERE categori = #{param1} ORDER BY idx desc
 	</select>
 	
+	<select id="searchDao1" resultType="com.example.demo.dto.dto_fre_ask_board">
+			SELECT * FROM fre_ask_board WHERE title like CONCAT('%',#{param1},'%') ORDER BY idx desc
+	</select>
+
+	<select id="searchDao2" resultType="com.example.demo.dto.dto_fre_ask_board">
+			SELECT * FROM fre_ask_board WHERE content like CONCAT('%',#{param1},'%') ORDER BY idx desc
+	</select>
 
 
 

@@ -39,7 +39,7 @@ public class MyContoller {
 	// 고객센터메인(공지사항)
 	@RequestMapping("/servicePage_main")
 	public String servicePage_main(Model model) {
-		model.addAttribute("notice_board_list", service.list1());		
+		model.addAttribute("notice_board_list", service.list_notice());		
 		int nTotalCount = service.count();	
 	return "servicePage/servicePage_main";
 	}
@@ -204,17 +204,17 @@ public class MyContoller {
 	// 공지사항 글
 	@RequestMapping("/notice_board")
 	public String notice_board( @RequestParam("notice_index") String notice_index, @RequestParam("notice_index") int notice_index_nb, Model model ) {
-		model.addAttribute("dto_notice_board", service.view(notice_index));
-		model.addAttribute("dto_notice_board_before", service.view(String.valueOf(notice_index_nb-1))); // 이전글
-		model.addAttribute("dto_notice_board_after", service.view(String.valueOf(notice_index_nb+1))); // 다음글
-		service.updateViewCount(notice_index); // 조회수 증가
+		model.addAttribute("dto_notice_board", service.view_notice(notice_index));
+		model.addAttribute("dto_notice_board_before", service.view_notice(String.valueOf(notice_index_nb-1))); // 이전글
+		model.addAttribute("dto_notice_board_after", service.view_notice(String.valueOf(notice_index_nb+1))); // 다음글
+		service.updateViewCount_notice(notice_index); // 조회수 증가
 		return "servicePage/notice_board";
 	}
 	
 	// 공지사항 글 검색하기
 	@RequestMapping("/notice_board_search")
 	public String notice_board_search( @RequestParam("search_text") String search_text, @RequestParam(value="search_filter", required=false, defaultValue="notice_title") String search_filter, Model model ) {
-		model.addAttribute("dto_notice_board_search", service.search(search_filter, search_text));
+		model.addAttribute("dto_notice_board_search", service.search_notice(search_filter, search_text));
 		return "servicePage/notice_board_search";
 	}
 
@@ -227,15 +227,22 @@ public class MyContoller {
 	// 자주하는질문 페이지
 	@RequestMapping("/fre_ask_questions")
 	public String fre_ask_questions(Model model) {
-		model.addAttribute("fre_que_list", service.list2());
+		model.addAttribute("fre_que_list", service.list_fre_ask());
 		return "servicePage/fre_ask_questions";
 	}
 
 	// 자주하는질문 페이지 카테고리 선택
 	@RequestMapping("/fre_que_select")
 	public String fre_que_select(@RequestParam(value="select", required=false) String categori, Model model ) {
-		model.addAttribute("dto_fre_ask_select", service.select( categori ));
+		model.addAttribute("dto_fre_ask_select", service.select_fre_ask( categori ));
 		return "servicePage/fre_que_select";
+	}
+	
+	// 자주하는페이지 검색
+	@RequestMapping("/fre_ask_search")
+	public String fre_ask_search(@RequestParam("search_text") String search_text, Model model ) {
+		model.addAttribute("search_text", service.search_fre_ask( search_text ));
+		return "servicePage/fre_ask_search";
 	}
 
 	// 1:1문의 페이지

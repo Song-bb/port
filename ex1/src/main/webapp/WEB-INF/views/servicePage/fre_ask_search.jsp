@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<!-- 자주하는질문 > 카테고리 선택 -->
+<!-- 자주하는질문 > 검색 -->
 
 	<c:import url="../header.jsp"></c:import>
 	
@@ -48,7 +48,7 @@
                         <td class="fre_ask_table_td2 fre_ask_table_td">카테고리</td>
                         <td class="fre_ask_table_td3 fre_ask_table_td fre_ask_table_td4">제목</td>
                     </tr>
-                    <c:forEach items="${ dto_fre_ask_select }" var="dto1">
+                    <c:forEach items="${ search_text }" var="dto1">
 	                    <tr class="office_board_table_tr show">
 	                        <td class="fre_ask_table_td1 fre_ask_table_data fre_ask_table_td">${ dto1.idx }</td>
 	                        <td class="fre_ask_table_td2 fre_ask_table_data fre_ask_table_td">${ dto1.categori_text }</td>
@@ -73,7 +73,7 @@
                         <td class="select_page_table_td"><a href="">></a></td>
                         <td class="select_page_table_td"><a href="">>></a></td>
                     </tr>
-                </table>
+                </table><!--  -->
             </div>
             <div class="order_search_div">
                 <div class="fre_ask_search">

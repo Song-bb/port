@@ -22,17 +22,18 @@ public interface IMyService {
 	
 	
 	/*  공지사항  */
-	public List<dto_noticeBoard> list1();
+	public List<dto_noticeBoard> list_notice();
 	public int count();
-	public dto_noticeBoard view(String notice_index);
-	public void updateViewCount(String notice_index);
-	public List<dto_noticeBoard> search( String search_filter, String search_text);
+	public dto_noticeBoard view_notice(String notice_index);
+	public void updateViewCount_notice(String notice_index);
+	public List<dto_noticeBoard> search_notice( String search_filter, String search_text);
 	
 	
 	
 	/*  자주하는질문  */
-	public List<dto_fre_ask_board> list2();
-	public List<dto_fre_ask_board> select(String categori);
+	public List<dto_fre_ask_board> list_fre_ask();
+	public List<dto_fre_ask_board> select_fre_ask(String categori);
+	public List<dto_fre_ask_board> search_fre_ask( String search_text );
 
 	
 }

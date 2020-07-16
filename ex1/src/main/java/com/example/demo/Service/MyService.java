@@ -56,7 +56,7 @@ public class MyService implements IMyService {
 	/*  공지사항  */
 	/* 공지사항 글 리스트 */
 	@Override
-	public List<dto_noticeBoard> list1() {
+	public List<dto_noticeBoard> list_notice() {
 		return dao_noticeBoard.listDao();
 	}
 	
@@ -69,17 +69,17 @@ public class MyService implements IMyService {
 
 	/* 공지사항 글 상세보기 */
 	@Override
-	public dto_noticeBoard view(String notice_index) {
+	public dto_noticeBoard view_notice(String notice_index) {
 		return dao_noticeBoard.viewDao(notice_index);
 	}
 	/* 공지사항 글 상세보기 시 조회수 증가 */
-	public void updateViewCount(String notice_index) {
+	public void updateViewCount_notice(String notice_index) {
 		dao_noticeBoard.updateViewCount(notice_index);
 	}
 	
 	/* 공지사항 글 검색하기 */
 	@Override
-	public List<dto_noticeBoard> search(String search_filter, String search_text) {
+	public List<dto_noticeBoard> search_notice(String search_filter, String search_text) {
 		if( search_filter.equals("notice_index") ) {
 			return dao_noticeBoard.search1(search_text);
 		} else if( search_filter.equals("notice_title") ) {
@@ -103,14 +103,24 @@ public class MyService implements IMyService {
 	/*  자주하는질문  */
 	/*  자주하는질문 리스트  */
 	@Override
-	public List<dto_fre_ask_board> list2() {
+	public List<dto_fre_ask_board> list_fre_ask() {
 		return dao_fre_ask.listDao();
 	}
 	
 	/*  자주하는 질문 카테고리 선택  */
 	@Override
-	public List<dto_fre_ask_board> select(String categori) {
+	public List<dto_fre_ask_board> select_fre_ask(String categori) {
 		return dao_fre_ask.select(categori);
+	}
+
+	/*  자주하는 질문 검색  */
+	@Override
+	public List<dto_fre_ask_board> search_fre_ask(String search_text) {
+		if( dao_fre_ask.searchDao1(search_text).isEmpty() ) {
+			return dao_fre_ask.searchDao2(search_text);
+		} else {
+			return dao_fre_ask.searchDao1(search_text);
+		}
 	}
 	
 

@@ -31,7 +31,7 @@
             <div class="select_categori">
                 <div class="select_categori_form">
                     <select class="select_categori_select" name="select1" onchange="location.href=this.value" >
-                        <option selected="selected" value="/fre_ask_questions">선택</option>
+                        <option selected="selected" value="fre_ask_questions">선택</option>
                         <option value="fre_que_select?select=member" >회원문의</option>
                         <option value="fre_que_select?select=order">주문/결제</option>
                         <option value="fre_que_select?select=cancel">취소/교환/반품</option>
@@ -78,8 +78,8 @@
             <div class="order_search_div">
                 <div class="fre_ask_search">
                     <div>
-                        <form class="fre_ask_search_form">
-                            <input class="fre_ask_search_text" type="text">
+                        <form class="fre_ask_search_form" action="fre_ask_search">
+                            <input class="fre_ask_search_text" type="text" name="search_text">
                             <button class="fre_ask_search_btn" type="submit"><i id="fre_ask_search_btn_i" class="fa fa-search"></i></button>
                         </form>
                     </div>
