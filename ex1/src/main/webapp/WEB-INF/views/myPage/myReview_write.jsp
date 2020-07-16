@@ -45,7 +45,7 @@
             </div>
             <div class="review_write_button">
                 <button type="submit">등록</button>
-                <button type="submit">취소</button>
+                <button type="submit" onClick="window.close()">취소</button>
             </div>
         </form>
     </div>
