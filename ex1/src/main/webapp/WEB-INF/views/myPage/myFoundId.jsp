@@ -7,31 +7,6 @@
 <c:import url="../header.jsp"></c:import>
 
     <div id="idfound_wrap">
-        <div class="idfound_leftnav">
-            <div class="idfound_title">마이 과장</div>
-            <div class="idfound_side_table_div">
-                <table class="idfound_side_table">
-                    <tr>
-                        <td><div><a href="/loginPage_main">주문내역</div><div>></div></a></td>
-                    </tr>
-                    <tr>
-                        <td><div><a href="/myCart">장바구니</div><div>></div></a></td>
-                    </tr>
-                    <tr>
-                        <td><div><a href="/loginPage_main">상품후기</div><div>></div></a></td>
-                    </tr>
-                    <tr>
-                        <td><div><a href="/loginPage_main">적립금</div><div>></div></a></td>
-                    </tr>
-                    <tr>
-                        <td><div><a href="/loginPage_main">개인정보 수정</div><div>></div></a></td>
-                    </tr>
-                    <tr>
-                        <td class="selected_page_td"><div><a href="/foundId">아이디 / 비밀번호 찾기</div><div>></div></a></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
         <div id="idfound_form">
             <h2>아이디 찾기</h2>
             <p>가입했을 때 작성했던 이름과 이메일을 입력해주세요.</p>

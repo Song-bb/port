@@ -2,7 +2,10 @@
 
 #idfound_wrap{
     width: 1050px;
+    height: 100%;
     margin: 0 auto;
+    padding: 50px 0;
+    text-align: center;
 }
 .idfound_leftnav{
 	float: left;
@@ -52,23 +55,18 @@
     border: 1px solid rgba(179, 178, 178, 0.507);
 }
 #idfound_form{
-    float: right;
     width: 700px;
-    padding: 10px;
-    margin: 0 auto;
-    margin-bottom: 50px;
-    margin-left: 10px;
+    border-top: 2px solid #459356;
     border-bottom: 2px solid #459356;
+    margin-bottom: 30px;
+}
+#idfound_form input[name="name"], #pwfound_form input[name="name"] {
+	margin-right: -5px;
 }
 #idfound_form h2{
-    margin-left: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
     padding: 20px;
-    border-bottom: 2px solid #459356;
 }
 #idfound_form p{
-    margin-left: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -76,23 +74,19 @@
     margin-left: 10px;
 }
 #pwfound_form{
-    width: 700px;
-    float: right;
-    padding: 10px;
-    margin: 0 auto;
-    margin-bottom: 50px;
-    margin-left: 10px;
+	width: 700px;
     border-bottom: 2px solid #459356;
 }
+
+
+}
 #pwfound_form h2{
-    margin-left: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
     padding: 20px;
     border-bottom: 2px solid #459356;
 }
 #pwfound_form p{
-    margin-left: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -122,9 +116,7 @@ input {
     color: white;
     font-weight: bold;
     border-radius: 5px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    margin-left: 12px;
+    cursor:pointer;
 }
 .found_btn_1:hover{
     border: 1px solid #276d36;
