@@ -241,21 +241,40 @@ public class MyContoller {
 
 	// 1:1문의 페이지
 	@RequestMapping("/personal_question")
-	public String personal_question() {
-		
-		return "servicePage/personal_question";
+	public String personal_question( HttpServletRequest request, HttpServletResponse response ) {
+		HttpSession session = request.getSession();
+        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+        	return "loginPage/loginPage_main";
+        } else {
+        	return "servicePage/personal_question";
+        }
 	}
 
 	// 1:1문의 글쓰기 페이지
 	@RequestMapping("/personal_question_write")
-	public String personal_question_write() {
-		return "servicePage/personal_question_write";
+	public String personal_question_write( @RequestParam(value="order_number", required=false) String order_number, HttpServletRequest request, HttpServletResponse response, Model model ) {
+		HttpSession session = request.getSession();
+        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+        	return "loginPage/loginPage_main";
+        } else {
+        	String user_id = session.getAttribute("user_id").toString();
+        	model.addAttribute("user_id", user_id);
+        	model.addAttribute("select_order_number", order_number);
+        	return "servicePage/personal_question_write";
+        }
 	}
 	
 	// 1:1 문의 글쓰기 - 주문번호 확인팝업
 	@RequestMapping("/personal_que_select_order_nb")
-	public String personal_que_select_order_nb() {
-		return "servicePage/personal_que_select_order_nb";
+	public String personal_que_select_order_nb( HttpServletRequest request, HttpServletResponse response, Model model ) {
+		HttpSession session = request.getSession();
+        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+        	return "loginPage/loginPage_main";
+        } else {
+        	String user_id = session.getAttribute("user_id").toString();
+        	model.addAttribute("order_number", service.order_list(user_id));
+        	return "servicePage/personal_que_select_order_nb";
+        }
 	}
 
 	// 상품상세페이지
@@ -269,16 +288,26 @@ public class MyContoller {
 	@RequestMapping("/myPage_main")
 	public String myPage_main( HttpServletRequest request, HttpServletResponse response, Model model ) {
         HttpSession session = request.getSession();
-        String user_id = session.getAttribute("user_id").toString();
-		model.addAttribute("my_order", service.order_list(user_id));
-		return "myPage/myPage_main";
+        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+        	return "loginPage/loginPage_main";
+        } else {
+        	String user_id = session.getAttribute("user_id").toString();
+        	model.addAttribute("my_order", service.order_list(user_id));
+    		return "myPage/myPage_main";
+        }
 	}
 	
 	// 주문상세내역
 	@RequestMapping("/myOrder")
-	public String myOrder() {
-		
-		return "myPage/myOrder";
+	public String myOrder(HttpServletRequest request, HttpServletResponse response, Model model ) {
+        HttpSession session = request.getSession();
+        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+        	return "loginPage/loginPage_main";
+        } else {
+        	String user_id = session.getAttribute("user_id").toString();
+        	model.addAttribute("my_order", service.order_list(user_id));
+        	return "myPage/myOrder";
+        }
 	}
 
 	// 상품후기
@@ -332,12 +361,6 @@ public class MyContoller {
 	@RequestMapping("/withdraw_member")
 	public String withdraw_member() {
 		return "myPage/withdraw_member";
-	}
-	
-	// 결제 전 확인페이지
-	@RequestMapping("/check_list")
-	public String check_list() {
-		return "payment/check_list";
 	}
 	
 	// 결제 페이지

@@ -88,13 +88,13 @@
                                 <td class="order_board_table_td order_td1 order_td6"><a href="/myOrder">${ dto.order_number }</a></td>
                                 <td class="order_board_table_td order_td2">
                                     <div class="order_td2_1">
-                                        <a href="/myOrder"><img id="order_td2_1_img"" src="${ dto.item_img }"></a>
+                                        <a href="/myOrder"><img id="order_td2_1_img" src="${ dto.item_img }"></a>
                                     </div>
                                     <div class="order_td2_2">
                                         <a href="/myOrder">${ dto.item_text }</a>
                                     </div>
                                 </td>
-                                <td class="order_board_table_td order_td3 order_td7">${ dto.price_actual } 원<br>(${ dto.count } 개)</td>
+                                <td class="order_board_table_td order_td3 order_td7">${ dto.price_actual } 원<br>(${ dto.count }개)</td>
                                 <td class="order_board_table_td order_td4 order_td7">${ dto.price_delevery } 원</td>
                                 <td class="order_board_table_td order_td5">
                                     <div class="order_td5_2">

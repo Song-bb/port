@@ -56,7 +56,7 @@
                         <tr>
                             <th class="personal_que_write_th1">주문번호</th>
                             <td class="personal_que_write_td1">
-                                <input id="personal_que_write_input_ord_nb" type="text" name="order_number">
+                                <input id="personal_que_write_input_ord_nb" type="text" name="order_number" value="${ select_order_number }">
                                 <button type="button" onclick="order_select_Pop();" id="personal_que_search_ord_nb">주문조회</button>
                             </td>
                         </tr>

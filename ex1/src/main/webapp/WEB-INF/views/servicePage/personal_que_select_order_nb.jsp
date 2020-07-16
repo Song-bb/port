@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,13 +31,15 @@
                         <th>수량</th>
                         <th>주문금액</th>
                     </tr>
+                    <c:forEach items="${ order_number }" var="dto">
                     <tr>
-                        <td><a href="">2020071600001</a></td>
-                        <td><a href="">2020-07-16</a></td>
-                        <td><a href="">item1</a></td>
-                        <td><a href="">1</a></td>
-                        <td><a href="">13,900 원</a></td>
+                        <td><a href='javascript:void(0);' onclick="sendValue();" id="${ dto.order_number }">${ dto.order_number }</a></td>
+                        <td><a href="/personal_question_write?order_number=${ dto.order_number }">${ dto.date }</a></td>
+                        <td><a href="/personal_question_write?order_number=${ dto.order_number }">${ dto.item_text }</a></td>
+                        <td><a href="/personal_question_write?order_number=${ dto.order_number }">${ dto.count }</a></td>
+                        <td><a href="/personal_question_write?order_number=${ dto.order_number }">${ dto.price_actual } 원</a></td>
                     </tr>
+                    </c:forEach>
                 </table>
             </div>
         </div>

@@ -50,3 +50,11 @@ function order_select_Pop() {
 		"width=605, height=605, left=200, top=0"
 	); 
 }
+
+function sendValue(){
+    var parent = window.opener;
+    var answer = document.getElementById('pw').value;
+    parent.document.getElementById('get').value = answer;
+   	window.close();
+}
+

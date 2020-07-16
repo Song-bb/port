@@ -65,10 +65,11 @@
                     </div>
                 </div>
                 <div class="mypage_detail_right">
+                <c:forEach items="${ my_order }" var="dto">
                     <div class="mypage_detail_title mypage_detail_title_1"><h2>주문 / 배송 상세 정보</h2></div>
                         <div id="mypage_detail_info_div">
                             <div id="mypage_detail_info1">
-                                <span>주문 일자 2020.07.13 | 주문번호 202007020001</span>
+                                <span>주문 일자 ${ dto.date } | 주문번호 ${ dto.order_number }</span>
                                 <div id="mypage_detail_info2">
                                     <button><a href="">주문 내역 삭제</a></button>
                                     <button><a href="">영수증 발급 내역</a></button>
@@ -86,17 +87,17 @@
                                 <td class="detail_order_board_table_td detail_order_td4 detail_order_td7">구매 일자</td>
                             </tr>
                             <tr class="detail_order_board_table_tr">
-                                <td class="detail_order_board_table_td detail_order_td1 detail_order_td6">2020070200001</td>
+                                <td class="detail_order_board_table_td detail_order_td1 detail_order_td6">${ dto.order_number }</td>
                                 <td class="detail_order_board_table_td detail_order_td2">
                                     <div class="detail_order_td2_1">
-                                        <a href=""><img src="http://placehold.it/120x150"></a>
+                                        <a href=""><img img id="order_td2_1_img" src="${ dto.item_img }"></a>
                                     </div>
                                     <div class="detail_order_td2_2">
-                                        <a href="">알찬사과 200g 외</a>
+                                        <a href="">${ dto.item_text }</a>
                                     </div>
                                 </td>
-                                <td class="detail_order_board_table_td detail_detail_order_td3 detail_order_td7">13,900 원<br>(1개)</td>
-                                <td class="detail_detail_order_board_table_td detail_detail_order_td4 detail_order_td7">2,500 원</td>
+                                <td class="detail_order_board_table_td detail_detail_order_td3 detail_order_td7">${ dto.price_item } 원<br>(${ dto.count }개)</td>
+                                <td class="detail_detail_order_board_table_td detail_detail_order_td4 detail_order_td7 detail_order_board_table_td">${ dto.date }</td>
                             </tr>
                         </table>
                     </div>
@@ -111,31 +112,31 @@
                             <table id="mypage_detail_order_info_table">
                                 <tr class="order_info_table_tr">
                                     <td class="order_info_table_td order_info_table_td_title">결제수단</td>
-                                    <td class="order_info_table_td order_info_table_td_title"></td>
+                                    <td class="order_info_table_td order_info_table_td_title">${ dto.payment }</td>
                                 </tr>
                                 <tr class="order_info_table_tr">
                                     <td class="order_info_table_td_1">은행명</td>
-                                    <td class="order_info_table_td_2">우리은행</td>
+                                    <td class="order_info_table_td_2">${ dto.bank }</td>
                                 </tr>
                                 <tr class="order_info_table_tr">
                                     <td class="order_info_table_td_1">총 상품 가격</td>
-                                    <td class="order_info_table_td_2">13,900원</td>
+                                    <td class="order_info_table_td_2">${ dto.price_item } 원</td>
                                 </tr>
                                 <tr class="order_info_table_tr">
                                     <td class="order_info_table_td_1">할인 금액</td>
-                                    <td class="order_info_table_td_2">0원</td>
+                                    <td class="order_info_table_td_2">${ dto.price_sale } 원</td>
                                 </tr>
                                 <tr class="order_info_table_tr order_info_table_tr_last">
                                     <td class="order_info_table_td_1">배송비</td>
-                                    <td class="order_info_table_td_2">0원</td>
+                                    <td class="order_info_table_td_2">${ dto.price_delevery } 원</td>
                                 </tr>
                                 <tr class="order_info_table_tr">
                                     <td class="order_info_table_td_1"></td>
-                                    <td class="order_info_table_td_2">13,900원</td>
+                                    <td class="order_info_table_td_2">${ dto.price_actual } 원</td>
                                 </tr>
                                 <tr class="order_info_table_tr order_info_table_tr_result">
                                     <td class="order_info_table_td_1"><strong>총 결제 금액</strong></td>
-                                    <td class="order_info_table_td_2"><strong>13,900원</strong></td>
+                                    <td class="order_info_table_td_2"><strong>${ dto.price_actual } 원</strong></td>
                                 </tr>
                             </table>
                         </div>
@@ -148,24 +149,25 @@
                             <table id="mypage_detail_box_info_table">
                                 <tr class="box_info_table_tr">
                                     <td class="box_info_table_td_1">받는 사람</td>
-                                    <td class="box_info_table_td_2">장탱구</td>
+                                    <td class="box_info_table_td_2">${ dto.receiver_name }</td>
                                 </tr>
                                 <tr class="box_info_table_tr box_info_table_tr_last">
                                     <td class="box_info_table_td_1">연락처</td>
-                                    <td class="box_info_table_td_2">010-111-2222</td>
+                                    <td class="box_info_table_td_2">${ dto.receiver_phone }</td>
                                 </tr>
                                 <tr class="box_info_table_tr">
                                     <td class="box_info_table_td_1">주소</td>
-                                    <td class="box_info_table_td_2">00000 경기도 의정부시 ㅇㅇ로 ㅇㅇㅇ 111동 1222호( oo동, oo아파트)</td>
+                                    <td class="box_info_table_td_2">${ dto.receiver_address }</td>
                                 </tr>
                                 <tr class="box_info_table_tr box_info_table_tr_result">
                                     <td class="box_info_table_td_1">배송 요청 사항</td>
-                                    <td class="box_info_table_td_2">직접 받고 부재 시 문 앞</td>
+                                    <td class="box_info_table_td_2">${ dto.delivery_memo }</td>
                                 </tr>
                             </table>
                         </div>
+                        </c:forEach>
                         <div id="mypage_detail_box_info_foot">
-                        	<button>주문목록 돌아가기</button>
+                        	<a href="/myPage_main"><button>주문목록 돌아가기</button></a>
                         </div>
                     </div>
                 </div>
