@@ -7,12 +7,16 @@
 <mapper namespace="com.example.demo.dao.IDao_members">
 	
 	<select id="login_ok" resultType="com.example.demo.dto.dto_members"> 
-			SELECT * FROM members WHERE user_id = #{user_id} 
+			SELECT * FROM members WHERE user_id = #{param1} 
 	</select>
 
 	<insert id="join_ok"> 
 			INSERT INTO members (user_index, user_id, user_pw, user_name, user_email, user_phone, user_address, user_grade, user_point, user_gender, user_birth) VALUES (0, #{user_id}, #{user_pw}, #{user_name}, #{user_email}, #{user_phone}, #{user_address}, "앵두", 0, #{user_gender},#{user_birth})
 	</insert>
+
+	<select id="check_pw" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members WHERE user_id = #{param1} 
+	</select>
 	
 	
 </mapper>
