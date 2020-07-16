@@ -116,7 +116,7 @@
         <div id="update_btn">
             <button type="submit" id="update_btn_1">수정</button>
             <button type="reset" id="update_btn_2">취소</button>
-            <button type="submit" id="update_btn_1">회원 탈퇴</button>
+            <a href="/withdraw_member"><button type="button" id="update_btn_1">회원 탈퇴</button></a>
         </div>
         </form>
     </div>

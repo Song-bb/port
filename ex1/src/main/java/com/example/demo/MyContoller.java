@@ -104,8 +104,6 @@ public class MyContoller {
 				session.setAttribute("user_name", list.get(0).getUser_name() ); // 이름 세션 저장
 				session.setAttribute("user_grade", list.get(0).getUser_grade()); // 등급 세션 저장
 				session.setAttribute("user_point", list.get(0).getUser_point()); // 적립금 세션 저장
-				out.println("<script>alert('로그인 되었습니다.'); location.href='/main';</script>");
-				out.flush();
 				return "main";
 			} else { // 비밀번호 불일치
 				out.println("<script>alert('비밀번호를 확인해주세요.'); location.href='/loginPage_main';</script>");
@@ -315,8 +313,6 @@ public class MyContoller {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		if( user_pw.equals( list.get(0).getUser_pw()) ) { // 비밀번호 일치
-			out.println("<script>alert('확인 되었습니다.'); location.href='/updateInform';</script>");
-			out.flush();
 			return "myPage/updateInform";
 		} else { // 비밀번호 불일치
 			out.println("<script>alert('비밀번호를 다시 확인해주세요.'); location.href='/check_password';</script>");
@@ -325,6 +321,11 @@ public class MyContoller {
 		}
 	}
 	
+	// 회원탈퇴
+	@RequestMapping("/withdraw_member")
+	public String withdraw_member() {
+		return "myPage/withdraw_member";
+	}
 	
 	
 	
