@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="css/myReview_style.css">
     <link rel="stylesheet" href="css/updateInform_style.css">
     <link rel="stylesheet" href="css/myPoint_style.css">
+    <link rel="stylesheet" href="css/withdraw_member_style.css">
     
     <!-- swiper(슬라이드) -->
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">

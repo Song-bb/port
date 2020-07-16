@@ -1,1 +1,83 @@
 @charset "UTF-8";
+
+#delete_user_wrap {
+    width: 800px;
+    margin: 0 auto;
+    float: right;
+}
+#delete_user_header {
+    border-bottom: 2px solid #459356;
+}
+#delete_user_body {
+    height: 150px;
+    padding: 30px;
+    border-bottom: 1px solid rgba(179, 178, 178, 0.507);
+}
+#delete_user_body_1 {
+    float: left;
+    width: 100px;
+    height: 200px;
+    font-size: 0.75em;
+    text-align: center;
+    line-height: 150px;
+}
+#delete_user_body_2 {
+    float: right;
+    width: 600px;
+    height: 200px;
+    font-size: 0.75em;
+    text-align: left;
+}
+#delete_user_foot_header {
+    border-bottom: 2px solid #459356;
+}
+#delete_user_foot_body_table{
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(179, 178, 178, 0.507);
+}
+.delete_user_foot_body_table_tr {
+    text-align: center;
+    font-size: 0.75em;
+}
+.delete_user_foot_body_table_tr_1 {
+    text-align: center;
+    font-size: 0.75em;
+    height: 20px;
+}
+.delete_user_foot_body_table_tr_1 td{
+    font-size: 0.75em;
+    height: 30px;
+}
+.delete_user_foot_body_table_td_1 {
+    width: 200px;
+    height: 100px;
+}
+.delete_user_foot_body_table_td_2 {
+    width: 500px;
+    height: 100px;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid rgba(179, 178, 178, 0.507);
+}
+.delete_user_foot_body_table_td_2 textarea {
+    resize: none;
+}
+#delete_user_foot_body_btn {
+    float: right;
+    padding-top: 20px;
+}
+#delete_user_foot_body_btn button{
+    width: 150px;
+    height: 50px;
+    border: 1px solid #459356;
+    background-color: #459356;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+}
+#delete_user_foot_body_btn button:hover{
+    width: 150px;
+    height: 50px;
+    border: 1px solid #276d36;
+    background-color: #276d36;
+}
