@@ -16,8 +16,10 @@ public interface IMyService {
 	
 	
 	/*  회원관리  */
-	public List<dto_members> login( Map<String, String> map );
+	public List<dto_members> login( String user_id, String user_pw );
 	public int join_ok ( Map<String, String> map );
+	public List<dto_members> check_pw(String user_id, String user_pw);
+	
 	
 	
 	

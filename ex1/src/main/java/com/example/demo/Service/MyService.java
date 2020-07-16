@@ -40,8 +40,8 @@ public class MyService implements IMyService {
 	/*  회원관리  */
 	/* 로그인 */
 	@Override
-	public List<dto_members> login( Map<String, String> map ) {
-		return dao_member.login_ok( map );
+	public List<dto_members> login( String user_id, String user_pw ) {
+		return dao_member.login_ok( user_id, user_pw );
 	}
 	
 	/* 회원가입 */
@@ -50,6 +50,15 @@ public class MyService implements IMyService {
 		int nResult = dao_member.join_ok(map);
 		return nResult;
 	}
+	
+	/* 비밀번호재확인 */
+	@Override
+	public List<dto_members> check_pw(String user_id, String user_pw) {
+		return dao_member.check_pw( user_id, user_pw );
+	}
+	
+
+	
 	
 	
 	
@@ -122,6 +131,10 @@ public class MyService implements IMyService {
 			return dao_fre_ask.searchDao1(search_text);
 		}
 	}
+
+
+
+
 	
 
 

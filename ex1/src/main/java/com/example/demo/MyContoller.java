@@ -90,11 +90,7 @@ public class MyContoller {
 	// 로그인 확인 페이지
 	@RequestMapping("/login_ok")
 	public String login_ok(@RequestParam("user_id") String user_id, @RequestParam("user_pw") String user_pw,  HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
-		Map<String, String> map = new HashMap<String, String>();
-		map.put( "user_id", user_id );
-		map.put( "user_pw", user_pw );
-		
-		List<dto_members> list = service.login( map );
+		List<dto_members> list = service.login( user_id, user_pw );
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		if( list.isEmpty() ) { // 아이디 없음
@@ -297,9 +293,32 @@ public class MyContoller {
 	// 개인정보수정
 	@RequestMapping("/updateInform")
 	public String updateInform() {
-		
 		return "myPage/updateInform";
 	}
+	
+	// 개인정보수정(비밀번호 재확인)
+	@RequestMapping("/check_password")
+	public String check_password() {
+		return "myPage/check_password";
+	}
+	
+	// 개인정보수정(비밀번호 확인페이지 이동)
+	@RequestMapping("/check_password_ok")
+	public String check_password_ok(@RequestParam("user_pw") String user_pw, @RequestParam("user_id") String user_id, HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
+		List<dto_members> list = service.check_pw( user_id, user_pw );
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		if( user_pw.equals( list.get(0).getUser_pw()) ) { // 비밀번호 일치
+			out.println("<script>alert('확인 되었습니다.'); location.href='/updateInform';</script>");
+			out.flush();
+			return "myPage/updateInform";
+		} else { // 비밀번호 불일치
+			out.println("<script>alert('비밀번호를 다시 확인해주세요.'); location.href='/check_password';</script>");
+			out.flush();
+			return "myPage/check_password";
+		}
+	}
+	
 	
 	
 	
