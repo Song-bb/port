@@ -286,6 +286,12 @@ public class MyContoller {
 		
 		return "myPage/myReview";
 	}
+	// 상품후기작성
+		@RequestMapping("/myReview_write")
+		public String myReview_write() {
+			
+			return "myPage/myReview_write";
+		}
 	
 	// 적립금
 	@RequestMapping("/myPoint")

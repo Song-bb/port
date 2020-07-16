@@ -1,0 +1,110 @@
+*{
+    margin:0 auto;
+    padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Noto Sans KR', sans-serif;
+    list-style: none;
+    color: black;
+}
+#review_write_wrap {
+    width: 450px;
+    height: 450px;
+    margin:auto;
+    /* background-color: rgb(238, 238, 238); */
+
+}
+.review_write_title{
+    padding: 15px;
+    border-bottom: 2px solid #459356;
+}
+
+table.review_write_itemlist{
+    width: 100%;
+    border-collapse: collapse;
+}
+table.review_write_itemlist tr{
+    border-bottom: 1px solid #ededed;
+    font-size: 0.8em;
+}
+
+table.review_write_itemlist tr:first-child{
+    height: 50px;
+}
+table.review_write_itemlist tr:last-child{
+    height: 100px;
+    padding: 10px;
+    text-align: center;
+}
+table.review_write_itemlist td:nth-child(2){
+    width: 50%;
+    position: relative;
+}
+.write_itemInfo > p:first-child{
+    display:inline-block;
+    width: 60px;
+    height: 60px;
+    margin-left: -100px;
+}
+.write_itemInfo > p:first-child img{
+    width: 100%;
+}
+.write_itemInfo > span:last-child{
+    position: absolute;
+    left: 50%;
+    margin-left: -10px;
+    top: 50%;
+    margin-top: -10px;
+}
+
+.review_write_content{
+    padding: 20px;
+    border-bottom: 1px solid #ededed;
+}
+.review_write_content > p{
+    padding-bottom: 10px;
+    font-weight: bold;
+    color: #6e6e6e;
+}
+
+.review_write_content textarea{
+    resize: none;
+    border: 1px solid #d3d3d3;
+    width: 100%;
+}
+.review_write_star {
+    padding: 10px;
+    border-bottom: 1px solid #ededed;
+    text-align: center;
+}
+.review_write_star > p{
+    padding-bottom: 10px;
+    font-weight: bold;
+    color: #6e6e6e;
+}
+.review_write_star > label{
+    padding-left: 5px;
+    cursor: pointer;
+
+}
+.review_write_button {
+    padding-top: 10px;
+    text-align: center;
+}
+.review_write_button button{
+    cursor: pointer;
+    width: 150px;
+    height: 40px;
+    border:none;
+    margin-bottom: 50px;
+}
+.review_write_button button:first-child{
+    background-color: #459356;
+    color: white;
+    font-weight: bold;
+}
+.review_write_button button:last-child{
+    border: 1px solid #459356;
+    color: #459356;
+    background-color: white;
+}

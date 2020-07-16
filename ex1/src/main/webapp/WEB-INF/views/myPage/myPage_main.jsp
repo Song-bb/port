@@ -97,9 +97,9 @@
                                 <td class="order_board_table_td order_td4 order_td7">2,500 원</td>
                                 <td class="order_board_table_td order_td5">
                                     <div class="order_td5_2">
-                                    		<!-- 팝업이벤트파일 : my_JS.js  -->				
+                                    												<!-- 팝업이벤트파일 : my_JS.js  -->				
                                             <button class="order_td5_2_1" type="button" onclick="reviewPop();">리뷰쓰기</button>
-                                            <button class="order_td5_2_1" type="button" onclick="location.href=''">배송조회</button>
+                                            <button class="order_td5_2_1" type="button" onclick="location.href=''">주문내역</button>
                                     </div>
                                     <div class="order_td5_1">구매확정</div>
                                 </td>
@@ -119,7 +119,7 @@
                                 <td class="order_board_table_td order_td5">
                                     <div class="order_td5_2">
                                             <button class="order_td5_2_1" type="button" onclick="reviewPop();">리뷰쓰기</button>
-                                            <button class="order_td5_2_1" type="button" onclick="location.href=''">배송조회</button>
+                                            <button class="order_td5_2_1" type="button" onclick="location.href=''">주문내역</button>
                                     </div>
                                     <div class="order_td5_1">구매확정</div>
                                 </td>

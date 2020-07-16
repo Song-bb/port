@@ -36,7 +36,7 @@ $(document).ready(function(){
 
 function reviewPop() { 
 	window.open(
-		"myCart", "a", 
+		"myReview_write", "a", 
 		"width=600, height=800, left=200, top=0"
 	); 
 }
