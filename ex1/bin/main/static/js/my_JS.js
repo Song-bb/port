@@ -40,3 +40,13 @@ function reviewPop() {
 		"width=600, height=800, left=200, top=0"
 	); 
 }
+
+
+
+// 주문조회 popup
+function order_select_Pop() { 
+	window.open(
+		"personal_que_select_order_nb", "a", 
+		"width=605, height=605, left=200, top=0"
+	); 
+}

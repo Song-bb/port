@@ -61,7 +61,7 @@
 	            <p id="cart_foot_info">총 상품 금액</p>
 	            <p id="cart_foot_price"><span>0,000</span>원</p>
 	        </div>
-            <button id=cart_btn_2>결제하기</button>
+            <a href="/check_list"><button id=cart_btn_2>결제하기</button></a>
         </div>
     </div>
 

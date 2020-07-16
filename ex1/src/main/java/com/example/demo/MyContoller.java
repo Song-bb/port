@@ -249,8 +249,13 @@ public class MyContoller {
 	// 1:1문의 글쓰기 페이지
 	@RequestMapping("/personal_question_write")
 	public String personal_question_write() {
-		
 		return "servicePage/personal_question_write";
+	}
+	
+	// 1:1 문의 글쓰기 - 주문번호 확인팝업
+	@RequestMapping("/personal_que_select_order_nb")
+	public String personal_que_select_order_nb() {
+		return "servicePage/personal_que_select_order_nb";
 	}
 
 	// 상품상세페이지
@@ -280,12 +285,12 @@ public class MyContoller {
 		
 		return "myPage/myReview";
 	}
+	
 	// 상품후기작성
-		@RequestMapping("/myReview_write")
-		public String myReview_write() {
-			
-			return "myPage/myReview_write";
-		}
+	@RequestMapping("/myReview_write")
+	public String myReview_write() {
+		return "myPage/myReview_write";
+	}
 	
 	// 적립금
 	@RequestMapping("/myPoint")
@@ -325,6 +330,24 @@ public class MyContoller {
 	@RequestMapping("/withdraw_member")
 	public String withdraw_member() {
 		return "myPage/withdraw_member";
+	}
+	
+	// 결제 전 확인페이지
+	@RequestMapping("/check_list")
+	public String check_list() {
+		return "payment/check_list";
+	}
+	
+	// 결제 페이지
+	@RequestMapping("/payment")
+	public String payment() {
+		return "payment/payment";
+	}
+	
+	// 결제 완료 페이지
+	@RequestMapping("/payment_ok")
+	public String payment_ok() {
+		return "payment/payment_ok";
 	}
 	
 	
