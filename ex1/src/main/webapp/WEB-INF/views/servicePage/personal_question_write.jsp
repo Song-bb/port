@@ -56,21 +56,21 @@
                         <tr>
                             <th class="personal_que_write_th1">주문번호</th>
                             <td class="personal_que_write_td1">
-                                <input id="personal_que_write_input_ord_nb" type="text" name="order_number" value="${ select_order_number }">
+                                <input id="personal_que_write_input_ord_nb" type="text" value="${ select_order_number }">
                                 <button type="button" onclick="order_select_Pop();" id="personal_que_search_ord_nb">주문조회</button>
                             </td>
                         </tr>
                         <tr>
                             <th class="personal_que_write_th1">이메일</th>
                             <td class="personal_que_write_td1">
-                                <input id="personal_que_write_input_email" type="text" placeholder="useremail-db사용">
+                                <input id="personal_que_write_input_email" type="text" placeholder="<%= session.getAttribute("user_email") %>">
                                 <input type="checkbox" value="checkbox1">답변 수신을 이메일로 받겠습니다.
                             </td>
                         </tr>
                         <tr>
                             <th class="personal_que_write_th1">문자메시지</th>
                             <td class="personal_que_write_td1">
-                                <input id="personal_que_write_input_ord_nb" type="text" placeholder="userphone-db사용">
+                                <input id="personal_que_write_input_ord_nb" type="text" placeholder="<%= session.getAttribute("user_phone") %>">
                                 <input type="checkbox" value="checkbox2">답변 수신을 문자메시지로 받겠습니다.
                             </td>
                         </tr>

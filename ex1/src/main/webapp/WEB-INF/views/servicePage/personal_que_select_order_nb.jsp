@@ -33,11 +33,12 @@
                     </tr>
                     <c:forEach items="${ order_number }" var="dto">
                     <tr>
-                        <td><a href='javascript:void(0);' onclick="sendValue();" id="${ dto.order_number }">${ dto.order_number }</a></td>
-                        <td><a href="/personal_question_write?order_number=${ dto.order_number }">${ dto.date }</a></td>
-                        <td><a href="/personal_question_write?order_number=${ dto.order_number }">${ dto.item_text }</a></td>
-                        <td><a href="/personal_question_write?order_number=${ dto.order_number }">${ dto.count }</a></td>
-                        <td><a href="/personal_question_write?order_number=${ dto.order_number }">${ dto.price_actual } 원</a></td>
+                        <td><a href='javascript:close_select_pop();'>${ dto.order_number }</a></td>
+                        <td><a href='javascript:close_select_pop();'>${ dto.date }</a></td>
+                        <td><a href='javascript:close_select_pop();'>${ dto.item_text }</a></td>
+                        <td><a href='javascript:close_select_pop();'>${ dto.count }</a></td>
+                        <td><a href='javascript:close_select_pop();'>${ dto.price_actual } 원</a></td>
+                        <input type="hidden" id="order_number" value="${ dto.order_number }">
                     </tr>
                     </c:forEach>
                 </table>
@@ -47,3 +48,11 @@
 	
 </body>
 </html>
+
+<script>
+	function close_select_pop() {
+		data = document.getElementById("order_number").value;
+		opener.location.href = "/personal_question_write?order_number="+data;
+		window.close();
+	}
+</script>

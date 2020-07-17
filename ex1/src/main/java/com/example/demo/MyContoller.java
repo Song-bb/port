@@ -104,6 +104,8 @@ public class MyContoller {
 				session.setAttribute("user_name", list.get(0).getUser_name() ); // 이름 세션 저장
 				session.setAttribute("user_grade", list.get(0).getUser_grade()); // 등급 세션 저장
 				session.setAttribute("user_point", list.get(0).getUser_point()); // 적립금 세션 저장
+				session.setAttribute("user_email", list.get(0).getUser_email()); // 이메일 세션 저장
+				session.setAttribute("user_phone", list.get(0).getUser_phone()); // 휴대폰번호 세션 저장
 				return "main";
 			} else { // 비밀번호 불일치
 				out.println("<script>alert('비밀번호를 확인해주세요.'); location.href='/loginPage_main';</script>");

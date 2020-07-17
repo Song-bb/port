@@ -45,16 +45,9 @@ function reviewPop() {
 
 // 주문조회 popup
 function order_select_Pop() { 
-	window.open(
-		"personal_que_select_order_nb", "a", 
-		"width=605, height=605, left=200, top=0"
-	); 
+	window.name = "parentForm";
+	openWin = window.open("personal_que_select_order_nb", "childForm", "width=605, height=605, left=200, top=0"); 
 }
 
-function sendValue(){
-    var parent = window.opener;
-    var answer = document.getElementById('pw').value;
-    parent.document.getElementById('get').value = answer;
-   	window.close();
-}
+
 
