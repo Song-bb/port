@@ -5,7 +5,7 @@
     width: 1050px;
     margin:auto;
 }
-#paymentok_wrap th,td{
+#paymentok_wrap th,#paymentok_wrap td{
     font-size: 0.8em;
 }
 #paymentok_wrap table{
