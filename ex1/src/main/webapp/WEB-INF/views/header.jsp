@@ -60,7 +60,7 @@
 		</div>
 		<div id="header_body">
 			<div id="header_body_1">
-				<div><a href=""><img src="img/delevery1.JPG"></a></div>
+				<div><a href="/regularOrder_main"><img src="img/delevery1.JPG"></a></div>
 				<div>
 
 					<% if( session.getAttribute("user_id") == null ){ %>
@@ -76,7 +76,7 @@
 								</ul>
 							</div>
 					</div>
-						<a href="/delevery_place">배송지역 검색</a>
+						<a href="/regularOrder_main">배송지역 검색</a>
 					<% } else { %>
 					<div class="sub_nav">
 						<a href="/myPage_main"><%= session.getAttribute("user_name") %> 님</a> |
