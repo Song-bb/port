@@ -109,7 +109,7 @@
 		                    </tr>
 		                </table>
 		                <div id="delete_user_foot_body_btn">
-		                    <button>취소</button>
+		                    <button><a href="/myPage_main">취소</a></button>
 		                    <button>탈퇴</button>
 		                </div>
 		            </div>
