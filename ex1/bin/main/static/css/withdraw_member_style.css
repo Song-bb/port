@@ -4,6 +4,7 @@
     width: 800px;
     margin: 0 auto;
     float: right;
+    margin-top: 30px;
 }
 #delete_user_header {
     border-bottom: 2px solid #459356;
@@ -15,13 +16,12 @@
 #delete_user_body {
     height: 240px;
     padding: 30px;
-    border-bottom: 1px solid rgba(179, 178, 178, 0.507);
 }
 #delete_user_body_1 {
     float: left;
     width: 100px;
     height: 200px;
-    font-size: 0.75em;
+    font-size: 0.8em;
     text-align: center;
     line-height: 150px;
 }
@@ -34,6 +34,7 @@
 }
 #delete_user_foot_header {
     border-bottom: 2px solid #459356;
+    padding-bottom: 10px;
 }
 #delete_user_foot_body_table{
     padding-bottom: 30px;
@@ -48,10 +49,6 @@
     font-size: 0.75em;
     height: 20px;
 }
-.delete_user_foot_body_table_tr_1 td{
-    font-size: 0.75em;
-    height: 30px;
-}
 .delete_user_foot_body_table_td_1 {
     width: 200px;
     height: 100px;
@@ -61,7 +58,6 @@
     height: 100px;
     padding: 10px;
     text-align: left;
-    border-bottom: 1px solid rgba(179, 178, 178, 0.507);
 }
 .delete_user_foot_body_table_td_2 textarea {
     resize: none;
@@ -84,4 +80,12 @@
     height: 50px;
     border: 1px solid #276d36;
     background-color: #276d36;
+}
+#delete_user_foot_body_btn_1{
+	width: 150px;
+    height: 50px;
+    border: 2px solid #459356;
+    background-color: white;
+    font-weight: bold;
+    border-radius: 5px;
 }
