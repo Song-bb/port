@@ -122,3 +122,15 @@ input {
     border: 1px solid rgb(255, 161, 54);
     background-color: rgb(255, 161, 54);
 }
+
+td.join_address input{
+	margin-bottom: 10px;
+}
+td.join_address input[type="button"]{
+	border:none;
+    width: 90px;
+    height: 30px;
+    cursor:pointer;
+    vertical-align: middle;
+    margin-left: 10px;
+}
