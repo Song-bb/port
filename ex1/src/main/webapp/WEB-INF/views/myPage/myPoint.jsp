@@ -39,19 +39,19 @@
                     <div class="servicePage_side_table_div">
                         <table class="servicePage_side_table">
                             <tr>
-                                <td class="selected_page_td"><a href=""><div>주문 내역<span>></span></div></a></td>
+                                <td><a href="/myPage_main"><div>주문 내역<span>></span></div></a></td>
                             </tr>
                             <tr>
                                 <td><a href=""><div>정기배송 내역<span>></span></div></a></td>
                             </tr>
                             <tr>
-                                <td><a href=""><div>장바구니<span>></span></div></a></td>
+                                <td><a href="/myCart"><div>장바구니<span>></span></div></a></td>
                             </tr>
                             <tr>
                                 <td><a href="/myReview"><div>상품후기<span>></span></div></a></td>
                             </tr>
                             <tr>
-                                <td><a href="/myPoint"><div>적립금<span>></span></div></a></td>
+                                <td class="selected_page_td"><a href="/myPoint"><div>적립금<span>></span></div></a></td>
                             </tr>
                             <tr>
                                 <td><a href="/updateInform"><div>개인정보수정<span>></span></div></a></td>

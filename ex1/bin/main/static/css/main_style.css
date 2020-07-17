@@ -8,9 +8,6 @@
     list-style: none;
     color: black;
 }
-a {
-	text-decoration: none;
-}
 button {
 	cursor:pointer;
 }
@@ -93,9 +90,7 @@ div.sub_navBox > a {
 	height: 30px; width: 280px;
 	font-weight: lighter;
 }
-#header_body_1 > div:last-child  a {
-	vertical-align: center;
-	text-decoration: none;
+#header_body_1 > div:last-child a {
 	font-size: 13px;
 	color: rgb(50, 50, 50);
 }
@@ -137,7 +132,7 @@ div.sub_navBox > a {
 	padding-top: 5px;
 }
 #header_nav > div:first-child a {
-	text-decoration: none;
+	
 	font-size: 16px;
 	margin-right: 75px;
 	font-weight: bold;
@@ -274,7 +269,7 @@ div.sub_navBox > a {
 	color: rgb(50, 50, 50);
 }
 .item_desc p a {
-	text-decoration: none;
+	
 	font-size: 16px;
 	 
 	font-weight: bold;
@@ -302,7 +297,7 @@ div.sub_navBox > a {
 	padding-top: 50px;
 }
 .main_2_1 div a {
-	text-decoration: none;
+	
 	font-weight: bold;
 	color: rgb(50, 50, 50);
 }
@@ -382,7 +377,7 @@ div.sub_navBox > a {
 	padding-left: 80px;
 }
 #inform_jangsu1 a {
-	text-decoration: none;
+	
 	font-size: 15px;
 	 
 	color: rgb(50, 50, 50);
@@ -398,7 +393,7 @@ inform_jangsu1 span{
 }
 #inform_jangsu2 a {
 	color: rgb(50, 50, 50);
-	text-decoration: none;
+	
 	 
 	font-size: 13px;
 }
