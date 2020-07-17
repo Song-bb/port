@@ -50,19 +50,36 @@ input {
     font-size:16px;
     color:#aaa;
 }
+.input_text_2 {
+    width:150px;
+    height:10px;
+    background:url('input_bg.jpg') no-repeat;
+    border: 2px solid rgb(185, 185, 185);
+    border-radius: 5px;
+    padding:15px;
+    margin: 5px;
+    font-size:16px;
+    color:#aaa;
+    margin-left: 10px;
+}
 .join_radio{
     width: 35px;
     height: 10px;
 }
 #join_form_table button#id_button, 
-#join_form_table button#email_button, 
-.join_address button#address_button {
+#join_form_table button#email_button{
     width:80px;
     height:30px;
     border: 2px solid rgb(185, 185, 185);
     border-radius: 5px;
 }
-
+#address_button{
+	width: 100px;
+    margin-top: 5px;
+    height: 35px;
+    border: 2px solid rgb(185, 185, 185);
+    border-radius: 5px;
+}
 #join_service_check {
     width: 100%;
     border-top: 2px solid darkgreen;
