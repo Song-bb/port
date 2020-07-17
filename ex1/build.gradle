@@ -35,6 +35,8 @@ dependencies {
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
 	
 	implementation 'org.springframework.session:spring-session-core'
+	// jar 파일 직접 링크할 때 추가하는 의존성.
+	implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
 
 test {

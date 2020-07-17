@@ -28,7 +28,7 @@
         </div>
         <div class="servicePage_right">
             <div class="servicePage_title">1:1 문의</div>
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="/personal_que_write_ok" method="post" enctype="multipart/form-data">
                 <div class="personal_que_write_div">
                     <table class="personal_que_write_table">
                         <tr>
@@ -109,6 +109,8 @@
                                     <input id="personal_que_file_upload" type="file" name="upload_file1">
                                     <button type="button" onclick='div_show();'>+</button>
                                     <button type="button" onclick='div_show();'>업로드추가</button>
+                                    <!-- 이미지 업로드장소 -->
+                                    <!-- C:\Users\user\Documents\portfolio\Gwail-jangsu\ex1\bin\main\static\upload -->
                                 </div>
                                 <div class="personal_que_file_upload" id="hide_div11">
                                     <input id="personal_que_file_upload" type="file" name="upload_file2">
@@ -140,7 +142,7 @@
                     </table>
                 </div>
                 <div class="personal_que_write_btn_div2">
-                    <button class="personal_que_write_btn2" type="submit">저장</button>
+                    <button class="personal_que_write_btn2" type="submit">글쓰기</button>
                 </div>
             </form>
         </div>

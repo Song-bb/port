@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import java.io.PrintWriter;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,11 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import com.example.demo.Service.IMyService;
 import com.example.demo.dto.dto_members;
@@ -278,6 +284,38 @@ public class MyContoller {
         	return "servicePage/personal_que_select_order_nb";
         }
 	}
+	
+	// 1:1 문의 글쓰기 저장
+	@RequestMapping("/personal_que_write_ok")
+	public String personal_que_write_ok( HttpServletRequest request, HttpServletResponse response, Model model ) {
+		int size = 1024 * 1024 * 1; //1Mb
+		String file = "";
+		String oriFile = "";
+		JSONObject obj = new JSONObject();
+		try {
+			String path = ResourceUtils.getFile("classpath:static/upload/").toPath().toString();
+			System.out.println(path);
+
+			MultipartRequest multi = new MultipartRequest(request, path, size, "UTF-8", new DefaultFileRenamePolicy());
+			System.out.println("111111");
+			Enumeration files = multi.getFileNames();
+			String str = (String)files.nextElement();
+			
+			file = multi.getFilesystemName(str);
+			oriFile = multi.getOriginalFileName(str);
+			
+			obj.put("success", new Integer(1));
+			obj.put("desc", "업로드 성공");
+		} catch (Exception e) {
+			e.printStackTrace();
+			obj.put("success", new Integer(0));
+			obj.put("desc", "업로드 실패");
+		}
+		/*return obj.toJSONString();*/
+
+        return "servicePage/personal_question";
+	}
+
 
 	// 상품상세페이지
 	@RequestMapping("/item_detail")
