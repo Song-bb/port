@@ -106,14 +106,29 @@
                             <th class="personal_que_write_th1">이미지</th>
                             <td class="personal_que_write_td1">
                                 <div class="personal_que_file_upload">
-                                    1<input id="personal_que_file_upload" type="file" name="upload_file1">
-                                    <button type="button" onclick="location.href=''">+</button>
-                                    <button type="button" onclick="location.href=''">업로드추가</button>
+                                    <input id="personal_que_file_upload" type="file" name="upload_file1">
+                                    <button type="button" onclick='div_show();'>+</button>
+                                    <button type="button" onclick='div_show();'>업로드추가</button>
                                 </div>
-                                <div class="personal_que_file_upload">
-                                    2<input id="personal_que_file_upload" type="file" name="upload_file2">
-                                    <button type="button" onclick="location.href=''">-</button>
-                                    <button type="button" onclick="location.href=''">업로드삭제</button>
+                                <div class="personal_que_file_upload" id="hide_div11">
+                                    <input id="personal_que_file_upload" type="file" name="upload_file2">
+                                    <button type="button" onclick='div_hide1();'>-</button>
+                                    <button type="button" onclick='div_hide1();'>업로드삭제</button>
+                                </div>
+                                <div class="personal_que_file_upload" id="hide_div22">
+                                    <input id="personal_que_file_upload" type="file" name="upload_file3">
+                                    <button type="button" onclick='div_hide2();'>-</button>
+                                    <button type="button" onclick='div_hide2();'>업로드삭제</button>
+                                </div>
+                                <div class="personal_que_file_upload" id="hide_div33">
+                                    <input id="personal_que_file_upload" type="file" name="upload_file4">
+                                    <button type="button" onclick='div_hide3();'>-</button>
+                                    <button type="button" onclick='div_hide3();'>업로드삭제</button>
+                                </div>
+                                <div class="personal_que_file_upload" id="hide_div44">
+                                    <input id="personal_que_file_upload" type="file" name="upload_file5">
+                                    <button type="button" onclick='div_hide4();'>-</button>
+                                    <button type="button" onclick='div_hide4();'>업로드삭제</button>
                                 </div>
                                 <div class="personal_que_file_upload_bottom">
                                     <label>
@@ -131,5 +146,43 @@
         </div>
         <div id="servicePage_main_end"></div>
     </div>
-	<!--  -->
+	
 	<c:import url="../footer.jsp"></c:import>
+	
+<script>
+ 	//보이기
+ 	 var clickTimes = 1;
+	 function div_show() {
+		 clickTimes++;
+		switch( clickTimes ) {
+			case 2: 
+				document.getElementById("hide_div11").style.display = "block";
+				break;
+			case 3:
+ 				document.getElementById("hide_div22").style.display = "block";
+ 				break;
+			case 4:
+				document.getElementById("hide_div33").style.display = "block";
+				break;
+			case 5:
+				document.getElementById("hide_div44").style.display = "block";
+				break;
+			default:
+				alert("파일 업로드는 최대 5개까지 가능합니다.");
+ 		}
+	 }
+        	
+ 	//숨기기
+	 function div_hide4() {
+		 document.getElementById("hide_div44").style.display = "none";
+	 }
+	 function div_hide3() {
+		 document.getElementById("hide_div33").style.display = "none";
+	 }
+	 function div_hide2() {
+		 document.getElementById("hide_div22").style.display = "none";
+	 }
+	 function div_hide1() {
+		 document.getElementById("hide_div11").style.display = "none";
+	 }
+</script>

@@ -2,8 +2,6 @@
 
 
 #select_order_num_wrap {
-    width: 605px;
-    height: 605px;
     overflow: scroll;
 }
 #select_order_num_div {
