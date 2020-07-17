@@ -1,1 +1,115 @@
 @charset "UTF-8";
+
+
+#paymentok_wrap{
+    width: 1050px;
+    margin:auto;
+}
+#paymentok_wrap th,td{
+    font-size: 0.8em;
+}
+#paymentok_wrap table{
+    width: 100%;
+    margin-bottom: 80px;
+    padding: 20px 0;
+    border-top: 2px solid #459356;
+    border-collapse: collapse;
+}
+#paymentok_wrap h5{
+    padding: 10px;
+}
+/* ============== finish_order_title */
+
+#finish_order_title{
+    margin-top: 50px;
+    padding-top: 25px;
+    height: 130px;
+    text-align: center;
+    background-color: #459356;
+}
+
+#finish_order_title > p:first-child{
+    font-size: 2em;
+    font-weight: 900;
+    padding: 5px 0 10px 0;
+    color: white;
+}
+#finish_order_title > p:last-child{
+    font-size: 0.8em;
+    color: white;
+}
+
+
+/* ============== order_items */
+
+.order_items th{
+    height: 40px;
+}
+.order_items td.item_name{
+    width: 55%;
+    text-align: left;
+}
+.order_items tr{
+    border-bottom: 1px solid#ededed;
+    margin: 5px 0;
+}
+.order_items td{
+    text-align: center;
+}
+.itemSize_50{
+    width:50px;
+    height:50px;
+    display: inline-block;
+}
+.itemSize_50 > img{
+    width: 100%;
+}
+.order_items tr.itemDB{
+    height: 60px;
+}
+
+/* ============== final orderseet */
+
+#final_orderseet tr{
+    border-bottom: 1px solid#ededed;
+    margin: 5px 0;
+    height: 60px;
+}
+
+#final_orderseet th{
+    width: 160px;
+    padding-right: 20px;
+    text-align: right;
+}
+
+#final_orderseet td{
+    padding-left: 20px;
+}
+
+/* ============== paymentok_button */
+#paymentok_button{
+    height: 130px;
+    text-align: center;
+}
+
+#paymentok_button button:first-child{
+    border: none;
+    width: 130px;
+    height: 50px;
+    color: white;
+    background-color: #459356;
+    cursor: pointer;
+}
+#paymentok_button button:first-child:hover{
+    background-color: #377544;
+}
+#paymentok_button button:last-child{
+    border: none;
+    width: 130px;
+    height: 50px;
+    background-color: white;
+    color: #459356;
+    font-weight: bold;
+    border: 1px solid #459356;
+    cursor: pointer;
+}

@@ -1,1 +1,105 @@
 @charset "UTF-8";
+
+#payment_wrap{
+    width: 1050px;
+    margin: auto;
+}
+#payment_wrap th,td{
+    font-size: 0.8em;
+}
+#payment_wrap table{
+    width: 100%;
+    margin-bottom: 80px;
+    padding: 20px 0;
+    border-top: 2px solid #459356;
+    border-collapse: collapse;
+}
+#payment_wrap h5{
+    padding: 10px;
+}
+
+/* ============== order_items */
+
+.order_items th{
+    height: 40px;
+}
+.order_items td.item_name{
+    width: 55%;
+    text-align: left;
+}
+.order_items tr{
+    border-bottom: 1px solid#ededed;
+    margin: 5px 0;
+}
+.order_items td{
+    text-align: center;
+}
+.itemSize_50{
+    width:50px;
+    height:50px;
+    display: inline-block;
+}
+.itemSize_50 > img{
+    width: 100%;
+}
+.order_items tr.itemDB{
+    height: 60px;
+}
+
+/* ============== write_orderseet */
+
+#write_orderseet tr{
+    border-bottom: 1px solid#ededed;
+    margin: 5px 0;
+    height: 60px;
+}
+
+#write_orderseet th{
+    width: 160px;
+    padding-right: 20px;
+    text-align:right;
+}
+#write_orderseet td{
+    padding-left: 20px;
+}
+
+#write_orderseet input[type="text"]{
+    height: 30px;
+    padding: 5px;
+    border: 1px solid #dadada;
+}
+
+.input_tel input[type="text"]{
+    width: 100px;
+}
+tr#order_request{
+    height: 80px;
+}
+#order_request textarea{
+    resize:none;
+    padding: 5px;
+    border: 1px solid #dadada;
+}
+.order_use_point button{
+    border:none;
+    width: 60px;
+    height: 30px;
+    cursor: pointer;
+}
+#final_order{
+    text-align: center;
+    height: 300px;
+
+}
+.final_order_button{
+    border:none;
+    width: 130px;
+    height: 50px;
+    color: white;
+    background-color: #459356;
+    cursor: pointer;
+
+}
+.final_order_button:hover{
+    background-color: #377544;
+}

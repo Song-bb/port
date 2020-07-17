@@ -87,6 +87,7 @@
 	
 	<c:import url="../footer.jsp"></c:import>
 	 
+	 <!-- 슬라이드 스크립트 -->
 	 <script>
 	    var swiper = new Swiper('.swiper-container', {
 	      slidesPerView: 3,
