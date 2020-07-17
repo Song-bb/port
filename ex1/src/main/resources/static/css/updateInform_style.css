@@ -67,7 +67,12 @@ input {
 }
 #update_btn {
    	text-align:center;
-   	curser:pointer;
+}
+#update_btn button{
+	cursor: pointer;
+}
+#update_btn > a{
+	display:inline-block;
 }
 #update_btn_1{
     width: 150px;
