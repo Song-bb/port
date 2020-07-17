@@ -3,10 +3,11 @@
 #delivery_search_wrap {
     width: 800px;
     margin: 0 auto;
+    float: right;
 }
 #delivery_search_header {
     width: 100%;
-    height: 50px;
+    height: 90px;
     padding: 20px;
     text-align: left;
     border-bottom: 2px solid #459356;
@@ -30,7 +31,7 @@
     width: 200px;
 }
 .delivery_search_start_end {
-    width: 100px;
+    width: 120px;
 }
 .delivery_search_month .delivery_search_number {
     width: 100px;
