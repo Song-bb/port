@@ -84,7 +84,7 @@
 							<div class="sub_navBox sub_navBox2">
 								<ul>
 									<li><a href="/myPage_main">주문내역</a></li>
-									<li><a href="#">정기배송</a></li>
+									<li><a href="/myRegularorder">정기배송</a></li>
 									<li><a href="/myCart">장바구니</a></li>
 									<li><a href="/myReview">상품 후기</a></li>
 									<li><a href="/myPoint">적립금</a></li>
