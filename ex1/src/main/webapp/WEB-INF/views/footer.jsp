@@ -39,4 +39,5 @@
 
 </body>
 <script src="js/my_JS.js"></script>
+<script src="js/address_JS.js"></script>
 </html>

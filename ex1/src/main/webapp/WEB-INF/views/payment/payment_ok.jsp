@@ -76,7 +76,7 @@
                     </tr>
                     <tr>
                         <th>주소</th>
-                        <td>{orderId_address}</td>
+                        <td>{}</td>
                     </tr>
                     <tr>
                         <th>*연락처</th>
