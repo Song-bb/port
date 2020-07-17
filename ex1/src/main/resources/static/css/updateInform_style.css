@@ -68,9 +68,6 @@ input {
 #update_btn {
    	text-align:center;
 }
-#update_btn button{
-	cursor: pointer;
-}
 #update_btn > a{
 	display:inline-block;
 }
