@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="css/withdraw_member_style.css">
     <link rel="stylesheet" href="css/payment_style.css">
     <link rel="stylesheet" href="css/payment_ok_style.css">
+    <link rel="stylesheet" href="css/myRegularorder_style.css">
     
     <!-- swiper(슬라이드) -->
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
