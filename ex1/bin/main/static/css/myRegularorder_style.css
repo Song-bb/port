@@ -4,6 +4,7 @@
     width: 800px;
     margin: 0 auto;
     float: right;
+    margin-top: 10px;
 }
 #delivery_search_header {
     width: 100%;
@@ -14,18 +15,17 @@
 }
 #delivery_search_body {
     width: 100%;
-    padding: 20px;
 }
 #delivery_search_body_table {
     border-collapse: collapse;
-    width: 800px;
+    width: 100%;
     padding: 20px;
     text-align: center;
 }
 .delivery_search_body_table_td {
     padding: 20px;
     border-bottom: 1px solid rgba(179, 178, 178, 0.507);
-    font-size: 0.7em;
+    font-size: 0.8em;
 }
 .delivery_search_content {
     width: 200px;
@@ -33,9 +33,16 @@
 .delivery_search_start_end {
     width: 120px;
 }
-.delivery_search_month .delivery_search_number {
+
+/* .delivery_search_month .delivery_search_number {
     width: 100px;
 }
 .delivery_search_select .delivery_search_price {
     width: 100px;
+} */
+
+.delivery_search_select button {
+	border: none;
+	width: 90px;
+	height: 30px;
 }

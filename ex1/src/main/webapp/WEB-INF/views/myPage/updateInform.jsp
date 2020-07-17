@@ -46,7 +46,7 @@
 	                                </a></td>
 	                        </tr>
 	                        <tr>
-	                            <td><a href="/myPage_main">
+	                            <td><a href="/myRegularorder">
 	                                    <div>정기배송 내역<span>></span></div>
 	                                </a></td>
 	                        </tr>

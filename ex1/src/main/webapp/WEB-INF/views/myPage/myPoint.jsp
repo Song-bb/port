@@ -42,7 +42,7 @@
                                 <td><a href="/myPage_main"><div>주문 내역<span>></span></div></a></td>
                             </tr>
                             <tr>
-                                <td><a href=""><div>정기배송 내역<span>></span></div></a></td>
+                                <td><a href="/myRegularorder"><div>정기배송 내역<span>></span></div></a></td>
                             </tr>
                             <tr>
                                 <td><a href="/myCart"><div>장바구니<span>></span></div></a></td>
