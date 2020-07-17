@@ -70,11 +70,11 @@
        		<h3>[ 지난달 정기배송 패키지 상품 모음 ]</h3>
 			<div class="swiper-container">
 			    <div class="swiper-wrapper">
-			    	<div class="swiper-slide"><a href="#">7월</a></div>
-			    	<div class="swiper-slide"><a href="#">6월</a></div>
-			    	<div class="swiper-slide"><a href="#">5월</a></div>
-			    	<div class="swiper-slide"><a href="#">4월</a></div>
-			    	<div class="swiper-slide"><a href="#">3월</a></div>
+			    	<div class="swiper-slide"><a href="#"><img src="img/lastPack2.jpg"></a></div>
+					<div class="swiper-slide"><a href="#"><img src="img/lastPack3.jpg"></a></div>
+					<div class="swiper-slide"><a href="#"><img src="img/lastPack4.jpg"></a></div>
+					<div class="swiper-slide"><a href="#"><img src="img/lastPack5.jpg"></a></div>
+					<div class="swiper-slide"><a href="#"><img src="img/lastPack6.jpg"></a></div>
 			    </div>
 			    <!-- Add Pagination -->
 			    <div class="swiper-pagination swiper-pagination-white"></div>
