@@ -114,7 +114,13 @@
 	                            </tr>
 	                            <tr>
 	                                <th>주소 </th>
-	                                <td><input type="text" name="address" placeholder="주소" class="input_text"></td>
+	                                <td class="join_address">
+                                	<input type="text" class="input_text_2" id="sample6_postcode" placeholder="우편번호">
+									<input type="button" id="address_button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+									<input type="text" class="input_text" id="sample6_address" placeholder="주소"><br>
+									<input type="text" class="input_text_2" id="sample6_detailAddress" placeholder="상세주소">
+									<input type="text" class="input_text_2" id="sample6_extraAddress" placeholder="참고항목">
+                                </td>
 	                            </tr>
 	                            <tr>
 	                                <th>성별 </th>
