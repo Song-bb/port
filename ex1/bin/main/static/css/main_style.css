@@ -89,6 +89,7 @@ div.sub_navBox > a {
 	top: 25px;
 	height: 30px; width: 280px;
 	font-weight: lighter;
+	margin-right: -40px;
 }
 #header_body_1 > div:last-child a {
 	font-size: 13px;
