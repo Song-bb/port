@@ -54,18 +54,15 @@ input {
     width: 35px;
     height: 10px;
 }
-#join_form_table button#id_button {
+#join_form_table button#id_button, 
+#join_form_table button#email_button, 
+.join_address button#address_button {
     width:80px;
     height:30px;
     border: 2px solid rgb(185, 185, 185);
     border-radius: 5px;
 }
-#join_form_table button#email_button {
-    width:80px;
-    height:30px;
-    border: 2px solid rgb(185, 185, 185);
-    border-radius: 5px;
-}
+
 #join_service_check {
     width: 100%;
     border-top: 2px solid darkgreen;
@@ -125,12 +122,4 @@ input {
 
 td.join_address input{
 	margin-bottom: 10px;
-}
-td.join_address input[type="button"]{
-	border:none;
-    width: 90px;
-    height: 30px;
-    cursor:pointer;
-    vertical-align: middle;
-    margin-left: 10px;
 }
