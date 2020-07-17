@@ -109,7 +109,7 @@
 		                    </tr>
 		                </table>
 		                <div id="delete_user_foot_body_btn">
-		                    <button id="delete_user_foot_body_btn_1"><a href="/myPage_main" style="color: #459356; display: inline-block;">취소</a></button>
+		                    <a href="/myPage_main" style="color: #459356; display: inline-block; width: 150px; height: 50px; border: 1px solid #459356; border-radius: 5px; line-height: 50px; text-align: center; margin-top:10px;">취소</a>
 		                    <button>탈퇴</button>
 		                </div>
 		            </div>
