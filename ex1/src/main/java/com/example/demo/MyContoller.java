@@ -350,6 +350,13 @@ public class MyContoller {
         }
 	}
 
+	// 정기배송내역
+		@RequestMapping("/myRegularorder")
+		public String myRegularorder() {
+			
+			return "myPage/myRegularorder";
+		}
+	
 	// 상품후기
 	@RequestMapping("/myReview")
 	public String myReview() {
