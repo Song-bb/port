@@ -4,7 +4,7 @@
     width: 1050px;
     margin: auto;
 }
-#payment_wrap th,td{
+#payment_wrap th,#payment_wrap td{
     font-size: 0.8em;
 }
 #payment_wrap table{

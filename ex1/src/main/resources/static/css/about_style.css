@@ -1,10 +1,4 @@
-*{
-    margin:0 auto;
-    padding:0;
-    box-sizing: border-box;
-    text-decoration: none;
-    font-family: 'Noto Sans KR', sans-serif;
-}
+
 #about_content {
     margin:auto;
     max-width: 1050px;
