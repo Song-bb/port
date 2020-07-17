@@ -1,12 +1,13 @@
 @charset "UTF-8";
 
+
+
+
 #point_wrap {
     width: 800px;
     margin: 0 auto;
     float: right;
-    margin-right: 350px;
     margin-top: 30px;
-    margin-bottom: 100px;
 }
 #point_header{
     width: 100%;

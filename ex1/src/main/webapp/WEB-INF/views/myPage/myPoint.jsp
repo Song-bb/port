@@ -62,40 +62,40 @@
                         <button type="button"><a href="/personal_question">도움이 필요하신가요?<br>1:1 문의하기</a></button>
                     </div>
                 </div>
-           </div>
+                 <div id="point_wrap">
+			        <div id="point_header">
+			            <h2>적립금</h2>
+			            <p>보유하고 계신 적립금의 내역을 한 눈에 확인 하실 수 있습니다.</p>
+			        </div>
+			        <div id="point_body">
+			            <div id="point_result">
+			                <div id="point_1">현재 적립금 : 1,000원</div>
+			                <div id="point_2">소멸 예정 적립금 : 1,000원</div>
+			            </div>
+			            <div id="point_table_div">
+			                <table id="point_table">
+			                    <tr class="point_table_tr">
+			                        <td class="point_table_td">날짜</td>
+			                        <td class="point_table_td">내용</td>
+			                        <td class="point_table_td">유효기간</td>
+			                        <td class="point_table_td">금액</td>
+			                    </tr>
+			                    <tr class="point_table_tr">
+			                        <td class="point_table_td">2020-07-03</td>
+			                        <td class="point_table_td point_table_td_content">
+			                            상품명 : 알찬사과 200g 외<br>
+			                            주문번호 : 202007020001<br>
+			                            주문금액 : 13,900 원 * 등급혜택 3% 적립
+			                        </td>
+			                        <td class="point_table_td">2021-07-03</td>
+			                        <td class="point_table_td">417 원</td>
+			                    </tr>
+			                </table>
+			            </div>
+			        </div>
+			    </div>  
+           </div> <!-- page_wrap -->
       </div>
-      <div id="point_wrap">
-        <div id="point_header">
-            <h2>적립금</h2>
-            <p>보유하고 계신 적립금의 내역을 한 눈에 확인 하실 수 있습니다.</p>
-        </div>
-        <div id="point_body">
-            <div id="point_result">
-                <div id="point_1">현재 적립금 : 1,000원</div>
-                <div id="point_2">소멸 예정 적립금 : 1,000원</div>
-            </div>
-            <div id="point_table_div">
-                <table id="point_table">
-                    <tr class="point_table_tr">
-                        <td class="point_table_td">날짜</td>
-                        <td class="point_table_td">내용</td>
-                        <td class="point_table_td">유효기간</td>
-                        <td class="point_table_td">금액</td>
-                    </tr>
-                    <tr class="point_table_tr">
-                        <td class="point_table_td">2020-07-03</td>
-                        <td class="point_table_td point_table_td_content">
-                            상품명 : 알찬사과 200g 외<br>
-                            주문번호 : 202007020001<br>
-                            주문금액 : 13,900 원 * 등급혜택 3% 적립
-                        </td>
-                        <td class="point_table_td">2021-07-03</td>
-                        <td class="point_table_td">417 원</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </div>
 	
 	
 	
