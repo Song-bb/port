@@ -1,15 +1,5 @@
 @charset "UTF-8";
 
-*{
-    margin:0 auto;
-    padding:0;
-    box-sizing: border-box;
-    text-decoration: none;
-    font-family: 'Noto Sans KR', sans-serif;
-    list-style: none;
-    color: black;
-}
-
 #item_detail_wrap{
     max-width: 1050px;
     min-width: 740px;

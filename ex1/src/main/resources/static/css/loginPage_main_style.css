@@ -55,9 +55,6 @@
     border: 1px solid rgb(255, 161, 54);
     background-color: rgb(255, 161, 54);
 }
-a{
-    text-decoration: none;
-}
 #login_id_pw_found{
     margin-left: 5px;
     margin-top: 5px;
