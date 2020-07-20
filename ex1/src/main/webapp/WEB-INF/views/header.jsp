@@ -82,7 +82,7 @@
 								<ul>
 									<li><a href="/servicePage_main">공지사항</a></li>
 									<li><a href="/fre_ask_questions">자주하는 질문</a></li>
-									<li><a href="/personal_question">1:1 문의</a></li>
+									<li><a href="/check_password">1:1 문의</a></li>
 								</ul>
 							</div>
 					</div>

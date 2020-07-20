@@ -287,31 +287,46 @@ public class MyContoller {
 	
 	// 1:1 문의 글쓰기 저장
 	@RequestMapping("/personal_que_write_ok")
-	public String personal_que_write_ok( HttpServletRequest request, HttpServletResponse response, Model model ) {
-		int size = 1024 * 1024 * 1; //1Mb
+	public String personal_que_write_ok( HttpServletRequest request, HttpServletResponse response, Model model ) throws Exception {
+		String select_categori = request.getParameter("select2");
+		String title = request.getParameter("personal_que_title");
+		String order_num = request.getParameter("order_num");
+		String reply_email = request.getParameter("check1");
+		String reply_sms = request.getParameter("check2");
+		String content = request.getParameter("question_content");
+		
+		System.out.println(select_categori);
+		System.out.println("1");
+		
+		int size = 1024 * 1024 * 5; //1Mb
 		String file = "";
 		String oriFile = "";
 		JSONObject obj = new JSONObject();
+		System.out.println("2");
 		try {
 			String path = ResourceUtils.getFile("classpath:static/upload/").toPath().toString();
 			System.out.println(path);
+			System.out.println("3");
 
 			MultipartRequest multi = new MultipartRequest(request, path, size, "UTF-8", new DefaultFileRenamePolicy());
 			System.out.println("111111");
 			Enumeration files = multi.getFileNames();
+			System.out.println( files );
 			String str = (String)files.nextElement();
+			System.out.println("4");
 			
 			file = multi.getFilesystemName(str);
 			oriFile = multi.getOriginalFileName(str);
-			
+			System.out.println("5");
 			obj.put("success", new Integer(1));
 			obj.put("desc", "업로드 성공");
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println( e );
 			obj.put("success", new Integer(0));
 			obj.put("desc", "업로드 실패");
 		}
-		/*return obj.toJSONString();*/
+		System.out.println(obj.toJSONString());
 
         return "servicePage/personal_question";
 	}
