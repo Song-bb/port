@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.example.demo.dao.IDao_personal_question">
+
+	<insert id="personal_write_ok"> 
+			INSERT INTO personal_question (idx, categori, title, order_nb, email, phone, content, file1, file2, file3, file4, file5, reply) VALUES (0, #{user_id}, #{user_pw}, #{user_name}, #{user_email}, #{user_phone}, #{user_address}, "앵두", 0, #{user_gender},#{user_birth})
+	</insert>
+
+	
+	
+</mapper>
+	

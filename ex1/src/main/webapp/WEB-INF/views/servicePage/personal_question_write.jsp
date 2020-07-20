@@ -36,7 +36,8 @@
                             <td class="personal_que_write_td1">
                                 <div>
                                     <select class="select_categori_select select_categori_select2" name="select2" required="required">
-                                        <option value="delivery" >배송지연/불만</option>
+                                        <option>선택해주세요.</option>
+                                        <option value="delivery">배송지연/불만</option>
                                         <option value="return">반품문의</option>
                                         <option value="refund">환불문의</option>
                                         <option value="order">주문결제문의</option>
@@ -48,14 +49,14 @@
                                     </select>
                                 </div>
                                 <div>
-                                    <input id="personal_que_write_input_title" type="text" name="personal_que_title" required="required">
+                                    <input id="personal_que_write_input_title" type="text" name="title">
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <th class="personal_que_write_th1">주문번호</th>
                             <td class="personal_que_write_td1">
-                                <input id="personal_que_write_input_ord_nb" type="text" value="${ select_order_number }" name="order_num">
+                                <input id="personal_que_write_input_ord_nb" type="text" value="${ select_order_number }">
                                 <button type="button" onclick="order_select_Pop();" id="personal_que_search_ord_nb">주문조회</button>
                             </td>
                         </tr>
@@ -63,14 +64,14 @@
                             <th class="personal_que_write_th1">이메일</th>
                             <td class="personal_que_write_td1">
                                 <input id="personal_que_write_input_email" type="text" placeholder="<%= session.getAttribute("user_email") %>">
-                                <input type="checkbox" value="reply_email" name="check1">답변 수신을 이메일로 받겠습니다.
+                                <input type="checkbox" value="checkbox1">답변 수신을 이메일로 받겠습니다.
                             </td>
                         </tr>
                         <tr>
                             <th class="personal_que_write_th1">문자메시지</th>
                             <td class="personal_que_write_td1">
                                 <input id="personal_que_write_input_ord_nb" type="text" placeholder="<%= session.getAttribute("user_phone") %>">
-                                <input type="checkbox" value="reply_sms" name="check2">답변 수신을 문자메시지로 받겠습니다.
+                                <input type="checkbox" value="checkbox2">답변 수신을 문자메시지로 받겠습니다.
                             </td>
                         </tr>
                         <tr>
@@ -98,7 +99,7 @@
                                     <span id="jangsu-text">※ 전화번호, 이메일, 주소, 계좌번호 등의 상세 계인정보가 문의 내용에 저장되지 않도록 주의해 주시기 바랍니다.</span><br>
                                     <br>
                                 </label>
-                                <input id="personal_que_write_input_content" type="text" name="question_content" required="required">
+                                <input id="personal_que_write_input_content" type="text" name="question_content">
                             </td>
                         </tr>
                         <tr>

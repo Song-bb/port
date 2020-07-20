@@ -13,6 +13,7 @@ import com.example.demo.dao.IDao_fre_ask_board;
 import com.example.demo.dao.IDao_members;
 import com.example.demo.dao.IDao_myOrder;
 import com.example.demo.dao.IDao_noticeBoard;
+import com.example.demo.dao.IDao_personal_question;
 import com.example.demo.dto.dto_banner_img;
 import com.example.demo.dto.dto_fre_ask_board;
 import com.example.demo.dto.dto_members;
@@ -32,6 +33,8 @@ public class MyService implements IMyService {
 	IDao_fre_ask_board dao_fre_ask;
 	@Autowired
 	IDao_myOrder dao_myOrder;
+	@Autowired
+	IDao_personal_question dao_personal_que;
 	
 	
 	@Autowired
@@ -144,6 +147,19 @@ public class MyService implements IMyService {
 	@Override
 	public List<dto_myOrder> order_list(String user_id) {
 		return dao_myOrder.myOrder(user_id);
+	}
+
+	
+	
+	
+	
+	
+	/*  1:1 문의  */
+	/* 글쓰기 */
+	@Override
+	public int personal_write_ok(Map<String, String> map) {
+		int nResult = dao_personal_que.personal_write_ok(map);
+		return nResult;
 	}
 
 

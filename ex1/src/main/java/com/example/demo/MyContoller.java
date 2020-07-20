@@ -12,17 +12,19 @@ import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import com.example.demo.Service.IMyService;
 import com.example.demo.dto.dto_members;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 
 @Controller
 public class MyContoller {
@@ -287,48 +289,61 @@ public class MyContoller {
 	
 	// 1:1 문의 글쓰기 저장
 	@RequestMapping("/personal_que_write_ok")
-	public String personal_que_write_ok( HttpServletRequest request, HttpServletResponse response, Model model ) throws Exception {
-		String select_categori = request.getParameter("select2");
-		String title = request.getParameter("personal_que_title");
-		String order_num = request.getParameter("order_num");
-		String reply_email = request.getParameter("check1");
-		String reply_sms = request.getParameter("check2");
-		String content = request.getParameter("question_content");
-		
-		System.out.println(select_categori);
-		System.out.println("1");
-		
-		int size = 1024 * 1024 * 5; //1Mb
+	public String personal_que_write_ok(@RequestParam(value="select2", required=false) String select_categori, @RequestParam(value="personal_que_title", required=false) String title, @RequestParam(value="order_num",required=false) String order_num, @RequestParam(value="check1",required=false) String reply_email, @RequestParam(value="check2",required=false) String reply_sms, @RequestParam(value="question_content",required=false) String content, HttpServletRequest request, HttpServletResponse response, Model model ) throws Exception {
+
+		int size = 1024 * 1024 * 10; //10M
 		String file = "";
 		String oriFile = "";
+		
 		JSONObject obj = new JSONObject();
-		System.out.println("2");
-		try {
-			String path = ResourceUtils.getFile("classpath:static/upload/").toPath().toString();
-			System.out.println(path);
-			System.out.println("3");
 
-			MultipartRequest multi = new MultipartRequest(request, path, size, "UTF-8", new DefaultFileRenamePolicy());
+		try {
+			String path = ResourceUtils
+					  .getFile("classpath:static/upload/").toPath().toString();
+			System.out.println(path);
+			
+			MultipartRequest multi = new MultipartRequest(request, path, size,
+					                       "UTF-8", new DefaultFileRenamePolicy());
 			System.out.println("111111");
 			Enumeration files = multi.getFileNames();
-			System.out.println( files );
 			String str = (String)files.nextElement();
-			System.out.println("4");
 			
 			file = multi.getFilesystemName(str);
 			oriFile = multi.getOriginalFileName(str);
-			System.out.println("5");
+			
 			obj.put("success", new Integer(1));
 			obj.put("desc", "업로드 성공");
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println( e );
 			obj.put("success", new Integer(0));
 			obj.put("desc", "업로드 실패");
 		}
-		System.out.println(obj.toJSONString());
-
-        return "servicePage/personal_question";
+	
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put( "categori", select_categori);
+		map.put( "title", title );
+		map.put( "order_num", order_num );
+		map.put( "reply_email", reply_email ); // 수신 승인하면 "reply_email"
+		map.put( "reply_sms", reply_sms ); // 수신 승인하면 "reply_sms"
+		map.put( "content", content );
+		map.put( "file", file);
+			
+		int nResult = service.personal_write_ok( map );
+		
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		if( nResult < 1 ) {
+			out.println("<script>alert('다시 시도해주세요.'); history.go(-1);</script>");
+			out.flush();
+			return "servicePage/personal_question_write";
+		} else {
+			out.println("<script>alert('문의글이 작성되었습니다.'); location.href='/personal_question';</script>");
+			out.flush();
+			return "servicePage/personal_question";
+		}
+		
+		
 	}
 
 

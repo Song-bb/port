@@ -45,5 +45,11 @@ public interface IMyService {
 	
 	
 	
+	
+	/*  1:1 문의글  */
+	public int personal_write_ok (Map<String, String> map);
+	
+	
+	
 }
 
