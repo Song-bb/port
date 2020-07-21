@@ -1,7 +1,6 @@
 package com.example.demo;
 
 import java.io.PrintWriter;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,33 +9,46 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
-import com.example.demo.Service.FileuploadService;
-import com.example.demo.Service.IMyService;
+import com.example.demo.Service.FileuploadService_personal_que;
+import com.example.demo.Service.Service_banner_img;
+import com.example.demo.Service.Service_fre_ask_board;
+import com.example.demo.Service.Service_members;
+import com.example.demo.Service.Service_myPage;
+import com.example.demo.Service.Service_noticeBoard;
+import com.example.demo.Service.Service_personal_que;
 import com.example.demo.dto.dto_members;
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 
 
 @Controller
 public class MyContoller {
 	
 	@Autowired
-	IMyService service;
+	FileuploadService_personal_que fileUploadService;
 	@Autowired
-	FileuploadService fileUploadService;
+	Service_members service_members;
+	@Autowired
+	Service_noticeBoard service_noticeBoard;
+	@Autowired
+	Service_banner_img service_banner;
+	@Autowired
+	Service_fre_ask_board service_fre_ask;
+	@Autowired
+	Service_myPage service_myPage;
+	@Autowired
+	Service_personal_que service_personal_que;
+	
+	
 	
 	@RequestMapping("/")
 	public String root() throws Exception {
@@ -46,15 +58,14 @@ public class MyContoller {
 	// 메인페이지
 	@RequestMapping("/main")
 	public String mainPage(Model model) {
-		model.addAttribute("banner_img", service.viewBanner());	
+		model.addAttribute("banner_img", service_banner.viewBanner());	
 		return "main";
 	}
 	
 	// 고객센터메인(공지사항)
 	@RequestMapping("/servicePage_main")
 	public String servicePage_main(Model model) {
-		model.addAttribute("notice_board_list", service.list_notice());		
-		int nTotalCount = service.count();	
+		model.addAttribute("notice_board_list", service_noticeBoard.list_notice());		
 	return "servicePage/servicePage_main";
 	}
 	
@@ -91,15 +102,11 @@ public class MyContoller {
 		map.put( "user_gender", user_gender ); // 남자 1, 여자 2, 선택안함 3
 		map.put( "user_birth", user_birth );
 			
-		int nResult = service.join_ok( map );
+		int nResult = service_members.join_ok( map );
 		if( nResult < 1 ) {
-			out.println("<script>alert('회원가입 실패.'); location.href='/joinPage_main';</script>");
-			out.flush();
-			return "main";
+			return "joinPage/join_fail";
 		} else {
-			out.println("<script>alert('회원가입 완료 하였습니다.'); location.href='/main';</script>");
-			out.flush();
-			return "main";
+			return "joinPage/join_success";
 		}
 	}
 	
@@ -114,13 +121,9 @@ public class MyContoller {
 	public String login_ok(@RequestParam("user_id") String user_id, 
 						   @RequestParam("user_pw") String user_pw,  
 						   HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
-		List<dto_members> list = service.login( user_id, user_pw );
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
+		List<dto_members> list = service_members.login( user_id, user_pw );
 		if( list.isEmpty() ) { // 아이디 없음
-			out.println("<script>alert('아이디를 확인해주세요.'); location.href='/loginPage_main';</script>");
-			out.flush();
-			return "loginPage_main";
+			return "loginPage/login_fail_id";
 		} else { // 아이디 있음
 			if( user_pw.equals( list.get(0).getUser_pw()) ) { // 비밀번호 일치
 				HttpSession session = request.getSession(); // 세션 시작
@@ -132,9 +135,7 @@ public class MyContoller {
 				session.setAttribute("user_phone", list.get(0).getUser_phone()); // 휴대폰번호 세션 저장
 				return "main";
 			} else { // 비밀번호 불일치
-				out.println("<script>alert('비밀번호를 확인해주세요.'); location.href='/loginPage_main';</script>");
-				out.flush();
-				return "loginPage_main";
+				return "loginPage/login_fail_pw";
 			}
 		}
 	}
@@ -226,10 +227,10 @@ public class MyContoller {
 	public String notice_board( @RequestParam("notice_index") String notice_index, 
 								@RequestParam("notice_index") int notice_index_nb, 
 								Model model ) {
-		model.addAttribute("dto_notice_board", service.view_notice(notice_index));
-		model.addAttribute("dto_notice_board_before", service.view_notice(String.valueOf(notice_index_nb-1))); // 이전글
-		model.addAttribute("dto_notice_board_after", service.view_notice(String.valueOf(notice_index_nb+1))); // 다음글
-		service.updateViewCount_notice(notice_index); // 조회수 증가
+		model.addAttribute("dto_notice_board", service_noticeBoard.view_notice(notice_index));
+		model.addAttribute("dto_notice_board_before", service_noticeBoard.view_notice(String.valueOf(notice_index_nb-1))); // 이전글
+		model.addAttribute("dto_notice_board_after", service_noticeBoard.view_notice(String.valueOf(notice_index_nb+1))); // 다음글
+		service_noticeBoard.updateViewCount_notice(notice_index); // 조회수 증가
 		return "servicePage/notice_board";
 	}
 	
@@ -238,7 +239,7 @@ public class MyContoller {
 	public String notice_board_search(@RequestParam("search_text") String search_text, 
 									  @RequestParam(value="search_filter", required=false, defaultValue="notice_title") String search_filter, 
 									  Model model ) {
-		model.addAttribute("dto_notice_board_search", service.search_notice(search_filter, search_text));
+		model.addAttribute("dto_notice_board_search", service_noticeBoard.search_notice(search_filter, search_text));
 		return "servicePage/notice_board_search";
 	}
 
@@ -251,31 +252,32 @@ public class MyContoller {
 	// 자주하는질문 페이지
 	@RequestMapping("/fre_ask_questions")
 	public String fre_ask_questions(Model model) {
-		model.addAttribute("fre_que_list", service.list_fre_ask());
+		model.addAttribute("fre_que_list", service_fre_ask.list_fre_ask());
 		return "servicePage/fre_ask_questions";
 	}
 
 	// 자주하는질문 페이지 카테고리 선택
 	@RequestMapping("/fre_que_select")
 	public String fre_que_select(@RequestParam(value="select", required=false) String categori, Model model ) {
-		model.addAttribute("dto_fre_ask_select", service.select_fre_ask( categori ));
+		model.addAttribute("dto_fre_ask_select", service_fre_ask.select_fre_ask( categori ));
 		return "servicePage/fre_que_select";
 	}
 	
 	// 자주하는페이지 검색
 	@RequestMapping("/fre_ask_search")
 	public String fre_ask_search(@RequestParam("search_text") String search_text, Model model ) {
-		model.addAttribute("search_text", service.search_fre_ask( search_text ));
+		model.addAttribute("search_text", service_fre_ask.search_fre_ask( search_text ));
 		return "servicePage/fre_ask_search";
 	}
 
 	// 1:1문의 페이지
 	@RequestMapping("/personal_question")
-	public String personal_question( HttpServletRequest request, HttpServletResponse response ) {
+	public String personal_question( HttpServletRequest request, HttpServletResponse response, Model model ) {
 		HttpSession session = request.getSession();
         if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
         	return "loginPage/loginPage_main";
         } else {
+        	model.addAttribute("personal_que", service_personal_que.list(String.valueOf(session.getAttribute("user_id"))));	
         	return "servicePage/personal_question";
         }
 	}
@@ -303,7 +305,7 @@ public class MyContoller {
         	return "loginPage/loginPage_main";
         } else {
         	String user_id = session.getAttribute("user_id").toString();
-        	model.addAttribute("order_number", service.order_list(user_id));
+        	model.addAttribute("order_number", service_myPage.order_list(user_id));
         	return "servicePage/personal_que_select_order_nb";
         }
 	}
@@ -334,43 +336,54 @@ public class MyContoller {
 										@RequestParam(value="upload_file4", required=false) MultipartFile file4,
 										@RequestParam(value="upload_file5", required=false) MultipartFile file5,
 										HttpServletRequest request, HttpServletResponse response, Model model ) throws Exception {
-
-		System.out.println("select_categori:" + select_categori);
-		System.out.println("title:" + title);
-		System.out.println("order_num:" + order_num);
-		System.out.println("email:" + email);
-		System.out.println("reply_email:" + reply_email);
-		System.out.println("phone:" + phone);
-		System.out.println("reply_sms:" + reply_sms);
-		System.out.println("content:" + content);
-
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		HttpSession session = request.getSession();
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("user_id", String.valueOf(session.getAttribute("user_id")));
+		map.put( "select_categori", select_categori ); //선택x:other, 배송지연/불만:delivery, 반품:return, 환불:refund, 주문결제문의:order, 회원정보문의:member, 취소문의:cancel, 교환문의:exchange, 상품정보문의:item, 기타:other
+		map.put( "title", title );
+		if( order_num != null ){ map.put( "order_num", order_num ); } else { map.put( "order_num", "null" ); }
+		map.put( "email", email );
+		if( reply_email != null ){ map.put( "reply_email", reply_email); } else { map.put( "reply_email", "null"); } // 선택되면 agree
+		map.put( "phone", phone );
+		if( reply_sms != null ){ map.put( "reply_sms", reply_sms ); } else { map.put( "reply_sms", "null" ); } // 선택되면 agree
+		map.put( "content", content );
+		
 		if( !(file1.isEmpty()) ) {
 			String url1 = fileUploadService.restore(file1);
-			System.out.println("url1:" + url1);
-			model.addAttribute("url1", url1);
-		}
+			map.put( "url1", url1 );
+		} else { map.put( "url1", "null" ); }
 		if( !(file2.isEmpty())  ) {
 			String url2 = fileUploadService.restore(file2);
-			System.out.println("url2:" + url2);
-			model.addAttribute("url2", url2);
-		}
+			map.put( "url2", url2 );
+		} else { map.put( "url2", "null" ); }
 		if( !(file3.isEmpty()) )  {
 			String url3 = fileUploadService.restore(file3);
-			System.out.println("url3:" + url3);
-			model.addAttribute("url3", url3);
-		}
+			map.put( "url3", url3 );
+		} else { map.put( "url3", "null" ); }
 		if( !(file4.isEmpty())  ) {
 			String url4 = fileUploadService.restore(file4);
-			System.out.println("url4:" + url4);
-			model.addAttribute("url4", url4);
-		}
+			map.put( "url4", url4 );
+		} else { map.put( "url4", "null" ); }
 		if( !(file5.isEmpty())  ) {
 			String url5 = fileUploadService.restore(file5);
-			System.out.println("url5:" + url5);
-			model.addAttribute("url5", url5);
+			map.put( "url5", url5 );
+		} else { map.put( "url5", "null" ); }
+		
+		System.out.println( map );
+		
+		int nResult = service_personal_que.personal_write_ok( map );
+		if( nResult < 1 ) {
+			out.println("<script>alert('글쓰기 실패.'); history.go(-1);</script>");
+			out.flush();
+			return "main";
+		} else {
+			out.println("<script>alert('문의글 작성 완료 하였습니다.'); location.href='/personal_question';</script>");
+			out.flush();
+			return "servicePage/personal_question";
 		}
-		return "servicePage/personal_question";
-	
 	}
 
 
@@ -389,7 +402,7 @@ public class MyContoller {
         	return "loginPage/loginPage_main";
         } else {
         	String user_id = session.getAttribute("user_id").toString();
-        	model.addAttribute("my_order", service.order_list(user_id));
+        	model.addAttribute("my_order", service_myPage.order_list(user_id));
     		return "myPage/myPage_main";
         }
 	}
@@ -402,7 +415,7 @@ public class MyContoller {
         	return "loginPage/loginPage_main";
         } else {
         	String user_id = session.getAttribute("user_id").toString();
-        	model.addAttribute("my_order", service.order_list(user_id));
+        	model.addAttribute("my_order", service_myPage.order_list(user_id));
         	return "myPage/myOrder";
         }
 	}
@@ -442,8 +455,15 @@ public class MyContoller {
 	
 	// 개인정보수정(비밀번호 재확인)
 	@RequestMapping("/check_password")
-	public String check_password() {
-		return "myPage/check_password";
+	public String check_password(HttpServletRequest request, HttpServletResponse response, Model model) {
+		HttpSession session = request.getSession();
+        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+        	return "loginPage/loginPage_main";
+        } else {
+        	String user_id = session.getAttribute("user_id").toString();
+        	model.addAttribute("my_order", service_myPage.order_list(user_id));
+        	return "myPage/check_password";
+        }
 	}
 	
 	// 개인정보수정(비밀번호 확인페이지 이동)
@@ -451,7 +471,7 @@ public class MyContoller {
 	public String check_password_ok(@RequestParam("user_pw") String user_pw, 
 									@RequestParam("user_id") String user_id, 
 									HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
-		List<dto_members> list = service.check_pw( user_id, user_pw );
+		List<dto_members> list = service_members.check_pw( user_id, user_pw );
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		if( user_pw.equals( list.get(0).getUser_pw()) ) { // 비밀번호 일치

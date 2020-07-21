@@ -4,12 +4,12 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.example.demo.dto.dto_myOrder;
+import com.example.demo.dto.dto_myPage;
 
 @Mapper
-public interface IDao_myOrder {
+public interface IDao_myPage {
 	
-	public List<dto_myOrder> myOrder(String user_id);
+	public List<dto_myPage> myOrder(String user_id);
 	
 	
 }

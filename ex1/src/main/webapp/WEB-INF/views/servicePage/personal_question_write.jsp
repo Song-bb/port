@@ -36,7 +36,7 @@
                             <td class="personal_que_write_td1">
                                 <div>
                                     <select class="select_categori_select select_categori_select2" name="select2" required="required">
-                                        <option>선택해주세요.</option>
+                                        <option value="">선택해주세요.</option>
                                         <option value="delivery">배송지연/불만</option>
                                         <option value="return">반품문의</option>
                                         <option value="refund">환불문의</option>
@@ -64,14 +64,14 @@
                             <th class="personal_que_write_th1">이메일</th>
                             <td class="personal_que_write_td1">
                                 <input id="personal_que_write_input_email" type="text" value="<%= session.getAttribute("user_email") %>" name="email" required="required">
-                                <input type="checkbox" value="checkbox1" name="check1">답변 수신을 이메일로 받겠습니다.
+                                <input type="checkbox" value="agree" name="check1">답변 수신을 이메일로 받겠습니다.
                             </td>
                         </tr>
                         <tr>
                             <th class="personal_que_write_th1">문자메시지</th>
                             <td class="personal_que_write_td1">
                                 <input id="personal_que_write_input_ord_nb" type="text" value="<%= session.getAttribute("user_phone") %>" name="phone" required="required">
-                                <input type="checkbox" value="checkbox2" name="check2">답변 수신을 문자메시지로 받겠습니다.
+                                <input type="checkbox" value="agree" name="check2">답변 수신을 문자메시지로 받겠습니다.
                             </td>
                         </tr>
                         <tr>

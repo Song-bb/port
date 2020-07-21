@@ -16,220 +16,28 @@
         <div id="seasonpage_top_nav"><a href="">최신순 </a> | <a href="">낮은 가격 순 </a> | <a href="">높은 가격 순 </a></div>
         <div id="seasonpage_mid">
             <table class="item_table">
-                <tr>
-                    <td>
-                        <div class="season_item">
-                        	<div class="item_img_250320">
-								<div class="item_img">
-									<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-								</div>
-							</div>
-                            <div class="item_desc">
-                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-                                <p>5,000 원</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="season_item">
-                            <div class="item_img_250320">
-								<div class="item_img">
-									<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-								</div>
-							</div>
-                            <div class="item_desc">
-                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-                                <p>5,000 원</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="season_item">
-                            <div class="item_img_250320">
-								<div class="item_img">
-									<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-								</div>
-							</div>
-                            <div class="item_desc">
-                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-                                <p>5,000 원</p>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-                       <table class="item_table">
-                <tr>
-                    <td>
-                        <div class="season_item">
-                        	<div class="item_img_250320">
-								<div class="item_img">
-									<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-								</div>
-							</div>
-                            <div class="item_desc">
-                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-                                <p>5,000 원</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="season_item">
-                            <div class="item_img_250320">
-								<div class="item_img">
-									<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-								</div>
-							</div>
-                            <div class="item_desc">
-                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-                                <p>5,000 원</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="season_item">
-                            <div class="item_img_250320">
-								<div class="item_img">
-									<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-								</div>
-							</div>
-                            <div class="item_desc">
-                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-                                <p>5,000 원</p>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-                        <table class="item_table">
-                <tr>
-                    <td>
-                        <div class="season_item">
-                        	<div class="item_img_250320">
-								<div class="item_img">
-									<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-								</div>
-							</div>
-                            <div class="item_desc">
-                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-                                <p>5,000 원</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="season_item">
-                            <div class="item_img_250320">
-								<div class="item_img">
-									<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-								</div>
-							</div>
-                            <div class="item_desc">
-                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-                                <p>5,000 원</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="season_item">
-                            <div class="item_img_250320">
-								<div class="item_img">
-									<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-								</div>
-							</div>
-                            <div class="item_desc">
-                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-                                <p>5,000 원</p>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-                       <table class="item_table">
-                <tr>
-                    <td>
-                        <div class="season_item">
-                        	<div class="item_img_250320">
-								<div class="item_img">
-									<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-								</div>
-							</div>
-                            <div class="item_desc">
-                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-                                <p>5,000 원</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="season_item">
-                            <div class="item_img_250320">
-								<div class="item_img">
-									<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-								</div>
-							</div>
-                            <div class="item_desc">
-                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-                                <p>5,000 원</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="season_item">
-                            <div class="item_img_250320">
-								<div class="item_img">
-									<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-								</div>
-							</div>
-                            <div class="item_desc">
-                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-                                <p>5,000 원</p>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>            
-            <table class="item_table">
-                <tr>
-                    <td>
-                        <div class="season_item">
-                        	<div class="item_img_250320">
-								<div class="item_img">
-									<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-								</div>
-							</div>
-                            <div class="item_desc">
-                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-                                <p>5,000 원</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="season_item">
-                            <div class="item_img_250320">
-								<div class="item_img">
-									<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-								</div>
-							</div>
-                            <div class="item_desc">
-                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-                                <p>5,000 원</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="season_item">
-                            <div class="item_img_250320">
-								<div class="item_img">
-									<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-								</div>
-							</div>
-                            <div class="item_desc">
-                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-                                <p>5,000 원</p>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+            	<% for( int i=1; i<=15; i+=3) { %>
+                		<tr>
+                			<% for( int j=i; j<=i+2; j++) { 
+                					if( j <= 15 ) {%>
+		                    		<td>
+		                        		<div class="season_item">
+		                        			<div class="item_img_250320">
+												<div class="item_img">
+													<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
+												</div>
+											</div>
+		                            		<div class="item_desc">
+			                                	<p><a href="/item_detail">[워싱턴] 한입체리</a></p>
+			                                	<p>5,000 원</p>
+		                            		</div>
+		                        		</div>
+		                    		</td>
+		                    	<%  } %>
+		                    <%  } %>
+	                	</tr>
+               		<% } %>
+               </table>
         </div>
         <div id="seasonpage_btm">
             <table class="seasonpage_table">

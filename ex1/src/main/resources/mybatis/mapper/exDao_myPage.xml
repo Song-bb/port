@@ -4,9 +4,9 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-<mapper namespace="com.example.demo.dao.IDao_myOrder">
+<mapper namespace="com.example.demo.dao.IDao_myPage">
 	
-	<select id="myOrder" resultType="com.example.demo.dto.dto_myOrder"> 
+	<select id="myOrder" resultType="com.example.demo.dto.dto_myPage"> 
 			SELECT * FROM order_list WHERE user_id = #{param1} ORDER BY idx desc
 	</select>
 
