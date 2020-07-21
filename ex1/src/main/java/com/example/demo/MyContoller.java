@@ -142,14 +142,10 @@ public class MyContoller {
 	
 	// 로그아웃
 	@RequestMapping("/logout")
-	public String logout(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public String logout(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
         session.invalidate();
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		out.println("<script>alert('로그아웃 되었습니다.'); location.href='/main';</script>");
-		out.flush();
-		return "main";
+		return "loginPage/logout";
 	}
 	
 	// 정기배송메인
@@ -335,11 +331,9 @@ public class MyContoller {
 										@RequestParam(value="upload_file3", required=false) MultipartFile file3,
 										@RequestParam(value="upload_file4", required=false) MultipartFile file4,
 										@RequestParam(value="upload_file5", required=false) MultipartFile file5,
-										HttpServletRequest request, HttpServletResponse response, Model model ) throws Exception {
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
+										HttpServletRequest request, HttpServletResponse response, Model model ) {
 		HttpSession session = request.getSession();
-		
+	
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("user_id", String.valueOf(session.getAttribute("user_id")));
 		map.put( "select_categori", select_categori ); //선택x:other, 배송지연/불만:delivery, 반품:return, 환불:refund, 주문결제문의:order, 회원정보문의:member, 취소문의:cancel, 교환문의:exchange, 상품정보문의:item, 기타:other
@@ -376,13 +370,9 @@ public class MyContoller {
 		
 		int nResult = service_personal_que.personal_write_ok( map );
 		if( nResult < 1 ) {
-			out.println("<script>alert('글쓰기 실패.'); history.go(-1);</script>");
-			out.flush();
-			return "main";
+			return "servicePage/personal_que_write_fail";
 		} else {
-			out.println("<script>alert('문의글 작성 완료 하였습니다.'); location.href='/personal_question';</script>");
-			out.flush();
-			return "servicePage/personal_question";
+			return "servicePage/personal_que_write_ok";
 		}
 	}
 
@@ -477,9 +467,7 @@ public class MyContoller {
 		if( user_pw.equals( list.get(0).getUser_pw()) ) { // 비밀번호 일치
 			return "myPage/updateInform";
 		} else { // 비밀번호 불일치
-			out.println("<script>alert('비밀번호를 다시 확인해주세요.'); location.href='/check_password';</script>");
-			out.flush();
-			return "myPage/check_password";
+			return "myPage/check_password_fail";
 		}
 	}
 	
