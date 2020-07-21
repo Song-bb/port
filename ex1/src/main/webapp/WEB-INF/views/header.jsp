@@ -88,31 +88,48 @@
 					</div>
 						<a href="/regularOrder_main">배송지역 검색</a>
 					<% } else { %>
-					<div class="sub_nav">
-						<a href="/myPage_main"><%= session.getAttribute("user_name") %> 님</a> |
-							<div class="sub_navBox sub_navBox2">
-								<ul>
-									<li><a href="/myPage_main">주문내역</a></li>
-									<li><a href="/myRegularorder">정기배송</a></li>
-									<li><a href="/myCart">장바구니</a></li>
-									<li><a href="/myReview">상품 후기</a></li>
-									<li><a href="/myPoint">적립금</a></li>
-									<li><a href="/updateInform">개인정보수정</a></li>
-								</ul>
+						<% if( session.getAttribute("user_grade").equals("manager") ){ %>
+							<div class="sub_nav">
+								<a href="/myPage_main"><%= session.getAttribute("user_name") %> 님</a> |
+									<div class="sub_navBox sub_navBox2">
+										<ul>
+											<li><a href="/myPage_main">주문내역</a></li>
+											<li><a href="/myRegularorder">정기배송</a></li>
+											<li><a href="/myCart">장바구니</a></li>
+											<li><a href="/myReview">상품 후기</a></li>
+											<li><a href="/myPoint">적립금</a></li>
+											<li><a href="/updateInform">개인정보수정</a></li>
+											<li><a href="/management">카페관리</a></li>
+										</ul>
+									</div>
 							</div>
-					</div>
-						<a href="/logout">로그아웃</a> | 
-					<div class="sub_nav"> 
-						<a href="/servicePage_main">고객센터</a> |
-							<div class="sub_navBox">
-								<ul>
-									<li><a href="/servicePage_main">공지사항</a></li>
-									<li><a href="/fre_ask_questions">자주하는 질문</a></li>
-									<li><a href="/personal_question">1:1 문의</a></li>
-								</ul>
+						<% } else { %>
+							<div class="sub_nav">
+								<a href="/myPage_main"><%= session.getAttribute("user_name") %> 님</a> |
+									<div class="sub_navBox sub_navBox2">
+										<ul>
+											<li><a href="/myPage_main">주문내역</a></li>
+											<li><a href="/myRegularorder">정기배송</a></li>
+											<li><a href="/myCart">장바구니</a></li>
+											<li><a href="/myReview">상품 후기</a></li>
+											<li><a href="/myPoint">적립금</a></li>
+											<li><a href="/updateInform">개인정보수정</a></li>
+										</ul>
+									</div>
 							</div>
-					</div>
-						<a href="/delevery_place">배송지역 검색</a>
+						<% } %>
+								<a href="/logout">로그아웃</a> | 
+							<div class="sub_nav"> 
+								<a href="/servicePage_main">고객센터</a> |
+									<div class="sub_navBox">
+										<ul>
+											<li><a href="/servicePage_main">공지사항</a></li>
+											<li><a href="/fre_ask_questions">자주하는 질문</a></li>
+											<li><a href="/personal_question">1:1 문의</a></li>
+										</ul>
+									</div>
+							</div>
+								<a href="/delevery_place">배송지역 검색</a>
 					<% } %>
 				</div>
 			</div>

@@ -12,14 +12,18 @@ import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
+import com.example.demo.Service.FileuploadService;
 import com.example.demo.Service.IMyService;
 import com.example.demo.dto.dto_members;
 import com.oreilly.servlet.MultipartRequest;
@@ -31,6 +35,8 @@ public class MyContoller {
 	
 	@Autowired
 	IMyService service;
+	@Autowired
+	FileuploadService fileUploadService;
 	
 	@RequestMapping("/")
 	public String root() throws Exception {
@@ -60,7 +66,15 @@ public class MyContoller {
 	
 	// 회원가입 확인 페이지
 	@RequestMapping("/join_ok")
-	public String join_ok(@RequestParam("user_id") String user_id, @RequestParam("user_pw") String user_pw, @RequestParam("user_pw_ok") String user_pw_ok, @RequestParam("email") String user_email, @RequestParam("user_name") String user_name, @RequestParam("phone") String user_phone, @RequestParam("address") String user_address, @RequestParam("gender_select") String user_gender, @RequestParam("user_birth") String user_birth, HttpServletResponse response) throws Exception {
+	public String join_ok(@RequestParam("user_id") String user_id, 
+						  @RequestParam("user_pw") String user_pw, 
+						  @RequestParam("user_pw_ok") String user_pw_ok, 
+						  @RequestParam("email") String user_email, 
+						  @RequestParam("user_name") String user_name, 
+						  @RequestParam("phone") String user_phone, 
+						  @RequestParam("address") String user_address, 
+						  @RequestParam("gender_select") String user_gender, 
+						  @RequestParam("user_birth") String user_birth, HttpServletResponse response) throws Exception {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		if( ! (user_pw.equals( user_pw_ok ) )) { // 비밀번호, 확인란 재확인
@@ -97,7 +111,9 @@ public class MyContoller {
 	
 	// 로그인 확인 페이지
 	@RequestMapping("/login_ok")
-	public String login_ok(@RequestParam("user_id") String user_id, @RequestParam("user_pw") String user_pw,  HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
+	public String login_ok(@RequestParam("user_id") String user_id, 
+						   @RequestParam("user_pw") String user_pw,  
+						   HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
 		List<dto_members> list = service.login( user_id, user_pw );
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
@@ -207,7 +223,9 @@ public class MyContoller {
 
 	// 공지사항 글
 	@RequestMapping("/notice_board")
-	public String notice_board( @RequestParam("notice_index") String notice_index, @RequestParam("notice_index") int notice_index_nb, Model model ) {
+	public String notice_board( @RequestParam("notice_index") String notice_index, 
+								@RequestParam("notice_index") int notice_index_nb, 
+								Model model ) {
 		model.addAttribute("dto_notice_board", service.view_notice(notice_index));
 		model.addAttribute("dto_notice_board_before", service.view_notice(String.valueOf(notice_index_nb-1))); // 이전글
 		model.addAttribute("dto_notice_board_after", service.view_notice(String.valueOf(notice_index_nb+1))); // 다음글
@@ -217,7 +235,9 @@ public class MyContoller {
 	
 	// 공지사항 글 검색하기
 	@RequestMapping("/notice_board_search")
-	public String notice_board_search( @RequestParam("search_text") String search_text, @RequestParam(value="search_filter", required=false, defaultValue="notice_title") String search_filter, Model model ) {
+	public String notice_board_search(@RequestParam("search_text") String search_text, 
+									  @RequestParam(value="search_filter", required=false, defaultValue="notice_title") String search_filter, 
+									  Model model ) {
 		model.addAttribute("dto_notice_board_search", service.search_notice(search_filter, search_text));
 		return "servicePage/notice_board_search";
 	}
@@ -262,7 +282,8 @@ public class MyContoller {
 
 	// 1:1문의 글쓰기 페이지
 	@RequestMapping("/personal_question_write")
-	public String personal_question_write( @RequestParam(value="order_number", required=false) String order_number, HttpServletRequest request, HttpServletResponse response, Model model ) {
+	public String personal_question_write(@RequestParam(value="order_number", required=false) String order_number, 
+										  HttpServletRequest request, HttpServletResponse response, Model model ) {
 		HttpSession session = request.getSession();
         if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
         	return "loginPage/loginPage_main";
@@ -287,63 +308,69 @@ public class MyContoller {
         }
 	}
 	
-	// 1:1 문의 글쓰기 저장
-	@RequestMapping("/personal_que_write_ok")
-	public String personal_que_write_ok(@RequestParam(value="select2", required=false) String select_categori, @RequestParam(value="personal_que_title", required=false) String title, @RequestParam(value="order_num",required=false) String order_num, @RequestParam(value="check1",required=false) String reply_email, @RequestParam(value="check2",required=false) String reply_sms, @RequestParam(value="question_content",required=false) String content, HttpServletRequest request, HttpServletResponse response, Model model ) throws Exception {
-
-		int size = 1024 * 1024 * 10; //10M
-		String file = "";
-		String oriFile = "";
-		
-		JSONObject obj = new JSONObject();
-
-		try {
-			String path = ResourceUtils
-					  .getFile("classpath:static/upload/").toPath().toString();
-			System.out.println(path);
-			
-			MultipartRequest multi = new MultipartRequest(request, path, size,
-					                       "UTF-8", new DefaultFileRenamePolicy());
-			System.out.println("111111");
-			Enumeration files = multi.getFileNames();
-			String str = (String)files.nextElement();
-			
-			file = multi.getFilesystemName(str);
-			oriFile = multi.getOriginalFileName(str);
-			
-			obj.put("success", new Integer(1));
-			obj.put("desc", "업로드 성공");
-		} catch (Exception e) {
-			e.printStackTrace();
-			obj.put("success", new Integer(0));
-			obj.put("desc", "업로드 실패");
-		}
+	// 파일업로드용 bean 생성
+	@Bean(name = "multipartResolver")
+	public CommonsMultipartResolver multipartResolver() {
+		CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+		multipartResolver.setMaxUploadSize(200000000);
+		multipartResolver.setMaxInMemorySize(200000000);
+		multipartResolver.setDefaultEncoding("utf-8");
+		return multipartResolver;
+	}
 	
-		
-		Map<String, String> map = new HashMap<String, String>();
-		map.put( "categori", select_categori);
-		map.put( "title", title );
-		map.put( "order_num", order_num );
-		map.put( "reply_email", reply_email ); // 수신 승인하면 "reply_email"
-		map.put( "reply_sms", reply_sms ); // 수신 승인하면 "reply_sms"
-		map.put( "content", content );
-		map.put( "file", file);
-			
-		int nResult = service.personal_write_ok( map );
-		
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		if( nResult < 1 ) {
-			out.println("<script>alert('다시 시도해주세요.'); history.go(-1);</script>");
-			out.flush();
-			return "servicePage/personal_question_write";
-		} else {
-			out.println("<script>alert('문의글이 작성되었습니다.'); location.href='/personal_question';</script>");
-			out.flush();
-			return "servicePage/personal_question";
+	// 1:1 문의 글쓰기 저장
+	@RequestMapping(value="/personal_que_write_ok", method = RequestMethod.POST)
+	public String personal_que_write_ok(@RequestParam(value="select2", required=false) String select_categori, 
+										@RequestParam("title") String title, 
+										@RequestParam(value="order_num", required=false) String order_num,
+										@RequestParam("email") String email,
+										@RequestParam(value="check1", required=false) String reply_email, 
+										@RequestParam("phone") String phone,
+										@RequestParam(value="check2", required=false) String reply_sms, 
+										@RequestParam("question_content") String content, 
+										@RequestParam(value="upload_file1", required=false) MultipartFile file1,
+										@RequestParam(value="upload_file2", required=false) MultipartFile file2,
+										@RequestParam(value="upload_file3", required=false) MultipartFile file3,
+										@RequestParam(value="upload_file4", required=false) MultipartFile file4,
+										@RequestParam(value="upload_file5", required=false) MultipartFile file5,
+										HttpServletRequest request, HttpServletResponse response, Model model ) throws Exception {
+
+		System.out.println("select_categori:" + select_categori);
+		System.out.println("title:" + title);
+		System.out.println("order_num:" + order_num);
+		System.out.println("email:" + email);
+		System.out.println("reply_email:" + reply_email);
+		System.out.println("phone:" + phone);
+		System.out.println("reply_sms:" + reply_sms);
+		System.out.println("content:" + content);
+
+		if( !(file1.isEmpty()) ) {
+			String url1 = fileUploadService.restore(file1);
+			System.out.println("url1:" + url1);
+			model.addAttribute("url1", url1);
 		}
-		
-		
+		if( !(file2.isEmpty())  ) {
+			String url2 = fileUploadService.restore(file2);
+			System.out.println("url2:" + url2);
+			model.addAttribute("url2", url2);
+		}
+		if( !(file3.isEmpty()) )  {
+			String url3 = fileUploadService.restore(file3);
+			System.out.println("url3:" + url3);
+			model.addAttribute("url3", url3);
+		}
+		if( !(file4.isEmpty())  ) {
+			String url4 = fileUploadService.restore(file4);
+			System.out.println("url4:" + url4);
+			model.addAttribute("url4", url4);
+		}
+		if( !(file5.isEmpty())  ) {
+			String url5 = fileUploadService.restore(file5);
+			System.out.println("url5:" + url5);
+			model.addAttribute("url5", url5);
+		}
+		return "servicePage/personal_question";
+	
 	}
 
 
@@ -421,7 +448,9 @@ public class MyContoller {
 	
 	// 개인정보수정(비밀번호 확인페이지 이동)
 	@RequestMapping("/check_password_ok")
-	public String check_password_ok(@RequestParam("user_pw") String user_pw, @RequestParam("user_id") String user_id, HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
+	public String check_password_ok(@RequestParam("user_pw") String user_pw, 
+									@RequestParam("user_id") String user_id, 
+									HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
 		List<dto_members> list = service.check_pw( user_id, user_pw );
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
@@ -451,6 +480,13 @@ public class MyContoller {
 	public String payment_ok() {
 		return "payment/payment_ok";
 	}
+	
+	// 카페관리페이지(관리자전용)
+	@RequestMapping("/management")
+	public String management() {
+		return "manager/management_main";
+	}
+	
 	
 	
 	
