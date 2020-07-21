@@ -37,20 +37,15 @@
                         <td class="fre_ask_table_td2 personal_td4">작성자</td>
                         <td class="fre_ask_table_td2 personal_td5">작성일</td>
                     </tr>
+                    <c:forEach items="${ personal_question_list }" var="dto">
                     <tr class="office_board_table_tr">
-                        <td class="fre_ask_table_td2 personal_td1">2</td>
-                        <td class="fre_ask_table_td2 personal_td2">주문/결제</a></td>
-                        <td class="fre_ask_table_td2 personal_td3"><a href="">title2</a></td>
-                        <td class="fre_ask_table_td2 personal_td4">장탱구</td>
-                        <td class="fre_ask_table_td2 personal_td5">2020-07-12</td>
+                        <td class="fre_ask_table_td2 personal_td1">${ dto.idx }</td>
+                        <td class="fre_ask_table_td2 personal_td2">${ dto.categori }</a></td>
+                        <td class="fre_ask_table_td2 personal_td3"><a href="">${ dto.title }</a></td>
+                        <td class="fre_ask_table_td2 personal_td4">${ dto.user_id }</td>
+                        <td class="fre_ask_table_td2 personal_td5">${ dto.title }</td>
                     </tr>
-                    <tr class="office_board_table_tr">
-                        <td class="fre_ask_table_td2 personal_td1">1</td>
-                        <td class="fre_ask_table_td2 personal_td2">배송문의</a></td>
-                        <td class="fre_ask_table_td2 personal_td3"><a href="">title1</a></td>
-                        <td class="fre_ask_table_td2 personal_td4">장희망</td>
-                        <td class="fre_ask_table_td2 personal_td5">2020-07-12</td>
-                    </tr>
+                    </c:forEach>
                 </table>
             </div>
             <div class="select_page_div">

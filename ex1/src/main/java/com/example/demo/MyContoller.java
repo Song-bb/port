@@ -273,7 +273,7 @@ public class MyContoller {
         if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
         	return "loginPage/loginPage_main";
         } else {
-        	model.addAttribute("personal_que", service_personal_que.list(String.valueOf(session.getAttribute("user_id"))));	
+        	model.addAttribute("personal_question_list", service_personal_que.list(String.valueOf(session.getAttribute("user_id"))));	
         	return "servicePage/personal_question";
         }
 	}
@@ -333,7 +333,7 @@ public class MyContoller {
 										@RequestParam(value="upload_file5", required=false) MultipartFile file5,
 										HttpServletRequest request, HttpServletResponse response, Model model ) {
 		HttpSession session = request.getSession();
-	
+		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("user_id", String.valueOf(session.getAttribute("user_id")));
 		map.put( "select_categori", select_categori ); //선택x:other, 배송지연/불만:delivery, 반품:return, 환불:refund, 주문결제문의:order, 회원정보문의:member, 취소문의:cancel, 교환문의:exchange, 상품정보문의:item, 기타:other
