@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.example.demo.dao.IDao_items">
+	
+	<select id="fruitInSeason_viewDao" resultType="com.example.demo.dto.dto_items">
+			SELECT item_name, item_img, item_real_price, item_discount_rate, item_sale_price FROM items WHERE item_tag='season';
+	</select>
+	<select id="fruitInSeason_downDao" resultType="com.example.demo.dto.dto_items">
+			SELECT item_name, item_img, item_real_price, item_discount_rate, item_sale_price FROM items ORDER BY item_sale_price ASC WHERE item_tag='season';
+	</select>
+	<select id="fruitInSeason_upDao" resultType="com.example.demo.dto.dto_items">
+			SELECT item_name, item_img, item_real_price, item_discount_rate, item_sale_price FROM items ORDER BY item_sale_price DESC WHERE item_tag='season';
+	</select>
+	<select id="fruitInSeason_newviewDao" resultType="com.example.demo.dto.dto_items">
+			SELECT item_name, item_img, item_real_price, item_discount_rate, item_sale_price FROM items ORDER BY category_idx DESC WHERE item_tag='season';
+	</select>
+	<select id="fruitInSeason_countDao" resultType="com.example.demo.dto.dto_items">
+			SELECT * FROM items ORDER BY category_idx DESC WHERE item_tag='season';
+	</select>
+	
+	
+	<select id="importedFruit_viewDao" resultType="com.example.demo.dto.dto_items">
+			SELECT item_name, item_img, item_real_price, item_discount_rate, item_sale_price FROM items WHERE item_tag='imported';
+	</select>
+	<select id="importedFruit_downDao" resultType="com.example.demo.dto.dto_items">
+			SELECT item_name, item_img, item_real_price, item_discount_rate, item_sale_price FROM items ORDER BY item_sale_price ASC WHERE item_tag='imported';
+	</select>
+	<select id="importedFruit_upDao" resultType="com.example.demo.dto.dto_items">
+			SELECT item_name, item_img, item_real_price, item_discount_rate, item_sale_price FROM items ORDER BY item_sale_price DESC WHERE item_tag='imported';
+	</select>
+	<select id="importedFruit_newviewDao" resultType="com.example.demo.dto.dto_items">
+			SELECT item_name, item_img, item_real_price, item_discount_rate, item_sale_price FROM items ORDER BY category_idx DESC WHERE item_tag='imported';
+	</select>
+	<select id="importedFruit_countDao" resultType="com.example.demo.dto.dto_items">
+			SELECT * FROM items ORDER BY category_idx DESC WHERE item_tag='imported';
+	</select>
+
+
+	<select id="fallenFruit_viewDao" resultType="com.example.demo.dto.dto_items">
+			SELECT item_name, item_img, item_real_price, item_discount_rate, item_sale_price FROM items WHERE item_tag='fallen';
+	</select>
+	<select id="fallenFruit_downDao" resultType="com.example.demo.dto.dto_items">
+			SELECT item_name, item_img, item_real_price, item_discount_rate, item_sale_price FROM items ORDER BY item_sale_price ASC WHERE item_tag='fallen';
+	</select>
+	<select id="fallenFruit_upDao" resultType="com.example.demo.dto.dto_items">
+			SELECT item_name, item_img, item_real_price, item_discount_rate, item_sale_price FROM items ORDER BY item_sale_price DESC WHERE item_tag='fallen';
+	</select>
+	<select id="fallenFruit_newviewDao" resultType="com.example.demo.dto.dto_items">
+			SELECT item_name, item_img, item_real_price, item_discount_rate, item_sale_price FROM items ORDER BY category_idx DESC WHERE item_tag='fallen';
+	</select>
+	<select id="fallenFruit_countDao" resultType="com.example.demo.dto.dto_items">
+			SELECT * FROM items ORDER BY category_idx DESC WHERE item_tag='fallen';
+	</select>
+	
+
+	
+</mapper>
+	
