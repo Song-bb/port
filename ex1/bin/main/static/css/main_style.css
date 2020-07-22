@@ -94,6 +94,7 @@ div.sub_navBox > a {
 #header_body_1 > div:last-child a {
 	font-size: 13px;
 	color: rgb(50, 50, 50);
+	display: inline-block;
 }
 #header_logo_div {
 	position: relative;
@@ -188,12 +189,32 @@ div.sub_navBox > a {
 }
 #cart {
 	float: right;
-	width: 30px;
+	width: 50px;
 
 }
 #cart_icon {
 	width: 30px;
 }
+#management_page_div {
+	float: right;
+	height: 30px;
+	padding-top: 15px;
+	padding-right: 15px;
+}
+#gear_label {
+	float: right;
+	padding-left: 5px;
+		color: rgb(50, 50, 50);
+}
+#gear_icon {
+	font-family: "FontAwesome";
+	padding-top: 2px;
+	vertical-align: middle;
+	font-size: px;
+	font-style: normal;
+	color: rgb(50, 50, 50);
+}
+
 
 
 /* main */
@@ -346,7 +367,6 @@ div.sub_navBox > a {
 	overflow: hidden;
 	margin: 0 auto;
 }
-
 
 
 
