@@ -9,9 +9,10 @@ import com.example.demo.dto.dto_personal_question;
 
 @Mapper
 public interface IDao_personal_question {
-
+	
 	public int personal_write_ok( Map<String, String> map );
 	public List<dto_personal_question> listDao(String user_id);
+	public int countDao (String user_id);
 	
 	
 }

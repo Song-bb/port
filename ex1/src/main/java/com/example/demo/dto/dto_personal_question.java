@@ -6,6 +6,7 @@ import lombok.Data;
 public class dto_personal_question {
 
 	private String idx;
+	private String user_idx;
 	private String user_id;
 	private String categori;
 	private String title;
@@ -21,5 +22,6 @@ public class dto_personal_question {
 	private String file4;
 	private String file5;
 	private String reply;
+	private String time;
 	
 }

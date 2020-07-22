@@ -333,9 +333,12 @@ public class MyContoller {
 										@RequestParam(value="upload_file5", required=false) MultipartFile file5,
 										HttpServletRequest request, HttpServletResponse response, Model model ) {
 		HttpSession session = request.getSession();
+		String user_id = String.valueOf(session.getAttribute("user_id"));
+		String count = String.valueOf((service_personal_que.countlist( user_id )) + 1);
 		
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("user_id", String.valueOf(session.getAttribute("user_id")));
+		map.put("user_id", user_id);
+		map.put("count", count);
 		map.put( "select_categori", select_categori ); //선택x:other, 배송지연/불만:delivery, 반품:return, 환불:refund, 주문결제문의:order, 회원정보문의:member, 취소문의:cancel, 교환문의:exchange, 상품정보문의:item, 기타:other
 		map.put( "title", title );
 		if( order_num != null ){ map.put( "order_num", order_num ); } else { map.put( "order_num", "null" ); }

@@ -39,11 +39,11 @@
                     </tr>
                     <c:forEach items="${ personal_question_list }" var="dto">
                     <tr class="office_board_table_tr">
-                        <td class="fre_ask_table_td2 personal_td1">${ dto.idx }</td>
-                        <td class="fre_ask_table_td2 personal_td2">${ dto.categori }</a></td>
+                        <td class="fre_ask_table_td2 personal_td1">${ dto.user_idx }</td>
+                        <td class="fre_ask_table_td2 personal_td2">${ dto.categori }</td>
                         <td class="fre_ask_table_td2 personal_td3"><a href="">${ dto.title }</a></td>
                         <td class="fre_ask_table_td2 personal_td4">${ dto.user_id }</td>
-                        <td class="fre_ask_table_td2 personal_td5">${ dto.title }</td>
+                        <td class="fre_ask_table_td2 personal_td5">${ dto.time }</td>
                     </tr>
                     </c:forEach>
                 </table>

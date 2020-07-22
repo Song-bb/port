@@ -23,10 +23,17 @@ public class Service_personal_que {
 		return nResult;
 	}
 	
+	// 글목록
 	public List<dto_personal_question> list(String user_id){
 		return dao_personal_que.listDao(user_id);
 	}
+	
+	// 해당 유저가 작성한 글 수
+	public int countlist( String user_id ) {
+		return dao_personal_que.countDao(user_id);
+	}
 
+	
 	
 	
 	

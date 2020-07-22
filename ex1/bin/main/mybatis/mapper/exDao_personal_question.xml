@@ -7,11 +7,15 @@
 <mapper namespace="com.example.demo.dao.IDao_personal_question">
 
 	<insert id="personal_write_ok"> 
-			INSERT INTO personal_question (idx, user_id, categori, title, order_nb, email, reply_email, phone, reply_phone, content, file1, file2, file3, file4, file5, reply) VALUES (0, #{user_id}, #{select_categori}, #{title}, #{order_num}, #{email}, #{reply_email}, #{phone}, #{reply_sms}, #{content}, #{url1}, #{url2}, #{url3}, #{url4}, #{url5}, "null")
+			INSERT INTO personal_question (idx, user_idx, user_id, categori, title, order_nb, email, reply_email, phone, reply_phone, content, file1, file2, file3, file4, file5, reply, time) VALUES (0, #{count}, #{user_id}, #{select_categori}, #{title}, #{order_num}, #{email}, #{reply_email}, #{phone}, #{reply_sms}, #{content}, #{url1}, #{url2}, #{url3}, #{url4}, #{url5}, "null", default)
 	</insert>
 
 	<select id="listDao" resultType="com.example.demo.dto.dto_personal_question"> 
-			SELECT * FROM personal_question WHERE user_id = #{param1} ORDER BY idx desc
+			SELECT user_idx, categori, title, user_id, FROM_UNIXTIME(time,'%Y%m%d') FROM personal_question WHERE user_id = #{param1} ORDER BY idx desc
+	</select>
+	
+	<select id="countDao" resultType="_int">
+			SELECT COUNT(*) FROM personal_question WHERE user_id = #{param1}
 	</select>
 	
 	
