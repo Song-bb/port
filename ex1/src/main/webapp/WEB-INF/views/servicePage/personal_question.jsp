@@ -44,7 +44,7 @@
                     <tr class="office_board_table_tr">
                         <td class="fre_ask_table_td personal_td1">${ dto.user_idx }</td>
                         <td class="fre_ask_table_td personal_td2">${ dto.categori }</td>
-                        <td class="fre_ask_table_td personal_td3"><a href="">${ dto.title }</a></td>
+                        <td class="fre_ask_table_td personal_td3"><a href="/personal_question_read?idx=${ dto.idx }">${ dto.title }</a></td>
                         <td class="fre_ask_table_td personal_td4">${ dto.user_id }</td>
                         <td class="fre_ask_table_td personal_td5">${ string2 }</td>
                     </tr>

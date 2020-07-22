@@ -18,6 +18,11 @@
 			SELECT COUNT(*) FROM personal_question WHERE user_id = #{param1}
 	</select>
 	
+	<select id="readDao" resultType="com.example.demo.dto.dto_personal_question">
+			SELECT * FROM personal_question WHERE idx = #{param1}
+	</select>
+	
+	
 	
 </mapper>
 	

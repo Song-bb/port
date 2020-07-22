@@ -21,6 +21,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import com.example.demo.Service.FileuploadService_personal_que;
 import com.example.demo.Service.Service_banner_img;
+import com.example.demo.Service.Service_event;
 import com.example.demo.Service.Service_fre_ask_board;
 import com.example.demo.Service.Service_members;
 import com.example.demo.Service.Service_myPage;
@@ -47,6 +48,8 @@ public class MyContoller {
 	Service_myPage service_myPage;
 	@Autowired
 	Service_personal_que service_personal_que;
+	@Autowired
+	Service_event service_event;
 	
 	
 	
@@ -176,6 +179,21 @@ public class MyContoller {
 		return "item/fallenFruit_main";
 	}
 	
+	/*=========== 이벤트 페이지 =============*/
+	
+	// 관리자 이벤트 페이지
+	@RequestMapping("/manager_event")
+	public String manager_event() {
+		
+		return "manager/event_list";
+	}
+	// 관리자 이벤트 작성페이지
+	@RequestMapping("/manager_eventWrite")
+	public String manager_eventWrite() {
+		
+		return "manager/event_write";
+	}
+	
 	// 이벤트메인
 	@RequestMapping("/event_main")
 	public String event_main() {
@@ -189,6 +207,8 @@ public class MyContoller {
 			
 		return "event/event_sub";
 	}
+	
+	/*=========== 이벤트 페이지 =============*/
 	
 	// 장바구니메인
 	@RequestMapping("/myCart")
@@ -377,6 +397,19 @@ public class MyContoller {
 		} else {
 			return "servicePage/personal_que_write_ok";
 		}
+	}
+	
+	// 1:1 문의글 상세
+	@RequestMapping("/personal_question_read")
+	public String personal_question_read(@RequestParam("idx") String idx, 
+										 HttpServletRequest request, HttpServletResponse response, Model model) {
+		HttpSession session = request.getSession();
+        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+        	return "loginPage/loginPage_main";
+        } else {
+        	model.addAttribute("personal_question_read", service_personal_que.read(idx));	
+        	return "servicePage/personal_question_read";
+        }
 	}
 
 
