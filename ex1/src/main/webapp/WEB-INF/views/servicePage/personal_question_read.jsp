@@ -69,7 +69,6 @@
                     </table>
                 </div>
                 <div class="personal_que_write_btn_div2">
-                    <button class="personal_que_write_btn2 personal_que_write_btn3" type="button" onclick="location.href='/personal_que_amend' ">글수정</button>
                     <button class="personal_que_write_btn2" type="button" onclick="location.href='/personal_question' ">글목록</button>
                 </div>
         </div>

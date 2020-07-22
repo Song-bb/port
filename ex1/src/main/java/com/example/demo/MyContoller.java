@@ -391,13 +391,7 @@ public class MyContoller {
         	return "servicePage/personal_question_read";
         }
 	}
-	
-	// 1:1 문의글 수정
-	@RequestMapping("/personal_que_amend")
-	public String personal_que_amend() {
-		
-		return "servicePage/personal_que_amend";
-	}
+
 
 	// 상품상세페이지
 	@RequestMapping("/item_detail")
