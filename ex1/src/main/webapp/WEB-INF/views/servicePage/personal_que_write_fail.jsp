@@ -37,15 +37,15 @@
                                 <div>
                                     <select class="select_categori_select select_categori_select2" name="select2" required="required">
                                         <option value="">선택해주세요.</option>
-                                        <option value="delivery">배송지연/불만</option>
-                                        <option value="return">반품문의</option>
-                                        <option value="refund">환불문의</option>
-                                        <option value="order">주문결제문의</option>
-                                        <option value="member">회원정보문의</option>
-                                        <option value="cancel">취소문의</option>
-                                        <option value="exchange">교환문의</option>
-                                        <option value="item">상품정보문의</option>
-                                        <option value="other">기타문의</option>
+                                        <option value="배송지연/불만">배송지연/불만</option>
+                                        <option value="반품문의">반품문의</option>
+                                        <option value="환불문의">환불문의</option>
+                                        <option value="주문결제문의">주문결제문의</option>
+                                        <option value="회원정보문의">회원정보문의</option>
+                                        <option value="취소문의">취소문의</option>
+                                        <option value="교환문의">교환문의</option>
+                                        <option value="상품정보문의">상품정보문의</option>
+                                        <option value="기타문의">기타문의</option>
                                     </select>
                                 </div>
                                 <div>

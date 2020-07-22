@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <!-- 1:1 문의 -->
 
@@ -31,19 +32,21 @@
             <div class="office_board">
                 <table class="office_board_table">
                     <tr class="office_board_table_tr">
-                        <td class="fre_ask_table_td2 personal_td1">번호</td>
-                        <td class="fre_ask_table_td2 personal_td2">카테고리</td>
-                        <td class="fre_ask_table_td2 personal_td3 personal_th3">제목</td>
-                        <td class="fre_ask_table_td2 personal_td4">작성자</td>
-                        <td class="fre_ask_table_td2 personal_td5">작성일</td>
+                        <td class="fre_ask_table_td personal_td1">번호</td>
+                        <td class="fre_ask_table_td personal_td2">카테고리</td>
+                        <td class="fre_ask_table_td personal_td3 personal_th3">제목</td>
+                        <td class="fre_ask_table_td personal_td4">작성자</td>
+                        <td class="fre_ask_table_td personal_td5">작성일</td>
                     </tr>
                     <c:forEach items="${ personal_question_list }" var="dto">
+                    <c:set var = "string1" value = "${ dto.time }"/>
+                    <c:set var = "string2" value = "${fn:substring(string1, 0, 10)}" />
                     <tr class="office_board_table_tr">
-                        <td class="fre_ask_table_td2 personal_td1">${ dto.user_idx }</td>
-                        <td class="fre_ask_table_td2 personal_td2">${ dto.categori }</td>
-                        <td class="fre_ask_table_td2 personal_td3"><a href="">${ dto.title }</a></td>
-                        <td class="fre_ask_table_td2 personal_td4">${ dto.user_id }</td>
-                        <td class="fre_ask_table_td2 personal_td5">${ dto.time }</td>
+                        <td class="fre_ask_table_td personal_td1">${ dto.user_idx }</td>
+                        <td class="fre_ask_table_td personal_td2">${ dto.categori }</td>
+                        <td class="fre_ask_table_td personal_td3"><a href="">${ dto.title }</a></td>
+                        <td class="fre_ask_table_td personal_td4">${ dto.user_id }</td>
+                        <td class="fre_ask_table_td personal_td5">${ string2 }</td>
                     </tr>
                     </c:forEach>
                 </table>

@@ -11,7 +11,7 @@
 	</insert>
 
 	<select id="listDao" resultType="com.example.demo.dto.dto_personal_question"> 
-			SELECT user_idx, categori, title, user_id, FROM_UNIXTIME(time,'%Y%m%d') FROM personal_question WHERE user_id = #{param1} ORDER BY idx desc
+			SELECT * FROM personal_question WHERE user_id = #{param1} ORDER BY idx desc
 	</select>
 	
 	<select id="countDao" resultType="_int">
