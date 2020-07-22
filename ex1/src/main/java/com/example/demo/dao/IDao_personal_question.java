@@ -13,6 +13,6 @@ public interface IDao_personal_question {
 	public int personal_write_ok( Map<String, String> map );
 	public List<dto_personal_question> listDao(String user_id);
 	public int countDao (String user_id);
-	
+	public List<dto_personal_question> readDao(String idx);
 	
 }

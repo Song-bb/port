@@ -378,7 +378,26 @@ public class MyContoller {
 			return "servicePage/personal_que_write_ok";
 		}
 	}
-
+	
+	// 1:1 문의글 상세
+	@RequestMapping("/personal_question_read")
+	public String personal_question_read(@RequestParam("idx") String idx, 
+										 HttpServletRequest request, HttpServletResponse response, Model model) {
+		HttpSession session = request.getSession();
+        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+        	return "loginPage/loginPage_main";
+        } else {
+        	model.addAttribute("personal_question_read", service_personal_que.read(idx));	
+        	return "servicePage/personal_question_read";
+        }
+	}
+	
+	// 1:1 문의글 수정
+	@RequestMapping("/personal_que_amend")
+	public String personal_que_amend() {
+		
+		return "servicePage/personal_que_amend";
+	}
 
 	// 상품상세페이지
 	@RequestMapping("/item_detail")

@@ -32,6 +32,11 @@ public class Service_personal_que {
 	public int countlist( String user_id ) {
 		return dao_personal_que.countDao(user_id);
 	}
+	
+	// 글 상세내역
+	public List<dto_personal_question> read(String idx){
+		return dao_personal_que.readDao(idx);
+	}
 
 	
 	
