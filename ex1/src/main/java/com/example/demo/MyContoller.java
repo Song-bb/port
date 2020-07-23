@@ -182,13 +182,14 @@ public class MyContoller {
 	/*=========== 이벤트 페이지 =============*/
 	
 	// 관리자 이벤트 페이지
-	@RequestMapping("/manager_event")
+	@RequestMapping("/event_list")
 	public String manager_event() {
 		
 		return "manager/event_list";
 	}
+	
 	// 관리자 이벤트 작성페이지
-	@RequestMapping("/manager_eventWrite")
+	@RequestMapping("/event_write")
 	public String manager_eventWrite() {
 		
 		return "manager/event_write";
@@ -208,7 +209,7 @@ public class MyContoller {
 		return "event/event_sub";
 	}
 	
-	/*=========== 이벤트 페이지 =============*/
+	/*=========== /이벤트 페이지 =============*/
 	
 	// 장바구니메인
 	@RequestMapping("/myCart")
