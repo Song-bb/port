@@ -15,7 +15,7 @@
 </head>
 <body>
 
-	<!-- header -->
+	<!-- header --><!--  -->
 
 	<div id="header">
 		<div id="header_top_adv">
