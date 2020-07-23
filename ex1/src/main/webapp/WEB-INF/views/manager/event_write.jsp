@@ -8,7 +8,7 @@
 	<c:import url="header_management.jsp"></c:import>
 	
 		<div id="event_write_wrap">
-	        <h3>이벤트 수정</h3>
+	        <h3>이벤트 등록</h3>
 	        <form action="manager_write_ok" method="post">
 	            <table>
 	                    <tr>

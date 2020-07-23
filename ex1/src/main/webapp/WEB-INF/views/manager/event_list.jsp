@@ -24,7 +24,7 @@
                 </tr>
                 </c:forEach>
             </table>
-            <button class="event_writeForm_button"><a href="event_writeForm">글작성</a></button>
+            <button class="event_writeForm_button"><a href="/manager_eventWrite"> 글작성</a></button>
         </form>
     </div>
 	
