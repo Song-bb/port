@@ -237,8 +237,8 @@ public class MyContoller {
 	
 	// 이벤트메인
 	@RequestMapping("/event_main")
-	public String event_main() {
-		
+	public String event_main(Model model) {
+		model.addAttribute("event_listView", service_event.event_list());
 		return "event/event_main";
 	}
 	

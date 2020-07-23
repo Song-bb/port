@@ -24,6 +24,18 @@ public class Service_event {
 		return dao_event.event_viewDao(event_index);
 	}
 	
+	//이벤트 글 생성
+	public int evnet_write(String event_title, String event_content, String event_banner) {
+		int nResult = dao_event.evnet_writeDao( event_title, event_content, event_banner);
+		return nResult;
+	}
+	
+	//이벤트 글 생성
+	public int evnet_update (String event_title, String event_content, String event_banner) {
+		int nResult = dao_event.event_updateDao( event_title, event_content, event_banner);
+		return nResult;
+	}
+	
 	//이벤트 글 조회수 증가
 	public void event_viewCount(int event_index) {
 		dao_event.event_viewCount(event_index);
