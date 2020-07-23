@@ -1,1 +1,52 @@
 @charset "UTF-8";
+
+/* ========== header =========== */
+
+#header_nav2{
+    width: 1050px;
+    height: 70px;
+    margin: 0 auto;
+    position:relative;
+    text-align: center;
+}
+#header_nav2 > ul{
+    height: 100%;
+}
+#header_nav2 > ul:first-child > li{
+    display:inline-block;
+    width: 20%;
+    height: 100%;
+    line-height: 70px;
+    position:relative;
+}
+#header_nav2 .sub_nav2{
+    position: absolute;
+    top: 70px;
+    left: 30px;
+    width: 150px;
+    border: 1px solid #eeeeee;
+    display:none;
+    background-color: white;
+}
+#header_nav2 .sub_nav2 > li{
+    font-size: 0.8em;
+    line-height: 40px;
+}
+#header_nav2 .sub_nav2 > li a{
+	font-weight: normal;
+}
+#header_nav2 >ul>li:hover .sub_nav2{
+    display:block;
+}
+
+#header_nav2 a {
+    display: inline-block;
+    width: 100%;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: rgb(50, 50, 50);
+}
+#header_nav2 a:hover{
+    color: #459356;
+}
+/* ========== /header =========== */
