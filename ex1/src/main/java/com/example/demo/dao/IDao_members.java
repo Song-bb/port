@@ -10,9 +10,12 @@ import com.example.demo.dto.dto_members;
 @Mapper
 public interface IDao_members {
 	
-	public List<dto_members> login_ok( String user_id, String user_pw );
+	public List<dto_members> login_ok( String user_id );
 	public int join_ok( Map<String, String> map );
 	public List<dto_members> check_pw(String user_id, String user_pw);
+	public List<dto_members> listDao();
+	public int delete_member( String user_id );
+
 	
 		
 }

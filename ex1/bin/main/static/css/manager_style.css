@@ -121,18 +121,16 @@
 #member_manager_main_title {
     padding-left: 10px;
     font-family: 'Noto Sans KR', sans-serif;
+    padding-bottom: 10px;
 }
 .member_manager_selectBox {
     width: 1050px;
-    border-top: 1px solid rgba(179, 178, 178, 0.507);
-    border-left: 1px solid rgba(179, 178, 178, 0.507);
-    border-right: 1px solid rgba(179, 178, 178, 0.507);
+    border: 1px solid rgba(179, 178, 178, 0.507);
     height: 100px;
 }
 .member_manager_selectBox_serch {
     width: 1030px;
     height: 100px;
-    border-bottom: 1px solid rgba(179, 178, 178, 0.507);
     margin-left: 10px;
 } 
 .member_manager_selectBox_serch_select {
@@ -164,23 +162,23 @@
     float: right;
     height: 30px;
     width: 150px;
-    font-family: "FontAwesome";
     padding-top: 30px;
     text-align: right;
     padding-right: 10px;
 }
-.member_manager_selectBox_serch_select_div_bottom_a {
+#member_manager_selectBox_serch_select_div_bottom_a {
     text-decoration: none;
     color: rgb(50,50,50);
     font-size: 13px;
-    font-weight: bold;
+    font-family: "FontAwesome";
 }
-.member_manager_selectBox_bottom {
+#member_manager_selectBox_bottom {
     width: 1050px;
     border-bottom: 1px solid rgba(179, 178, 178, 0.507);
     border-left: 1px solid rgba(179, 178, 178, 0.507);
     border-right: 1px solid rgba(179, 178, 178, 0.507);
     height: 150px;
+    display: block;
 }
 .member_manager_selectBox_serch_bottom {
     width: 975px;
@@ -215,6 +213,7 @@
 }
 .member_td4 {
     width: 305px;
+    padding-left: 5px;
 }
 .member_td5 {
     text-align: center;
@@ -230,5 +229,82 @@
 .member_td4 input[type="text"]{
     width: 80px;
     height: 20px;
+}
+.member_grade_text {
+    width: 1050px;
+    height: 20px;
+}
+.member_grade_text_label {
+    font-size: 13px;
+}
+.member_grade_text_label i{
+    font-family: "FontAwesome";
+}
+.member_grade_text_bottom {
+    margin-top: 20px;
+    text-align: right;
+    padding-bottom: 10px;
+}
+.member_search_list {
+    width: 1050px;
+}
+.member_search_list_table {
+    width: 1050px;
+    border-collapse: collapse;
+    font-size: 13px;
+    text-align: center;
+    border-top: 2px solid #459356;
+    border-bottom: 2px solid #459356;
+    margin-bottom: 10px;
+}
+.member_search_list_td {
+    border-bottom: 1px solid rgba(179, 178, 178, 0.507);
+    height: 35px;
+}
+.member_search_list_td2 {
+    background-color: #4593561a;
+    font-weight: 600;
+}
+.member_search_list_td3 {
+    width: 50px;
+}
+.member_search_list_td4 {
+    width: 100px;
+}
+.member_search_list_td5 {
+    height: 35px;
+    text-align: left;
+}
+.member_search_list_td5 button {
+    margin-right: 10px;
+    background-color: #459356;
+    color: #fff;
+    height: 30px;
+}
+.member_search_list_td5 button:hover {
+    margin-right: 10px;
+    background-color: #fff;
+    color: #459356;
+    height: 30px;
+}
+.member_manager_select_page {
+    width: 1050px;
+    height: 30px;
+    padding-top: 20px; 
+}
+.member_manager_select_page_table {
+    border-collapse: collapse;
+    font-size: 13px;
+    text-align: center;
+    margin: 0 auto;
+}
+.member_manager_select_page_td {
+    height: 30px;
+    width: 25px;
+}
+.member_manager_select_page_td a {
+    text-decoration: none;
+    color: rgb(50, 50, 50);
+    font-size: 13px;
 }
 /* ========== /회원관리 =========== */

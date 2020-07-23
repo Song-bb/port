@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<!-- 회원탈퇴 -->
+<!-- 회원탈퇴실패 -->
 
 	<c:import url="../header.jsp"></c:import>
 	
@@ -109,6 +109,7 @@
 			                        </td>
 			                    </tr>
 			                </table>
+			                <input type="hidden" name="user_id" value="<%= session.getAttribute("user_name") %>">
 			                <div id="delete_user_foot_body_btn">
 			                    <a href="/myPage_main" style="color: #459356; display: inline-block; width: 150px; height: 50px; border: 1px solid #459356; border-radius: 5px; line-height: 50px; text-align: center; margin-top:10px;">취소</a>
 			                    <button type="submit">탈퇴</button>
@@ -120,3 +121,9 @@
 		</div>
 	</div>
 	<c:import url="../footer.jsp"></c:import>
+	
+<script>
+	$(document).ready(function(){
+	     alert("회원 탈퇴 실패했습니다.");
+	});
+</script>	

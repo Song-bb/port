@@ -16,8 +16,8 @@ public class Service_members {
 	IDao_members dao_member;
 	
 	/* 로그인 */
-	public List<dto_members> login( String user_id, String user_pw ) {
-		return dao_member.login_ok( user_id, user_pw );
+	public List<dto_members> login( String user_id ) {
+		return dao_member.login_ok( user_id );
 	}
 	
 	/* 회원가입 */
@@ -30,5 +30,18 @@ public class Service_members {
 	public List<dto_members> check_pw(String user_id, String user_pw) {
 		return dao_member.check_pw( user_id, user_pw );
 	}
+	
+	/* 멤버 리스트 */
+	public List<dto_members> member_list() {
+		return dao_member.listDao();
+	}
+	
+	/* 멤버 탈퇴 */
+	public int delete_member( String user_id ) {
+		int nResult = dao_member.delete_member( user_id );
+		return nResult;
+	}
+
+
 	
 }

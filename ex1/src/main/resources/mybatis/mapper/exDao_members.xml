@@ -11,12 +11,20 @@
 	</select>
 
 	<insert id="join_ok"> 
-			INSERT INTO members (user_index, user_id, user_pw, user_name, user_email, user_phone, user_address, user_grade, user_point, user_gender, user_birth) VALUES (0, #{user_id}, #{user_pw}, #{user_name}, #{user_email}, #{user_phone}, #{user_address}, "앵두", 0, #{user_gender},#{user_birth})
+			INSERT INTO members (user_index, user_id, user_pw, user_name, user_email, user_phone, user_address, postcode, user_grade, user_point, user_gender, user_birth, buying_price, join_date) VALUES (0, #{user_id}, #{user_pw}, #{user_name}, #{user_email}, #{user_phone}, #{user_address}, #{user_postcode}, "앵두", 0, #{user_gender},#{user_birth}, 0, default)
 	</insert>
 
 	<select id="check_pw" resultType="com.example.demo.dto.dto_members"> 
 			SELECT * FROM members WHERE user_id = #{param1} 
 	</select>
+	
+	<select id="listDao" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members ORDER BY user_index desc
+	</select>
+	
+	<delete id="delete_member"> 
+			DELETE FROM members WHERE user_id = #{param1}
+	</delete>
 	
 	
 </mapper>

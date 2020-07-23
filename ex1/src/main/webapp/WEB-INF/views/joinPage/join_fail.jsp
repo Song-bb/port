@@ -56,9 +56,9 @@
                             <tr>
                                 <th>성별 </th>
                                 <td>
-                                    <label name="gender_select"><input type="radio" name="gender_select" value="1" class="join_radio">남자 </label>
-                                    <label name="gender_select"><input type="radio" name="gender_select" value="2" class="join_radio">여자</label>
-                                    <label name="gender_select"><input type="radio" name="gender_select" value="3" class="join_radio">선택 안함</label>
+                                    <label name="gender_select"><input type="radio" name="gender_select" value="male" class="join_radio">남자 </label>
+                                    <label name="gender_select"><input type="radio" name="gender_select" value="female" class="join_radio">여자</label>
+                                    <label name="gender_select"><input type="radio" name="gender_select" value="null" class="join_radio">선택 안함</label>
                                 </td>
                             </tr>
                             <tr>

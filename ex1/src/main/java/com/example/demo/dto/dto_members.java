@@ -16,7 +16,8 @@ public class dto_members {
 	private String user_point;
 	private String user_gender;
 	private String user_birth;
-	private String user_service;
+	private String buying_price;
+	private String join_date;
 	
 }
 

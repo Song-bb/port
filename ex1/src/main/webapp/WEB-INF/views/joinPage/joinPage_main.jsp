@@ -46,19 +46,19 @@
                             <tr>
                                 <th>*주소 </th>
                                 <td class="join_address">
-                                	<input type="text" class="input_text_2" id="sample6_postcode" placeholder="우편번호">
+                                	<input type="text" class="input_text_2" id="sample6_postcode" placeholder="우편번호" name="postcode">
 									<input type="button" id="address_button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-									<input type="text" class="input_text" id="sample6_address" placeholder="주소"><br>
-									<input type="text" class="input_text_2" id="sample6_detailAddress" placeholder="상세주소">
-									<input type="text" class="input_text_2" id="sample6_extraAddress" placeholder="참고항목">
+									<input type="text" class="input_text" id="sample6_address" placeholder="주소" name="main_address"><br>
+									<input type="text" class="input_text_2" id="sample6_detailAddress" placeholder="상세주소" name ="detail_address">
+									<input type="text" class="input_text_2" id="sample6_extraAddress" placeholder="참고항목" name="detail_address2">
                                 </td>
                             </tr>
                             <tr>
                                 <th>성별 </th>
                                 <td>
-                                    <label name="gender_select"><input type="radio" name="gender_select" value="1" class="join_radio">남자 </label>
-                                    <label name="gender_select"><input type="radio" name="gender_select" value="2" class="join_radio">여자</label>
-                                    <label name="gender_select"><input type="radio" name="gender_select" value="3" class="join_radio">선택 안함</label>
+                                    <label name="gender_select"><input type="radio" name="gender_select" value="male" class="join_radio">남자 </label>
+                                    <label name="gender_select"><input type="radio" name="gender_select" value="female" class="join_radio">여자</label>
+                                    <label name="gender_select"><input type="radio" name="gender_select" value="null" class="join_radio">선택 안함</label>
                                 </td>
                             </tr>
                             <tr>

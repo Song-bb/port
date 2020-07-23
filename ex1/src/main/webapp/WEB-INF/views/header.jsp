@@ -112,7 +112,7 @@
 								</div>
 						</div>
 						<a href="/delevery_place">배송지역 검색</a>
-						<% if( session.getAttribute("user_grade").equals("manager") ){ %>
+						<% if( session.getAttribute("user_grade").equals("과일매니저") ){ %>
 							<div id="management_page_div">
 								<a id="gear" href="/management">
 									<span id="gear_label">관리자페이지</span>

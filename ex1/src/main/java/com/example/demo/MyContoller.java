@@ -27,6 +27,7 @@ import com.example.demo.Service.Service_members;
 import com.example.demo.Service.Service_myPage;
 import com.example.demo.Service.Service_noticeBoard;
 import com.example.demo.Service.Service_personal_que;
+import com.example.demo.Service.Service_seceded_member;
 import com.example.demo.dto.dto_members;
 
 
@@ -50,6 +51,8 @@ public class MyContoller {
 	Service_personal_que service_personal_que;
 	@Autowired
 	Service_event service_event;
+	@Autowired
+	Service_seceded_member service_seced_member;
 	
 	
 	
@@ -86,24 +89,36 @@ public class MyContoller {
 						  @RequestParam("email") String user_email, 
 						  @RequestParam("user_name") String user_name, 
 						  @RequestParam("phone") String user_phone, 
-						  @RequestParam("address") String user_address, 
-						  @RequestParam("gender_select") String user_gender, 
-						  @RequestParam("user_birth") String user_birth, HttpServletResponse response) throws Exception {
+						  @RequestParam("main_address") String main_address, 
+						  @RequestParam("detail_address") String detail_address,
+						  @RequestParam("detail_address2") String detail_address2,
+						  @RequestParam("postcode") String user_postcode,
+						  @RequestParam(value="gender_select", required=false) String user_gender, 
+						  @RequestParam(value="user_birth", required=false) String user_birth, HttpServletResponse response) throws Exception {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		if( ! (user_pw.equals( user_pw_ok ) )) { // 비밀번호, 확인란 재확인
 			out.println("<script>alert('비밀번호를 다시 확인해주세요'); history.go(-1);</script>");
 			out.flush();
 		}
+		String address = "";
+		address += main_address;
+		address += " " + detail_address + " ";
+		address += detail_address2;
 		Map<String, String> map = new HashMap<String, String>();
 		map.put( "user_id", user_id );
 		map.put( "user_pw", user_pw );
 		map.put( "user_email", user_email );
 		map.put( "user_name", user_name );
 		map.put( "user_phone", user_phone ); // 휴대폰번호 숫자만
-		map.put( "user_address", user_address );
-		map.put( "user_gender", user_gender ); // 남자 1, 여자 2, 선택안함 3
-		map.put( "user_birth", user_birth );
+		map.put( "user_address", address );
+		map.put( "user_postcode", user_postcode );
+		if( user_gender != null ) {
+			map.put( "user_gender", user_gender );
+		}
+		if( user_birth != null  ) {
+			map.put( "user_birth", user_birth );
+		}
 			
 		int nResult = service_members.join_ok( map );
 		if( nResult < 1 ) {
@@ -124,7 +139,7 @@ public class MyContoller {
 	public String login_ok(@RequestParam("user_id") String user_id, 
 						   @RequestParam("user_pw") String user_pw,  
 						   HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
-		List<dto_members> list = service_members.login( user_id, user_pw );
+		List<dto_members> list = service_members.login( user_id );
 		if( list.isEmpty() ) { // 아이디 없음
 			return "loginPage/login_fail_id";
 		} else { // 아이디 있음
@@ -149,6 +164,44 @@ public class MyContoller {
         HttpSession session = request.getSession();
         session.invalidate();
 		return "loginPage/logout";
+	}
+	
+	// 회원 탈퇴
+	@RequestMapping("/leave_gwailJangsu")
+	public String leave_gwailJangsu(@RequestParam("user_pw") String user_pw, 
+									@RequestParam("reason") String reason, 
+									@RequestParam("delete_content") String content, 
+									HttpServletRequest request, HttpServletResponse response) throws Exception {
+		HttpSession session = request.getSession();
+		String user_id = session.getAttribute("user_id").toString();
+		List<dto_members> list = service_members.check_pw( user_id, user_pw );
+		if( list.isEmpty() ) { // 아이디 없음
+			return "myPage/withdraw_member_fail";
+		} else { // 아이디 있음
+			if( user_pw.equals( list.get(0).getUser_pw()) ) { // 비밀번호 일치
+				Map<String, String> map = new HashMap<String, String>();
+				map.put("user_id", user_id);
+				map.put("reason", reason);
+				map.put("content", content);
+		        
+				int nResult = service_seced_member.leave_member( map );
+				if( nResult < 1 ) { // 회원탈퇴리스트 입력 실패
+					return "myPage/withdraw_member_fail";
+				} // 회원탈퇴리스트 입력 완료	
+				int nResult2 = service_members.delete_member( user_id ); // 멤버 테이블에서 제외
+				if( nResult2 < 1 ) { // 멤버테이블 삭제 실패
+					return "myPage/withdraw_member_fail";
+				}
+		        session.invalidate(); // 로그아웃처리 
+		        return "myPage/withdraw_member_success";
+			} else { // 비밀번호 불일치
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>alert('비밀번호를 다시 확인해주세요'); history.go(-1);</script>");
+				out.flush();
+			}
+		}
+		return "myPage/withdraw_member_fail";
 	}
 	
 	// 정기배송메인
@@ -180,20 +233,7 @@ public class MyContoller {
 	}
 	
 	/*=========== 이벤트 페이지 =============*/
-	
-	// 관리자 이벤트 페이지
-	@RequestMapping("/event_list")
-	public String manager_event() {
-		
-		return "manager/event_list";
-	}
-	
-	// 관리자 이벤트 작성페이지
-	@RequestMapping("/event_write")
-	public String manager_eventWrite() {
-		
-		return "manager/event_write";
-	}
+
 	
 	// 이벤트메인
 	@RequestMapping("/event_main")
@@ -536,7 +576,8 @@ public class MyContoller {
 	
 	// 회원관리
 	@RequestMapping("/member")
-	public String member() {
+	public String member(Model model) {
+		model.addAttribute("member_list", service_members.member_list());
 		return "manager/member";
 	}
 	
@@ -604,6 +645,13 @@ public class MyContoller {
 	@RequestMapping("/item_amend")
 	public String item_amend() {
 		return "manager/item_amend";
+	}
+	
+	// 관리자 이벤트 작성페이지
+	@RequestMapping("/event_write")
+	public String manager_eventWrite() {
+		
+		return "manager/event_write";
 	}
 	
 	/*=========== /관리자 페이지 =============*/
