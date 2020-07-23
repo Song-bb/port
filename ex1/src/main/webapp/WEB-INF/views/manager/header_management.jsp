@@ -71,17 +71,7 @@
 		<div id="header_nav_wrap">
 			<div id="header_nav">
 				<div>
-					<a href="/regularOrder_main">회원관리</a>
-						<div class="sub_navBox sub_navBox2">
-							<ul>
-								<li><a href="/myPage_main">주문내역</a></li>
-								<li><a href="/myRegularorder">정기배송</a></li>
-								<li><a href="/myCart">장바구니</a></li>
-								<li><a href="/myReview">상품 후기</a></li>
-								<li><a href="/myPoint">적립금</a></li>
-								<li><a href="/updateInform">개인정보수정</a></li>
-							</ul>
-						</div>
+					<a href="">회원관리</a>
 					<a href="">상품관리</a>
 					<a href="">게시판관리</a>
 					<a href="">배너관리</a>

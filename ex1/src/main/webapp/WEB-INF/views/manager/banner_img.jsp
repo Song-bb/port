@@ -5,7 +5,7 @@
 <!-- 관리자페이지 > 배너이미지관리 -->
 
 
-	<c:import url="../header.jsp"></c:import>
+	<c:import url="header_management.jsp"></c:import>
 	
 	
-	<c:import url="../footer.jsp"></c:import>
+	<c:import url="../footer.jsp"></c:import>:import>

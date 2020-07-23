@@ -5,7 +5,7 @@
 <!-- 관리자페이지 > 자주하는질문 -->
 
 
-	<c:import url="../header.jsp"></c:import>
+	<c:import url="header_management.jsp"></c:import>
 	
 	
 	<c:import url="../footer.jsp"></c:import>
