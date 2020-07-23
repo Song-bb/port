@@ -72,34 +72,35 @@
 			<div id="header_nav2">
 	            <ul>
 	                <li>
-	                    <a href="#">회원관리</a>
+	                    <a href="/member">회원관리</a>
 	                    <ul class="sub_nav2">
-	                        <li><a href="">회원관리</a></li>
-	                        <li><a href="">탈퇴회원</a></li>
+	                        <li><a href="/member">회원관리</a></li>
+	                        <li><a href="/order_list">주문내역</a></li>
+	                        <li><a href="/leave_member">탈퇴회원</a></li>
 	                    </ul>
 	                </li>
 	                <li>
-	                    <a href="#">상품관리</a>
+	                    <a href="/items">상품관리</a>
 	                    <ul class="sub_nav2">
-	                        <li><a href="">상품등록</a></li>
-	                        <li><a href="">상품수정</a></li>
-	                        <li><a href="">카테고리 관리</a></li>
+	                    	<li><a href="/items">상품관리</a></li>
+	                        <li><a href="/item_update">상품등록</a></li>
+	                        <li><a href="/item_amend">상품수정</a></li>
+	                        <li><a href="/review">상품후기</a></li>
 	                    </ul>
 	                </li>
 	                <li>
-	                    <a href="#">게시판 관리</a>
+	                    <a href="/notice_board">게시판 관리</a>
 	                    <ul class="sub_nav2">
-	                        <li><a href="">공지사항 관리</a></li>
-	                        <li><a href="">자주하는질문</a></li>
-	                        <li><a href="">1:1 문의 게시판</a></li>
-	                        <li><a href="">이벤트 관리</a></li>
+	                        <li><a href="/notice_board_manager">공지사항 관리</a></li>
+	                        <li><a href="/fre_ask_board">자주하는질문</a></li>
+	                        <li><a href="/personal_question_manager">1:1 문의 게시판</a></li>
+	                        <li><a href="/event_list">이벤트 관리</a></li>
 	                    </ul>
 	                </li>
 	                <li>
-	                    <a href="#">배너관리</a>
+	                    <a href="/banner_img">배너관리</a>
 	                    <ul class="sub_nav2">
-	                        <li><a href="">메인배너관리</a></li>
-	                        <li><a href="">----------</a></li>
+	                        <li><a href="/banner_img">메인배너관리</a></li>
 	                    </ul>
 	                </li>
 	            </ul>

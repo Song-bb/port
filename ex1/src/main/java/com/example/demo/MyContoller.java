@@ -525,12 +525,87 @@ public class MyContoller {
 		return "payment/payment_ok";
 	}
 	
+	/*=========== 관리자 페이지 =============*/
+	
 	// 카페관리페이지(관리자전용)
 	@RequestMapping("/management")
 	public String management() {
 		return "manager/management_main";
 	}
 	
+	// 회원관리
+	@RequestMapping("/member")
+	public String member() {
+		return "manager/member";
+	}
+	
+	// 상품관리
+	@RequestMapping("/items")
+	public String items() {
+		return "manager/items";
+	}
+	
+	// 게시판관리_메인(공지사항)
+	@RequestMapping("/notice_board_manager")
+	public String notice_board() {
+		return "manager/notice_board";
+	}
+	
+	// 배너관리
+	@RequestMapping("/banner_img")
+	public String banner_img() {
+		return "manager/banner_img";
+	}
+	
+	// 이벤트리스트_메인 관리
+	@RequestMapping("/event_list")
+	public String event_list() {
+		return "manager/event_list";
+	}
+	
+	// 자주하는질문 관리
+	@RequestMapping("/fre_ask_board")
+	public String fre_ask_board() {
+		return "manager/fre_ask_board";
+	}
+	
+	// 주문내역(회원관리)
+	@RequestMapping("/order_list")
+	public String order_list() {
+		return "manager/order_list";
+	}
+	
+	// 1:1 문의 관리
+	@RequestMapping("/personal_question_manager")
+	public String personal_question() {
+		return "manager/personal_question";
+	}
+	
+	// 1:1 문의 관리
+	@RequestMapping("/review")
+	public String review() {
+		return "manager/review";
+	}
+	
+	// 상품 등록
+	@RequestMapping("/item_update")
+	public String item_update() {
+		return "manager/item_update";
+	}
+	
+	// 탈퇴회원
+	@RequestMapping("/leave_member")
+	public String leave_member() {
+		return "manager/leave_member";
+	}
+	
+	// 상품 수정
+	@RequestMapping("/item_amend")
+	public String item_amend() {
+		return "manager/item_amend";
+	}
+	
+	/*=========== /관리자 페이지 =============*/
 	
 	
 	
