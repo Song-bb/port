@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!-- 관리자페이지 > 회원관리 -->
 
@@ -42,10 +43,11 @@
 	                            <td class="member_manager_selectBox_serch_bottom_div_td member_td1">회원 등급</td>
 	                            <td class="member_manager_selectBox_serch_bottom_div_td member_td2">
 	                                <select name="grade">
-	                                    <option value="">앵두</option>
-	                                    <option value="">자두</option>
-	                                    <option value="">복숭아</option>
-	                                    <option value="">과일매니저</option>
+	                                	<option value="">선택하세요</option>
+	                                    <option value="앵두">앵두</option>
+	                                    <option value="자두">자두</option>
+	                                    <option value="복숭아">복숭아</option>
+	                                    <option value="과일매니저">과일매니저</option>
 	                                </select>
 	                            </td>
 	                            <td class="member_manager_selectBox_serch_bottom_div_td member_td3">적립금</td>
@@ -92,8 +94,8 @@
                         <td class="member_search_list_td member_search_list_td4">${dto.user_id}</td>
                         <td class="member_search_list_td member_search_list_td4">${dto.user_grade}</td>
                         <td class="member_search_list_td member_search_list_td4">${dto.user_birth}</td>
-                        <td class="member_search_list_td member_search_list_td4">${dto.buying_price}</td>
-                        <td class="member_search_list_td member_search_list_td4">${dto.user_point}</td>
+                        <td class="member_search_list_td member_search_list_td4"><fmt:formatNumber value="${dto.buying_price}" pattern="###,###,###" /></td>
+                        <td class="member_search_list_td member_search_list_td4"><fmt:formatNumber value="${dto.user_point}" pattern="###,###,###" /></td>
                         <td class="member_search_list_td member_search_list_td4">${dto.user_email}</td>
                         <td class="member_search_list_td member_search_list_td4">${dto.user_phone}</td>
                     </tr>
