@@ -46,10 +46,22 @@
 			SELECT COUNT(*) FROM members WHERE user_grade = "과일매니저"
 	</select>
 	
-	<select id="detail_search" resultType="com.example.demo.dto.dto_members"> 
-			SELECT * FROM members WHERE (join_date BETWEEN #{date_min} AND #{date_max}) AND (buying_price BETWEEN #{buying_min} AND #{buying_max}) AND (user_point BETWEEN #{point_min} AND #{point_max}) AND (user_grade = #{grade}) ORDER BY user_index desc
+	<select id="detail_search1" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{date_min} AND #{date_max}
+			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
+			AND user_point BETWEEN #{point_min} AND #{point_max}
+			AND user_grade = #{grade} 
+			ORDER BY user_index desc
 	</select>
 	
+	<select id="detail_search2" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{date_min} AND #{date_max}
+			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
+			AND user_point BETWEEN #{point_min} AND #{point_max}
+			ORDER BY user_index desc
+	</select>
 	
 	
 </mapper>

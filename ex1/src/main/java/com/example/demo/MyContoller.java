@@ -577,8 +577,14 @@ public class MyContoller {
 	
 	// 카페관리페이지(관리자전용)
 	@RequestMapping("/management")
-	public String management() {
-		return "manager/management_main";
+	public String management(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+        	return "loginPage/loginPage_main";
+        } else {
+        	String user_id = session.getAttribute("user_id").toString();
+        	return "manager/management_main";
+        }
 	}
 	
 	// 회원관리

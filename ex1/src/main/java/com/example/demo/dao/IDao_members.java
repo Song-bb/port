@@ -20,7 +20,9 @@ public interface IDao_members {
 	public int count_2();
 	public int count_3();
 	public int count_4();
-	public List<dto_members> detail_search( Map<String, String> map );
+	public List<dto_members> detail_search1( Map<String, String> map );
+	public List<dto_members> detail_search2( Map<String, String> map );
+	
 	
 		
 }

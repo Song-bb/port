@@ -1,5 +1,7 @@
 package com.example.demo.Service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -70,7 +72,11 @@ public class Service_members {
 	
 	/* 회원 조건상세검색 */
 	public List<dto_members> detail_search( Map<String, String> map ){
-		return dao_member.detail_search( map );
+		if( map.get("grade").toString().equals("null")) {
+			return dao_member.detail_search2( map );
+		} else {
+			return dao_member.detail_search1( map );
+		}
 	}
 	
 	
