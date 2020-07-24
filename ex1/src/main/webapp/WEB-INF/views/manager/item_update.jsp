@@ -8,4 +8,5 @@
 	<c:import url="header_management.jsp"></c:import>
 	
 	
+	
 	<c:import url="../footer.jsp"></c:import>

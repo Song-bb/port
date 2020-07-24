@@ -28,7 +28,9 @@ import com.example.demo.Service.Service_myPage;
 import com.example.demo.Service.Service_noticeBoard;
 import com.example.demo.Service.Service_personal_que;
 import com.example.demo.Service.Service_seceded_member;
+import com.example.demo.Service.Service_items;
 import com.example.demo.dto.dto_members;
+
 
 
 
@@ -53,6 +55,8 @@ public class MyContoller {
 	Service_event service_event;
 	@Autowired
 	Service_seceded_member service_seced_member;
+	@Autowired
+	Service_items service_items;
 	
 	
 	
@@ -220,15 +224,17 @@ public class MyContoller {
 	
 	// 수입과일메인
 	@RequestMapping("/importedFruit_main")
-	public String importedFruit_main() {
-		
+	public String importedFruit_main(Model model) {
+		model.addAttribute("fallen_count", service_items.nFallenCount());
+		model.addAttribute("fallen_listview", service_items.fallen_list());
 		return "item/importedFruit_main";
 	}
 
 	// 낙과채널메인
 	@RequestMapping("/fallenFruit_main")
-	public String fallenFruit_main() {
-		
+	public String fallenFruit_main( Model model ) {
+		model.addAttribute("fallen_count", service_items.nFallenCount());
+		model.addAttribute("fallen_listview", service_items.fallen_list());
 		return "item/fallenFruit_main";
 	}
 	

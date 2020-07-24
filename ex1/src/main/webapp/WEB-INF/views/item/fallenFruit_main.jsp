@@ -14,29 +14,25 @@
         <div id="fallenpage_top_nav"><a href="">최신순 </a> | <a href="">낮은 가격 순 </a> | <a href="">높은 가격 순 </a></div>
         <div id="fallenpage_mid">
             <table class="item_table">
-            	<% for( int i=1; i<=15; i+=3) { %>
-                		<tr>
-                			<% for( int j=i; j<=i+2; j++) { 
-                					if( j <= 15 ) {%>
-		                    		<td>
-		                        		<div class="fallenpage_item">
-		                        			<div class="item_img_250320">
-												<div class="item_img">
-													<a href="/item_detail"><img src="${ dto.item_img }"></a>	
-												</div>
-											</div>
-		                            		<div class="item_desc">
-			                                	<p><a href="/item_detail">${ dto.item_name }</a></p>
-			                                	<p>${ dto.item_real_price }</p>
-		                            		</div>
-		                        		</div>
-		                    		</td>
-		                    	<%  } %>
-		                    <%  } %>
-	                	</tr>
-               		<% } %>
-               </table>
-        	</div>
+              		<tr>
+                  		<td>
+                  		<c:forEach items="${ fallen_listview }" var="dto">
+                      		<div class="fallenpage_item">
+                      			<div class="item_img_250320">
+								<div class="item_img">
+									<a href="/item_detail"><img src="${ dto.item_img }" width="250px" height="320px"></a>	
+								</div>
+							</div>
+                          		<div class="item_desc">
+                               	<p><a href="/item_detail">${ dto.item_name }</a></p>
+                               	<p>${ dto.item_real_price }</p>
+                          		</div>
+                      		</div>
+                      	</c:forEach>
+                 		</td>
+               		</tr>
+            </table>
+        </div>
         <div id="fallenpage_btm">
             <table class="fallenpage_table">
                 <tr class="fallenpage_table_tr">

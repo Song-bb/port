@@ -15,54 +15,57 @@ public class Service_items {
 	IDao_items dao_items;
 	
 	// 제철과일
-	public List<dto_items> season_list(String item_category){
+	public List<dto_items> season_list(){
 		return dao_items.fruitInSeason_viewDao();
 	}
-	public List<dto_items> season_list_down(String item_category){
+	public List<dto_items> season_list_down(){
 		return dao_items.fruitInSeason_downDao();
 	}
-	public List<dto_items> season_list_up(String item_category){
+	public List<dto_items> season_list_up(){
 		return dao_items.fruitInSeason_upDao();
 	}
-	public List<dto_items> season_list_new(String item_category){
+	public List<dto_items> season_list_new(){
 		return dao_items.fruitInSeason_newviewDao();
 	}
-	public int season_countlist() {
-		return dao_items.fruitInSeason_countDao();
+	public int nSeasonCount() {
+		int nSeasonCount = dao_items.fruitInSeason_countDao();
+		return nSeasonCount;
 	}
 	
 	// 수입과일
-	public List<dto_items> imported_list(String item_category){
+	public List<dto_items> imported_list(){
 		return dao_items.importedFruit_viewDao();
 	}
-	public List<dto_items> imported_list_down(String item_category){
+	public List<dto_items> imported_list_down(){
 		return dao_items.importedFruit_downDao();
 	}
-	public List<dto_items> imported_list_up(String item_category){
+	public List<dto_items> imported_list_up(){
 		return dao_items.importedFruit_upDao();
 	}
-	public List<dto_items> imported_list_new(String item_category){
+	public List<dto_items> imported_list_new(){
 		return dao_items.importedFruit_newviewDao();
 	}
-	public int imported_countlist() {
-		return dao_items.importedFruit_countDao();
+	public int nimportedCount() {
+		int nimportedCount = dao_items.importedFruit_countDao();
+		return nimportedCount;
 	}
 	
 	// 낙과채널
-	public List<dto_items> fallen_list(String item_category){
+	public List<dto_items> fallen_list(){
 		return dao_items.fallenFruit_viewDao();
 	}
-	public List<dto_items> fallen_list_down(String item_category){
+	public List<dto_items> fallen_list_down(){
 		return dao_items.fallenFruit_downDao();
 	}
-	public List<dto_items> fallen_list_up(String item_category){
+	public List<dto_items> fallen_list_up(){
 		return dao_items.fallenFruit_upDao();
 	}
-	public List<dto_items> fallen_list_new(String item_category){
+	public List<dto_items> fallen_list_new(){
 		return dao_items.fallenFruit_newviewDao();
 	}
-	public int fallen_countlist() {
-		return dao_items.fallenFruit_countDao();
+	public int nFallenCount() {
+		int nFallenCount = dao_items.fallenFruit_countDao();
+		return nFallenCount;
 	}
 
 }
