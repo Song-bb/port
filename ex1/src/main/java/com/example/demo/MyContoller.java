@@ -577,7 +577,15 @@ public class MyContoller {
 	// 회원관리
 	@RequestMapping("/member")
 	public String member(Model model) {
-		model.addAttribute("member_list", service_members.member_list());
+		List<dto_members> list = service_members.member_list();
+		int list_count = list.size();
+		model.addAttribute("member_list", list );
+		model.addAttribute("list_count", list_count );
+		model.addAttribute("member_total_count", service_members.count_total());
+		model.addAttribute("member_count_1", service_members.count_1());
+		model.addAttribute("member_count_2", service_members.count_2());
+		model.addAttribute("member_count_3", service_members.count_3());
+		model.addAttribute("member_count_4", service_members.count_4());
 		return "manager/member";
 	}
 	

@@ -26,6 +26,27 @@
 			DELETE FROM members WHERE user_id = #{param1}
 	</delete>
 	
+	<select id="count_total" resultType="_int">
+			SELECT COUNT(*) FROM members
+	</select>
+	
+	<select id="count_1" resultType="_int">
+			SELECT COUNT(*) FROM members WHERE user_grade = "앵두"
+	</select>
+	
+	<select id="count_2" resultType="_int">
+			SELECT COUNT(*) FROM members WHERE user_grade = "자두"
+	</select>
+	
+	<select id="count_3" resultType="_int">
+			SELECT COUNT(*) FROM members WHERE user_grade = "복숭아"
+	</select>
+	
+	<select id="count_4" resultType="_int">
+			SELECT COUNT(*) FROM members WHERE user_grade = "과일매니저"
+	</select>
+	
+	
 	
 </mapper>
 	

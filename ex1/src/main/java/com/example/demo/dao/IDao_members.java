@@ -15,7 +15,11 @@ public interface IDao_members {
 	public List<dto_members> check_pw(String user_id, String user_pw);
 	public List<dto_members> listDao();
 	public int delete_member( String user_id );
-
+	public int count_total();
+	public int count_1();
+	public int count_2();
+	public int count_3();
+	public int count_4();
 	
 		
 }

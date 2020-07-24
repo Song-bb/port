@@ -41,7 +41,34 @@ public class Service_members {
 		int nResult = dao_member.delete_member( user_id );
 		return nResult;
 	}
-
+	
+	/* 멤버 총인원 카운트 */
+	public int count_total() {
+		int nTotalCount = dao_member.count_total();
+		return nTotalCount;
+	}
+	/* 앵두등급 카운트 */
+	public int count_1() {
+		int nCount = dao_member.count_1();
+		return nCount;
+	}
+	/* 자두등급 카운트 */
+	public int count_2() {
+		int nCount = dao_member.count_2();
+		return nCount;
+	}
+	/* 복숭아등급 카운트 */
+	public int count_3() {
+		int nCount = dao_member.count_3();
+		return nCount;
+	}
+	/* 과일매니저 카운트 */
+	public int count_4() {
+		int nCount = dao_member.count_4();
+		return nCount;
+	}
+	
+	
 
 	
 }

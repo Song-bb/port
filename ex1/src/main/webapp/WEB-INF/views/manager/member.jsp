@@ -52,7 +52,7 @@
 	                            <td class="member_manager_selectBox_serch_bottom_div_td member_td4"><input type="text" name="point_min">원 ~ <input type="text" name="point_max">원</td>
 	                        </tr>
 	                        <tr class="member_manager_selectBox_serch_bottom_div_tr">
-	                            <td class="member_manager_selectBox_serch_bottom_div_td member_td5" colspan="4"><button type="submit" formaction="">상세 검색</button></td>
+	                            <td class="member_manager_selectBox_serch_bottom_div_td member_td5" colspan="4"><button type="submit" formaction="/search_detail_member">상세 검색</button></td>
 	                        </tr>
 	                    </table>
 	                </div>
@@ -60,10 +60,10 @@
 	        </div>
         </form>
         <div class="member_grade_text">
-            <label class="member_grade_text_label"><i class="fas fa-caret-right"></i> 회원등급 : 1. 앵두 회원({}명), 2. 자두 회원({}명), 3. 복숭아 회원({}명), 4. 과일매니저({})명</label>
+            <label class="member_grade_text_label"><i class="fas fa-caret-right"></i> 회원등급 : 1. 앵두 회원(${ member_count_1 } 명), 2. 자두 회원(${ member_count_2 } 명), 3. 복숭아 회원(${ member_count_3 } 명), 4. 과일매니저(${ member_count_4 } 명) 5. 회원수 총(${ member_total_count} 명)</label>
         </div>
         <div class="member_grade_text_bottom">
-            <label class="member_grade_text_label">000 건의 검색 결과가 있습니다.</label>
+            <label class="member_grade_text_label">${ list_count } 건의 검색 결과가 있습니다.</label>
         </div>
         <div class="member_search_list">
             <form action="" method="post">
