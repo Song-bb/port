@@ -589,6 +589,36 @@ public class MyContoller {
 		return "manager/member";
 	}
 	
+	// 회원 상세검색
+	@RequestMapping("/search_detail_member")
+	public String search_detail_member(@RequestParam(value="date_min", required=false) String date_min,
+									   @RequestParam(value="date_max", required=false) String date_max,
+									   @RequestParam(value="buying_min", required=false) String buying_min,
+									   @RequestParam(value="buying_max", required=false) String buying_max,
+									   @RequestParam(value="grade", required=false) String grade,
+									   @RequestParam(value="point_min", required=false) String point_min,
+									   @RequestParam(value="point_max", required=false) String point_max,
+										Model model) {
+		// 회원수 카운트
+		model.addAttribute("member_total_count", service_members.count_total());
+		model.addAttribute("member_count_1", service_members.count_1());
+		model.addAttribute("member_count_2", service_members.count_2());
+		model.addAttribute("member_count_3", service_members.count_3());
+		model.addAttribute("member_count_4", service_members.count_4());
+		
+		Map <String, String> map = new HashMap<String, String>();
+		if( date_min != null ) { map.put("date_min", date_min); } else { map.put("date_min", "1900-01-01 00:00:00"); }
+		if( date_max != null ) { map.put("date_max", date_max); } else { map.put("date_max", "2300-12-31 00:00:00"); }
+		if( buying_min != null ) { map.put("buying_min", buying_min); } else { map.put("buying_min", "0"); }
+		if( buying_max != null ) { map.put("buying_max", buying_max); } else { map.put("buying_max", "999999999"); }
+		if( grade != null ) { map.put("grade", grade); } else { map.put("grade", "null"); }
+		if( point_min != null ) { map.put("point_min", point_min); } else { map.put("point_min", "0"); }
+		if( point_max != null ) { map.put("point_max", point_max); } else { map.put("point_max", "999999999"); }
+		
+		model.addAttribute("result_detail_search", service_members.detail_search( map ));
+		return "manager/search_detail_member";
+	}
+	
 	// 상품관리
 	@RequestMapping("/items")
 	public String items() {

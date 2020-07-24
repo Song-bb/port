@@ -68,6 +68,11 @@ public class Service_members {
 		return nCount;
 	}
 	
+	/* 회원 조건상세검색 */
+	public List<dto_members> detail_search( Map<String, String> map ){
+		return dao_member.detail_search( map );
+	}
+	
 	
 
 	
