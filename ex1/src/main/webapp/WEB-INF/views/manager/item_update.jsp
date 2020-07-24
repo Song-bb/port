@@ -61,11 +61,11 @@
                             <textarea name="item_description" placeholder="상품 상세정보"></textarea>
                         </td>
                     </tr>
-                    <tr id="item_update_btn">
-                        <td><input type="submit" value="등록하기"></td>
-                        <td><input type="reset" value="취소하기"></td>
-                    </tr>
                 </table>
+                <div id="item_update_btn">
+                       <input type="submit" value="등록하기">
+                       <input type="reset" value="취소하기">
+                </div>
             </form>
         </div>
     </div>
