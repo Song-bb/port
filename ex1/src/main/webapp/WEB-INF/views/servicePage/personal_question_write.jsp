@@ -176,15 +176,19 @@
         	
  	//숨기기
 	 function div_hide4() {
+		 clickTimes--;
 		 document.getElementById("hide_div44").style.display = "none";
 	 }
 	 function div_hide3() {
+		 clickTimes--;
 		 document.getElementById("hide_div33").style.display = "none";
 	 }
 	 function div_hide2() {
+		 clickTimes--;
 		 document.getElementById("hide_div22").style.display = "none";
 	 }
 	 function div_hide1() {
+		 clickTimes--;
 		 document.getElementById("hide_div11").style.display = "none";
 	 }
 </script>

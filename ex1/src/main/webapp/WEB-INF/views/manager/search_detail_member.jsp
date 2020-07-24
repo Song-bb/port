@@ -43,10 +43,11 @@
 	                            <td class="member_manager_selectBox_serch_bottom_div_td member_td1">회원 등급</td>
 	                            <td class="member_manager_selectBox_serch_bottom_div_td member_td2">
 	                                <select name="grade">
-	                                    <option value="">앵두</option>
-	                                    <option value="">자두</option>
-	                                    <option value="">복숭아</option>
-	                                    <option value="">과일매니저</option>
+	                                    <option value="">선택하세요</option>
+	                                    <option value="앵두">앵두</option>
+	                                    <option value="자두">자두</option>
+	                                    <option value="복숭아">복숭아</option>
+	                                    <option value="과일매니저">과일매니저</option>
 	                                </select>
 	                            </td>
 	                            <td class="member_manager_selectBox_serch_bottom_div_td member_td3">적립금</td>
