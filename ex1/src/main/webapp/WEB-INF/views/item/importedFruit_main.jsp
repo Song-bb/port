@@ -14,29 +14,25 @@
         </div>
         <div id="importedpage_top_nav"><a href="">최신순 </a> | <a href="">낮은 가격 순 </a> | <a href="">높은 가격 순 </a></div>
         <div id="importedpage_mid">
-     		<table class="item_table">
-            	<% for( int i=1; i<=15; i+=3) { %>
-                		<tr>
-                			<% for( int j=i; j<=i+2; j++) { 
-                					if( j <= 15 ) {%>
-		                    		<td>
-		                        		<div class="fallenpage_item">
-		                        			<div class="item_img_250320">
-												<div class="item_img">
-													<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-												</div>
-											</div>
-		                            		<div class="item_desc">
-			                                	<p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-			                                	<p>5,000 원</p>
-		                            		</div>
-		                        		</div>
-		                    		</td>
-		                    	<%  } %>
-		                    <%  } %>
-	                	</tr>
-               		<% } %>
-               </table>
+            <table class="item_table">
+              		<tr>
+                  		<td>
+                  		<c:forEach items="${ imported_listview }" var="dto">
+                      		<div class="fallenpage_item">
+                      			<div class="item_img_250320">
+								<div class="item_img">
+									<a href="/item_detail"><img src="${ dto.item_img }" width="250px" height="320px"></a>	
+								</div>
+							</div>
+                          		<div class="item_desc">
+                               	<p><a href="/item_detail">${ dto.item_name }</a></p>
+                               	<p>${ dto.item_real_price }</p>
+                          		</div>
+                      		</div>
+                      	</c:forEach>
+                 		</td>
+               		</tr>
+            </table>
        		</div>
         <div id="importedpage_btm">
             <table class="importedpage_table">
