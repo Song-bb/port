@@ -217,16 +217,17 @@ public class MyContoller {
 	
 	// 제철과일메인
 	@RequestMapping("/fruitInSeason_main")
-	public String fruitInSeason_main() {
-		
+	public String fruitInSeason_main(Model model) {
+		model.addAttribute("season_count", service_items.nSeasonCount());
+		model.addAttribute("season_listview", service_items.season_list());
 		return "item/fruitInSeason_main";
 	}
 	
 	// 수입과일메인
 	@RequestMapping("/importedFruit_main")
 	public String importedFruit_main(Model model) {
-		model.addAttribute("fallen_count", service_items.nFallenCount());
-		model.addAttribute("fallen_listview", service_items.fallen_list());
+		model.addAttribute("imported_count", service_items.nimportedCount());
+		model.addAttribute("imported_listview", service_items.imported_list());
 		return "item/importedFruit_main";
 	}
 
