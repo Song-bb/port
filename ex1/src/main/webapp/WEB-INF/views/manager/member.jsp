@@ -134,10 +134,10 @@
 			var con = document.getElementById("member_manager_selectBox_bottom");
 			var col = document.getElementById("member_manager_selectBox_serch_select_div_bottom_a");
 			if( con.style.display == "none") {
-				col.innerHTML = "상세검색 열기";
+				col.innerHTML = "상세검색 닫기";
 				con.style.display = "block";
 			} else {
-				col.innerHTML = "상세검색 닫기";
+				col.innerHTML = "상세검색 열기";
 				con.style.display = "none";
 			}
 		}
