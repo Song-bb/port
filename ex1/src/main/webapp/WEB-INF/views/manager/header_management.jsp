@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/main_style.css">
     <link rel="stylesheet" href="css/manager_style.css">
     
+    
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
