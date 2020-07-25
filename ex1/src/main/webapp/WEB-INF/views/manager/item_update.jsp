@@ -32,21 +32,21 @@
                         </td>
                     </tr>
                     <tr class="item_update_tr">
-                        <td class="item_update_td">실 가격</td>
+                        <td class="item_update_td">실제 가격</td>
                         <td class="item_update_td">
-                            <input type="number" name="item_price" placeholder="실 가격"/>
+                            <input type="text" name="item_real_price" placeholder="실 가격"/>
                         </td>
                     </tr>
                     <tr class="item_update_tr">
                         <td class="item_update_td">세일 가격</td>
                         <td class="item_update_td">
-                            <input type="number" name="item_sale_price" placeholder="세일 가격" />
+                            <input type="text" name="item_sale_price" placeholder="세일 가격" />
                         </td>
                     </tr>
                     <tr class="item_update_tr">
                         <td class="item_update_td">세일 퍼센트</td>
                         <td class="item_update_td">
-                            <input type="number" name="item_sale_discount" placeholder="세일 퍼센트" />
+                            <input type="text" name="item_sale_discount" placeholder="세일 퍼센트" />
                         </td>
                     </tr>
                     <tr class="item_update_tr">

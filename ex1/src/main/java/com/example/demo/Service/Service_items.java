@@ -67,5 +67,21 @@ public class Service_items {
 		int nFallenCount = dao_items.fallenFruit_countDao();
 		return nFallenCount;
 	}
+	
+	// 상품등록하기
+	
+	// 상품수정하기
+	
+	// 상품삭제하기
+	
+	// 전체상품보기
+	public List<dto_items> All_viewDao(){
+		return dao_items.All_viewDao();
+	}
+	public int nAllCount() {
+		int nAllCount = dao_items.all_countDao();
+		return nAllCount;
+	}
+	
 
 }

@@ -495,11 +495,11 @@ public class MyContoller {
 	}
 
 	// 정기배송내역
-		@RequestMapping("/myRegularorder")
-		public String myRegularorder() {
-			
-			return "myPage/myRegularorder";
-		}
+	@RequestMapping("/myRegularorder")
+	public String myRegularorder() {
+		
+		return "myPage/myRegularorder";
+	}
 	
 	// 상품후기
 	@RequestMapping("/myReview")
@@ -634,7 +634,9 @@ public class MyContoller {
 	
 	// 상품관리
 	@RequestMapping("/items")
-	public String items() {
+	public String items(Model model) {
+		model.addAttribute("all_count", service_items.nAllCount());
+		model.addAttribute("all_listview", service_items.All_viewDao());
 		return "manager/items";
 	}
 	

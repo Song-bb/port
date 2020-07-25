@@ -32,5 +32,13 @@ public interface IDao_items {
 	public int importedFruit_countDao();
 	public int fallenFruit_countDao();
 	
+	// 상품등록하기
 	
+	// 상품수정하기
+	
+	// 상품삭제하기
+	
+	// 전체상품보기
+	public List<dto_items> All_viewDao();
+	public int all_countDao();
 }
