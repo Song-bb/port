@@ -63,11 +63,11 @@
 			SELECT COUNT(*) FROM items;
 	</select>
 	
-	<insert id="">
-	
+	<insert id="item_update_insert">
+		INSERT INTO items (idx, category_idx, item_name, item_category, item_img, item_discount_rate, item_real_price, item_sale_price, item_description) VALUES (0, )
 	</insert>
 	
-	<update id="">
+	<update id="item_update">
 	
 	</update>
 
