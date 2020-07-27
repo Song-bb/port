@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class dto_event {
 
-	private int event_index;
+	private String event_index;
 	private String event_title;
 	private String event_hit;
 	private String event_date;

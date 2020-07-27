@@ -1,6 +1,8 @@
 package com.example.demo.dao;
 
+
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -12,15 +14,15 @@ public interface IDao_event {
 	//이벤트 글 리스트
 	public List<dto_event> event_listDao();
 	//글 상세보기
-	public dto_event event_viewDao(int event_index);
+	public dto_event event_viewDao(String event_index);
 	// 게시물 생성
-	public int evnet_writeDao(String event_title, String event_content, String event_banner);
+	public int event_writeDao(Map<String, String> map);
 	// 게시물 삭제
-	public int event_deleteDao(int event_index);
+	public int event_deleteDao(String event_index);
 	// 게시물 수정
-	public int event_updateDao(String event_title, String event_content, String event_banner);
+	public List<dto_event> event_updateDao(String event_index);
 
 	//글 조회수
-	public int event_viewCount(int event_index);
+	public void event_viewCount(String event_index);
 	
 }

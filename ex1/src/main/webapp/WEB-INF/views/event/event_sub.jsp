@@ -9,13 +9,13 @@
         <h3>이벤트</h3>
         <form>
 	        <div id="event_board">
-	            <div>${ dto.event_title }</div>
+	            <div>${ dtoE_sub.event_title }</div>
 	            <div>
-	                <span>기간 ${ dto.event_date }</span>
-	                <span>조회수 : ${dto.event_hit }</span>
+	                <span>기간 ${ dtoE_sub.event_date }</span>
+	                <span>조회수 : ${dtoE_sub.event_hit }</span>
 	            </div>
 	            <div>
-	             ${ dto.evnet_content }
+	             ${ dtoE_sub.event_content }
 	            </div>
 	            <button class="button" type="submit" formaction="/event_main">목록</button>
 	        </div>

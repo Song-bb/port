@@ -1,6 +1,7 @@
 package com.example.demo.Service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,26 +19,31 @@ public class Service_event {
 	public List<dto_event> event_list(){
 		return dao_event.event_listDao();
 	}
-	
 	//이벤트 글 상세페이지
-	public dto_event event_view(int event_index) {
+	public dto_event event_view(String event_index) {
 		return dao_event.event_viewDao(event_index);
 	}
 	
 	//이벤트 글 생성
-	public int evnet_write(String event_title, String event_content, String event_banner) {
-		int nResult = dao_event.evnet_writeDao( event_title, event_content, event_banner);
+	public int event_write(Map<String, String> map) {
+		int nResult = dao_event.event_writeDao(map);
 		return nResult;
 	}
 	
-	//이벤트 글 생성
-	public int evnet_update (String event_title, String event_content, String event_banner) {
-		int nResult = dao_event.event_updateDao( event_title, event_content, event_banner);
+	//이벤트 글 수정
+	public List<dto_event> event_update(String event_index){
+		return dao_event.event_updateDao(event_index);
+	}
+	
+	//이벤트 글 삭제
+	public int event_delete (String event_index) {
+		int nResult = dao_event.event_deleteDao(event_index);
 		return nResult;
 	}
+	
 	
 	//이벤트 글 조회수 증가
-	public void event_viewCount(int event_index) {
+	public void event_viewCount(String event_index) {
 		dao_event.event_viewCount(event_index);
 	}
 	

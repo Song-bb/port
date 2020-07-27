@@ -9,16 +9,16 @@
 	
 		<div id="event_write_wrap">
 	        <h3>이벤트 등록</h3>
-	        <form action="manager_write_ok" method="post">
+	        <form action="/event_writeOk" method="post">
 	            <table>
 	                    <tr>
 	                        <td>
-	                            <input type="text" placeholder="제목" class="event_title" >
+	                            <input type="text" placeholder="제목" class="event_title" name="event_title">
 	                        </td>
 	                    </tr>
 	                    <tr>
 	                        <td>
-	                            <textarea name="message" rows="30" cols="30" placeholder="내용"></textarea>
+	                           <input type="text" name="event_content" size="100">
 	                        </td>
 	                    </tr>
 	                    <tr>
