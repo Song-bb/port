@@ -1,5 +1,6 @@
 package com.example.demo.Service;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.transaction.TransactionStatus;
 
 import com.example.demo.dao.IDao_members;
 import com.example.demo.dao.IDao_seceded_member;
+import com.example.demo.dto.dto_seceded_member;
 
 @Service
 public class Service_seceded_member {
@@ -38,6 +40,10 @@ public class Service_seceded_member {
 			transactionManager.rollback(status);
 			return 0;
 		}
+	}
+	
+	public List<dto_seceded_member> list(){
+		return dao_seded_member.list();
 	}
 	
 	

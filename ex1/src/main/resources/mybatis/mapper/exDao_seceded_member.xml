@@ -10,6 +10,9 @@
 			INSERT INTO seceded_member (idx, user_id, reason, reason_content, date_of_leave) VALUES (0, #{user_id}, #{reason}, #{content}, default)
 	</insert>
 
+	<select id="list" resultType="com.example.demo.dto.dto_seceded_member"> 
+			SELECT * FROM seceded_member ORDER BY idx desc
+	</select>
 	
 	
 </mapper>

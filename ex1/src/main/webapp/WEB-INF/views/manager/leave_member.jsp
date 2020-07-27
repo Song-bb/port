@@ -12,43 +12,29 @@
 	
 	<div id="member_manager_main_wrap">
         <div id="member_manager_main_title"><h3>탈퇴회원 리스트</h3></div>
-        <form method="post">
-	        <div class="member_manager_selectBox">
-	            <div class="member_manager_selectBox_serch">
-	                <div class="member_manager_selectBox_serch_select_div">
-                        <select class="member_manager_selectBox_serch_select" name="leave_member_categori">
-                            <option value="">선택하세요</option>
-                            <option value="categori">탈퇴사유</option>
-                            <option value="date_of_leave">탈퇴한날</option>
-                        </select>
-                        <input type="text" placeholder="내용을 입력해 주세요." class="member_manager_selectBox_serch_search" name="search_text">
-                        <button type="submit" formaction="/leave_member_search" class="member_manager_selectBox_serch_btn">검색</button>
-	                </div>
-	            </div>
-	        </div>
-        </form>
+
         <div class="member_grade_text_bottom">
-            <label class="member_grade_text_label">0 건의 검색 결과가 있습니다.</label>
+            <label class="member_grade_text_label">${ leave_member_count } 건의 검색 결과가 있습니다.</label>
         </div>
         <div class="member_search_list">
             <form action="" method="post">
                 <table class="member_search_list_table">       
                     <tr class="member_search_list_tr">
-                        <td class="member_search_list_td member_search_list_td2 member_search_list_td3">번호</td>
-                        <td class="member_search_list_td member_search_list_td2 member_search_list_td4">아이디</td>
-                        <td class="member_search_list_td member_search_list_td2 member_search_list_td4">탈퇴사유</td>
-                        <td class="member_search_list_td member_search_list_td2 member_search_list_td4">탈퇴메세지</td>
-                        <td class="member_search_list_td member_search_list_td2 member_search_list_td4">탈퇴일자</td>
+                        <td class="member_search_list_td member_search_list_td2 leave_member_table_1">번호</td>
+                        <td class="member_search_list_td member_search_list_td2 leave_member_table_2">아이디</td>
+                        <td class="member_search_list_td member_search_list_td2 leave_member_table_3">탈퇴사유</td>
+                        <td class="member_search_list_td member_search_list_td2 leave_member_table_4">탈퇴메세지</td>
+                        <td class="member_search_list_td member_search_list_td2 leave_member_table_5">탈퇴일자</td>
                     </tr>
-                    <c:forEach items="${ member_list }" var="dto">
-                    <c:set var = "string1" value = "${ dto.join_date }"/>
+                    <c:forEach items="${ leave_member }" var="dto">
+                    <c:set var = "string1" value = "${ dto.date_of_leave }"/>
                     <c:set var = "string2" value = "${fn:substring(string1, 0, 10)}" />
                     <tr class="member_search_list_tr">
-                        <td class="member_search_list_td member_search_list_td4">${string2}</td>
-                        <td class="member_search_list_td member_search_list_td4">${dto.user_name}</td>
-                        <td class="member_search_list_td member_search_list_td4">${dto.user_id}</td>
-                        <td class="member_search_list_td member_search_list_td4">${dto.user_grade}</td>
-                        <td class="member_search_list_td member_search_list_td4">${dto.user_birth}</td>
+                        <td class="member_search_list_td leave_member_table_1">${dto.idx}</td>
+                        <td class="member_search_list_td leave_member_table_2">${dto.user_id}</td>
+                        <td class="member_search_list_td leave_member_table_3">${dto.reason}</td>
+                        <td class="member_search_list_td leave_member_table_4 leave_member_table_6">${dto.reason_content}</td>
+                        <td class="member_search_list_td leave_member_table_5">${string2}</td>
                     </tr>
                     </c:forEach>
                 </table>

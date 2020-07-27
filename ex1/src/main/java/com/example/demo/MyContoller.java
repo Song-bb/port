@@ -30,6 +30,7 @@ import com.example.demo.Service.Service_noticeBoard;
 import com.example.demo.Service.Service_personal_que;
 import com.example.demo.Service.Service_seceded_member;
 import com.example.demo.dto.dto_members;
+import com.example.demo.dto.dto_seceded_member;
 
 
 
@@ -727,7 +728,10 @@ public class MyContoller {
 	// 탈퇴회원
 	@RequestMapping("/leave_member")
 	public String leave_member(Model model) {
-		model.addAttribute("leave_member", service_seced_member.list());
+		List<dto_seceded_member> list = service_seced_member.list();
+		int count = list.size();
+		model.addAttribute("leave_member", list);
+		model.addAttribute("leave_member_count", count);
 		return "manager/leave_member";
 	}
 	
