@@ -189,11 +189,7 @@ public class MyContoller {
 				map.put("content", content);
 		        
 				int nResult = service_seced_member.leave_member( map );
-				if( nResult < 1 ) { // 회원탈퇴리스트 입력 실패
-					return "myPage/withdraw_member_fail";
-				} // 회원탈퇴리스트 입력 완료	
-				int nResult2 = service_members.delete_member( user_id ); // 멤버 테이블에서 제외
-				if( nResult2 < 1 ) { // 멤버테이블 삭제 실패
+				if( nResult < 1 ) {
 					return "myPage/withdraw_member_fail";
 				}
 		        session.invalidate(); // 로그아웃처리 

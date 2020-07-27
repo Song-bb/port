@@ -41,12 +41,6 @@ public class Service_members {
 		return dao_member.listDao();
 	}
 	
-	/* 멤버 탈퇴 */
-	public int delete_member( String user_id ) {
-		int nResult = dao_member.delete_member( user_id );
-		return nResult;
-	}
-	
 	/* 멤버 총인원 카운트 */
 	public int count_total() {
 		int nTotalCount = dao_member.count_total();
