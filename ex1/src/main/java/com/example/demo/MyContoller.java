@@ -23,12 +23,12 @@ import com.example.demo.Service.FileuploadService_personal_que;
 import com.example.demo.Service.Service_banner_img;
 import com.example.demo.Service.Service_event;
 import com.example.demo.Service.Service_fre_ask_board;
+import com.example.demo.Service.Service_items;
 import com.example.demo.Service.Service_members;
 import com.example.demo.Service.Service_myPage;
 import com.example.demo.Service.Service_noticeBoard;
 import com.example.demo.Service.Service_personal_que;
 import com.example.demo.Service.Service_seceded_member;
-import com.example.demo.Service.Service_items;
 import com.example.demo.dto.dto_members;
 
 
@@ -620,13 +620,13 @@ public class MyContoller {
 		model.addAttribute("member_count_4", service_members.count_4());
 		
 		Map <String, String> map = new HashMap<String, String>();
-		if( date_min != null ) { map.put("date_min", date_min); } else { map.put("date_min", "1900-01-01 00:00:00"); }
-		if( date_max != null ) { map.put("date_max", date_max); } else { map.put("date_max", "2300-12-31 00:00:00"); }
-		if( buying_min != null ) { map.put("buying_min", buying_min); } else { map.put("buying_min", "0"); }
-		if( buying_max != null ) { map.put("buying_max", buying_max); } else { map.put("buying_max", "999999999"); }
-		if( grade != null ) { map.put("grade", grade); } else { map.put("grade", "null"); }
-		if( point_min != null ) { map.put("point_min", point_min); } else { map.put("point_min", "0"); }
-		if( point_max != null ) { map.put("point_max", point_max); } else { map.put("point_max", "999999999"); }
+		if( !(date_min.isEmpty()) ) { map.put("date_min", date_min); } else { map.put("date_min", "1900-01-01 00:00:00"); }
+		if( !(date_max.isEmpty()) ) { map.put("date_max", date_max); } else { map.put("date_max", "2300-12-31 00:00:00"); }
+		if( !(buying_min.isEmpty()) ) { map.put("buying_min", buying_min); } else { map.put("buying_min", "0"); }
+		if( !(buying_max.isEmpty()) ) { map.put("buying_max", buying_max); } else { map.put("buying_max", "999999999"); }
+		if( !(grade.isEmpty()) ) { map.put("grade", grade); } else { map.put("grade", "null"); }
+		if( !(point_min.isEmpty()) ) { map.put("point_min", point_min); } else { map.put("point_min", "0"); }
+		if( !(point_max.isEmpty()) ) { map.put("point_max", point_max); } else { map.put("point_max", "999999999"); }
 		
 		model.addAttribute("result_detail_search", service_members.detail_search( map ));
 		return "manager/search_detail_member";
