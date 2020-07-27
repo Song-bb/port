@@ -88,7 +88,8 @@ public class MyContoller {
 	
 	// 회원가입-아이디 중복확인
 	@RequestMapping("/duplication_check_id")
-	public void duplication_check_id(@RequestParam("user_id") String user_id, HttpServletResponse response, Model model) throws Exception {
+	public void duplication_check_id(@RequestParam("user_id") String user_id, 
+									 HttpServletResponse response, Model model) throws Exception {
 		List<dto_members> list = service_members.login( user_id );
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();

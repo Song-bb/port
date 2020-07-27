@@ -21,7 +21,10 @@
                             </tr>
                             <tr>
                                <th>*아이디 </th>
-                               <td><input type="text" name="user_id" placeholder="아이디" required class="input_text"><a href="/duplication_check_id"><button type="button" id="id_button">중복 확인</button></a></td>
+                               <td>
+                               		<div><input type="text" name="user_id" placeholder="아이디" required class="input_text" id="user_id_1"><button type="button" onclick="duplication_check_Pop();" id="id_button">중복 확인</button></div>
+                               		<div></div>
+                               </td>
                             </tr>
                             <tr>
                                 <th>*비밀번호 </th>
@@ -46,9 +49,9 @@
                             <tr>
                                 <th>*주소 </th>
                                 <td class="join_address">
-                                	<input type="text" class="input_text_2" id="sample6_postcode" placeholder="우편번호" name="postcode">
+                                	<input type="text" class="input_text_2" id="sample6_postcode" placeholder="우편번호" name="postcode" required>
 									<input type="button" id="address_button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-									<input type="text" class="input_text" id="sample6_address" placeholder="주소" name="main_address"><br>
+									<input type="text" class="input_text" id="sample6_address" placeholder="주소" name="main_address" required><br>
 									<input type="text" class="input_text_2" id="sample6_detailAddress" placeholder="상세주소" name ="detail_address">
 									<input type="text" class="input_text_2" id="sample6_extraAddress" placeholder="참고항목" name="detail_address2">
                                 </td>
@@ -89,10 +92,8 @@
     
 <script>
 	function duplication_check_Pop() {
-		window.open(
-				"duplication_check_id", "a", 
-				"width=600, height=800, left=200, top=0"
-			); 
+		data = document.getElementById("user_id_1").value;
+		location.href="/duplication_check_id?user_id="+data; 
 	}
 
 </script>
