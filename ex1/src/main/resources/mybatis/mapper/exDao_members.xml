@@ -140,9 +140,12 @@
 	</select>	
 	
 	<select id="checkId" resultType="_int">
-    		SELECT COUNT(*) FROM members WHERE user_id=#{id}
+    		SELECT COUNT(*) FROM members WHERE user_id=#{param1}
 	</select>
-	
+
+	<select id="checkEmail" resultType="_int">
+    		SELECT COUNT(*) FROM members WHERE user_email=#{param1}
+	</select>	
 		
 	
 	

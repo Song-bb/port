@@ -39,7 +39,10 @@
                             </tr>
                             <tr>
                                 <th>*이메일</th>
-                                <td><input type="email" name="email" placeholder="이메일" required class="input_text"><button type="submit" id="email_button">중복 확인</button></td>
+                                <td>
+                                	<div><input type="email" name="email" placeholder="이메일" required class="input_text" id="user_email_1"></div>
+                                	<div id="result_check_email"></div>
+                                </td>
                             </tr>
                             <tr>
                                 <th>*이름 </th>
@@ -47,7 +50,10 @@
                             </tr>
                             <tr>
                                 <th>*휴대폰 </th>
-                                <td><input type="text" name="phone" placeholder="전화번호(숫자만 입력하세요)" required class="input_text"></td>
+                                <td>
+                                	<div><input type="text" name="phone" placeholder="전화번호(숫자만 입력하세요)" required class="input_text" onkeydown="javascript:return inputOnlyNum(event);"></div>
+                                	<div id="result_check_phone"></div>
+                                </td>
                             </tr>
                             <tr>
                                 <th>*주소 </th>
@@ -56,7 +62,7 @@
 									<input type="button" id="address_button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
 									<input type="text" class="input_text" id="sample6_address" placeholder="주소" name="main_address" required><br>
 									<input type="text" class="input_text_2" id="sample6_detailAddress" placeholder="상세주소" name ="detail_address">
-									<input type="text" class="input_text_2" id="sample6_extraAddress" placeholder="참고항목" name="detail_address2">
+									<input type="text" class="input_text_2" id="sample6_extraAddress" placeholder="상세주소" name="detail_address2">
                                 </td>
                             </tr>
                             <tr>
@@ -95,9 +101,10 @@
     
 	
 <script>
+	var button_joinus = $("#join_btn_1");
+
 	$("#user_id_1").blur(function(){
 		var user_id = $("#user_id_1").val();
-		var button_joinus = $("#join_btn_1");
 		$.ajax({
 			url : '/duplication_check_id?user_id='+user_id,
 			type : 'get',
@@ -116,23 +123,32 @@
 			}
 		});
 	});
-</script>
 
-<script>
 	$("#user_pw_2").blur(function(){
-		var user_id = $("#user_id_1").val();
-		var button_joinus = $("#join_btn_1");
+		if( $("#user_pw_2").val() == $("#user_pw_1").val() ){
+			$("#result_check_pw").text("비밀번호가 일치합니다.");
+			$("#result_check_pw").css("color", "green");
+			$('#join_btn_1').attr('disabled',false);
+		} else {
+			$("#result_check_pw").text("비밀번호가 일치하지 않습니다.");
+			$("#result_check_pw").css("color", "red");
+			$('#join_btn_1').attr('disabled',true);
+		}
+	});
+
+	$("#user_email_1").blur(function(){
+		var user_email = $("#user_email_1").val();
 		$.ajax({
-			url : '/duplication_check_id?user_id='+user_id,
+			url : '/duplication_check_email?user_email='+user_email,
 			type : 'get',
 			success : function(data) {
 				if( data == 1){ // 중복이면
-					$("#result_check_id").text("이미 사용중인 아이디 입니다.");
-					$("#result_check_id").css("color", "red");
+					$("#result_check_email").text("이미 사용중인 이메일 입니다.");
+					$("#result_check_email").css("color", "red");
 					$('#join_btn_1').attr('disabled',true);
 				} else { // 중복이 아니면
-					$("#result_check_id").text("사용 가능한 아이디 입니다.");
-					$("#result_check_id").css("color", "green");
+					$("#result_check_email").text("사용 가능한 이메일 입니다.");
+					$("#result_check_email").css("color", "green");
 					$('#join_btn_1').attr('disabled',false);
 				}
 			}, error : function(){
@@ -140,5 +156,15 @@
 			}
 		});
 	});
-</script>
-	
+
+	function inputOnlyNum(event){ 
+		var acode = event.keyCode; 
+		if(acode == 37 || acode == 39 || acode == 8 || acode == 127 || acode == 9 || (acode>47 && acode<58) || (acode>95 && acode<106)) { 
+			return true; //숫자만가능
+		} else { 
+			return false; //숫자가 아닐때 작성이 안됨 
+		} 
+	}
+
+
+</script>	

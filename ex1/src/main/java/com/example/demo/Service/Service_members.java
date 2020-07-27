@@ -27,6 +27,11 @@ public class Service_members {
 		return dao_member.checkId( user_id );
 	}
 	
+	/* 회원가입-이메일 중복확인 */
+	public int checkEmail(String user_email) {
+		return dao_member.checkEmail( user_email );
+	}
+	
 	/* 회원가입 */
 	public int join_ok(Map<String, String> map) {
 		int nResult = dao_member.join_ok(map);

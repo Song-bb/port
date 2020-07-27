@@ -94,6 +94,13 @@ public class MyContoller {
 		return service_members.checkId(user_id);
 	}
 	
+	// 회원가입-이메일 중복확인
+	@RequestMapping("/duplication_check_email")
+	@ResponseBody
+	public int emailCheck(@RequestParam("user_email") String user_email) {
+		return service_members.checkEmail(user_email);
+	}
+	
 	// 회원가입 확인 페이지
 	@RequestMapping("/join_ok")
 	public String join_ok(@RequestParam("user_id") String user_id, 
