@@ -32,6 +32,10 @@
     <link rel="stylesheet" href="css/payment_ok_style.css">
     <link rel="stylesheet" href="css/myRegularorder_style.css">
     
+    <!-- 파비콘 -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    
     <!-- swiper(슬라이드) -->
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
