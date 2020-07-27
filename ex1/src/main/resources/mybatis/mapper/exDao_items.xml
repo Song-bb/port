@@ -7,60 +7,60 @@
 <mapper namespace="com.example.demo.dao.IDao_items">
 	
 	<select id="fruitInSeason_viewDao" resultType="com.example.demo.dto.dto_items">
-			SELECT * FROM items WHERE item_category='season';
+		SELECT * FROM items WHERE item_category='season';
 	</select>
 	<select id="fruitInSeason_downDao" resultType="com.example.demo.dto.dto_items">
-			SELECT * FROM items WHERE item_category='season' ORDER BY item_sale_price ASC;
+		SELECT * FROM items WHERE item_category='season' ORDER BY item_sale_price ASC;
 	</select>
 	<select id="fruitInSeason_upDao" resultType="com.example.demo.dto.dto_items">
-			SELECT * FROM items WHERE item_category='season' ORDER BY item_sale_price DESC;
+		SELECT * FROM items WHERE item_category='season' ORDER BY item_sale_price DESC;
 	</select>
 	<select id="fruitInSeason_newviewDao" resultType="com.example.demo.dto.dto_items">
-			SELECT * FROM items WHERE item_category='season' ORDER BY category_idx DESC;
+		SELECT * FROM items WHERE item_category='season' ORDER BY category_idx DESC;
 	</select>
 	<select id="fruitInSeason_countDao" resultType="_int">
-			SELECT COUNT(*) FROM items WHERE item_category='season';
+		SELECT COUNT(*) FROM items WHERE item_category='season';
 	</select>
 	
 	
 	<select id="importedFruit_viewDao" resultType="com.example.demo.dto.dto_items">
-			SELECT * FROM items WHERE item_category='imported';
+		SELECT * FROM items WHERE item_category='imported';
 	</select>
 	<select id="importedFruit_downDao" resultType="com.example.demo.dto.dto_items">
-			SELECT * FROM items WHERE item_category='imported' ORDER BY item_sale_price ASC;
+		SELECT * FROM items WHERE item_category='imported' ORDER BY item_sale_price ASC;
 	</select>
 	<select id="importedFruit_upDao" resultType="com.example.demo.dto.dto_items">
-			SELECT * FROM items WHERE item_category='imported' ORDER BY item_sale_price DESC;
+		SELECT * FROM items WHERE item_category='imported' ORDER BY item_sale_price DESC;
 	</select>
 	<select id="importedFruit_newviewDao" resultType="com.example.demo.dto.dto_items">
-			SELECT * FROM items WHERE item_category='imported' ORDER BY category_idx DESC;
+		SELECT * FROM items WHERE item_category='imported' ORDER BY category_idx DESC;
 	</select>
 	<select id="importedFruit_countDao" resultType="_int">
-			SELECT COUNT(*) FROM items WHERE item_category='imported';
+		SELECT COUNT(*) FROM items WHERE item_category='imported';
 	</select>
 
 
 	<select id="fallenFruit_viewDao" resultType="com.example.demo.dto.dto_items">
-			SELECT * FROM items WHERE item_category='fallen';
+		SELECT * FROM items WHERE item_category='fallen';
 	</select>
 	<select id="fallenFruit_downDao" resultType="com.example.demo.dto.dto_items">
-			SELECT * FROM items WHERE item_category='fallen' ORDER BY item_sale_price ASC;
+		SELECT * FROM items WHERE item_category='fallen' ORDER BY item_sale_price ASC;
 	</select>
 	<select id="fallenFruit_upDao" resultType="com.example.demo.dto.dto_items">
-			SELECT * FROM items WHERE item_category='fallen' ORDER BY item_sale_price DESC;
+		SELECT * FROM items WHERE item_category='fallen' ORDER BY item_sale_price DESC;
 	</select>
 	<select id="fallenFruit_newviewDao" resultType="com.example.demo.dto.dto_items">
-			SELECT * FROM items WHERE item_category='fallen' ORDER BY category_idx DESC;
+		SELECT * FROM items WHERE item_category='fallen' ORDER BY category_idx DESC;
 	</select>
 	<select id="fallenFruit_countDao" resultType="_int">
-			SELECT COUNT(*) FROM items WHERE item_category='fallen';
+		SELECT COUNT(*) FROM items WHERE item_category='fallen';
 	</select>
 	
 	<select id="All_viewDao" resultType="com.example.demo.dto.dto_items">
-			SELECT * FROM items;
+		SELECT * FROM items;
 	</select>
-	<select id="nAllCount" resultType="_int">
-			SELECT COUNT(*) FROM items;
+	<select id="all_countDao" resultType="_int">
+		SELECT COUNT(*) FROM items;
 	</select>
 	
 	<insert id="item_update_insert">
