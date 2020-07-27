@@ -22,17 +22,20 @@
                             <tr>
                                <th>*아이디 </th>
                                <td>
-                               		<div><input type="text" name="user_id" placeholder="아이디" required class="input_text" id="user_id_1"><button type="button" onclick="duplication_check_Pop();" id="id_button">중복 확인</button></div>
-                               		<div></div>
+                               		<div><input type="text" name="user_id" placeholder="아이디" required class="input_text" id="user_id_1"></div>
+                               		<div id="result_check_id"></div>
                                </td>
                             </tr>
                             <tr>
                                 <th>*비밀번호 </th>
-                                <td><input type="password" name="user_pw" placeholder="비밀번호" required class="input_text"></td>
+                                <td><input type="password" name="user_pw" placeholder="비밀번호" required class="input_text" id="user_pw_1"></td>
                             </tr>
                             <tr>
                                 <th>*비밀번호 확인</th>
-                                <td><input type="password" name="user_pw_ok" placeholder="비밀번호 확인" required class="input_text"></td>
+                                <td>
+                                	<div><input type="password" name="user_pw_ok" placeholder="비밀번호 확인" required class="input_text" id="user_pw_2"></div>
+                                	<div id="result_check_pw"></div>
+                                </td>
                             </tr>
                             <tr>
                                 <th>*이메일</th>
@@ -90,13 +93,52 @@
     
     <c:import url="../footer.jsp"></c:import>
     
+	
 <script>
-	function duplication_check_Pop() {
-		data = document.getElementById("user_id_1").value;
-		location.href="/duplication_check_id?user_id="+data; 
-	}
-
+	$("#user_id_1").blur(function(){
+		var user_id = $("#user_id_1").val();
+		var button_joinus = $("#join_btn_1");
+		$.ajax({
+			url : '/duplication_check_id?user_id='+user_id,
+			type : 'get',
+			success : function(data) {
+				if( data == 1){ // 중복이면
+					$("#result_check_id").text("이미 사용중인 아이디 입니다.");
+					$("#result_check_id").css("color", "red");
+					$('#join_btn_1').attr('disabled',true);
+				} else { // 중복이 아니면
+					$("#result_check_id").text("사용 가능한 아이디 입니다.");
+					$("#result_check_id").css("color", "green");
+					$('#join_btn_1').attr('disabled',false);
+				}
+			}, error : function(){
+				history.go(-1);
+			}
+		});
+	});
 </script>
-	
-	
+
+<script>
+	$("#user_pw_2").blur(function(){
+		var user_id = $("#user_id_1").val();
+		var button_joinus = $("#join_btn_1");
+		$.ajax({
+			url : '/duplication_check_id?user_id='+user_id,
+			type : 'get',
+			success : function(data) {
+				if( data == 1){ // 중복이면
+					$("#result_check_id").text("이미 사용중인 아이디 입니다.");
+					$("#result_check_id").css("color", "red");
+					$('#join_btn_1').attr('disabled',true);
+				} else { // 중복이 아니면
+					$("#result_check_id").text("사용 가능한 아이디 입니다.");
+					$("#result_check_id").css("color", "green");
+					$('#join_btn_1').attr('disabled',false);
+				}
+			}, error : function(){
+				history.go(-1);
+			}
+		});
+	});
+</script>
 	

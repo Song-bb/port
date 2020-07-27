@@ -139,7 +139,9 @@
 			ORDER BY user_index desc
 	</select>	
 	
-
+	<select id="checkId" resultType="_int">
+    		SELECT COUNT(*) FROM members WHERE user_id=#{id}
+	</select>
 	
 		
 	

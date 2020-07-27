@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
@@ -88,18 +89,9 @@ public class MyContoller {
 	
 	// 회원가입-아이디 중복확인
 	@RequestMapping("/duplication_check_id")
-	public void duplication_check_id(@RequestParam("user_id") String user_id, 
-									 HttpServletResponse response, Model model) throws Exception {
-		List<dto_members> list = service_members.login( user_id );
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		if( list.isEmpty() ) { // 아이디 없음
-			out.println("<script>alert('사용 가능한 아이디 입니다.'); history.go(-1);</script>");
-			out.flush();
-		} else { // 아이디 있음
-			out.println("<script>alert('이미 사용중인 아이디 입니다.'); history.go(-1);</script>");
-			out.flush();		
-		}
+	@ResponseBody
+	public int idCheck(@RequestParam("user_id") String user_id) {
+		return service_members.checkId(user_id);
 	}
 	
 	// 회원가입 확인 페이지

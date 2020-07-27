@@ -1,13 +1,9 @@
 package com.example.demo.Service;
 
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletResponse;
-
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,10 +15,16 @@ public class Service_members {
 
 	@Autowired
 	IDao_members dao_member;
+
 	
 	/* 로그인 */
 	public List<dto_members> login( String user_id ) {
 		return dao_member.login_ok( user_id );
+	}
+	
+	/* 회원가입-아이디 중복확인 */
+	public int checkId(String user_id) {
+		return dao_member.checkId( user_id );
 	}
 	
 	/* 회원가입 */
