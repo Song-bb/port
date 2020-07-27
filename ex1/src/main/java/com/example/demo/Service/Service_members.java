@@ -76,9 +76,9 @@ public class Service_members {
 	/* 회원 조건검색 */
 	public List<dto_members> detail_search( Map<String, String> map ){
 		if( map.get("grade").toString().equals("null")) {
-			return dao_member.detail_search2( map );
+			return dao_member.detail_search2( map ); // 등급 null 일때
 		} else {
-			return dao_member.detail_search1( map );
+			return dao_member.detail_search1( map ); // 등급 지정시
 		}
 	}
 	
@@ -91,15 +91,40 @@ public class Service_members {
 				return dao_member.detail_search1( map );
 			}
 		} else { // 검색어 있으면
-			if(map.get("member_categori").toString().equals("null")){ // 카테고리 지정 되었는지 확인
-				
+			if(map.get("member_categori").toString().equals("null") || map.get("member_categori").toString().equals("user_name") ){ // 카테고리 지정 되었는지 확인, 지정 없으면 이름이 default
+				if( map.get("grade").toString().equals("null") ) { // 카테고리 user_name, 등급 null일때
+					return dao_member.detail_search3( map );
+				} else { // 카테고리 user_name, 등급 조건 추가
+					return dao_member.detail_search4( map );
+				}
+			} else if( map.get("member_categori").toString().equals("user_id") ) { 
+				if( map.get("grade").toString().equals("null") ) { // 카테고리 user_id, 등급 null일때
+					return dao_member.detail_search5( map );
+				} else { // 카테고리 user_id, 등급 조건 추가
+					return dao_member.detail_search6( map );
+				}
+			} else if( map.get("member_categori").toString().equals("user_phone") ) { 
+				if( map.get("grade").toString().equals("null") ) { // 카테고리 user_phone, 등급 null일때
+					return dao_member.detail_search7( map );
+				} else { // 카테고리 user_phone, 등급 조건 추가
+					return dao_member.detail_search8( map );
+				}
+			} else if( map.get("member_categori").toString().equals("user_birth") ) { 
+				if( map.get("grade").toString().equals("null") ) { // 카테고리 user_birth, 등급 null일때
+					return dao_member.detail_search9( map );
+				} else { // 카테고리 user_birth, 등급 조건 추가
+					return dao_member.detail_search10( map );
+				}
 			} else {
-				
+				return dao_member.detail_search1( map );
 			}
 		}
 	}
 
 
+	
+
+	
 	
 
 	

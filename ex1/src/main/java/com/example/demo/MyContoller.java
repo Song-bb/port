@@ -669,7 +669,7 @@ public class MyContoller {
 		int count = list.size();
 		model.addAttribute("member_result_count2", count );
 		model.addAttribute("result_detail_search2", list );
-		return "manager/search_detail_member";
+		return "manager/search_member";
 	}
 	
 	// 상품관리

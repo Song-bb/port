@@ -65,7 +65,7 @@
             <label class="member_grade_text_label"><i class="fas fa-caret-right"></i> 회원등급 : 1. 앵두 회원(${ member_count_1 } 명), 2. 자두 회원(${ member_count_2 } 명), 3. 복숭아 회원(${ member_count_3 } 명), 4. 과일매니저(${ member_count_4 } 명) 5. 회원수 총(${ member_total_count} 명)</label>
         </div>
         <div class="member_grade_text_bottom">
-            <label class="member_grade_text_label">${ member_result_count } 건의 검색 결과가 있습니다.</label>
+            <label class="member_grade_text_label">${ member_result_count2 } 건의 검색 결과가 있습니다.</label>
         </div>
         <div class="member_search_list">
             <form action="" method="post">
@@ -83,7 +83,7 @@
                         <td class="member_search_list_td member_search_list_td2 member_search_list_td4">메일</td>
                         <td class="member_search_list_td member_search_list_td2 member_search_list_td4">핸드폰번호</td>
                     </tr>
-                    <c:forEach items="${ result_detail_search }" var="dto">
+                    <c:forEach items="${ result_detail_search2 }" var="dto">
                     <c:set var = "string1" value = "${ dto.join_date }"/>
                     <c:set var = "string2" value = "${fn:substring(string1, 0, 10)}" />
                     <tr class="member_search_list_tr">

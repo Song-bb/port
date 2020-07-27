@@ -63,5 +63,86 @@
 			ORDER BY user_index desc
 	</select>
 	
+	<select id="detail_search3" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{date_min} AND #{date_max}
+			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
+			AND user_point BETWEEN #{point_min} AND #{point_max}
+			AND user_name like CONCAT('%',#{search_text},'%')
+			ORDER BY user_index desc
+	</select>
+	
+	<select id="detail_search4" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{date_min} AND #{date_max}
+			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
+			AND user_point BETWEEN #{point_min} AND #{point_max}
+			AND user_grade = #{grade} 
+			AND user_name like CONCAT('%',#{search_text},'%')
+			ORDER BY user_index desc
+	</select>
+	
+	<select id="detail_search5" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{date_min} AND #{date_max}
+			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
+			AND user_point BETWEEN #{point_min} AND #{point_max}
+			AND user_id like CONCAT('%',#{search_text},'%')
+			ORDER BY user_index desc
+	</select>
+
+	<select id="detail_search6" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{date_min} AND #{date_max}
+			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
+			AND user_point BETWEEN #{point_min} AND #{point_max}
+			AND user_grade = #{grade} 
+			AND user_id like CONCAT('%',#{search_text},'%')
+			ORDER BY user_index desc
+	</select>	
+	
+	<select id="detail_search7" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{date_min} AND #{date_max}
+			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
+			AND user_point BETWEEN #{point_min} AND #{point_max}
+			AND user_phone like CONCAT('%',#{search_text},'%')
+			ORDER BY user_index desc
+	</select>
+
+	<select id="detail_search8" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{date_min} AND #{date_max}
+			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
+			AND user_point BETWEEN #{point_min} AND #{point_max}
+			AND user_grade = #{grade} 
+			AND user_phone like CONCAT('%',#{search_text},'%')
+			ORDER BY user_index desc
+	</select>	
+
+	<select id="detail_search9" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{date_min} AND #{date_max}
+			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
+			AND user_point BETWEEN #{point_min} AND #{point_max}
+			AND user_birth like CONCAT('%',#{search_text},'%')
+			ORDER BY user_index desc
+	</select>
+
+	<select id="detail_search10" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{date_min} AND #{date_max}
+			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
+			AND user_point BETWEEN #{point_min} AND #{point_max}
+			AND user_grade = #{grade} 
+			AND user_birth like CONCAT('%',#{search_text},'%')
+			ORDER BY user_index desc
+	</select>	
+	
+
+	
+		
+	
+	
 	
 </mapper>
