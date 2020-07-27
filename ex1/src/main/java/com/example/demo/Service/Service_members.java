@@ -122,8 +122,10 @@ public class Service_members {
 		}
 	}
 
-
-	
+	/* 회원 상세보기 */
+	public List<dto_members> member_detail(String user_index) {
+		return dao_member.member_detail( user_index );
+	}
 
 	
 	

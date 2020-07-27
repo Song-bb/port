@@ -617,6 +617,13 @@ public class MyContoller {
 		return "manager/member";
 	}
 	
+	// 회원 상세보기
+	@RequestMapping("/member_detail")
+	public String member_detail(@RequestParam("user_index") String user_index, Model model) {
+		model.addAttribute("member_detail", service_members.member_detail( user_index ));
+		return "manager/member_detail";
+	}
+	
 	// 회원 상세검색
 	@RequestMapping("/search_detail_member")
 	public String search_detail_member(@RequestParam(value="date_min", required=false) String date_min,
@@ -737,7 +744,7 @@ public class MyContoller {
 		return "manager/item_update";
 	}
 	
-	// 탈퇴회원
+	// 탈퇴회원 리스트
 	@RequestMapping("/leave_member")
 	public String leave_member(Model model) {
 		List<dto_seceded_member> list = service_seced_member.list();

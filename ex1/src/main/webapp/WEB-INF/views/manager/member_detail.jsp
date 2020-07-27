@@ -4,66 +4,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<!-- 관리자페이지 > 회원관리 -->
+<!-- 관리자페이지 > 회원 상세보기 -->
 
 
 	<c:import url="header_management.jsp"></c:import>
 	
 	    <div id="member_manager_main_wrap">
-        <div id="member_manager_main_title"><h3>회원리스트</h3></div>
-        <form method="post">
-	        <div class="member_manager_selectBox">
-	            <div class="member_manager_selectBox_serch">
-	                <div class="member_manager_selectBox_serch_select_div">
-                        <select class="member_manager_selectBox_serch_select" name="member_categori">
-                            <option value="user_name">이름</option>
-                            <option value="user_id">아이디</option>
-                            <option value="user_phone">휴대폰번호</option>
-                            <option value="user_birth">생일</option>
-                        </select>
-                        <input type="text" placeholder="내용을 입력해 주세요." class="member_manager_selectBox_serch_search" name="search_text">
-                        <button type="submit" formaction="/member_search" class="member_manager_selectBox_serch_btn">검색</button>
-	                </div>
-	                <div class="member_manager_selectBox_serch_select_div_bottom">
-	                    <a href='javascript:search_close();' id="member_manager_selectBox_serch_select_div_bottom_a">상세검색 닫기</a>
-	                </div>
-	            </div>
-	        </div>
-	        <div id="member_manager_selectBox_bottom">
-	            <div class="member_manager_selectBox_serch_bottom">
-	                <div class="member_manager_selectBox_serch_bottom_div">
-	                    <table class="member_manager_selectBox_serch_bottom_div_table">
-	                        <tr class="member_manager_selectBox_serch_bottom_div_tr">
-	                            <td class="member_manager_selectBox_serch_bottom_div_td member_td1">가입일</td>
-	                            <td class="member_manager_selectBox_serch_bottom_div_td member_td2"><input type="date" name="date_min">~<input type="date" name="date_max"></td>
-	                            <td class="member_manager_selectBox_serch_bottom_div_td member_td3">구매 금액</td>
-	                            <td class="member_manager_selectBox_serch_bottom_div_td member_td4"><input type="text" name="buying_min">원 ~ <input type="text" name="buying_max">원</td>
-	                        </tr>
-	                        <tr class="member_manager_selectBox_serch_bottom_div_tr">
-	                            <td class="member_manager_selectBox_serch_bottom_div_td member_td1">회원 등급</td>
-	                            <td class="member_manager_selectBox_serch_bottom_div_td member_td2">
-	                                <select name="grade">
-	                                	<option value="">선택하세요</option>
-	                                    <option value="앵두">앵두</option>
-	                                    <option value="자두">자두</option>
-	                                    <option value="복숭아">복숭아</option>
-	                                    <option value="과일매니저">과일매니저</option>
-	                                </select>
-	                            </td>
-	                            <td class="member_manager_selectBox_serch_bottom_div_td member_td3">적립금</td>
-	                            <td class="member_manager_selectBox_serch_bottom_div_td member_td4"><input type="text" name="point_min">원 ~ <input type="text" name="point_max">원</td>
-	                        </tr>
-	                        <tr class="member_manager_selectBox_serch_bottom_div_tr">
-	                            <td class="member_manager_selectBox_serch_bottom_div_td member_td5" colspan="4"><button type="submit" formaction="/search_detail_member">상세 검색</button></td>
-	                        </tr>
-	                    </table>
-	                </div>
-	            </div>
-	        </div>
-        </form>
-        <div class="member_grade_text">
-            <label class="member_grade_text_label"><i class="fas fa-caret-right"></i> 회원등급 : 1. 앵두 회원(${ member_count_1 } 명), 2. 자두 회원(${ member_count_2 } 명), 3. 복숭아 회원(${ member_count_3 } 명), 4. 과일매니저(${ member_count_4 } 명) 5. 회원수 총(${ member_total_count} 명)</label>
-        </div>
+        <div id="member_manager_main_title"><h3>회원 상세보기</h3></div>
+
         <div class="member_grade_text_bottom">
             <label class="member_grade_text_label">${ list_count } 건의 검색 결과가 있습니다.</label>
         </div>

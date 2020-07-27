@@ -32,6 +32,8 @@ public interface IDao_members {
 	public List<dto_members> detail_search10( Map<String, String> map ); // 카테고리 user_birth, 등급 조건 추가
 	public int checkId( String user_id );
 	public int checkEmail( String user_email );
+	public List<dto_members> member_detail(String user_index);
+	
 	
 		
 }
