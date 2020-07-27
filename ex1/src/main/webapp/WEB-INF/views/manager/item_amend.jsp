@@ -19,9 +19,9 @@
                         <td class="item_update_td">
                             <select name="item_category" id="category">
                             	<option value="">선택하세요</option>
-                                <option value="season">제철과일</option>
-                                <option value="imported">수입과일</option>
-                                <option value="fallen">낙과채널</option>
+                                <option value="제철과일">제철과일</option>
+                                <option value="수입과일">수입과일</option>
+                                <option value="낙과채널">낙과채널</option>
                             </select>
                         </td>
                     </tr>

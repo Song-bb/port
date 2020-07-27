@@ -380,3 +380,59 @@
     height: 40px;
 }
 /* */
+
+/* 상품관리페이지 */
+#managerlist_wrap {
+    width: 1050px;
+    margin: 0 auto;
+}
+#managerlist_header {
+    height: 50px;
+    border-bottom: 2px solid #459356;
+}
+#category {
+    width: 150px;
+    height: 30px;
+}
+#managerlist_body {
+    width: 100%;
+    margin-top: 30px;
+}
+#managerlist_body table{
+    border-collapse: collapse;
+    text-align: center;
+    margin-top: 30px;
+}
+.managerlist_tr {
+    height: 180px;
+    border-bottom: 1px solid #459356;
+}
+.managerlist_tr:first-child {
+    height: 50px;
+}
+.managerlist_td_check{
+    width: 50px;
+}
+.managerlist_td_index{
+    width: 150px;
+}
+.managerlist_td_category{
+    width: 100px;
+}
+.managerlist_td_img{
+    width: 200px;
+}
+.managerlist_td_name{
+    width: 300px;
+}
+.managerlist_td_price{
+    width: 200px;
+}
+.managerlist_table_div button{
+    float: right;
+    margin-top: 20px;
+    margin-right: 40px;
+    width: 150px;
+    height: 30px;
+}
+/*        */
