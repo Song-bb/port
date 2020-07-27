@@ -88,7 +88,8 @@ public class MyContoller {
 	
 	// 회원가입-아이디 중복확인
 	@RequestMapping("/duplication_check_id")
-	public void duplication_check_id(@RequestParam("user_id") String user_id, HttpServletResponse response, Model model) throws Exception {
+	public void duplication_check_id(@RequestParam("user_id") String user_id, 
+									 HttpServletResponse response, Model model) throws Exception {
 		List<dto_members> list = service_members.login( user_id );
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
@@ -257,14 +258,17 @@ public class MyContoller {
 	// 이벤트메인
 	@RequestMapping("/event_main")
 	public String event_main(Model model) {
-		model.addAttribute("event_listView", service_event.event_list());
+		model.addAttribute("dtoE_listView", service_event.event_list());
 		return "event/event_main";
 	}
 	
 	// 이벤트서브페이지(관리자 DB)추가
 	@RequestMapping("/event_sub")
-	public String event_sub() {
-			
+	public String event_sub(HttpServletRequest request, Model model) {
+		String index = request.getParameter("event_index");
+		model.addAttribute("dtoE_sub", service_event.event_view(index));
+		service_event.event_viewCount(index);
+		
 		return "event/event_sub";
 	}
 	
@@ -704,12 +708,6 @@ public class MyContoller {
 		return "manager/banner_img";
 	}
 	
-	// 이벤트리스트_메인 관리
-	@RequestMapping("/event_list")
-	public String event_list() {
-		return "manager/event_list";
-	}
-	
 	// 자주하는질문 관리
 	@RequestMapping("/fre_ask_board")
 	public String fre_ask_board() {
@@ -756,11 +754,65 @@ public class MyContoller {
 		return "manager/item_amend";
 	}
 	
+	// 이벤트리스트_메인 관리
+	@RequestMapping("/event_list")
+	public String event_list(Model model) {
+		model.addAttribute("dtoE_mainList", service_event.event_list());
+		return "manager/event_list";
+	}
+	
+	// 이벤트 수정
+	@RequestMapping("/event_update")
+	public String event_update(HttpServletRequest request, Model model) {
+		String index = request.getParameter("event_index");
+		model.addAttribute("dtoE_update", service_event.event_update(index));
+		return "manager/event_update" ;
+	}
+	
+	
+	
+	// 이벤트 삭제
+	@RequestMapping("/event_delete")
+	public String event_delete(HttpServletRequest request, Model model) {
+		String index = request.getParameter("event_index");
+		int nResult = service_event.event_delete(index);
+		if( nResult < 1) {
+			System.out.println("삭제를 실패했습니다.");
+			return "redirect:event_list";
+		}else {
+			System.out.println("삭제를 성공했습니다.");
+			return "redirect:event_list";	
+		}
+	}
+	
 	// 관리자 이벤트 작성페이지
 	@RequestMapping("/event_write")
 	public String manager_eventWrite() {
-		
 		return "manager/event_write";
+	}
+	
+	// 관리자 이벤트 작성확인
+	@RequestMapping("/event_writeOk")
+	public String manager_eventWriteOk(HttpServletRequest request, Model model) {
+		String title = request.getParameter("event_title");
+		String content = request.getParameter("event_content");
+		String banner = request.getParameter("event_banner");
+		String date = request.getParameter("event_date");
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("event_title", title);
+		map.put("event_content",content);
+		map.put("event_banner", banner);
+		map.put("event_date", date);
+		
+		int nResult = service_event.event_write(map);
+		if( nResult < 1) {
+			System.out.println("쓰기를 실패했습니다.");
+			return "redirect:event_write";
+		}else {
+			System.out.println("쓰기를 성공했습니다.");
+			return "redirect:event_list";	
+		}
 	}
 	
 	/*=========== /관리자 페이지 =============*/

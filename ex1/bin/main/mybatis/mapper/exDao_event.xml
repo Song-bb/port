@@ -13,27 +13,34 @@
 	
 	<!-- event_view -->
 	<select id="event_viewDao" resultType="com.example.demo.dto.dto_event"> 
-			SELECT * FROM event WHERE event_index = #{event_index}
+			SELECT * FROM event WHERE event_index = #{param1}
 	</select>
 	<!-- event_viewCount -->
-	<select id="event_viewCoun" resultType="com.example.demo.dto.dto_event"> 
-			UPDATE event SET event_hit = event_hit + 1 WHERE evnet_index = #{event_index}
-	</select>
+	<update id="event_viewCount"> 
+			UPDATE event SET event_hit = event_hit + 1 WHERE event_index = #{event_index}
+	</update>
 	
 	<!-- event_write -->
 	<insert id="event_writeDao"> 
-			INSERT INTO event (event_index, event_title, event_content, event_banner) VALUES (event_seq.nextval, #{event_title}, #{event_content}, #{event_banner})
+			INSERT INTO event (event_index, event_title, event_content, event_banner, event_date) VALUES ( 0, #{event_title}, #{event_content}, #{event_banner}, default)
 	</insert>
 	
+	<!-- event_delete -->	
 	<delete id="event_deleteDao"> 
 			DELETE FROM event WHERE event_index = #{event_index}
 	</delete>
 	
-	<update id="event_updateDao"> 
+	<!-- event_update -->
+	<select id="event_updateDao" resultType="com.example.demo.dto.dto_event"> 
+			SELECT * FROM event WHERE event_index = #{event_index}
+	</select>
+	
+	<!-- event_update -->	
+	<update id="event_updateDaoOk"> 
 			UPDATE event SET event_title = #{event_title}, event_content = #{event_content}, event_banner = #{event_banner} WHERE event_index = #{event_index}
 	</update>
 	
-
+	
 
 	
 </mapper>
