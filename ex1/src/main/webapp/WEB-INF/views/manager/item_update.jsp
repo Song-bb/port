@@ -12,7 +12,7 @@
             <h2>상품 등록하기</h2>
         </div>
         <div id="item_update_body">
-            <form action="" method="POST">
+            <form action="/item_update_ok" method="POST">
                 <table>
                     <tr class="item_update_tr">
                         <td class="item_update_td">카테고리</td>

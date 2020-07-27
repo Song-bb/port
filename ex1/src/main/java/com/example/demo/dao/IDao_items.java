@@ -34,6 +34,7 @@ public interface IDao_items {
 	
 	// 상품등록하기
 	
+	
 	// 상품수정하기
 	
 	// 상품삭제하기
