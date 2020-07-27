@@ -20,11 +20,11 @@
                       		<div class="fallenpage_item">
                       			<div class="item_img_250320">
 								<div class="item_img">
-									<a href="/item_detail"><img src="${ dto.item_img }" width="250px" height="320px"></a>	
+									<a href="item_detail?item_detail=${ dto.idx }"><img src="${ dto.item_img }" width="250px" height="320px"></a>	
 								</div>
 							</div>
                           		<div class="item_desc">
-                               	<p><a href="/item_detail">${ dto.item_name }</a></p>
+                               	<p><a href="item_detail?item_detail=${ dto.idx }">${ dto.item_name }</a></p>
                                	<p>${ dto.item_real_price }</p>
                           		</div>
                       		</div>
