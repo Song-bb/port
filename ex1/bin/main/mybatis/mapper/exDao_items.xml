@@ -18,7 +18,7 @@
 	<select id="fruitInSeason_newviewDao" resultType="com.example.demo.dto.dto_items">
 			SELECT * FROM items WHERE item_category='season' ORDER BY category_idx DESC;
 	</select>
-	<select id="nSeasonCount" resultType="_int">
+	<select id="fruitInSeason_countDao" resultType="_int">
 			SELECT COUNT(*) FROM items WHERE item_category='season';
 	</select>
 	
@@ -35,7 +35,7 @@
 	<select id="importedFruit_newviewDao" resultType="com.example.demo.dto.dto_items">
 			SELECT * FROM items WHERE item_category='imported' ORDER BY category_idx DESC;
 	</select>
-	<select id="nimportedCount" resultType="_int">
+	<select id="importedFruit_countDao" resultType="_int">
 			SELECT COUNT(*) FROM items WHERE item_category='imported';
 	</select>
 
@@ -52,7 +52,7 @@
 	<select id="fallenFruit_newviewDao" resultType="com.example.demo.dto.dto_items">
 			SELECT * FROM items WHERE item_category='fallen' ORDER BY category_idx DESC;
 	</select>
-	<select id="nFallenCount" resultType="_int">
+	<select id="fallenFruit_countDao" resultType="_int">
 			SELECT COUNT(*) FROM items WHERE item_category='fallen';
 	</select>
 	
