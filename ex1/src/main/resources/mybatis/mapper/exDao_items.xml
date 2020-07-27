@@ -9,15 +9,19 @@
 	<select id="fruitInSeason_viewDao" resultType="com.example.demo.dto.dto_items">
 		SELECT * FROM items WHERE item_category='제철과일';
 	</select>
+	
 	<select id="fruitInSeason_downDao" resultType="com.example.demo.dto.dto_items">
 		SELECT * FROM items WHERE item_category='제철과일' ORDER BY item_sale_price ASC;
 	</select>
+	
 	<select id="fruitInSeason_upDao" resultType="com.example.demo.dto.dto_items">
 		SELECT * FROM items WHERE item_category='제철과일' ORDER BY item_sale_price DESC;
 	</select>
+	
 	<select id="fruitInSeason_newviewDao" resultType="com.example.demo.dto.dto_items">
 		SELECT * FROM items WHERE item_category='제철과일' ORDER BY category_idx DESC;
 	</select>
+	
 	<select id="fruitInSeason_countDao" resultType="_int">
 		SELECT COUNT(*) FROM items WHERE item_category='제철과일';
 	</select>
@@ -26,15 +30,19 @@
 	<select id="importedFruit_viewDao" resultType="com.example.demo.dto.dto_items">
 		SELECT * FROM items WHERE item_category='수입과일';
 	</select>
+	
 	<select id="importedFruit_downDao" resultType="com.example.demo.dto.dto_items">
 		SELECT * FROM items WHERE item_category='수입과일' ORDER BY item_sale_price ASC;
 	</select>
+	
 	<select id="importedFruit_upDao" resultType="com.example.demo.dto.dto_items">
 		SELECT * FROM items WHERE item_category='수입과일' ORDER BY item_sale_price DESC;
 	</select>
+	
 	<select id="importedFruit_newviewDao" resultType="com.example.demo.dto.dto_items">
 		SELECT * FROM items WHERE item_category='수입과일' ORDER BY category_idx DESC;
 	</select>
+	
 	<select id="importedFruit_countDao" resultType="_int">
 		SELECT COUNT(*) FROM items WHERE item_category='수입과일';
 	</select>
@@ -43,33 +51,48 @@
 	<select id="fallenFruit_viewDao" resultType="com.example.demo.dto.dto_items">
 		SELECT * FROM items WHERE item_category='낙과채널';
 	</select>
+	
 	<select id="fallenFruit_downDao" resultType="com.example.demo.dto.dto_items">
 		SELECT * FROM items WHERE item_category='낙과채널' ORDER BY item_sale_price ASC;
 	</select>
+	
 	<select id="fallenFruit_upDao" resultType="com.example.demo.dto.dto_items">
 		SELECT * FROM items WHERE item_category='낙과채널' ORDER BY item_sale_price DESC;
 	</select>
+	
 	<select id="fallenFruit_newviewDao" resultType="com.example.demo.dto.dto_items">
 		SELECT * FROM items WHERE item_category='낙과채널' ORDER BY category_idx DESC;
 	</select>
+	
 	<select id="fallenFruit_countDao" resultType="_int">
 		SELECT COUNT(*) FROM items WHERE item_category='낙과채널';
 	</select>
 	
+	
 	<select id="All_viewDao" resultType="com.example.demo.dto.dto_items">
 		SELECT * FROM items;
 	</select>
+	
 	<select id="all_countDao" resultType="_int">
 		SELECT COUNT(*) FROM items;
 	</select>
 	
-	<insert id="item_update_insert">
-		INSERT INTO items (idx, category_idx, item_name, item_category, item_img, item_discount_rate, item_real_price, item_sale_price, item_description) VALUES (0, )
+	
+	<insert id="item_insert">
+		INSERT INTO items (idx, item_name, item_category, item_img, item_discount_rate, item_real_price, item_sale_price, item_description) VALUES (0, #{ item_name}, #{ item_category }, #{ item_img }, #{ discount }, #{ real_price }, #{ sale_price }, #{ item_description } )
+	</insert>
+	
+	<insert id="category_index_insert">
+		INSERT INTO items (category_index) VALUES ( 0 ) WHERE item_category = #{ item_category }
 	</insert>
 	
 	<update id="item_update">
-	
+		UPDATE items SET item_name = #{ item_name }, item_category= #{ item_category }, item_img= #{ item_img }, item_discount_rate = #{ discount }, item_real_price = #{ real_price }, item_sale_price = #{ sale_price }, item_description = WHERE idx = #{ idx }
 	</update>
+	
+	<delete id="item_delete">
+		DELETE FROM items WHERE idx = #{ idx }
+	</delete>
 
 	
 </mapper>

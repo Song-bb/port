@@ -1,6 +1,7 @@
 package com.example.demo.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -33,9 +34,10 @@ public interface IDao_items {
 	public int fallenFruit_countDao();
 	
 	// 상품등록하기
-	
+	public int item_insert(Map<String, String> map);
 	
 	// 상품수정하기
+	public int item_update(Map<String, String> map);
 	
 	// 상품삭제하기
 	

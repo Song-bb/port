@@ -1,6 +1,7 @@
 package com.example.demo.Service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -69,10 +70,19 @@ public class Service_items {
 	}
 	
 	// 상품등록하기
+	public int item_insert(Map<String, String> map) {
+		int nInsertCount = dao_items.item_insert(map);
+		return nInsertCount;
+	}
 	
 	// 상품수정하기
+	public int item_update(Map<String, String> map) {
+		int nUpdateCount = dao_items.item_update(map);
+		return nUpdateCount;
+	}
 	
 	// 상품삭제하기
+	
 	
 	// 전체상품보기
 	public List<dto_items> All_viewDao(){
