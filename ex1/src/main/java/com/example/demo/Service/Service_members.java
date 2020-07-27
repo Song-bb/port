@@ -1,9 +1,12 @@
 package com.example.demo.Service;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -70,7 +73,7 @@ public class Service_members {
 		return nCount;
 	}
 	
-	/* 회원 조건상세검색 */
+	/* 회원 조건검색 */
 	public List<dto_members> detail_search( Map<String, String> map ){
 		if( map.get("grade").toString().equals("null")) {
 			return dao_member.detail_search2( map );
@@ -79,6 +82,24 @@ public class Service_members {
 		}
 	}
 	
+	/* 회원 조건검색 + 검색어 추가 */
+	public List<dto_members> member_search( Map<String, String> map ) {
+		if( map.get("search_text").toString().equals("null")) { // 검색어 없으면 검색X, 회원조건검색 그대로 출력
+			if( map.get("grade").toString().equals("null")) {
+				return dao_member.detail_search2( map );
+			} else {
+				return dao_member.detail_search1( map );
+			}
+		} else { // 검색어 있으면
+			if(map.get("member_categori").toString().equals("null")){ // 카테고리 지정 되었는지 확인
+				
+			} else {
+				
+			}
+		}
+	}
+
+
 	
 
 	
