@@ -18,7 +18,7 @@
 	                <div class="member_manager_selectBox_serch_select_div">
                         <select class="member_manager_selectBox_serch_select" name="leave_member_categori">
                             <option value="">선택하세요</option>
-                            <option value="categori">탈퇴카테고리</option>
+                            <option value="categori">탈퇴사유</option>
                             <option value="date_of_leave">탈퇴한날</option>
                         </select>
                         <input type="text" placeholder="내용을 입력해 주세요." class="member_manager_selectBox_serch_search" name="search_text">
@@ -34,41 +34,24 @@
             <form action="" method="post">
                 <table class="member_search_list_table">       
                     <tr class="member_search_list_tr">
-                        <td class="member_search_list_td member_search_list_td2 member_search_list_td3">선택</td>
-                        <td class="member_search_list_td member_search_list_td2 member_search_list_td4">번호</td>
-                        <td class="member_search_list_td member_search_list_td2 member_search_list_td4">가입일</td>
-                        <td class="member_search_list_td member_search_list_td2 member_search_list_td4">이름</td>
+                        <td class="member_search_list_td member_search_list_td2 member_search_list_td3">번호</td>
                         <td class="member_search_list_td member_search_list_td2 member_search_list_td4">아이디</td>
-                        <td class="member_search_list_td member_search_list_td2 member_search_list_td4">회원 등급</td>
-                        <td class="member_search_list_td member_search_list_td2 member_search_list_td4">생일</td>
-                        <td class="member_search_list_td member_search_list_td2 member_search_list_td4">구매금액</td>
-                        <td class="member_search_list_td member_search_list_td2 member_search_list_td4">적립금</td>
-                        <td class="member_search_list_td member_search_list_td2 member_search_list_td4">메일</td>
-                        <td class="member_search_list_td member_search_list_td2 member_search_list_td4">핸드폰번호</td>
+                        <td class="member_search_list_td member_search_list_td2 member_search_list_td4">탈퇴사유</td>
+                        <td class="member_search_list_td member_search_list_td2 member_search_list_td4">탈퇴메세지</td>
+                        <td class="member_search_list_td member_search_list_td2 member_search_list_td4">탈퇴일자</td>
                     </tr>
                     <c:forEach items="${ member_list }" var="dto">
                     <c:set var = "string1" value = "${ dto.join_date }"/>
                     <c:set var = "string2" value = "${fn:substring(string1, 0, 10)}" />
                     <tr class="member_search_list_tr">
-                        <td class="member_search_list_td member_search_list_td3"><input type="checkbox" value="${dto.user_index}"></td>
-                        <td class="member_search_list_td member_search_list_td4">${dto.user_index}</td>
                         <td class="member_search_list_td member_search_list_td4">${string2}</td>
                         <td class="member_search_list_td member_search_list_td4">${dto.user_name}</td>
                         <td class="member_search_list_td member_search_list_td4">${dto.user_id}</td>
                         <td class="member_search_list_td member_search_list_td4">${dto.user_grade}</td>
                         <td class="member_search_list_td member_search_list_td4">${dto.user_birth}</td>
-                        <td class="member_search_list_td member_search_list_td4"><fmt:formatNumber value="${dto.buying_price}" pattern="###,###,###" /></td>
-                        <td class="member_search_list_td member_search_list_td4"><fmt:formatNumber value="${dto.user_point}" pattern="###,###,###" /></td>
-                        <td class="member_search_list_td member_search_list_td4">${dto.user_email}</td>
-                        <td class="member_search_list_td member_search_list_td4">${dto.user_phone}</td>
                     </tr>
                     </c:forEach>
                 </table>
-                <div class="member_search_list_td5">
-                    <button type="button" onclick="">선택한 회원 탈퇴</button>
-                    <button type="button" onclick="">선택한 회원 적립금 지급</button>
-                    <button type="button" onclick="">선택한 회원 등급 변경</button>
-                </div>
             </form>
         </div>
         <div class="member_manager_select_page">

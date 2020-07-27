@@ -726,7 +726,8 @@ public class MyContoller {
 	
 	// 탈퇴회원
 	@RequestMapping("/leave_member")
-	public String leave_member() {
+	public String leave_member(Model model) {
+		model.addAttribute("leave_member", service_seced_member.list());
 		return "manager/leave_member";
 	}
 	
