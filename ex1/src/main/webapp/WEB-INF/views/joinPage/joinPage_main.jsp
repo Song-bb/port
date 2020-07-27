@@ -21,7 +21,7 @@
                             </tr>
                             <tr>
                                <th>*아이디 </th>
-                               <td><input type="text" name="user_id" placeholder="아이디" required class="input_text"><button type="submit" id="id_button">중복 확인</button></td>
+                               <td><input type="text" name="user_id" placeholder="아이디" required class="input_text"><a href="/duplication_check_id"><button type="button" id="id_button">중복 확인</button></a></td>
                             </tr>
                             <tr>
                                 <th>*비밀번호 </th>
@@ -87,10 +87,15 @@
     
     <c:import url="../footer.jsp"></c:import>
     
-</body>
-</html>
-	
-	
+<script>
+	function duplication_check_Pop() {
+		window.open(
+				"duplication_check_id", "a", 
+				"width=600, height=800, left=200, top=0"
+			); 
+	}
+
+</script>
 	
 	
 	

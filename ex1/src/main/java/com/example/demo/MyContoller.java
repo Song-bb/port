@@ -86,6 +86,21 @@ public class MyContoller {
 		return "joinPage/joinPage_main";
 	}
 	
+	// 회원가입-아이디 중복확인
+	@RequestMapping("/duplication_check_id")
+	public void duplication_check_id(@RequestParam("user_id") String user_id, HttpServletResponse response, Model model) throws Exception {
+		List<dto_members> list = service_members.login( user_id );
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		if( list.isEmpty() ) { // 아이디 없음
+			out.println("<script>alert('사용 가능한 아이디 입니다.'); history.go(-1);</script>");
+			out.flush();
+		} else { // 아이디 있음
+			out.println("<script>alert('이미 사용중인 아이디 입니다.'); history.go(-1);</script>");
+			out.flush();		
+		}
+	}
+	
 	// 회원가입 확인 페이지
 	@RequestMapping("/join_ok")
 	public String join_ok(@RequestParam("user_id") String user_id, 
