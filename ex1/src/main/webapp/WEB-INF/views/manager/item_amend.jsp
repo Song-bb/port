@@ -12,7 +12,7 @@
             <h2>상품 수정하기</h2>
         </div>
         <div id="item_update_body">
-            <form action="/item_amend_ok" method="POST">
+            <form action="/item_amend_ok" method="POST"  enctype="multipart/form-data">
                 <input type="hidden" name="idx" value="${ dto.idx }" >
                 <table>
                     <tr class="item_update_tr">

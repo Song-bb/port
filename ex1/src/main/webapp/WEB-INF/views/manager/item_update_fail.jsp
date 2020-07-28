@@ -12,7 +12,7 @@
             <h2>상품 등록하기</h2>
         </div>
         <div id="item_update_body">
-            <form action="/item_update_ok" method="POST">
+            <form action="/item_update_ok" method="POST" enctype="multipart/form-data">
                 <table>
                     <tr class="item_update_tr">
                         <td class="item_update_td">카테고리</td>
@@ -69,5 +69,10 @@
             </form>
         </div>
     </div>
-	
 	<c:import url="../footer.jsp"></c:import>
+	
+<script>
+$(document).ready(function(){
+     alert("상품등록을 실패하였습니다.");
+});
+</script>	
