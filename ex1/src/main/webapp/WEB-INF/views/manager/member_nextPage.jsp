@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<!-- 관리자페이지 > 회원관리 -->
+<!-- 관리자페이지 > 회원관리 > 다음페이지 -->
 
 
 	<c:import url="header_management.jsp"></c:import>
@@ -111,15 +111,12 @@
         <div class="member_manager_select_page">
             <table class="member_manager_select_page_table">
                 <tr>
-                    <td class="member_manager_select_page_td"><a href=""><<</a></td>
-                    <td class="member_manager_select_page_td"><a href=""><</a></td>
-                    <td class="member_manager_select_page_td"><a href="">1</a></td>
-                    <td class="member_manager_select_page_td"><a href="">2</a></td>
-                    <td class="member_manager_select_page_td"><a href="">3</a></td>
-                    <td class="member_manager_select_page_td"><a href="">4</a></td>
-                    <td class="member_manager_select_page_td"><a href="">5</a></td>
-                    <td class="member_manager_select_page_td"><a href="">></a></td>
-                    <td class="member_manager_select_page_td"><a href="">>></a></td>
+                	<td class="member_manager_select_page_td"><a href="/member"><<</a></td>
+                	<c:set var="nextPage" value="${nextPage}" />
+					<c:forEach var="index" begin="1" end="${ nextPage }">
+                		<td class="member_manager_select_page_td"><a href="/member_nextPage?page=${index}">${index}</a></td>
+					</c:forEach>
+                    <td class="member_manager_select_page_td"><a href="/member_nextPage?page=${nextPage}">>></a></td>
                 </tr>
             </table>
         </div>  
@@ -142,4 +139,5 @@
 			}
 		}
 	</script>
+	
 	

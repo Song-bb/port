@@ -54,8 +54,8 @@ public class Service_members {
 	}
 	
 	/* 멤버 리스트 - 페이지2 */
-	public List<dto_members> list_page_2( int nextPage ) {
-		int nextCount = nextPage * 10;
+	public List<dto_members> list_page_2( String nextPage ) {
+		int nextCount = (Integer.parseInt(nextPage) - 1) * 10;
 		return dao_member.list_page_2( nextCount );
 	}
 	

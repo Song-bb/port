@@ -112,16 +112,10 @@
             <table class="member_manager_select_page_table">
                 <tr>
                 	<td class="member_manager_select_page_td"><a href="/member"><<</a></td>
-                	<td class="member_manager_select_page_td"><a href="/member_nextPage?page=${index}"><</a></td>
-                	<c:set var="page" value="${Page}" />
                 	<c:set var="nextPage" value="${nextPage}" />
 					<c:forEach var="index" begin="1" end="${ nextPage }">
-						<c:set var="index_i" value="${index}"/>
-						<c:if test="${ nextPage <= 'index_i'}">
-                			<td class="member_manager_select_page_td"><a href="/member_nextPage?page=${index}">${index}</a></td>
-                		</c:if>
+                		<td class="member_manager_select_page_td"><a href="/member_nextPage?page=${index}">${index}</a></td>
 					</c:forEach>
-                    <td class="member_manager_select_page_td"><a href="/member_nextPage?page=${Page}+1">></a></td>
                     <td class="member_manager_select_page_td"><a href="/member_nextPage?page=${nextPage}">>></a></td>
                 </tr>
             </table>
