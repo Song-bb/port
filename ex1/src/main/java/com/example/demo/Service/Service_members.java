@@ -48,6 +48,17 @@ public class Service_members {
 		return dao_member.listDao();
 	}
 	
+	/* 멤버 리스트 - 페이지1 */
+	public List<dto_members> list_page_1() {
+		return dao_member.list_page_1();
+	}
+	
+	/* 멤버 리스트 - 페이지2 */
+	public List<dto_members> list_page_2( int nextPage ) {
+		int nextCount = nextPage * 10;
+		return dao_member.list_page_2( nextCount );
+	}
+	
 	/* 멤버 총인원 카운트 */
 	public int count_total() {
 		int nTotalCount = dao_member.count_total();

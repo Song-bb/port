@@ -21,7 +21,15 @@
 	<select id="listDao" resultType="com.example.demo.dto.dto_members"> 
 			SELECT * FROM members ORDER BY user_index desc
 	</select>
+
+	<select id="list_page_1" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members ORDER BY user_index desc LIMIT 0, 10
+	</select>
 	
+	<select id="list_page_2" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members ORDER BY user_index desc LIMIT #{param1}, 10
+	</select>
+		
 	<delete id="delete_member"> 
 			DELETE FROM members WHERE user_id = #{param1}
 	</delete>
@@ -53,8 +61,8 @@
 			AND user_point BETWEEN #{point_min} AND #{point_max}
 			AND user_grade = #{grade} 
 			ORDER BY user_index desc
-	</select>
-	
+	</select> 
+
 	<select id="detail_search2" resultType="com.example.demo.dto.dto_members"> 
 			SELECT * FROM members 
 			WHERE join_date BETWEEN #{date_min} AND #{date_max}
