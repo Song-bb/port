@@ -823,7 +823,7 @@ public class MyContoller {
 	
 	// 관리자 이벤트 작성확인
 	@RequestMapping("/event_writeOk")
-	public String manager_eventWriteOk(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
+	public String manager_eventWriteOk(HttpServletRequest request, Model model) {
 		String title = request.getParameter("event_title");
 		String content = request.getParameter("event_content");
 		String banner = request.getParameter("event_banner");
@@ -836,11 +836,8 @@ public class MyContoller {
 		map.put("event_date", date);
 		
 		int nResult = service_event.event_write(map);
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
 		if( nResult < 1) {
-			out.println("<script>alert('게시물 등록을 실패했습니다.'); history.go(-1);</script>");
-			out.flush();
+			System.out.println("게시물 등록을 실패했습니다.");
 			return "redirect:event_write";
 
 		}else {
