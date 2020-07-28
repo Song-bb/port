@@ -79,7 +79,7 @@
 	
 	
 	<insert id="item_insert">
-		INSERT INTO items (idx, item_name, item_category, item_img, item_discount_rate, item_real_price, item_sale_price, item_description) VALUES (0, #{ param1 }, #{ param2 }, #{ item_img }, #{ param5 }, #{ param3 }, #{ param4 }, #{ param6 } )
+		INSERT INTO items (idx, item_name, item_category, item_img, item_discount_rate, item_real_price, item_sale_price, item_description) VALUES (0, #{ item_name }, #{ item_category }, #{ item_img }, #{ item_sale_discount }, #{ item_real_price }, #{ item_sale_price }, #{ item_description } )
 	</insert>
 	
 	<insert id="category_index_insert">
@@ -87,7 +87,7 @@
 	</insert>
 	
 	<update id="item_update">
-		UPDATE items SET item_name = #{ param1 }, item_category= #{ param2 }, item_img= #{ item_img }, item_discount_rate = #{ param5 }, item_real_price = #{ param3 }, item_sale_price = #{ param4 }, item_description = #{ param6 } WHERE idx = #{ param7 }
+		UPDATE items SET item_name = #{ item_name }, item_category= #{ item_category }, item_img= #{ item_img }, item_discount_rate = #{ item_sale_discount }, item_real_price = #{ item_real_price }, item_sale_price = #{ item_sale_price }, item_description = #{ item_description } WHERE idx = #{ param7 }
 	</update>
 	
 	<delete id="item_delete">

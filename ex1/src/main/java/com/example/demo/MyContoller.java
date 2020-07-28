@@ -779,15 +779,15 @@ public class MyContoller {
 	}
 	
 	// 상품 등록 저장
-	@RequestMapping("/item_update_ok")
-	public String item_update_ok(@RequestParam("item_img") MultipartFile item_img,
+	@RequestMapping(value="/item_update_ok", method = RequestMethod.POST)
+	public String item_update_ok(@RequestParam("item_name") String item_name,
+								@RequestParam("item_category") String item_category,
+								@RequestParam("item_real_price") String item_real_price,
+								@RequestParam("item_sale_price") String item_sale_price,
+								@RequestParam("item_sale_discount") String item_sale_discount,
+								@RequestParam("item_description") String item_description,
+								@RequestParam("item_img") MultipartFile item_img,
 								HttpServletRequest request, HttpServletResponse response, Model model) {
-		String item_name = request.getParameter("item_name");
-		String item_category = request.getParameter("item_category");
-		String item_real_price = request.getParameter("item_real_price");
-		String item_sale_price = request.getParameter("item_sale_price");
-		String item_sale_discount = request.getParameter("item_sale_discount");
-		String item_description = request.getParameter("item_description");
 		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("item_name", item_name);
@@ -829,16 +829,15 @@ public class MyContoller {
 	
 	// 상품 수정 저장
 	@RequestMapping(value="/item_amend_ok")
-	public String item_amend_ok(@RequestParam("item_img") MultipartFile item_img,
+	public String item_amend_ok(@RequestParam("item_name") String item_name,
+								@RequestParam("item_category") String item_category,
+								@RequestParam("item_real_price") String item_real_price,
+								@RequestParam("item_sale_price") String item_sale_price,
+								@RequestParam("item_sale_discount") String item_sale_discount,
+								@RequestParam("item_description") String item_description,
+								@RequestParam("idx") String idx,
+								@RequestParam("item_img") MultipartFile item_img,
 								HttpServletRequest request, HttpServletResponse response, Model model) {
-		
-		String item_name = request.getParameter("item_name");
-		String item_category = request.getParameter("item_category");
-		String item_real_price = request.getParameter("item_real_price");
-		String item_sale_price = request.getParameter("item_sale_price");
-		String item_sale_discount = request.getParameter("item_sale_discount");
-		String item_description = request.getParameter("item_description");
-		String idx = request.getParameter("idx");
 		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("item_name", item_name);
