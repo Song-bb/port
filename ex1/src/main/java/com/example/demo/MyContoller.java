@@ -606,9 +606,17 @@ public class MyContoller {
 	// 회원관리
 	@RequestMapping("/member")
 	public String member(Model model) {
+		List<dto_members> list_page_1 = service_members.list_page_1();
 		List<dto_members> list = service_members.member_list();
 		int list_count = list.size();
-		model.addAttribute("member_list", list );
+		int page = list_count / 10;
+		int page_1 = 0;
+		if( list_count % 10 != 0 ) {
+			page_1 = 1;
+		}
+		int nextPage = page + page_1;
+		model.addAttribute("nextPage", nextPage); 
+		model.addAttribute("member_list", list_page_1 );
 		model.addAttribute("list_count", list_count );
 		model.addAttribute("member_total_count", service_members.count_total());
 		model.addAttribute("member_count_1", service_members.count_1());
@@ -616,6 +624,29 @@ public class MyContoller {
 		model.addAttribute("member_count_3", service_members.count_3());
 		model.addAttribute("member_count_4", service_members.count_4());
 		return "manager/member";
+	}
+	
+	// 회원관리 - 다음페이지
+	@RequestMapping("/member_nextPage")
+	public String member_nextPage(@RequestParam("page") String page, Model model) {
+		List<dto_members> list_page_2 = service_members.list_page_2( page );
+		List<dto_members> list = service_members.member_list();
+		int list_count = list.size();
+		int page1 = list_count / 10;
+		int page_1 = 0;
+		if( list_count % 10 != 0 ) {
+			page_1 = 1;
+		}
+		int nextPage = page1 + page_1;
+		model.addAttribute("nextPage", nextPage); 
+		model.addAttribute("member_list", list_page_2 );
+		model.addAttribute("list_count", list_count );
+		model.addAttribute("member_total_count", service_members.count_total());
+		model.addAttribute("member_count_1", service_members.count_1());
+		model.addAttribute("member_count_2", service_members.count_2());
+		model.addAttribute("member_count_3", service_members.count_3());
+		model.addAttribute("member_count_4", service_members.count_4());
+		return "manager/member_nextPage";
 	}
 	
 	// 회원 상세보기

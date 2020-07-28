@@ -12,9 +12,6 @@
 	    <div id="member_manager_main_wrap">
         <div id="member_manager_main_title"><h3>회원 상세보기</h3></div>
 
-        <div class="member_grade_text_bottom">
-            <label class="member_grade_text_label">${ list_count } 건의 검색 결과가 있습니다.</label>
-        </div>
         <div class="member_search_list">
             <form action="" method="post">
                 <table class="member_search_list_table">       

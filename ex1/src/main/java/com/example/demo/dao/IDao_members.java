@@ -14,6 +14,8 @@ public interface IDao_members {
 	public int join_ok( Map<String, String> map );
 	public List<dto_members> check_pw(String user_id, String user_pw);
 	public List<dto_members> listDao();
+	public List<dto_members> list_page_1();
+	public List<dto_members> list_page_2( int nextCount );
 	public int delete_member( String user_id );
 	public int count_total();
 	public int count_1();
