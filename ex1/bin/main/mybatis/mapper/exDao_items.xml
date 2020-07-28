@@ -79,11 +79,7 @@
 	
 	
 	<insert id="item_insert">
-		INSERT INTO items (idx, item_name, item_category, item_img, item_discount_rate, item_real_price, item_sale_price, item_description) VALUES (0, #{ item_name }, #{ item_category }, #{ item_img }, #{ item_sale_discount }, #{ item_real_price }, #{ item_sale_price }, #{ item_description } )
-	</insert>
-	
-	<insert id="category_index_insert">
-		INSERT INTO items (category_index) VALUES ( 0 ) WHERE item_category = #{ item_category }
+		INSERT INTO items (idx, category_idx, item_name, item_category, item_img, item_discount_rate, item_real_price, item_sale_price, item_description) VALUES (0, #{ category_index }, #{ item_name }, #{ item_category }, #{ file }, #{ item_sale_discount }, #{ item_real_price }, #{ item_sale_price }, #{ item_description } )
 	</insert>
 	
 	<update id="item_update">

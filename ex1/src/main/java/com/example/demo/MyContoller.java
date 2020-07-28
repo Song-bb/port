@@ -789,6 +789,7 @@ public class MyContoller {
 								@RequestParam("item_img") MultipartFile item_img,
 								HttpServletRequest request, HttpServletResponse response, Model model) {
 		
+		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("item_name", item_name);
 		map.put("item_category", item_category);
@@ -801,6 +802,20 @@ public class MyContoller {
 			map.put( "file", file );
 		} else { map.put( "file", "null" ); }
 		
+		if(item_category.equals("수입과일")) {
+			int importedCount = service_items.nimportedCount() + 1 ;
+			String category_index = String.valueOf(importedCount);
+			map.put("category_index", category_index);
+		} else if (item_category.equals("제철과일")) {
+			int SeasonCount = service_items.nSeasonCount() + 1 ;
+			String category_index = String.valueOf(SeasonCount);
+			map.put("category_index", category_index);
+		} else if (item_category.equals("낙과채널")) {
+			int FallenCount = service_items.nFallenCount() + 1 ;
+			String category_index = String.valueOf(FallenCount);
+			map.put("category_index", category_index);
+		}
+			
 		System.out.println( map );
 		
 		int nResult = service_items.item_insert(map);
@@ -828,7 +843,7 @@ public class MyContoller {
 	}
 	
 	// 상품 수정 저장
-	@RequestMapping(value="/item_amend_ok")
+	@RequestMapping(value="/item_amend_ok", method = RequestMethod.POST)
 	public String item_amend_ok(@RequestParam("item_name") String item_name,
 								@RequestParam("item_category") String item_category,
 								@RequestParam("item_real_price") String item_real_price,
