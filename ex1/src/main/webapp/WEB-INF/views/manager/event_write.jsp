@@ -25,14 +25,14 @@
 	                    <tr>
 	                        <td>
 	                            <span>이미지 등록 </span>
-	                            <input type="file" >
+	                            <input type="file" name="banner1">
 	                            <span>*메인 이벤트 썸네일 최소 340px*340px 사이즈 권장</span>
 	                        </td>
 	                    </tr>
 	                    <tr>
 	                        <td>
 	                            <span>이미지 등록</span>
-	                            <input type="file" >
+	                            <input type="file" name="banner2" >
 	                            <span>*이벤트 리스트 썸네일 최소 1050px*200px 사이즈 권장</p>
 	                        </td>
 	                    </tr>

@@ -9,7 +9,8 @@ public class dto_event {
 	private String event_title;
 	private String event_hit;
 	private String event_date;
-	private String event_banner;
+	private String event_banner1;
+	private String event_banner2;
 	private String event_content;
 	
 	
