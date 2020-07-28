@@ -102,9 +102,9 @@
                     </c:forEach>
                 </table>
                 <div class="member_search_list_td5">
-                    <button type="button" onclick="">선택한 회원 탈퇴</button>
-                    <button type="button" onclick="">선택한 회원 적립금 지급</button>
-                    <button type="button" onclick="">선택한 회원 등급 변경</button>
+                    <button type="button" onclick="" class="member_search_list_td5_btn">선택한 회원 탈퇴</button>
+                    <button type="button" onclick="" class="member_search_list_td5_btn">선택한 회원 적립금 지급</button>
+                    <button type="button" onclick="" class="member_search_list_td5_btn">선택한 회원 등급 변경</button>
                 </div>
             </form>
         </div>

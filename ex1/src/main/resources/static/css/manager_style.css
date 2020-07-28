@@ -255,12 +255,14 @@
     width: 70px;
     background-color: #459356;
     color: #fff;
+    border: none;
 }
 .member_manager_selectBox_serch_btn:hover {
     height: 30px;
     width: 70px;
     background-color: #fff;
     color: #459356;
+    border: 1px solid #459356;
 }
 .member_manager_selectBox_serch_select_div_bottom {
     float: right;
@@ -384,12 +386,19 @@
     background-color: #459356;
     color: #fff;
     height: 30px;
+    border: 1px solid #459356;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .member_search_list_td5 button:hover {
     margin-right: 10px;
     background-color: #fff;
     color: #459356;
     height: 30px;
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid #459356;
 }
 .member_manager_select_page {
     width: 1050px;
