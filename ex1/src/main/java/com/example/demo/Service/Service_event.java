@@ -35,6 +35,12 @@ public class Service_event {
 		return dao_event.event_updateDao(event_index);
 	}
 	
+	//이벤트 글 수정확인
+		public int event_updateok(Map<String, String> map){
+			int nResult = dao_event.event_updateokDao(map);
+			return nResult;
+		}
+	
 	//이벤트 글 삭제
 	public int event_delete (String event_index) {
 		int nResult = dao_event.event_deleteDao(event_index);

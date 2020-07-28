@@ -147,6 +147,13 @@
     		SELECT COUNT(*) FROM members WHERE user_email=#{param1}
 	</select>	
 		
+	<select id="member_detail" resultType="com.example.demo.dto.dto_members">
+			SELECT * FROM members WHERE user_index = #{param1}
+	</select>
+	
+	
+	
+	
 	
 	
 	

@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
@@ -760,6 +761,9 @@ public class MyContoller {
 		return "manager/item_amend";
 	}
 	
+	
+	/*==========이벤트관리자=========*/
+	
 	// 이벤트리스트_메인 관리
 	@RequestMapping("/event_list")
 	public String event_list(Model model) {
@@ -775,7 +779,27 @@ public class MyContoller {
 		return "manager/event_update" ;
 	}
 	
-	
+	// 이벤트 수정확인
+	@RequestMapping("/event_updateOk")
+	public String event_updateOk(HttpServletRequest request, Model model) {
+		String index = request.getParameter("event_index");
+		String title = request.getParameter("event_title");
+		String content = request.getParameter("event_content");
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("event_index", index);
+		map.put("event_title", title);
+		map.put("event_content",content);
+		
+		int nResult = service_event.event_updateok(map);
+		if( nResult < 1) {
+			System.out.println("수정을 실패했습니다.");
+			return "redirect:event_list";
+		}else {
+			System.out.println("수정을 성공했습니다.");
+			return "redirect:event_list";	
+		}
+	}
 	
 	// 이벤트 삭제
 	@RequestMapping("/event_delete")
@@ -799,7 +823,7 @@ public class MyContoller {
 	
 	// 관리자 이벤트 작성확인
 	@RequestMapping("/event_writeOk")
-	public String manager_eventWriteOk(HttpServletRequest request, Model model) {
+	public String manager_eventWriteOk(HttpServletRequest request, HttpServletResponse response, Model model) throws IOException {
 		String title = request.getParameter("event_title");
 		String content = request.getParameter("event_content");
 		String banner = request.getParameter("event_banner");
@@ -812,11 +836,16 @@ public class MyContoller {
 		map.put("event_date", date);
 		
 		int nResult = service_event.event_write(map);
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		if( nResult < 1) {
-			System.out.println("쓰기를 실패했습니다.");
+			out.println("<script>alert('게시물 등록을 실패했습니다.'); history.go(-1);</script>");
+			out.flush();
 			return "redirect:event_write";
+
 		}else {
-			System.out.println("쓰기를 성공했습니다.");
+			
+			System.out.println("게시물 등록을 성공했습니다.");
 			return "redirect:event_list";	
 		}
 	}

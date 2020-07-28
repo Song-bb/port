@@ -19,8 +19,12 @@ public interface IDao_event {
 	public int event_writeDao(Map<String, String> map);
 	// 게시물 삭제
 	public int event_deleteDao(String event_index);
+	
 	// 게시물 수정
 	public List<dto_event> event_updateDao(String event_index);
+	
+	// 게시물 수정확인
+	public int event_updateokDao(Map<String, String> map);
 
 	//글 조회수
 	public void event_viewCount(String event_index);

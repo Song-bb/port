@@ -18,7 +18,8 @@
 	                    </tr>
 	                    <tr>
 	                        <td>
-	                           <input type="text" name="event_content" size="100">
+	                        	<textarea type="text" class="event_content" name="event_content"></textarea>
+	                           <!-- <input type="text" name="event_content" size="100"> -->
 	                        </td>
 	                    </tr>
 	                    <tr>

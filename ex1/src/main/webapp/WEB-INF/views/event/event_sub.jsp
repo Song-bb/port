@@ -14,7 +14,7 @@
 	                <span>기간 ${ dtoE_sub.event_date }</span>
 	                <span>조회수 : ${dtoE_sub.event_hit }</span>
 	            </div>
-	            <div>
+	            <div class="event_ViewContent">
 	             ${ dtoE_sub.event_content }
 	            </div>
 	            <button class="button" type="submit" formaction="/event_main">목록</button>
