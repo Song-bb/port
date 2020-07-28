@@ -33,7 +33,7 @@ import com.example.demo.Service.Service_personal_que;
 import com.example.demo.Service.Service_seceded_member;
 import com.example.demo.dto.dto_members;
 import com.example.demo.dto.dto_seceded_member;
-
+import com.example.demo.Service.FileuploadService_manager_item_update;
 
 
 
@@ -60,6 +60,8 @@ public class MyContoller {
 	Service_seceded_member service_seced_member;
 	@Autowired
 	Service_items service_items;
+	@Autowired
+	FileuploadService_manager_item_update itemuploadService;
 	
 	
 	
@@ -776,6 +778,39 @@ public class MyContoller {
 		return "manager/item_update";
 	}
 	
+	// 상품 등록 저장
+	@RequestMapping("/item_update_ok")
+	public String item_update_ok(@RequestParam("item_img") MultipartFile item_img,
+								HttpServletRequest request, HttpServletResponse response, Model model) {
+		String item_name = request.getParameter("item_name");
+		String item_category = request.getParameter("item_category");
+		String item_real_price = request.getParameter("item_real_price");
+		String item_sale_price = request.getParameter("item_sale_price");
+		String item_sale_discount = request.getParameter("item_sale_discount");
+		String item_description = request.getParameter("item_description");
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("item_name", item_name);
+		map.put("item_category", item_category);
+		map.put("item_real_price", item_real_price );
+		map.put("item_sale_price", item_sale_price );
+		map.put("item_sale_discount", item_sale_discount );
+		map.put("item_description", item_description );
+		if( !(item_img.isEmpty())  ) {
+			String file = itemuploadService.restore(item_img);
+			map.put( "file", file );
+		} else { map.put( "file", "null" ); }
+		
+		System.out.println( map );
+		
+		int nResult = service_items.item_insert(map);
+		if( nResult < 1 ) {
+			return "manager/item_update_fail";
+		} else {
+			return "manager/item_update_ok";
+		}
+	}
+	
 	// 탈퇴회원 리스트
 	@RequestMapping("/leave_member")
 	public String leave_member(Model model) {
@@ -790,6 +825,43 @@ public class MyContoller {
 	@RequestMapping("/item_amend")
 	public String item_amend() {
 		return "manager/item_amend";
+	}
+	
+	// 상품 수정 저장
+	@RequestMapping(value="/item_amend_ok")
+	public String item_amend_ok(@RequestParam("item_img") MultipartFile item_img,
+								HttpServletRequest request, HttpServletResponse response, Model model) {
+		
+		String item_name = request.getParameter("item_name");
+		String item_category = request.getParameter("item_category");
+		String item_real_price = request.getParameter("item_real_price");
+		String item_sale_price = request.getParameter("item_sale_price");
+		String item_sale_discount = request.getParameter("item_sale_discount");
+		String item_description = request.getParameter("item_description");
+		String idx = request.getParameter("idx");
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("item_name", item_name);
+		map.put("item_category", item_category);
+		map.put("item_real_price", item_real_price );
+		map.put("item_sale_price", item_sale_price );
+		map.put("item_sale_discount", item_sale_discount );
+		map.put("item_description", item_description );
+		map.put("idx", idx );
+		if( !(item_img.isEmpty())  ) {
+			String file = itemuploadService.restore(item_img);
+			map.put( "file", file );
+		} else { map.put( "file", "null" ); }
+		
+		System.out.println( map );
+		
+		int nResult = service_items.item_update(map);
+		if( nResult < 1 ) {
+			return "manager/item_amend_fail";
+		} else {
+			return "manager/item_amend_ok";
+		}
+		
 	}
 	
 	
