@@ -32,14 +32,16 @@
                     <td class="managerlist_td_name">상품이름</td>
                     <td class="managerlist_td_price">상품가격</td>
                 </tr>
-                <tr class="managerlist_tr">
-                    <td class="managerlist_td_check"><input type="checkbox"></td>
-                    <td class="managerlist_td_index">${ dto.idx }</td>
-                    <td class="managerlist_td_category">${ dto.item_category }</td>
-                    <td class="managerlist_td_img"><img src="${ dto.item_img }" height="160px" width="125px"></td>
-                    <td class="managerlist_td_name"><a href="item_amend?idx=${ dto.idx }">${ dto.item_name }</a></td>
-                    <td class="managerlist_td_price">${ dto.item_real_price }</td>
-                </tr>
+                <c:forEach items="${ all_listview }" var="dto">
+	                <tr class="managerlist_tr">
+	                    <td class="managerlist_td_check"><input type="checkbox"></td>
+	                    <td class="managerlist_td_index">${ dto.idx }</td>
+	                    <td class="managerlist_td_category">${ dto.item_category }</td>
+	                    <td class="managerlist_td_img"><img src="${ dto.item_img }" height="160px" width="125px"></td>
+	                    <td class="managerlist_td_name"><a href="item_amend?idx=${ dto.idx }">${ dto.item_name }</a></td>
+	                    <td class="managerlist_td_price">${ dto.item_real_price }</td>
+	                </tr>
+                </c:forEach>
             </table>
             <div class="managerlist_table_div">
                 <button>선택한 상품 삭제</button>
