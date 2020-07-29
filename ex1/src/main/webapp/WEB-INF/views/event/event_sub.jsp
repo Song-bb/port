@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 
 	<c:import url="../header.jsp"></c:import>
@@ -11,7 +12,9 @@
 	        <div id="event_board">
 	            <div>${ dtoE_sub.event_title }</div>
 	            <div>
-	                <span>기간 ${ dtoE_sub.event_date }</span>
+	            	<c:set var = "string1" value = "${ dtoE_sub.event_date }"/>
+                    <c:set var = "string2" value = "${fn:substring(string1, 0, 10)}" />
+	                <span>기간 ${ string2 }</span>
 	                <span>조회수 : ${dtoE_sub.event_hit }</span>
 	            </div>
 	            <div class="event_ViewContent">

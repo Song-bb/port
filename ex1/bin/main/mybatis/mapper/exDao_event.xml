@@ -13,7 +13,7 @@
 	
 	<!-- event_view -->
 	<select id="event_viewDao" resultType="com.example.demo.dto.dto_event"> 
-			SELECT * FROM event WHERE event_index = #{param1} AND date(event_date)
+			SELECT * FROM event WHERE event_index = #{param1}
 	</select>
 	
 	<!-- event_viewCount -->
@@ -24,7 +24,7 @@
 	<!-- event_write -->
 	<insert id="event_writeDao"> 
 			INSERT INTO event (event_index, event_title, event_content, event_banner1, event_banner2, event_date) 
-			VALUES ( 0, #{event_title}, #{event_content}, #{event_banner1}, #{event_banner2}, now())
+			VALUES ( 0, #{event_title}, #{event_content}, #{event_banner1}, #{event_banner2}, default)
 	</insert>
 	
 	<!-- event_delete -->	
