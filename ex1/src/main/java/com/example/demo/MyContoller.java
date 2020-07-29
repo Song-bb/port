@@ -806,7 +806,7 @@ public class MyContoller {
 				model.addAttribute("point_max", point_max);
 				model.addAttribute("page", page);
 				
-				List<dto_members> list = service_members.detail_search( map, page );
+				List<dto_members> list = service_members.detail_search2( map, page );
 				int count = service_members.detail_search_count1( map );
 
 				int page_count = count / 10; // 페이지 꽉채운 게시물
