@@ -24,6 +24,7 @@
 	width: 30%;
 	height: 500px;
 	padding: 50px;
+	display:inline-block;
 }
 .season_item {
 	width: 250px;
