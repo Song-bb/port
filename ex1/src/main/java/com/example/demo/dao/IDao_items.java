@@ -33,6 +33,9 @@ public interface IDao_items {
 	public int importedFruit_countDao();
 	public int fallenFruit_countDao();
 	
+	// 상품보기
+	public List<dto_items> item_detail_read();
+	
 	// 상품등록하기
 	public int item_insert(Map<String, String> map);
 	

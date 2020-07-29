@@ -11,7 +11,7 @@
 	    <div id="seasonpage_wrap">
         <div id="seasonpage_top">
             <h2>제철 과일</h2>
-            <p>등록된 제품 : 20개</p>
+            <p>등록된 제품 : ${ season_count }개</p>
         </div>
         <div id="seasonpage_top_nav"><a href="">최신순 </a> | <a href="">낮은 가격 순 </a> | <a href="">높은 가격 순 </a></div>
         <div id="seasonpage_mid">
@@ -27,7 +27,7 @@
 							</div>
                           		<div class="item_desc">
                                	<p><a href="/item_detail">${ dto.item_name }</a></p>
-                               	<p>${ dto.item_real_price }</p>
+                               	<p>${ dto.item_sale_price }</p>
                           		</div>
                       		</div>
                       	</c:forEach>

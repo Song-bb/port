@@ -12,6 +12,7 @@
             <h2>상품 수정하기</h2>
         </div>
         <div id="item_update_body">
+        <c:forEach items="" var="">
             <form action="/item_amend_ok" method="POST"  enctype="multipart/form-data">
                 <input type="hidden" name="idx" value="${ dto.idx }" >
                 <table>
@@ -68,6 +69,7 @@
                        <input type="reset" value="취소하기">
                 </div>
             </form>
+            </c:forEach>
         </div>
     </div>
 	
