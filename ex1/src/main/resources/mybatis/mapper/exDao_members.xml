@@ -61,6 +61,7 @@
 			AND user_point BETWEEN #{point_min} AND #{point_max}
 			AND user_grade = #{grade} 
 			ORDER BY user_index desc
+			LIMIT 0, 10
 	</select> 
 
 	<select id="detail_search2" resultType="com.example.demo.dto.dto_members"> 
@@ -69,7 +70,35 @@
 			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
 			AND user_point BETWEEN #{point_min} AND #{point_max}
 			ORDER BY user_index desc
+			LIMIT 0, 10
 	</select>
+	
+	
+	
+	
+	<select id="detail_search1_count" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{date_min} AND #{date_max}
+			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
+			AND user_point BETWEEN #{point_min} AND #{point_max}
+			AND user_grade = #{grade} 
+			ORDER BY user_index desc 
+			LIMIT #{param1}, 10
+	</select> 
+
+	<select id="detail_search2_count" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{date_min} AND #{date_max}
+			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
+			AND user_point BETWEEN #{point_min} AND #{point_max}
+			ORDER BY user_index desc
+			LIMIT #{param1}, 10
+	</select>
+	
+	
+	
+	
+	
 	
 	<select id="detail_search3" resultType="com.example.demo.dto.dto_members"> 
 			SELECT * FROM members 

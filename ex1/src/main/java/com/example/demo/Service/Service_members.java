@@ -86,11 +86,20 @@ public class Service_members {
 	}
 	
 	/* 회원 조건검색 */
-	public List<dto_members> detail_search( Map<String, String> map ){
-		if( map.get("grade").toString().equals("null")) {
-			return dao_member.detail_search2( map ); // 등급 null 일때
+	public List<dto_members> detail_search( Map<String, String> map, int page ){
+		if( page == 1) {
+			if( map.get("grade").toString().equals("null")) {
+				return dao_member.detail_search2(map); // 등급 null 일때
+			} else {
+				return dao_member.detail_search1(map); // 등급 지정시
+			}
 		} else {
-			return dao_member.detail_search1( map ); // 등급 지정시
+			int nextCount = (page - 1) * 10;
+			if( map.get("grade").toString().equals("null")) {
+				return dao_member.detail_search2_count( nextCount, map ); // 등급 null 일때
+			} else {
+				return dao_member.detail_search1_count( nextCount, map ); // 등급 지정시
+			}
 		}
 	}
 	
