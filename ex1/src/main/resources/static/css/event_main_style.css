@@ -11,6 +11,7 @@
 
 .event_content{
     background-color: black;
+    background:
     width: 1050px;
     height: 200px;
     margin-bottom: 20px;
@@ -19,15 +20,24 @@
 .event_content > a{
     display: inline-block;
     height: 100%;
+    width: 100%;
 }
 #event_sub{
     width: 1050px;
     margin:auto;
-    margin-bottom: 30px;
+    margin-bottom: 80px;
     position: relative;
 }
+
+#event_board {
+	position: relative;
+}
 #event_board > div{
-    border-bottom: 1px solid rgba(211, 211, 211, 0.472);
+    border-bottom: 1px solid #ededed;
+}
+#event_board div.event_ViewContent{
+    width: 100%;
+    padding: 100px 0;
 }
 #event_board > div:first-child{
     height: 100px;
@@ -41,10 +51,7 @@
 #event_board > div:nth-child(2) > span:last-child{
 	float:right;
 }
-#event_board > div:nth-child(3) {
-    
-}
-#event_board > .button{
+#event_board button.button{
     width: 100px;
     margin-top: 10px;
     padding: 10px 0;
