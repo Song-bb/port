@@ -9,7 +9,7 @@
 	
 		<div id="event_write_wrap">
 	        <h3>이벤트 등록</h3>
-	        <form action="/event_writeOk" method="post">
+	        <form action="/event_writeOk" method="post" enctype="multipart/form-data">
 	            <table>
 	                    <tr>
 	                        <td>
@@ -18,21 +18,21 @@
 	                    </tr>
 	                    <tr>
 	                        <td>
-	                        	<textarea type="text" class="event_content" name="event_content"></textarea>
+	                        	<textarea rows="8" cols="100" class="event_content" name="event_content"></textarea>
 	                           <!-- <input type="text" name="event_content" size="100"> -->
 	                        </td>
 	                    </tr>
 	                    <tr>
 	                        <td>
 	                            <span>이미지 등록 </span>
-	                            <input type="file" name="banner1">
+	                            <input type="file" name="upload_banner1">
 	                            <span>*메인 이벤트 썸네일 최소 340px*340px 사이즈 권장</span>
 	                        </td>
 	                    </tr>
 	                    <tr>
 	                        <td>
 	                            <span>이미지 등록</span>
-	                            <input type="file" name="banner2" >
+	                            <input type="file" name="upload_banner2">
 	                            <span>*이벤트 리스트 썸네일 최소 1050px*200px 사이즈 권장</p>
 	                        </td>
 	                    </tr>

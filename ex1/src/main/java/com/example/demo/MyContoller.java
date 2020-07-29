@@ -33,6 +33,7 @@ import com.example.demo.Service.Service_personal_que;
 import com.example.demo.Service.Service_seceded_member;
 import com.example.demo.dto.dto_members;
 import com.example.demo.dto.dto_seceded_member;
+import com.example.demo.Service.FileuploadService_event;
 import com.example.demo.Service.FileuploadService_manager_item_update;
 
 
@@ -60,6 +61,8 @@ public class MyContoller {
 	Service_seceded_member service_seced_member;
 	@Autowired
 	Service_items service_items;
+	@Autowired
+	FileuploadService_event fileUploadService_event;
 	@Autowired
 	FileuploadService_manager_item_update itemuploadService;
 	
@@ -270,7 +273,6 @@ public class MyContoller {
 		String index = request.getParameter("event_index");
 		model.addAttribute("dtoE_sub", service_event.event_view(index));
 		service_event.event_viewCount(index);
-		
 		return "event/event_sub";
 	}
 	
@@ -1045,16 +1047,42 @@ public class MyContoller {
 	}
 	
 	// 이벤트 수정확인
-	@RequestMapping("/event_updateOk")
-	public String event_updateOk(HttpServletRequest request, Model model) {
-		String index = request.getParameter("event_index");
-		String title = request.getParameter("event_title");
-		String content = request.getParameter("event_content");
+	@RequestMapping(value="/event_updateOk", method = RequestMethod.POST)
+	public String event_updateOk(	@RequestParam(value="upload_banner1", required=false) MultipartFile banner1,
+									@RequestParam(value="upload_banner2", required=false) MultipartFile banner2,
+									HttpServletRequest request, Model model) {
 		
 		Map<String, String> map = new HashMap<String, String>();
+		
+		String index = request.getParameter("event_index");
 		map.put("event_index", index);
+		
+		String title = request.getParameter("event_title");
 		map.put("event_title", title);
+		
+		String content = request.getParameter("event_content");
+		content = content.replace("\r\n","<br>");
 		map.put("event_content",content);
+		
+		if( !(banner1.isEmpty()) ) {
+			String Ebanner1 = fileUploadService_event.restore(banner1);
+			map.put( "event_banner1", Ebanner1 );
+		} else {
+			map.put( "event_banner1", "null" );
+		}
+		
+		if( !(banner2.isEmpty()) ) {
+			String Ebanner2 = fileUploadService_event.restore(banner2);
+			map.put( "event_banner2", Ebanner2 );
+		} else {
+			map.put( "event_banner2", "null" );
+		}
+		
+		
+		
+		
+	
+
 		
 		int nResult = service_event.event_updateok(map);
 		if( nResult < 1) {
@@ -1065,6 +1093,7 @@ public class MyContoller {
 			return "redirect:event_list";	
 		}
 	}
+	
 	
 	// 이벤트 삭제
 	@RequestMapping("/event_delete")
@@ -1086,28 +1115,46 @@ public class MyContoller {
 		return "manager/event_write";
 	}
 	
+	//파일업로드용 bean 생성(상단에생성되어있음 name = multipartResolver)
+	
+	
 	// 관리자 이벤트 작성확인
-	@RequestMapping("/event_writeOk")
-	public String manager_eventWriteOk(HttpServletRequest request, Model model) {
-		String title = request.getParameter("event_title");
-		String content = request.getParameter("event_content");
-		String banner = request.getParameter("event_banner");
-		String date = request.getParameter("event_date");
+	@RequestMapping(value="/event_writeOk", method = RequestMethod.POST)
+	public String manager_eventWriteOk( @RequestParam(value="upload_banner1", required=false) MultipartFile banner1,
+										@RequestParam(value="upload_banner2", required=false) MultipartFile banner2,
+										HttpServletRequest request, Model model) {
 		
 		Map<String, String> map = new HashMap<String, String>();
+		String title = request.getParameter("event_title");
 		map.put("event_title", title);
+		
+		String content = request.getParameter("event_content");
+		content = content.replace("\r\n","<br>");
 		map.put("event_content",content);
-		map.put("event_banner", banner);
+		
+		String date = request.getParameter("event_date");
 		map.put("event_date", date);
+		
+		if( !(banner1.isEmpty()) ) {
+			String Ebanner1 = fileUploadService_event.restore(banner1);
+			map.put( "event_banner1", Ebanner1 );
+		} else {
+			map.put( "event_banner1", "null" );
+		}
+		
+		if( !(banner2.isEmpty()) ) {
+			String Ebanner2 = fileUploadService_event.restore(banner2);
+			map.put( "event_banner2", Ebanner2 );
+		} else {
+			map.put( "event_banner2", "null" );
+		}
 		
 		int nResult = service_event.event_write(map);
 		if( nResult < 1) {
-			System.out.println("게시물 등록을 실패했습니다.");
+			System.out.println("쓰기를 실패했습니다.");
 			return "redirect:event_write";
-
 		}else {
-			
-			System.out.println("게시물 등록을 성공했습니다.");
+			System.out.println("쓰기를 성공했습니다.");
 			return "redirect:event_list";	
 		}
 	}

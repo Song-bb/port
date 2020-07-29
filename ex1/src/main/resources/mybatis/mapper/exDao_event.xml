@@ -15,6 +15,7 @@
 	<select id="event_viewDao" resultType="com.example.demo.dto.dto_event"> 
 			SELECT * FROM event WHERE event_index = #{param1}
 	</select>
+	
 	<!-- event_viewCount -->
 	<update id="event_viewCount"> 
 			UPDATE event SET event_hit = event_hit + 1 WHERE event_index = #{event_index}
@@ -22,7 +23,8 @@
 	
 	<!-- event_write -->
 	<insert id="event_writeDao"> 
-			INSERT INTO event (event_index, event_title, event_content, event_banner, event_date) VALUES ( 0, #{event_title}, #{event_content}, #{event_banner}, default)
+			INSERT INTO event (event_index, event_title, event_content, event_banner1, event_banner2, event_date) 
+			VALUES ( 0, #{event_title}, #{event_content}, #{event_banner1}, #{event_banner2}, now())
 	</insert>
 	
 	<!-- event_delete -->	
@@ -37,7 +39,8 @@
 	
 	<!-- event_update확인 -->	
 	<update id="event_updateokDao">
-			UPDATE event SET event_title = #{event_title}, event_content = #{event_content}, event_banner = #{event_banner} WHERE event_index = #{event_index}
+			UPDATE event SET event_title = #{event_title}, event_content = #{event_content}, event_banner1 = #{event_banner1}, event_banner2 = #{event_banner2} 
+			WHERE event_index = #{event_index}
 	</update>
 	
 	

@@ -10,7 +10,7 @@
 	
 		<div id="event_write_wrap">
 	        <h3>이벤트 수정</h3>
-	        <form action="/event_updateOk" method="post">
+	        <form action="/event_updateOk" method="post" enctype="multipart/form-data">
 				<c:forEach items="${ dtoE_update }" var="dtoE_update">
 			            <table>
 			           		<input type="hidden" name="event_index" value="${dtoE_update.event_index}" >
@@ -21,21 +21,20 @@
 			                    </tr>
 			                    <tr>
 			                        <td>
-			                        	<input  type="text" class="event_content" name="event_content" value="${dtoE_update.event_content}"></input>
-			                        	<textarea type="text" class="event_content" name="event_content" value="${dtoE_update.event_content}"></textarea>
+			                        	<textarea rows="8" cols="100" class="event_content" name="event_content">${dtoE_update.event_content}</textarea>
 			                        </td>
 			                    </tr>
 			                    <tr>
 			                        <td>
 			                            <span>이미지 등록 </span>
-			                            <input type="file" name="event_banner">
+			                            <input type="file"  name="upload_banner1">
 			                            <span>*메인 이벤트 썸네일 최소 340px*340px 사이즈 권장</span>
 			                        </td>
 			                    </tr>
 			                    <tr>
 			                        <td>
 			                            <span>이미지 등록</span>
-			                             <input type="file" >
+			                             <input type="file"  name="upload_banner2">
 			                            <span>*이벤트 리스트 썸네일 최소 1050px*200px 사이즈 권장</p>
 			                        </td>
 			                    </tr>

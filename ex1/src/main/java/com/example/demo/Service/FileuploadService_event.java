@@ -4,6 +4,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
@@ -21,14 +22,15 @@ public class FileuploadService_event {
 	public String restore(MultipartFile multipartFile) {
 		
 		String url = null;
+		String src = null;
 		
-		try {
-			//C:\Users\Gi7A-00\Documents\SprintBoot\Ex26_FileUploadParam\bin\main\static\ upload
-			//C:\Users\Gi7A-00\Documents\SprintBoot\Ex26_FileUploadParam\src\main\resources\static\ upload
+		try {	
 			
-			//C:\Users\ user\git\Gwail-jangsu\ex1\bin\main\static\ upload_event
 			String savepath = ResourceUtils.getFile("classpath:static/upload_event/").toPath().toString();
 			savepath = savepath.replace("\\", "/");
+			//파일경로변경(bin>src)
+			savepath = savepath.replace("/bin/main/static", "/src/main/resources/static");
+			
 			SAVE_PATH = savepath;
 			PREFIX_URL = savepath;
 			
@@ -39,17 +41,12 @@ public class FileuploadService_event {
 			Long size = multipartFile.getSize();
 			
 			// 서버에서 저장 할 파일 이름
-			String saveFileName = genSaveFileName(extName);
-			
-			/*
-			 System.out.println("originFilename : " + originFilename);
-			 System.out.println("extensionName : " + extName);
-			 System.out.println("size : " + size); 
-			 System.out.println("saveFileName : " + saveFileName);
-			 */
+			String saveFileName = genSaveFileName(extName);	
+			src = "upload_event/" + saveFileName;
 			
 			writeFile(multipartFile, saveFileName);
-			url = PREFIX_URL + "/" + saveFileName;
+			
+
 		}
 		catch (IOException e) {
 			// 원래라면 RuntimeException 을 상속받은 예외가 처리되어야 하지만
@@ -57,34 +54,17 @@ public class FileuploadService_event {
 			// throw new FileUploadException();	
 			throw new RuntimeException(e);
 		}
-		return url;
+		return src;
 	}
 	
 	
 	// 현재 시간을 기준으로 파일 이름 생성
 	private String genSaveFileName(String extName) {
-		String fileName = "";
 		
-		/*
-		  Calendar calendar = Calendar.getInstance(); 
-		  fileName += calendar.get(Calendar.YEAR); 
-		  fileName += calendar.get(Calendar.MONTH+1);
-		  fileName += calendar.get(Calendar.DATE); 
-		  fileName += calendar.get(Calendar.HOUR); 
-		  fileName += calendar.get(Calendar.MINUTE);
-		  fileName += calendar.get(Calendar.SECOND); 
-		  fileName += calendar.get(Calendar.MILLISECOND); 
-		  fileName += extName;
-		 */
-		LocalDate date = LocalDate.now();
-		LocalTime time = LocalTime.now();
-		fileName += date.getYear(); 
-		fileName += date.getMonth().getValue();
-		fileName += date.getDayOfMonth();
-		fileName += time.getHour();
-		fileName += time.getMinute();
-		fileName += time.getSecond();
-		fileName += time.getNano();
+		String fileName = "";
+		//랜덤파일명 uuid
+		String uuid = UUID.randomUUID().toString();
+		fileName += uuid;
 		fileName += extName;
 		
 		return fileName;
