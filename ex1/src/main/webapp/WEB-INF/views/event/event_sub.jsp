@@ -14,8 +14,8 @@
 	            <div>
 	            	<c:set var = "string1" value = "${ dtoE_sub.event_date }"/>
                     <c:set var = "string2" value = "${fn:substring(string1, 0, 10)}" />
-	                <span>기간 ${ string2 }</span>
-	                <span>조회수 : ${dtoE_sub.event_hit }</span>
+	                <span>&nbsp;등록일 : ${ string2 }</span>
+	                <span>조회수 : ${dtoE_sub.event_hit }&nbsp;&nbsp;</span>
 	            </div>
 	            <div class="event_ViewContent">
 	             ${ dtoE_sub.event_content }
