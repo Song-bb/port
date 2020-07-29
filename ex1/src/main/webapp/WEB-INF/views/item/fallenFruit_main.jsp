@@ -4,6 +4,7 @@
 
 <!-- 낙과채널 -->
 
+
 	<c:import url="../header.jsp"></c:import>
 		
 	    <div id="fallenpage_wrap">
@@ -13,26 +14,29 @@
         </div>
         <div id="fallenpage_top_nav"><a href="">최신순 </a> | <a href="">낮은 가격 순 </a> | <a href="">높은 가격 순 </a></div>
         <div id="fallenpage_mid">
-            <table class="item_table">
-              		<tr>
-                  		<td>
-                  		<c:forEach items="${ fallen_listview }" var="dto">
-                      		<div class="fallenpage_item">
-                      			<div class="item_img_250320">
-								<div class="item_img">
-									<a href="item_detail?item_detail=${ dto.idx }"><img src="${ dto.item_img }" width="250px" height="320px"></a>	
-								</div>
-							</div>
-                          		<div class="item_desc">
-                               	<p><a href="item_detail?item_detail=${ dto.idx }">${ dto.item_name }</a></p>
-                               	<p>${ dto.item_sale_price }</p>
-                          		</div>
-                      		</div>
-                      	</c:forEach>
-                 		</td>
-               		</tr>
-            </table>
+        
+		<c:forEach items="${ fallen_listview }" var="dto">
+		    <table class="item_table">
+		        <tr>
+		            <td>
+		                <div class="item_groupBox">
+		                    <div class="item_img_250320">
+		                        <div class="item_img" style="background-image: url('${ dto.item_img }')">
+		                            <a href="/item_detail"></a>
+		                        </div>
+		                    </div>
+		                    <div class="item_desc">
+		                        <p><a href="item_detail?item_detail=${ dto.idx }">${ dto.item_name }</a></p>
+		                        <p>${ dto.item_sale_price }</p>
+		                    </div>
+		                </div>
+		            </td>
+		        </tr>
+		    </table>
+		</c:forEach>
+        
         </div>
+        
         <div id="fallenpage_btm">
             <table class="fallenpage_table">
                 <tr class="fallenpage_table_tr">
