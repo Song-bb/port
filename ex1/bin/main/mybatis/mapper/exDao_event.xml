@@ -13,7 +13,7 @@
 	
 	<!-- event_view -->
 	<select id="event_viewDao" resultType="com.example.demo.dto.dto_event"> 
-			SELECT * FROM event WHERE event_index = #{param1}
+			SELECT * FROM event WHERE event_index = #{param1} AND date(event_date)
 	</select>
 	
 	<!-- event_viewCount -->

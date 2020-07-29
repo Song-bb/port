@@ -24,7 +24,7 @@
 	<!-- event_write -->
 	<insert id="event_writeDao"> 
 			INSERT INTO event (event_index, event_title, event_content, event_banner1, event_banner2, event_date) 
-			VALUES ( 0, #{event_title}, #{event_content}, #{event_banner1}, #{event_banner2}, now())
+			VALUES ( 0, #{event_title}, #{event_content}, #{event_banner1}, #{event_banner2}, default)
 	</insert>
 	
 	<!-- event_delete -->	
