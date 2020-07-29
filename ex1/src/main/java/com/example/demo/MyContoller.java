@@ -707,6 +707,15 @@ public class MyContoller {
 		List<dto_members> list = service_members.detail_search( map, page );
 		int count = service_members.detail_search_count1( map );
 		
+		model.addAttribute("date_min1", date_min);
+		model.addAttribute("date_max1", date_max);
+		model.addAttribute("buying_min1", buying_min);
+		model.addAttribute("buying_max1", buying_max);
+		model.addAttribute("grade1", grade);
+		model.addAttribute("point_min1", point_min);
+		model.addAttribute("point_max1", point_max);
+		model.addAttribute("page1", page);
+		
 		int page_count = count / 10; // 페이지 꽉채운 게시물
 		int page_count2 = 0; // 잔여게시물
 		if( page % 10 != 0 ) {
