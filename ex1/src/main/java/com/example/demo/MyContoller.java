@@ -617,8 +617,11 @@ public class MyContoller {
 		if( list_count % 10 != 0 ) {
 			page_1 = 1;
 		}
-		int nextPage = page + page_1;
-		model.addAttribute("nextPage", nextPage); 
+		int max_page = 5;
+		int lastPage = page + page_1;
+		model.addAttribute("max_page", max_page);
+		model.addAttribute("current_page", 1);
+		model.addAttribute("lastPage", lastPage); 
 		model.addAttribute("member_list", list_page_1 );
 		model.addAttribute("list_count", list_count );
 		model.addAttribute("member_total_count", service_members.count_total());
@@ -640,8 +643,23 @@ public class MyContoller {
 		if( list_count % 10 != 0 ) {
 			page_1 = 1;
 		}
-		int nextPage = page1 + page_1;
-		model.addAttribute("nextPage", nextPage); 
+		int lastPage = page1 + page_1;
+		int max_page = 5;
+		if( Integer.parseInt(page) / max_page >= 1 && Integer.parseInt(page) != 5 ) {
+			int index = (Integer.parseInt(page) / max_page);
+			int startPage = ( max_page * index ) + 1;
+			model.addAttribute("startPage", startPage);
+			if( lastPage > startPage + 4 ) {
+				model.addAttribute("max_page", startPage + 4); 
+			} else {
+				model.addAttribute("max_page", lastPage); 
+			}
+		} else {
+			model.addAttribute("startPage", 1); 
+			model.addAttribute("max_page", max_page); 
+		}
+		model.addAttribute("current_page", page); 
+		model.addAttribute("lastPage", lastPage); 
 		model.addAttribute("member_list", list_page_2 );
 		model.addAttribute("list_count", list_count );
 		model.addAttribute("member_total_count", service_members.count_total());
