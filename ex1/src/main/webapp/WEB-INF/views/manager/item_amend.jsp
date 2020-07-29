@@ -12,7 +12,7 @@
             <h2>상품 수정하기</h2>
         </div>
         <div id="item_update_body">
-        <c:forEach items="" var="">
+        <c:forEach items="${ idx_show_detail }" var="dto">
             <form action="/item_amend_ok" method="POST"  enctype="multipart/form-data">
                 <input type="hidden" name="idx" value="${ dto.idx }" >
                 <table>

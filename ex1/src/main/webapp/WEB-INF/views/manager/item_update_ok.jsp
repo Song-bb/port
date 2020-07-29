@@ -12,7 +12,7 @@
             <h2>상품 등록하기</h2>
         </div>
         <div id="item_update_body">
-        <c:forEach items="" var="">
+        <c:forEach items="${ name_show_detail }" var="dto">
             <table>
                 <tr class="item_update_tr">
                     <td class="item_update_td">카테고리</td>

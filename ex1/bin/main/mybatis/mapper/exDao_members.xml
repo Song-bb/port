@@ -73,9 +73,6 @@
 			LIMIT 0, 10
 	</select>
 	
-	
-	
-	
 	<select id="detail_search1_count" resultType="com.example.demo.dto.dto_members"> 
 			SELECT * FROM members 
 			WHERE join_date BETWEEN #{date_min} AND #{date_max}
