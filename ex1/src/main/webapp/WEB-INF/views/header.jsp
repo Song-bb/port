@@ -10,9 +10,7 @@
     <link rel="stylesheet" href="css/about_style.css">
     <link rel="stylesheet" href="css/agreement_style.css">
     <link rel="stylesheet" href="css/event_main_style.css">
-    <link rel="stylesheet" href="css/fallenFruit_main_style.css">
-    <link rel="stylesheet" href="css/fruitInSeason_main_style.css">
-    <link rel="stylesheet" href="css/importedFruit_main_style.css">
+   	<link rel="stylesheet" href="css/item_list_main_style.css">
     <link rel="stylesheet" href="css/joinPage_main_style.css">
     <link rel="stylesheet" href="css/loginPage_main_style.css">
     <link rel="stylesheet" href="css/myCart_style.css">
