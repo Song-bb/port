@@ -461,6 +461,7 @@ public class MyContoller {
 		if( nResult < 1 ) {
 			return "servicePage/personal_que_write_fail";
 		} else {
+			model.addAttribute("personal_question_list", service_personal_que.list(String.valueOf(session.getAttribute("user_id"))));
 			return "servicePage/personal_que_write_ok";
 		}
 	}
