@@ -21,6 +21,7 @@ public class FileuploadService_manager_item_update {
 	public String restore(MultipartFile multipartFile) {
 		
 		String url = null;
+		String src = null;
 		
 		try {
 			//C:\Users\Gi7A-00\Documents\SprintBoot\Ex26_FileUploadParam\bin\main\static\ upload
@@ -39,7 +40,8 @@ public class FileuploadService_manager_item_update {
 			Long size = multipartFile.getSize();
 			
 			// 서버에서 저장 할 파일 이름
-			String saveFileName = genSaveFileName(extName);
+			String saveFileName = genSaveFileName(extName);	
+			src = "upload_items/" + saveFileName;
 			
 			/*
 			 System.out.println("originFilename : " + originFilename);
@@ -57,7 +59,7 @@ public class FileuploadService_manager_item_update {
 			// throw new FileUploadException();	
 			throw new RuntimeException(e);
 		}
-		return url;
+		return src;
 	}
 	
 	
