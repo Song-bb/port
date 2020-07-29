@@ -21,6 +21,7 @@ public class FileuploadService_personal_que {
 	public String restore(MultipartFile multipartFile) {
 		
 		String url = null;
+		String src = null;
 		
 		try {
 			//C:\Users\Gi7A-00\Documents\SprintBoot\Ex26_FileUploadParam\bin\main\static\ upload
@@ -29,6 +30,9 @@ public class FileuploadService_personal_que {
 			//C:\Users\ user\git\Gwail-jangsu\ex1\bin\main\static\ upload_personal_que
 			String savepath = ResourceUtils.getFile("classpath:static/upload_personal_que/").toPath().toString();
 			savepath = savepath.replace("\\", "/");
+			
+			savepath = savepath.replace("/bin/main/static", "/src/main/resources/static");
+
 			SAVE_PATH = savepath;
 			PREFIX_URL = savepath;
 			
@@ -39,7 +43,9 @@ public class FileuploadService_personal_que {
 			Long size = multipartFile.getSize();
 			
 			// 서버에서 저장 할 파일 이름
-			String saveFileName = genSaveFileName(extName);
+			String saveFileName = genSaveFileName(extName);	
+			src = "upload_personal_que/" + saveFileName;
+
 			
 			/*
 			 System.out.println("originFilename : " + originFilename);
@@ -57,7 +63,7 @@ public class FileuploadService_personal_que {
 			// throw new FileUploadException();	
 			throw new RuntimeException(e);
 		}
-		return url;
+		return src;
 	}
 	
 	
