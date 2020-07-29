@@ -103,6 +103,24 @@ public class Service_members {
 		}
 	}
 	
+	/* 회원 조건검색 - 다음페이지 */
+	public List<dto_members> detail_search2( Map<String, String> map, int page ){
+		if( page == 1) {
+			if( map.get("grade").toString().equals("null")) {
+				return dao_member.detail_search2(map); // 등급 null 일때
+			} else {
+				return dao_member.detail_search1(map); // 등급 지정시
+			}
+		} else {
+			int nextCount = (page - 1) * 10;
+			if( map.get("grade").toString().equals("null")) {
+				return dao_member.detail_search2_count( nextCount, map ); // 등급 null 일때
+			} else {
+				return dao_member.detail_search1_count( nextCount, map ); // 등급 지정시
+			}
+		}
+	}
+	
 	/* 회원 조건검색 카운트 */
 	public int detail_search_count1( Map<String, String> map ) {
 		if( map.get("grade").toString().equals("null")) {
