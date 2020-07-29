@@ -103,6 +103,15 @@ public class Service_members {
 		}
 	}
 	
+	/* 회원 조건검색 카운트 */
+	public int detail_search_count1( Map<String, String> map ) {
+		if( map.get("grade").toString().equals("null")) {
+			return dao_member.detail_search_count2( map ); // 등급 null 일때
+		} else {
+			return dao_member.detail_search_count1( map ); // 등급 지정시
+		}
+	}
+	
 	/* 회원 조건검색 + 검색어 추가 */
 	public List<dto_members> member_search( Map<String, String> map ) {
 		if( map.get("search_text").toString().equals("null")) { // 검색어 없으면 검색X, 회원조건검색 그대로 출력

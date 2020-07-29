@@ -95,6 +95,23 @@
 			LIMIT #{param1}, 10
 	</select>
 	
+	<select id="detail_search_count1" resultType="_int">
+			SELECT COUNT(*) FROM members 
+			WHERE join_date BETWEEN #{date_min} AND #{date_max}
+			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
+			AND user_point BETWEEN #{point_min} AND #{point_max}
+			AND user_grade = #{grade} 
+			ORDER BY user_index desc 
+	</select>
+	
+	<select id="detail_search_count2" resultType="_int">
+			SELECT COUNT(*) FROM members 
+			WHERE join_date BETWEEN #{date_min} AND #{date_max}
+			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
+			AND user_point BETWEEN #{point_min} AND #{point_max}
+			ORDER BY user_index desc 
+	</select>	
+	
 	
 	
 	

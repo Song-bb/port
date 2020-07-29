@@ -705,7 +705,20 @@ public class MyContoller {
 		if( !(point_max.isEmpty()) ) { map.put("point_max", point_max); } else { map.put("point_max", "999999999"); }
 		
 		List<dto_members> list = service_members.detail_search( map, page );
-		int count = list.size();
+		int count = service_members.detail_search_count1( map );
+		
+		int page_count = count / 10; // 페이지 꽉채운 게시물
+		int page_count2 = 0; // 잔여게시물
+		if( page % 10 != 0 ) {
+			page_count = 1;
+		}
+		int max_page = 5; // 한번에 보여지는 최대 페이지
+		int lastPage = page_count + page_count2; // 총 나타낼 페이지
+		model.addAttribute("max_page", max_page);
+		model.addAttribute("startPage", 1); // 첫페이지
+		model.addAttribute("lastPage", lastPage);
+		model.addAttribute("current_page", page);  // 현재페이지
+		
 		model.addAttribute("member_result_count", count );
 		model.addAttribute("result_detail_search", list );
 		return "manager/search_detail_member";
