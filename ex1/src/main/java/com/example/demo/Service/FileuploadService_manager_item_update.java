@@ -30,6 +30,7 @@ public class FileuploadService_manager_item_update {
 			//C:\Users\ user\git\Gwail-jangsu\ex1\bin\main\static\ upload_items
 			String savepath = ResourceUtils.getFile("classpath:static/upload_items/").toPath().toString();
 			savepath = savepath.replace("\\", "/");
+			savepath = savepath.replace("/bin/main/static", "/src/main/resources/static");
 			SAVE_PATH = savepath;
 			PREFIX_URL = savepath;
 			

@@ -15,25 +15,28 @@
         </div>
         <div id="seasonpage_top_nav"><a href="">최신순 </a> | <a href="">낮은 가격 순 </a> | <a href="">높은 가격 순 </a></div>
         <div id="seasonpage_mid">
-            <table class="item_table">
-              		<tr>
-                  		<td>
-                  		<c:forEach items="${ season_listview }" var="dto">
-                      		<div class="fallenpage_item">
-                      			<div class="item_img_250320">
-								<div class="item_img">
-									<a href="/item_detail"><img src="${ dto.item_img }" width="250px" height="320px"></a>	
-								</div>
-							</div>
-                          		<div class="item_desc">
-                               	<p><a href="/item_detail">${ dto.item_name }</a></p>
-                               	<p>${ dto.item_sale_price }</p>
-                          		</div>
-                      		</div>
-                      	</c:forEach>
-                 		</td>
-               		</tr>
-            </table>
+        
+        <c:forEach items="${ season_listview }" var="dto">
+		    <table class="item_table">
+		        <tr>
+		            <td>
+		                <div class="fallenpage_item">
+		                    <div class="item_img_250320">
+		                        <div class="item_img">
+		                            <a href="/item_detail"><img src="${ dto.item_img }" width="250px" height="320px"></a>
+		                        </div>
+		                    </div>
+		                    <div class="item_desc">
+		                        <p><a href="/item_detail">${ dto.item_name }</a></p>
+		                        <p>${ dto.item_sale_price }</p>
+		                    </div>
+		                </div>
+		
+		            </td>
+		        </tr>
+		    </table>
+		</c:forEach>
+		
         </div>
         <div id="seasonpage_btm">
             <table class="seasonpage_table">
