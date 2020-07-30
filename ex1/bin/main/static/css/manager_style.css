@@ -75,7 +75,7 @@
 }
 #event_write_wrap .event_content{
 	width: 100%;
-	height: 150px;
+	height: 450px;
 }
 #event_write_wrap .submit_button{
     text-align: center;
@@ -363,6 +363,7 @@
     font-size: 13px;
 }
 /* ========== /회원관리 =========== */
+
 /* 상품관리 리스트 */
 #managerlist_wrap {
     width: 1050px;
