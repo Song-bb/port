@@ -756,7 +756,7 @@ public class MyContoller {
 		int page_count = count / 10; // 페이지 꽉채운 게시물
 		int page_count2 = 0; // 잔여게시물
 		if( page % 10 != 0 ) {
-			page_count = 1;
+			page_count2 = 1;
 		}
 		int max_page = 5; // 한번에 보여지는 최대 페이지
 		int lastPage = page_count + page_count2; // 총 나타낼 페이지
@@ -811,7 +811,7 @@ public class MyContoller {
 				int page_count = count / 10; // 페이지 꽉채운 게시물
 				int page_count2 = 0; // 잔여게시물
 				if( page % 10 != 0 ) {
-					page_count = 1;
+					page_count2 = 1;
 				}
 				int max_page = 5; // 한번에 보여지는 최대 페이지
 				int lastPage = page_count + page_count2;
