@@ -418,3 +418,48 @@
     width: 150px;
     height: 30px;
 }
+/* 상품등록/수정페이지 */
+/* 상품 등록 / 수정 */
+#item_update_wrap {
+    width: 1050px;
+    margin: 0 auto;
+}
+#item_update_header {
+    height: 50px;
+    border-bottom: 2px solid #459356;
+}
+#item_update_body {
+    padding: 30px;
+    width: 800px;
+    margin: 0 auto;
+}
+#category {
+    width: 200px;
+    height: 30px;
+}
+.item_update_tr {
+    height: 70px;
+}
+.item_update_td {
+    width: 200px;
+}
+.item_update_td input[type=text] {
+    width: 600px;
+    height: 50px;
+    padding: 10px;
+}
+.item_update_td textarea {
+    width: 600px;
+    height: 400px;
+    padding: 10px;
+    resize: none;
+}
+#item_update_btn {
+    padding: 30px;
+    text-align: center;
+}
+#item_update_btn input{
+    width: 150px;
+    padding: 10px;
+    text-align: center;
+}
