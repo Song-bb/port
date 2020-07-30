@@ -103,7 +103,7 @@
                     </c:forEach>
                 </table>
                 <div class="member_search_list_td5">
-                    <button type="button" onclick="withdraw_member();" class="member_search_list_td5_btn">선택한 회원 탈퇴</button>
+                    <button type="button" onclick="withdraw_member_pop()" class="member_search_list_td5_btn">선택한 회원 탈퇴</button>
                     <button type="button" onclick="" class="member_search_list_td5_btn">선택한 회원 적립금 지급</button>
                     <button type="button" onclick="" class="member_search_list_td5_btn">선택한 회원 등급 변경</button>
                 </div>
@@ -147,9 +147,10 @@
 			}
 		}
 		
-		function withdraw_member() { 
-			var member = $("#selected_checkbox").val();
-			openWin = window.open("withdraw_member_pop", "childForm", "width=470, height=515, left=200, top=0"); 
+		function withdraw_member_pop() { 
+			var data = document.getElementById("selected_checkbox").value;
+	        var url = "/withdraw_member_pop?member=" + data;
+			window.open(url, "withdraw_member", "width=485, height=515, left=200, top=0"); 
 		}
 		
 	</script>
