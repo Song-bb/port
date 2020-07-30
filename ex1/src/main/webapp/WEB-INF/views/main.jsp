@@ -10,9 +10,9 @@
 	<!-- Swiper -->
 	  <div class="swiper-container">
 	    <div class="swiper-wrapper">
-	    <c:forEach>
+
 	      <div class="swiper-slide" style="background-image: url('/img/main_banner_1.jpg')"><a href="#"></a></div>
-	    </c:forEach>
+
 	    </div>
 	    <!-- Add Pagination -->
 	    <div class="swiper-pagination swiper-pagination-white"></div>

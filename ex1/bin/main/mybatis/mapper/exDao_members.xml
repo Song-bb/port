@@ -61,7 +61,6 @@
 			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
 			AND user_point BETWEEN #{point_min} AND #{point_max}
 			AND user_grade = #{grade} 
-			ORDER BY user_index desc 
 	</select>
 	
 	<!-- 회원조건검색 카운트 - 등급지정없음 -->
@@ -70,9 +69,84 @@
 			WHERE join_date BETWEEN #{date_min} AND #{date_max}
 			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
 			AND user_point BETWEEN #{point_min} AND #{point_max}
-			ORDER BY user_index desc 
 	</select>	
+
+	<!-- 회원검색 - 카테고리 user_name, 등급 null일때 -->
+	<select id="detail_search_name_count1" resultType="_int">
+			SELECT COUNT(*) FROM members 
+			WHERE join_date BETWEEN #{date_min} AND #{date_max}
+			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
+			AND user_point BETWEEN #{point_min} AND #{point_max}
+			AND user_name like CONCAT('%',#{search_text},'%')
+	</select>
 	
+	<!-- 회원검색 - 카테고리 user_name, 등급 조건 추가 -->
+	<select id="detail_search_name_count2" resultType="_int">
+			SELECT COUNT(*) FROM members 
+			WHERE join_date BETWEEN #{date_min} AND #{date_max}
+			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
+			AND user_point BETWEEN #{point_min} AND #{point_max}
+			AND user_grade = #{grade} 
+			AND user_name like CONCAT('%',#{search_text},'%')
+	</select>
+	
+	<!-- 회원검색 - 카테고리 user_id, 등급 null일때 -->
+	<select id="detail_search_id_count1" resultType="_int">
+			SELECT COUNT(*) FROM members 
+			WHERE join_date BETWEEN #{date_min} AND #{date_max}
+			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
+			AND user_point BETWEEN #{point_min} AND #{point_max}
+			AND user_id like CONCAT('%',#{search_text},'%')
+	</select>
+	
+	<!-- 회원검색 - 카테고리 user_id, 등급 조건 추가 -->
+	<select id="detail_search_id_count2" resultType="_int">
+			SELECT COUNT(*) FROM members 
+			WHERE join_date BETWEEN #{date_min} AND #{date_max}
+			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
+			AND user_point BETWEEN #{point_min} AND #{point_max}
+			AND user_grade = #{grade} 
+			AND user_id like CONCAT('%',#{search_text},'%')
+	</select>
+	
+	<!-- 회원검색 - 카테고리 user_phone, 등급 null일때 -->
+	<select id="detail_search_phone_count1" resultType="_int">
+			SELECT COUNT(*) FROM members 
+			WHERE join_date BETWEEN #{date_min} AND #{date_max}
+			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
+			AND user_point BETWEEN #{point_min} AND #{point_max}
+			AND user_phone like CONCAT('%',#{search_text},'%')
+	</select>
+	
+	<!-- 회원검색 - 카테고리 user_phone, 등급 조건 추가 -->
+	<select id="detail_search_phone_count2" resultType="_int">
+			SELECT COUNT(*) FROM members 
+			WHERE join_date BETWEEN #{date_min} AND #{date_max}
+			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
+			AND user_point BETWEEN #{point_min} AND #{point_max}
+			AND user_grade = #{grade} 
+			AND user_phone like CONCAT('%',#{search_text},'%')
+	</select>
+	
+		<!-- 회원검색 - 카테고리 user_birth, 등급 null일때 -->
+	<select id="detail_search_birth_count1" resultType="_int">
+			SELECT COUNT(*) FROM members 
+			WHERE join_date BETWEEN #{date_min} AND #{date_max}
+			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
+			AND user_point BETWEEN #{point_min} AND #{point_max}
+			AND user_birth like CONCAT('%',#{search_text},'%')
+	</select>
+	
+	<!-- 회원검색 - 카테고리 user_birth, 등급 조건 추가 -->
+	<select id="detail_search_birth_count2" resultType="_int">
+			SELECT COUNT(*) FROM members 
+			WHERE join_date BETWEEN #{date_min} AND #{date_max}
+			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
+			AND user_point BETWEEN #{point_min} AND #{point_max}
+			AND user_grade = #{grade} 
+			AND user_birth like CONCAT('%',#{search_text},'%')
+	</select>
+		
 	<!-- 최초회원조건검색 - 등급지정시 첫페이지 10개 -->
 	<select id="detail_search1" resultType="com.example.demo.dto.dto_members">
 			SELECT * FROM members 
@@ -228,6 +302,190 @@
 			ORDER BY user_index desc
 			LIMIT 0, 10
 	</select>	
+	
+	<!-- 회원조건에서 클릭 카테고리 user_name, 등급 null일때 - 첫페이지 10개 -->
+	<select id="detail_search_name1_next1" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_name like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc
+			LIMIT 0, 10
+	</select>
+	
+	<!-- 회원조건에서 클릭 카테고리 user_name, 등급 null일때 - 다음페이지 10개 -->
+	<select id="detail_search_name1_next2" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_name like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc
+			LIMIT #{param10}, 10
+	</select>
+
+	<!-- 회원조건에서 클릭 카테고리 user_name, 등급 조건 추가 - 첫페이지 10개 -->
+	<select id="detail_search_name2_next1" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_grade = #{param5}
+			AND user_name like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc
+			LIMIT 0, 10
+	</select>
+	
+	<!-- 회원조건에서 클릭 카테고리 user_name, 등급 조건 추가 - 다음페이지 10개 -->
+	<select id="detail_search_name2_next2" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_grade = #{param5}
+			AND user_name like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc
+			LIMIT #{param10}, 10
+	</select>
+	
+	<!-- 회원조건에서 클릭 카테고리 user_id, 등급 null일때 - 첫페이지 10개 -->
+	<select id="detail_search_id1_next1" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_id like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc
+			LIMIT 0, 10
+	</select>
+	
+	<!-- 회원조건에서 클릭 카테고리 user_id, 등급 null일때 - 다음페이지 10개 -->
+	<select id="detail_search_id1_next2" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_id like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc
+			LIMIT #{param10}, 10
+	</select>
+	
+	<!-- 회원조건에서 클릭 카테고리 user_id, 등급 조건 추가 - 첫페이지 10개 -->
+	<select id="detail_search_id2_next1" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_grade = #{param5}
+			AND user_id like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc
+			LIMIT 0, 10
+	</select>
+	
+	<!-- 회원조건에서 클릭 카테고리 user_id, 등급 조건 추가 - 다음페이지 10개 -->
+	<select id="detail_search_id2_next2" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_grade = #{param5}
+			AND user_id like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc
+			LIMIT #{param10}, 10
+	</select>
+	
+	<!-- 회원조건에서 클릭 카테고리 user_phone, 등급 null일때 - 첫페이지 10개 -->
+	<select id="detail_search_phone1_next1" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_phone like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc
+			LIMIT 0, 10
+	</select>
+	
+	<!-- 회원조건에서 클릭 카테고리 user_phone, 등급 null일때 - 다음페이지 10개 -->
+	<select id="detail_search_phone1_next2" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_phone like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc
+			LIMIT #{param10}, 10
+	</select>
+	
+	<!-- 회원조건에서 클릭 카테고리 user_phone, 등급 조건 추가 - 첫페이지 10개 -->
+	<select id="detail_search_phone2_next1" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_grade = #{param5}
+			AND user_phone like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc
+			LIMIT 0, 10
+	</select>
+	
+	<!-- 회원조건에서 클릭 카테고리 user_phone, 등급 조건 추가 - 다음페이지 10개 -->
+	<select id="detail_search_phone2_next2" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_grade = #{param5}
+			AND user_phone like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc
+			LIMIT #{param10}, 10
+	</select>
+	
+	<!-- 회원조건에서 클릭 카테고리 user_birth, 등급 null일때 - 첫페이지 10개 -->
+	<select id="detail_search_birth1_next1" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_birth like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc
+			LIMIT 0, 10
+	</select>
+	
+	<!-- 회원조건에서 클릭 카테고리 user_birth, 등급 null일때 - 다음페이지 10개 -->
+	<select id="detail_search_birth1_next2" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_birth like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc
+			LIMIT #{param10}, 10
+	</select>
+	
+	<!-- 회원조건에서 클릭 카테고리 user_birth, 등급 조건 추가 - 첫페이지 10개 -->
+	<select id="detail_search_birth2_next1" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_grade = #{param5}
+			AND user_birth like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc
+			LIMIT 0, 10
+	</select>
+	
+	<!-- 회원조건에서 클릭 카테고리 user_birth, 등급 조건 추가 - 다음페이지 10개 -->
+	<select id="detail_search_birth2_next2" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_grade = #{param5}
+			AND user_birth like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc
+			LIMIT #{param10}, 10
+	</select>
 	
 	<select id="checkId" resultType="_int">
     		SELECT COUNT(*) FROM members WHERE user_id=#{param1}

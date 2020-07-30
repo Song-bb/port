@@ -991,8 +991,8 @@ public class MyContoller {
 			page_count2 = 1;
 		}
 		int max_page = 5; // 한번에 보여지는 최대 페이지
-		int lastPage = page_count + page_count2;
-		if( page / max_page >= 1 && page != 5 ) {
+		int lastPage = page_count + page_count2; // 필요 페이지
+		if( lastPage / max_page >= 1 && lastPage != 5 ) {
 			int index = page / max_page;
 			int startPage = ( max_page * index ) + 1;
 			model.addAttribute("startPage", startPage);
@@ -1003,9 +1003,8 @@ public class MyContoller {
 			}
 		} else {
 			model.addAttribute("startPage", 1); 
-			model.addAttribute("max_page", max_page); 
+			model.addAttribute("max_page", lastPage); 
 		} 
-		model.addAttribute("lastPage", lastPage);  // 마지막페이지
 		model.addAttribute("current_page", page);  // 현재페이지
 		
 		model.addAttribute("member_result_count2", count );

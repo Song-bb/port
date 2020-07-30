@@ -54,6 +54,7 @@
 	                            <td class="member_manager_selectBox_serch_bottom_div_td member_td4"><input type="text" name="point_min">원 ~ <input type="text" name="point_max">원</td>
 	                        </tr>
 	                        <tr class="member_manager_selectBox_serch_bottom_div_tr">
+	                        	<input type="hidden" value="1" name="page">
 	                            <td class="member_manager_selectBox_serch_bottom_div_td member_td5" colspan="4"><button type="submit" formaction="/search_detail_member">상세 검색</button></td>
 	                        </tr>
 	                    </table>
@@ -111,19 +112,19 @@
         <div class="member_manager_select_page">
             <table class="member_manager_select_page_table">
                 <tr>
-               		<td class="member_manager_select_page_td"><a href="/search_detail_member_nextPage?date_min=${date_min}&date_max=${date_max}&buying_min=${buying_min}&buying_max=${buying_max}&grade=${grade}&point_min=${point_min}&point_max=${point_max}&page=${page}"><<</a></td>
+               		<td class="member_manager_select_page_td"><a href="/member_search_next?date_min=${date_min}&date_max=${date_max}&buying_min=${buying_min}&buying_max=${buying_max}&grade=${grade}&point_min=${point_min}&point_max=${point_max}&member_categori=${member_categori}&search_text=${search_text}&page=${startPage}"><<</a></td>
                		<c:set var="current_page" value="${current_page}" />
                		<c:if test = "${ current_page != 1 }">
-               			<td class="member_manager_select_page_td"><a href="/search_detail_member_nextPage?date_min=${date_min}&date_max=${date_max}&buying_min=${buying_min}&buying_max=${buying_max}&grade=${grade}&point_min=${point_min}&point_max=${point_max}&page=${current_page-1}"><</a></td>
+               			<td class="member_manager_select_page_td"><a href="/member_search_next?date_min=${date_min}&date_max=${date_max}&buying_min=${buying_min}&buying_max=${buying_max}&grade=${grade}&point_min=${point_min}&point_max=${point_max}&member_categori=${member_categori}&search_text=${search_text}&page=${current_page-1}"><</a></td>
                		</c:if>
 					<c:forEach var="index" begin="${ startPage }" end="${ max_page }">
-						<td class="member_manager_select_page_td"><a href="/search_detail_member_nextPage?date_min=${date_min}&date_max=${date_max}&buying_min=${buying_min}&buying_max=${buying_max}&grade=${grade}&point_min=${point_min}&point_max=${point_max}&page=${index}">${index}</a></td>
+						<td class="member_manager_select_page_td"><a href="/member_search_next?date_min=${date_min}&date_max=${date_max}&buying_min=${buying_min}&buying_max=${buying_max}&grade=${grade}&point_min=${point_min}&point_max=${point_max}&member_categori=${member_categori}&search_text=${search_text}&page=${index}">${index}</a></td>
 					</c:forEach>
 					<c:set var="nextPage" value="${lastPage}" />
 					<c:if test = "${ current_page != lastPage }">
-						<td class="member_manager_select_page_td"><a href="/search_detail_member_nextPage?date_min=${date_min}&date_max=${date_max}&buying_min=${buying_min}&buying_max=${buying_max}&grade=${grade}&point_min=${point_min}&point_max=${point_max}&page=${current_page+1}">></a></td>
+						<td class="member_manager_select_page_td"><a href="/member_search_next?date_min=${date_min}&date_max=${date_max}&buying_min=${buying_min}&buying_max=${buying_max}&grade=${grade}&point_min=${point_min}&point_max=${point_max}&member_categori=${member_categori}&search_text=${search_text}&page=${current_page+1}">></a></td>
 					</c:if>
-					<td class="member_manager_select_page_td"><a href="/search_detail_member_nextPage?date_min=${date_min}&date_max=${date_max}&buying_min=${buying_min}&buying_max=${buying_max}&grade=${grade}&point_min=${point_min}&point_max=${point_max}&page=${lastPage}">>></a></td>
+					<td class="member_manager_select_page_td"><a href="/member_search_next?date_min=${date_min}&date_max=${date_max}&buying_min=${buying_min}&buying_max=${buying_max}&grade=${grade}&point_min=${point_min}&point_max=${point_max}&member_categori=${member_categori}&search_text=${search_text}&page=${lastPage}">>></a></td>
                 </tr>
             </table>
         </div>  
