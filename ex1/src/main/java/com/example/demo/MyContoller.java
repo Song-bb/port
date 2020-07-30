@@ -835,7 +835,7 @@ public class MyContoller {
 				return "manager/search_detail_member_nextPage";
 	}
 	
-	// 회원 상세검색 + 검색어 추가
+	// 회원 상세검색 + 검색어 추가 - 첫페이지
 	@RequestMapping("/member_search")
 	public String member_search(@RequestParam(value="date_min", required=false) String date_min,
 									   @RequestParam(value="date_max", required=false) String date_max,
@@ -939,6 +939,123 @@ public class MyContoller {
 		model.addAttribute("member_result_count2", count );
 		model.addAttribute("result_detail_search2", list );
 		return "manager/search_member";
+	}
+	
+	// 회원 상세검색 + 검색어 추가 - 다음페이지
+	@RequestMapping("/member_search_next")
+	public String member_search_next(@RequestParam(value="date_min", required=false) String date_min,
+									   @RequestParam(value="date_max", required=false) String date_max,
+									   @RequestParam(value="buying_min", required=false) String buying_min,
+									   @RequestParam(value="buying_max", required=false) String buying_max,
+									   @RequestParam(value="grade", required=false) String grade,
+									   @RequestParam(value="point_min", required=false) String point_min,
+									   @RequestParam(value="point_max", required=false) String point_max,
+									   @RequestParam(value="member_categori", required=false) String member_categori,
+									   @RequestParam(value="search_text", required=false) String search_text,
+									   @RequestParam("page") int page,
+									   Model model) {
+		// 회원수 카운트
+		model.addAttribute("member_total_count", service_members.count_total());
+		model.addAttribute("member_count_1", service_members.count_1());
+		model.addAttribute("member_count_2", service_members.count_2());
+		model.addAttribute("member_count_3", service_members.count_3());
+		model.addAttribute("member_count_4", service_members.count_4());
+		
+		Map <String, String> map = new HashMap<String, String>();
+		if( !(date_min.isEmpty()) ) { 
+			map.put("date_min", date_min);
+			model.addAttribute("date_min", date_min);
+		} else { 
+			map.put("date_min", "1900-01-01 00:00:00");
+			model.addAttribute("date_min", "1900-01-01 00:00:00");
+		}
+		if( !(date_max.isEmpty()) ) { 
+			map.put("date_max", date_max); 
+			model.addAttribute("date_max", date_max);
+		} else { 
+			map.put("date_max", "2300-12-31 00:00:00");
+			model.addAttribute("date_max", "2300-12-31 00:00:00");
+		}
+		if( !(buying_min.isEmpty()) ) { 
+			map.put("buying_min", buying_min);
+			model.addAttribute("buying_min", buying_min);
+		} else { 
+			map.put("buying_min", "0"); 
+			model.addAttribute("buying_min", "0");
+		}
+		if( !(buying_max.isEmpty()) ) { 
+			map.put("buying_max", buying_max); 
+			model.addAttribute("buying_max", buying_max);
+		} else { 
+			map.put("buying_max", "999999999"); 
+			model.addAttribute("buying_max", "999999999");
+		}
+		if( !(grade.isEmpty()) ) { 
+			map.put("grade", grade); 
+			model.addAttribute("grade", grade);
+		} else { 
+			map.put("grade", "null"); 
+			model.addAttribute("grade", "null");
+		}
+		if( !(point_min.isEmpty()) ) { 
+			map.put("point_min", point_min); 
+			model.addAttribute("point_min", point_min);
+		} else { 
+			map.put("point_min", "0"); 
+			model.addAttribute("point_min", "0");
+		}
+		if( !(point_max.isEmpty()) ) { 
+			map.put("point_max", point_max); 
+			model.addAttribute("point_max", point_max);
+		} else { 
+			map.put("point_max", "999999999");
+			model.addAttribute("point_max", "999999999");
+		}
+		if( !(member_categori.isEmpty()) ) { 
+			map.put("member_categori", member_categori);
+			model.addAttribute("member_categori", member_categori);
+		} else { 
+			map.put("member_categori", "null");
+			model.addAttribute("member_categori", "user_name");
+		}
+		if( !(search_text.isEmpty()) ) { 
+			map.put("search_text", search_text);
+			model.addAttribute("search_text", search_text);
+		} else { 
+			map.put("search_text", "null");
+			model.addAttribute("search_text", "null");
+		}
+		model.addAttribute("page", page);
+			
+		List<dto_members> list = service_members.member_search( page, map );
+		int count = service_members.detail_search_count2( page, map );
+		
+		int page_count = count / 10; // 페이지 꽉채운 게시물
+		int page_count2 = 0; // 잔여게시물
+		if( page % 10 != 0 ) {
+			page_count2 = 1;
+		}
+		int max_page = 5; // 한번에 보여지는 최대 페이지
+		int lastPage = page_count + page_count2;
+		if( page / max_page >= 1 && page != 5 ) {
+			int index = page / max_page;
+			int startPage = ( max_page * index ) + 1;
+			model.addAttribute("startPage", startPage);
+			if( lastPage > startPage + 4 ) {
+				model.addAttribute("max_page", startPage + 4); 
+			} else {
+				model.addAttribute("max_page", lastPage); 
+			}
+		} else {
+			model.addAttribute("startPage", 1); 
+			model.addAttribute("max_page", max_page); 
+		} 
+		model.addAttribute("lastPage", lastPage);  // 마지막페이지
+		model.addAttribute("current_page", page);  // 현재페이지
+		
+		model.addAttribute("member_result_count2", count );
+		model.addAttribute("result_detail_search2", list );
+		return "manager/member_search_next";
 	}
 	
 	// 상품관리
