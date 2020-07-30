@@ -921,8 +921,8 @@ public class MyContoller {
 		}
 		model.addAttribute("page", page);
 			
-		List<dto_members> list = service_members.member_search( page, map );
-		int count = service_members.detail_search_count2( page, map );
+		List<dto_members> list = service_members.member_search( map );
+		int count = service_members.detail_search_count3( map );
 		
 		int page_count = count / 10; // 페이지 꽉채운 게시물
 		int page_count2 = 0; // 잔여게시물
@@ -982,8 +982,8 @@ public class MyContoller {
 		model.addAttribute("search_text", search_text);
 		model.addAttribute("page", page);
 			
-		List<dto_members> list = service_members.member_search( page, map );
-		int count = service_members.detail_search_count2( page, map );
+		List<dto_members> list = service_members.member_search_next( page, map );
+		int count = service_members.detail_search_count3( map );
 		
 		int page_count = count / 10; // 페이지 꽉채운 게시물
 		int page_count2 = 0; // 잔여게시물

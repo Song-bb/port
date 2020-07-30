@@ -54,6 +54,25 @@
 			SELECT COUNT(*) FROM members WHERE user_grade = "과일매니저"
 	</select>
 	
+	<!-- 회원조건검색 카운트 - 등급지정시 -->
+	<select id="detail_search_count1" resultType="_int">
+			SELECT COUNT(*) FROM members 
+			WHERE join_date BETWEEN #{date_min} AND #{date_max}
+			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
+			AND user_point BETWEEN #{point_min} AND #{point_max}
+			AND user_grade = #{grade} 
+			ORDER BY user_index desc 
+	</select>
+	
+	<!-- 회원조건검색 카운트 - 등급지정없음 -->
+	<select id="detail_search_count2" resultType="_int">
+			SELECT COUNT(*) FROM members 
+			WHERE join_date BETWEEN #{date_min} AND #{date_max}
+			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
+			AND user_point BETWEEN #{point_min} AND #{point_max}
+			ORDER BY user_index desc 
+	</select>	
+	
 	<!-- 최초회원조건검색 - 등급지정시 첫페이지 10개 -->
 	<select id="detail_search1" resultType="com.example.demo.dto.dto_members">
 			SELECT * FROM members 
@@ -117,25 +136,6 @@
 			ORDER BY user_index desc
 			LIMIT #{param8}, 10
 	</select>
-
-	<!-- 회원조건검색 카운트 - 등급지정시 -->
-	<select id="detail_search_count1" resultType="_int">
-			SELECT COUNT(*) FROM members 
-			WHERE join_date BETWEEN #{date_min} AND #{date_max}
-			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
-			AND user_point BETWEEN #{point_min} AND #{point_max}
-			AND user_grade = #{grade} 
-			ORDER BY user_index desc 
-	</select>
-	
-	<!-- 회원조건검색 카운트 - 등급지정없음 -->
-	<select id="detail_search_count2" resultType="_int">
-			SELECT COUNT(*) FROM members 
-			WHERE join_date BETWEEN #{date_min} AND #{date_max}
-			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
-			AND user_point BETWEEN #{point_min} AND #{point_max}
-			ORDER BY user_index desc 
-	</select>	
 	
 	<!-- 카테고리 user_name, 등급 null일때 - 첫페이지 10개 -->
 	<select id="detail_search_name1" resultType="com.example.demo.dto.dto_members"> 
