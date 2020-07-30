@@ -10,11 +10,9 @@
 	<!-- Swiper -->
 	  <div class="swiper-container">
 	    <div class="swiper-wrapper">
+	    <c:forEach>
 	      <div class="swiper-slide" style="background-image: url('/img/main_banner_1.jpg')"><a href="#"></a></div>
-	      <div class="swiper-slide" style="background-image: url('/img/main_banner_2.jpg')"><a href="#"></a></div>
-	      <div class="swiper-slide" style="background-image: url('/img/main_banner_3.jpg')"><a href="#"></a></div>
-	      <div class="swiper-slide" style="background-image: url('/img/main_banner_4.jpg')"><a href="#"></a></div>
-	      <div class="swiper-slide" style="background-image: url('/img/main_banner_5.jpg')"><a href="#"></a></div>
+	    </c:forEach>
 	    </div>
 	    <!-- Add Pagination -->
 	    <div class="swiper-pagination swiper-pagination-white"></div>
