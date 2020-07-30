@@ -34,8 +34,7 @@ public interface IDao_items {
 	public int fallenFruit_countDao();
 	
 	// 상품보기
-	public List<dto_items> item_detail_name_read();
-	public List<dto_items> item_detail_idx_read();
+	public List<dto_items> item_detail_idx_read(String idx);
 	
 	// 상품등록하기
 	public int item_insert(Map<String, String> map);

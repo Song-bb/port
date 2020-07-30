@@ -1074,8 +1074,6 @@ public class MyContoller {
 								@RequestParam("item_img") MultipartFile item_img,
 								HttpServletRequest request, HttpServletResponse response, Model model) {
 		
-		model.addAttribute("name_show_detail", service_items.detail_name_read());
-		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("item_name", item_name);
 		map.put("item_category", item_category);
@@ -1124,8 +1122,9 @@ public class MyContoller {
 	
 	// 상품 수정
 	@RequestMapping("/item_amend")
-	public String item_amend(@RequestParam("idx") String idx, Model model) {
-		model.addAttribute("idx_show_detail", service_items.detail_idx_read());
+	public String item_amend(@RequestParam("idx") String idx, 
+			 				HttpServletRequest request, HttpServletResponse response, Model model) {
+		model.addAttribute("idx_show_detail", service_items.detail_idx_read(idx));
 		return "manager/item_amend";
 	}
 	

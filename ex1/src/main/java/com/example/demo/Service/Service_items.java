@@ -69,11 +69,8 @@ public class Service_items {
 		return nFallenCount;
 	}
 	
-	public List<dto_items> detail_name_read(){
-		return dao_items.item_detail_name_read();
-	}
-	public List<dto_items> detail_idx_read(){
-		return dao_items.item_detail_idx_read();
+	public List<dto_items> detail_idx_read(String idx){
+		return dao_items.item_detail_idx_read(idx);
 	}
 	
 	// 상품등록하기

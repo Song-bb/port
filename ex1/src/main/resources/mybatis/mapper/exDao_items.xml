@@ -69,11 +69,8 @@
 	</select>
 
 
-	<select id="item_detail_name_read" resultType="com.example.demo.dto.dto_items">
-		SELECT * FROM items WHERE item_name = #{ item_name };
-	</select>
-		<select id="item_detail_idx_read" resultType="com.example.demo.dto.dto_items">
-		SELECT * FROM items WHERE idx = #{ idx };
+	<select id="item_detail_idx_read" resultType="com.example.demo.dto.dto_items">
+		SELECT * FROM items WHERE idx = #{ param1 };
 	</select>
 	
 	<select id="All_viewDao" resultType="com.example.demo.dto.dto_items">
