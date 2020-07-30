@@ -88,7 +88,7 @@
                     <c:set var = "string1" value = "${ dto.join_date }"/>
                     <c:set var = "string2" value = "${fn:substring(string1, 0, 10)}" />
                     <tr class="member_search_list_tr">
-                        <td class="member_search_list_td member_search_list_td3"><input type="checkbox" value="${dto.user_index}"></td>
+                        <td class="member_search_list_td member_search_list_td3"><input type="checkbox" id="selected_checkbox" value="${dto.user_index}"></td>
                         <td class="member_search_list_td member_search_list_td4">${dto.user_index}</td>
                         <td class="member_search_list_td member_search_list_td4">${string2}</td>
                         <td class="member_search_list_td member_search_list_td4">${dto.user_name}</td>

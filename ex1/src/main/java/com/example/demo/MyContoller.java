@@ -1012,6 +1012,18 @@ public class MyContoller {
 		return "manager/member_search_next";
 	}
 	
+	// 회원관리-탈퇴시키기
+	@RequestMapping("/withdraw_member_pop")
+	public String withdraw_member_pop(@RequestParam(value="member", required=false) String member_index, Model model ) {
+		if( member_index.isEmpty() ) {
+			return "manaber/withdraw_member_fail";
+		} else {
+			model.addAttribute("withdraw_member_select", service_members.member_detail( member_index ));
+			System.out.println( member_index );
+			return "manager/withdraw_member";
+		}
+	}
+	
 	// 상품관리
 	@RequestMapping("/items")
 	public String items(Model model) {

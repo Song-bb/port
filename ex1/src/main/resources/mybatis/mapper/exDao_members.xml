@@ -499,8 +499,7 @@
 			SELECT * FROM members WHERE user_index = #{param1}
 	</select>
 	
-	
-	
+
 	
 	
 	

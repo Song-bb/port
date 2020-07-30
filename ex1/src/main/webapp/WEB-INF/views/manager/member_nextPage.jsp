@@ -88,7 +88,7 @@
                     <c:set var = "string1" value = "${ dto.join_date }"/>
                     <c:set var = "string2" value = "${fn:substring(string1, 0, 10)}" />
                     <tr class="member_search_list_tr">
-                        <td class="member_search_list_td member_search_list_td3"><input type="checkbox" value="${dto.user_index}"></td>
+                        <td class="member_search_list_td member_search_list_td3"><input type="checkbox" id="selected_checkbox" value="${dto.user_index}"></td>
                         <td class="member_search_list_td member_search_list_td4"><a href="/member_detail?user_index=${dto.user_index}">${dto.user_index}</a></td>
                         <td class="member_search_list_td member_search_list_td4"><a href="/member_detail?user_index=${dto.user_index}">${string2}</a></td>
                         <td class="member_search_list_td member_search_list_td4"><a href="/member_detail?user_index=${dto.user_index}">${dto.user_name}</a></td>
@@ -103,7 +103,7 @@
                     </c:forEach>
                 </table>
                 <div class="member_search_list_td5">
-                    <button type="button" onclick="" class="member_search_list_td5_btn">선택한 회원 탈퇴</button>
+                    <button type="button" onclick="withdraw_member();" class="member_search_list_td5_btn">선택한 회원 탈퇴</button>
                     <button type="button" onclick="" class="member_search_list_td5_btn">선택한 회원 적립금 지급</button>
                     <button type="button" onclick="" class="member_search_list_td5_btn">선택한 회원 등급 변경</button>
                 </div>
@@ -146,6 +146,12 @@
 				con.style.display = "none";
 			}
 		}
+
+		function withdraw_member() { 
+			openWin = window.open("withdraw_member_pop", "childForm", "width=450, height=500, left=200, top=0"); 
+		}
+		
 	</script>
 	
+
 	
