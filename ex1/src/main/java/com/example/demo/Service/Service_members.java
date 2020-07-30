@@ -87,36 +87,34 @@ public class Service_members {
 	
 	/* 회원 조건검색 */
 	public List<dto_members> detail_search( Map<String, String> map, int page ){
-		if( page == 1) {
-			if( map.get("grade").toString().equals("null")) {
-				return dao_member.detail_search2(map); // 등급 null 일때
-			} else {
-				return dao_member.detail_search1(map); // 등급 지정시
-			}
+		if( map.get("grade").toString().equals("null")) {
+			return dao_member.detail_search2(map); // 등급 null 일때
 		} else {
-			int nextCount = (page - 1) * 10;
-			if( map.get("grade").toString().equals("null")) {
-				return dao_member.detail_search2_count( nextCount, map ); // 등급 null 일때
-			} else {
-				return dao_member.detail_search1_count( nextCount, map ); // 등급 지정시
-			}
+			return dao_member.detail_search1(map); // 등급 지정시
 		}
 	}
 	
 	/* 회원 조건검색 - 다음페이지 */
 	public List<dto_members> detail_search2( Map<String, String> map, int page ){
-		if( page == 1) {
+		String date_min = map.get("date_min").toString();
+		String date_max = map.get("date_max").toString();
+		String buying_min = map.get("buying_min").toString();
+		String buying_max = map.get("buying_max").toString();
+		String grade = map.get("grade").toString();
+		String point_min = map.get("point_min").toString();
+		String point_max = map.get("point_max").toString();
+		if( page == 1) { // 첫페이지
 			if( map.get("grade").toString().equals("null")) {
-				return dao_member.detail_search2(map); // 등급 null 일때
+				return dao_member.detail_search2_1(date_min, date_max, buying_min, buying_max, grade, point_min, point_max); // 등급 null 일때
 			} else {
-				return dao_member.detail_search1(map); // 등급 지정시
+				return dao_member.detail_search1_1(date_min, date_max, buying_min, buying_max, grade, point_min, point_max); // 등급 지정시
 			}
-		} else {
+		} else { // 다음페이지
 			int nextCount = (page - 1) * 10;
 			if( map.get("grade").toString().equals("null")) {
-				return dao_member.detail_search2_count( nextCount, map ); // 등급 null 일때
+				return dao_member.detail_search2_page( date_min, date_max, buying_min, buying_max, grade, point_min, point_max, nextCount ); // 등급 null 일때
 			} else {
-				return dao_member.detail_search1_count( nextCount, map ); // 등급 지정시
+				return dao_member.detail_search1_page( date_min, date_max, buying_min, buying_max, grade, point_min, point_max, nextCount ); // 등급 지정시
 			}
 		}
 	}

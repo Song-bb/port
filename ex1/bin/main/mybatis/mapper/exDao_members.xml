@@ -54,7 +54,8 @@
 			SELECT COUNT(*) FROM members WHERE user_grade = "과일매니저"
 	</select>
 	
-	<select id="detail_search1" resultType="com.example.demo.dto.dto_members"> 
+	<!-- 최초회원조건검색 - 등급지정시 첫페이지 10개 -->
+	<select id="detail_search1" resultType="com.example.demo.dto.dto_members">
 			SELECT * FROM members 
 			WHERE join_date BETWEEN #{date_min} AND #{date_max}
 			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
@@ -64,6 +65,7 @@
 			LIMIT 0, 10
 	</select> 
 
+	<!-- 최초회원조건검색 - 등급지정없음 첫페이지 10개 -->
 	<select id="detail_search2" resultType="com.example.demo.dto.dto_members"> 
 			SELECT * FROM members 
 			WHERE join_date BETWEEN #{date_min} AND #{date_max}
@@ -73,25 +75,50 @@
 			LIMIT 0, 10
 	</select>
 	
-	<select id="detail_search1_count" resultType="com.example.demo.dto.dto_members"> 
-			SELECT * FROM members 
-			WHERE join_date BETWEEN #{date_min} AND #{date_max}
-			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
-			AND user_point BETWEEN #{point_min} AND #{point_max}
-			AND user_grade = #{grade} 
-			ORDER BY user_index desc 
-			LIMIT #{param1}, 10
+	
+	<!-- 회원조건검색에서 클릭 - 등급지정시 첫페이지 10개 -->
+	<select id="detail_search1_1" resultType="com.example.demo.dto.dto_members">
+			SELECT * FROM members
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_grade = #{param5} 
+			ORDER BY user_index desc
+			LIMIT 0, 10
 	</select> 
 
-	<select id="detail_search2_count" resultType="com.example.demo.dto.dto_members"> 
+	<!-- 회원조건검색에서 클릭 - 등급지정없음 첫페이지 10개 -->
+	<select id="detail_search2_1" resultType="com.example.demo.dto.dto_members"> 
 			SELECT * FROM members 
-			WHERE join_date BETWEEN #{date_min} AND #{date_max}
-			AND buying_price BETWEEN #{buying_min} AND #{buying_max} 
-			AND user_point BETWEEN #{point_min} AND #{point_max}
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
 			ORDER BY user_index desc
-			LIMIT #{param1}, 10
+			LIMIT 0, 10
 	</select>
 	
+	<!-- 회원조건검색에서 클릭 - 등급지정시 다음페이지 10개 -->
+	<select id="detail_search1_page" resultType="com.example.demo.dto.dto_members">
+			SELECT * FROM members
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_grade = #{param5} 
+			ORDER BY user_index desc
+			LIMIT #{param8}, 10
+	</select> 
+
+	<!-- 회원조건검색에서 클릭 - 등급지정없음 다음페이지 10개 -->
+	<select id="detail_search2_page" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			ORDER BY user_index desc
+			LIMIT #{param8}, 10
+	</select>
+
+	<!-- 회원조건검색 카운트 - 등급지정시 -->
 	<select id="detail_search_count1" resultType="_int">
 			SELECT COUNT(*) FROM members 
 			WHERE join_date BETWEEN #{date_min} AND #{date_max}
@@ -101,6 +128,7 @@
 			ORDER BY user_index desc 
 	</select>
 	
+	<!-- 회원조건검색 카운트 - 등급지정없음 -->
 	<select id="detail_search_count2" resultType="_int">
 			SELECT COUNT(*) FROM members 
 			WHERE join_date BETWEEN #{date_min} AND #{date_max}

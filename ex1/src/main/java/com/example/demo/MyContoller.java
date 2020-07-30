@@ -715,7 +715,6 @@ public class MyContoller {
 		if( !(buying_min.isEmpty()) ) { 
 			map.put("buying_min", buying_min);
 			model.addAttribute("buying_min", buying_min);
-			System.out.println("buying_min empty: " + buying_min);
 		} else { 
 			map.put("buying_min", "0"); 
 			model.addAttribute("buying_min", "0");
@@ -830,8 +829,6 @@ public class MyContoller {
 					model.addAttribute("max_page", max_page); 
 				} 
 				model.addAttribute("lastPage", lastPage);  // 마지막페이지
-				model.addAttribute("max_page", max_page); // 한번에 보여지는 최대 페이지수
-				model.addAttribute("startPage", 1); // 첫페이지
 				model.addAttribute("current_page", page);  // 현재페이지
 				
 				model.addAttribute("member_result_count", count );
