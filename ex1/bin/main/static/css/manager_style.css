@@ -54,62 +54,6 @@
 
 /* ========== event =========== */
 
-#event_write_wrap{
-    max-width: 1050px;
-    margin:auto;
-}
-#event_write_wrap h3{
-    padding: 20px;
-    border-bottom: 2px solid #459356;
-    margin-bottom: 50px;
-}
-#event_write_wrap table{
-    width: 800px;
-    margin:auto;
-    border-collapse: collapse;
-}
-#event_write_wrap table td{
-    padding-bottom: 20px;
-}
-#event_write_wrap .submit_button{
-    text-align: center;
-}
-#event_write_wrap table td > input[type="file"]{
-    width: 50%;
-    padding-left: 20px;
-}
-#event_write_wrap .event_title{
-    width: 100%;
-    height: 50px;
-    padding: 10px;
-    border: 1px solid #ededed;
-    font-size: 1.1em;
-}
-
-#event_write_wrap textarea{
-    resize: none;
-    font-size: 1.1em;
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ededed;
-}
-#event_write_wrap table td>span:last-child{
-    font-size: 0.7em;
-    text-align: right;
-}
-#event_write_wrap table:first-child input[type="submit"]{
-    border:none;
-    width: 200px;
-    height: 50px;
-    margin-top: 40px ;
-    cursor: pointer;
-    text-align: center;
-    background-color: #459356;
-    color: white;
-}
-
-/* ========== /event =========== */
-
 /* 관리자 이벤트 작성 페이지 */
 #event_write_wrap{
     max-width: 1050px;
@@ -179,23 +123,28 @@
 }
 
 #manager_eventList h3{
-    padding: 20px;
-    border-bottom: 2px solid #459356;
-    margin-bottom: 50px;
+    padding: 20px 0;
     text-align: left;
 }
 
 #manager_eventList table{
-    border:1px solid #eeee;
     text-align: center;
+    border-top: 2px solid #459356;
+    border-bottom: 2px solid #459356;
     width: 100%;
     border-collapse: collapse;
+    font-size: 0.9em;
+    margin: 20px 0;
+    
     
 }
 
 #manager_eventList table tr{
     height: 40px;
     border-bottom:1px solid #ededed;
+}
+#manager_eventList table tr:first-child{
+	background-color: #4593561a;
 }
 
 
@@ -215,6 +164,8 @@
 
 
 /* ========== /event =========== */
+
+
 
 /* ========== 회원관리 =========== */
 #member_manager_main_wrap {
@@ -255,14 +206,12 @@
     width: 70px;
     background-color: #459356;
     color: #fff;
-    border: none;
 }
 .member_manager_selectBox_serch_btn:hover {
     height: 30px;
     width: 70px;
     background-color: #fff;
     color: #459356;
-    border: 1px solid #459356;
 }
 .member_manager_selectBox_serch_select_div_bottom {
     float: right;
@@ -283,7 +232,7 @@
     border-bottom: 1px solid rgba(179, 178, 178, 0.507);
     border-left: 1px solid rgba(179, 178, 178, 0.507);
     border-right: 1px solid rgba(179, 178, 178, 0.507);
-    height: 120px;
+    height: 150px;
     display: block;
 }
 .member_manager_selectBox_serch_bottom {
@@ -386,19 +335,12 @@
     background-color: #459356;
     color: #fff;
     height: 30px;
-    border: 1px solid #459356;
-    padding-left: 10px;
-    padding-right: 10px;
 }
 .member_search_list_td5 button:hover {
     margin-right: 10px;
     background-color: #fff;
     color: #459356;
     height: 30px;
-    border: none;
-    padding-left: 10px;
-    padding-right: 10px;
-    border: 1px solid #459356;
 }
 .member_manager_select_page {
     width: 1050px;
@@ -420,81 +362,8 @@
     color: rgb(50, 50, 50);
     font-size: 13px;
 }
-.leave_member_table_1 {
-	width: 50px;
-	
-}
-.leave_member_table_2 {
-	width: 100px;
-	
-}
-.leave_member_table_3 {
-	width: 200px;
-	
-}
-.leave_member_table_4 {
-	width: 550px;
-	
-}
-.leave_member_table_5 {
-	width: 100px;
-	
-}
-.leave_member_table_6 {
-	text-align: left;
-	padding-left: 20px;
-}
 /* ========== /회원관리 =========== */
-
-/*=============상품 등록============*/
-#item_update_wrap {
-    width: 1050px;
-    margin: 0 auto;
-}
-#item_update_header {
-    padding-bottom: 30px;
-    padding-left: 20px;
-    border-bottom: 2px solid #459356;
-}
-#item_update_body {
-	width: 800px;
-    padding: 20px;
-}
-#item_update_body select {
-    margin: 20px;
-    width: 150px;
-    height: 30px;
-}
-#item_update_body input {
-    margin: 5px 5px 5px 19px;
-    width: 500px;
-    padding: 10px;
-}
-#item_update_body textarea {
-    margin: 20px;
-    width: 500px;
-    height: 400px;
-    resize: none;
-    padding: 10px;
-}
-.item_update_td {
-	height: 50px;
-}
-#item_update_btn {
-	width: 100%;
-	text-align: center;
-}
-#item_update_btn input[type=submit]{
-    width: 150px;
-    height: 40px;
-}
-#item_update_btn input[type=reset]{
-    width: 150px;
-    height: 40px;
-}
-/* */
-
-/* 상품관리페이지 */
+/* 상품관리 리스트 */
 #managerlist_wrap {
     width: 1050px;
     margin: 0 auto;
@@ -548,4 +417,3 @@
     width: 150px;
     height: 30px;
 }
-/*        */

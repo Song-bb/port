@@ -10,11 +10,12 @@
 }
 
 .event_content{
-    background-color: black;
-    background:
     width: 1050px;
     height: 200px;
     margin-bottom: 20px;
+    background-position: center;
+    background-size: cover;
+    background-color: #459356;
 }
 
 .event_content > a{
@@ -28,20 +29,26 @@
     margin-bottom: 80px;
     position: relative;
 }
-
+#event_sub h3{
+	padding: 10px 0;
+}
 #event_board {
 	position: relative;
 }
 #event_board > div{
     border-bottom: 1px solid #ededed;
 }
+#event_board > div span{
+	padding: 0 10px;
+}
 #event_board div.event_ViewContent{
     width: 100%;
-    padding: 100px 0;
+    padding: 100px 10px;
 }
 #event_board > div:first-child{
     height: 100px;
     line-height: 100px;
+    padding-left: 10px;
 }
 #event_board > div:nth-child(2){
     height: 40px;
