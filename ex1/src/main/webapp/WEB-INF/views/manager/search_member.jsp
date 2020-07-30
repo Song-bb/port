@@ -111,15 +111,19 @@
         <div class="member_manager_select_page">
             <table class="member_manager_select_page_table">
                 <tr>
-                    <td class="member_manager_select_page_td"><a href=""><<</a></td>
-                    <td class="member_manager_select_page_td"><a href=""><</a></td>
-                    <td class="member_manager_select_page_td"><a href="">1</a></td>
-                    <td class="member_manager_select_page_td"><a href="">2</a></td>
-                    <td class="member_manager_select_page_td"><a href="">3</a></td>
-                    <td class="member_manager_select_page_td"><a href="">4</a></td>
-                    <td class="member_manager_select_page_td"><a href="">5</a></td>
-                    <td class="member_manager_select_page_td"><a href="">></a></td>
-                    <td class="member_manager_select_page_td"><a href="">>></a></td>
+               		<td class="member_manager_select_page_td"><a href="/search_detail_member_nextPage?date_min=${date_min}&date_max=${date_max}&buying_min=${buying_min}&buying_max=${buying_max}&grade=${grade}&point_min=${point_min}&point_max=${point_max}&page=${page}"><<</a></td>
+               		<c:set var="current_page" value="${current_page}" />
+               		<c:if test = "${ current_page != 1 }">
+               			<td class="member_manager_select_page_td"><a href="/search_detail_member_nextPage?date_min=${date_min}&date_max=${date_max}&buying_min=${buying_min}&buying_max=${buying_max}&grade=${grade}&point_min=${point_min}&point_max=${point_max}&page=${current_page-1}"><</a></td>
+               		</c:if>
+					<c:forEach var="index" begin="${ startPage }" end="${ max_page }">
+						<td class="member_manager_select_page_td"><a href="/search_detail_member_nextPage?date_min=${date_min}&date_max=${date_max}&buying_min=${buying_min}&buying_max=${buying_max}&grade=${grade}&point_min=${point_min}&point_max=${point_max}&page=${index}">${index}</a></td>
+					</c:forEach>
+					<c:set var="nextPage" value="${lastPage}" />
+					<c:if test = "${ current_page != lastPage }">
+						<td class="member_manager_select_page_td"><a href="/search_detail_member_nextPage?date_min=${date_min}&date_max=${date_max}&buying_min=${buying_min}&buying_max=${buying_max}&grade=${grade}&point_min=${point_min}&point_max=${point_max}&page=${current_page+1}">></a></td>
+					</c:if>
+					<td class="member_manager_select_page_td"><a href="/search_detail_member_nextPage?date_min=${date_min}&date_max=${date_max}&buying_min=${buying_min}&buying_max=${buying_max}&grade=${grade}&point_min=${point_min}&point_max=${point_max}&page=${lastPage}">>></a></td>
                 </tr>
             </table>
         </div>  
