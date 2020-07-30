@@ -139,30 +139,30 @@ public class Service_members {
 		} else { // 검색어 있으면 카테고리 확인, 없으면 user_name 이 default
 			if(map.get("member_categori").toString().equals("null") || map.get("member_categori").toString().equals("user_name") ){
 				if( map.get("grade").toString().equals("null") ) { // 카테고리 user_name, 등급 null일때 - 첫페이지 10개
-					return dao_member.detail_search3( map );
+					return dao_member.detail_search_name1( map );
 				} else { // 카테고리 user_name, 등급 조건 추가 - 첫페이지 10개
-					return dao_member.detail_search4( map );
+					return dao_member.detail_search_name2( map );
 				}
 			} else if( map.get("member_categori").toString().equals("user_id") ) { 
 				if( map.get("grade").toString().equals("null") ) { // 카테고리 user_id, 등급 null일때 - 첫페이지 10개
-					return dao_member.detail_search5( map );
+					return dao_member.detail_search_id1( map );
 				} else { // 카테고리 user_id, 등급 조건 추가 - 첫페이지 10개
-					return dao_member.detail_search6( map );
+					return dao_member.detail_search_id2( map );
 				}
 			} else if( map.get("member_categori").toString().equals("user_phone") ) { 
 				if( map.get("grade").toString().equals("null") ) { // 카테고리 user_phone, 등급 null일때 - 첫페이지 10개
-					return dao_member.detail_search7( map );
+					return dao_member.detail_search_phone1( map );
 				} else { // 카테고리 user_phone, 등급 조건 추가 - 첫페이지 10개
-					return dao_member.detail_search8( map );
+					return dao_member.detail_search_phone2( map );
 				}
 			} else if( map.get("member_categori").toString().equals("user_birth") ) { 
 				if( map.get("grade").toString().equals("null") ) { // 카테고리 user_birth, 등급 null일때 - 첫페이지 10개
-					return dao_member.detail_search9( map );
+					return dao_member.detail_search_birth1( map );
 				} else { // 카테고리 user_birth, 등급 조건 추가 - 첫페이지 10개
-					return dao_member.detail_search10( map );
+					return dao_member.detail_search_birth2( map );
 				}
 			} else {
-				return dao_member.detail_search1( map );
+				return dao_member.detail_search2(map);
 			}
 		}
 	}

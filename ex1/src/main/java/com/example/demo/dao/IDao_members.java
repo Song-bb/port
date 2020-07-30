@@ -30,15 +30,14 @@ public interface IDao_members {
 	public List<dto_members> detail_search2_1( String date_min, String date_max, String buying_min, String buying_max, String grade, String point_min, String point_max ); // 최초회원조건에서 클릭 등급 null 일때 - 첫 페이지 10개씩
 	public List<dto_members> detail_search1_page( String date_min, String date_max, String buying_min, String buying_max, String grade, String point_min, String point_max, int nextPage ); // 최초회원조건에서 클릭 등급 지정시 - 다음페이지 10개씩
 	public List<dto_members> detail_search2_page( String date_min, String date_max, String buying_min, String buying_max, String grade, String point_min, String point_max, int nextPage ); // 최초회원조건에서 클릭 등급 null 일때 - 다음페이지 10개씩
-
-	public List<dto_members> detail_search3( Map<String, String> map ); // 이름으로 찾고, 등급 null일때
-	public List<dto_members> detail_search4( Map<String, String> map ); // 이름으로 찾고, 등급 조건 추가
-	public List<dto_members> detail_search5( Map<String, String> map ); // 카테고리 user_id, 등급 null일때
-	public List<dto_members> detail_search6( Map<String, String> map ); // 카테고리 user_id, 등급 조건 추가
-	public List<dto_members> detail_search7( Map<String, String> map ); // 카테고리 user_phone, 등급 null일때
-	public List<dto_members> detail_search8( Map<String, String> map ); // 카테고리 user_phone, 등급 조건 추가
-	public List<dto_members> detail_search9( Map<String, String> map ); // 카테고리 user_birth, 등급 null일때
-	public List<dto_members> detail_search10( Map<String, String> map ); // 카테고리 user_birth, 등급 조건 추가
+	public List<dto_members> detail_search_name1( Map<String, String> map ); // 카테고리 user_name, 등급 null일때 - 첫페이지 10개
+	public List<dto_members> detail_search_name2( Map<String, String> map ); // 카테고리 user_name, 등급 조건 추가 - 첫페이지 10개
+	public List<dto_members> detail_search_id1( Map<String, String> map ); // 카테고리 user_id, 등급 null일때 - 첫페이지 10개
+	public List<dto_members> detail_search_id2( Map<String, String> map ); // 카테고리 user_id, 등급 조건 추가 - 첫페이지 10개
+	public List<dto_members> detail_search_phone1( Map<String, String> map ); // 카테고리 user_phone, 등급 null일때 - 첫페이지 10개
+	public List<dto_members> detail_search_phone2( Map<String, String> map ); // 카테고리 user_phone, 등급 조건 추가 - 첫페이지 10개
+	public List<dto_members> detail_search_birth1( Map<String, String> map ); // 카테고리 user_birth, 등급 null일때 - 첫페이지 10개
+	public List<dto_members> detail_search_birth2( Map<String, String> map ); // 카테고리 user_birth, 등급 조건 추가 - 첫페이지 10개
 	public int checkId( String user_id );
 	public int checkEmail( String user_email );
 	public List<dto_members> member_detail(String user_index);

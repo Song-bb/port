@@ -961,70 +961,25 @@ public class MyContoller {
 		model.addAttribute("member_count_3", service_members.count_3());
 		model.addAttribute("member_count_4", service_members.count_4());
 		
-		Map <String, String> map = new HashMap<String, String>();
-		if( !(date_min.isEmpty()) ) { 
-			map.put("date_min", date_min);
-			model.addAttribute("date_min", date_min);
-		} else { 
-			map.put("date_min", "1900-01-01 00:00:00");
-			model.addAttribute("date_min", "1900-01-01 00:00:00");
-		}
-		if( !(date_max.isEmpty()) ) { 
-			map.put("date_max", date_max); 
-			model.addAttribute("date_max", date_max);
-		} else { 
-			map.put("date_max", "2300-12-31 00:00:00");
-			model.addAttribute("date_max", "2300-12-31 00:00:00");
-		}
-		if( !(buying_min.isEmpty()) ) { 
-			map.put("buying_min", buying_min);
-			model.addAttribute("buying_min", buying_min);
-		} else { 
-			map.put("buying_min", "0"); 
-			model.addAttribute("buying_min", "0");
-		}
-		if( !(buying_max.isEmpty()) ) { 
-			map.put("buying_max", buying_max); 
-			model.addAttribute("buying_max", buying_max);
-		} else { 
-			map.put("buying_max", "999999999"); 
-			model.addAttribute("buying_max", "999999999");
-		}
-		if( !(grade.isEmpty()) ) { 
-			map.put("grade", grade); 
-			model.addAttribute("grade", grade);
-		} else { 
-			map.put("grade", "null"); 
-			model.addAttribute("grade", "null");
-		}
-		if( !(point_min.isEmpty()) ) { 
-			map.put("point_min", point_min); 
-			model.addAttribute("point_min", point_min);
-		} else { 
-			map.put("point_min", "0"); 
-			model.addAttribute("point_min", "0");
-		}
-		if( !(point_max.isEmpty()) ) { 
-			map.put("point_max", point_max); 
-			model.addAttribute("point_max", point_max);
-		} else { 
-			map.put("point_max", "999999999");
-			model.addAttribute("point_max", "999999999");
-		}
-		if( !(member_categori.isEmpty()) ) { 
-			map.put("member_categori", member_categori);
-			model.addAttribute("member_categori", member_categori);
-		} else { 
-			map.put("member_categori", "null");
-			model.addAttribute("member_categori", "user_name");
-		}
-		if( !(search_text.isEmpty()) ) { 
-			map.put("search_text", search_text);
-			model.addAttribute("search_text", search_text);
-		} else { 
-			map.put("search_text", "null");
-			model.addAttribute("search_text", "null");
-		}
+		Map <String, String> map = new HashMap<String, String>(); 
+		map.put("date_min", date_min);
+		model.addAttribute("date_min", date_min);
+		map.put("date_max", date_max); 
+		model.addAttribute("date_max", date_max);
+		map.put("buying_min", buying_min);
+		model.addAttribute("buying_min", buying_min);
+		map.put("buying_max", buying_max); 
+		model.addAttribute("buying_max", buying_max); 
+		map.put("grade", grade); 
+		model.addAttribute("grade", grade);
+		map.put("point_min", point_min); 
+		model.addAttribute("point_min", point_min);
+		map.put("point_max", point_max); 
+		model.addAttribute("point_max", point_max);
+		map.put("member_categori", member_categori);
+		model.addAttribute("member_categori", member_categori);
+		map.put("search_text", search_text);
+		model.addAttribute("search_text", search_text);
 		model.addAttribute("page", page);
 			
 		List<dto_members> list = service_members.member_search( page, map );
