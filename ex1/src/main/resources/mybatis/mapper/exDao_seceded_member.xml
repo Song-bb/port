@@ -11,7 +11,11 @@
 	</insert>
 
 	<select id="list" resultType="com.example.demo.dto.dto_seceded_member"> 
-			SELECT * FROM seceded_member ORDER BY idx desc
+			SELECT * FROM seceded_member ORDER BY idx desc LIMIT 0, 10
+	</select>
+	
+	<select id="count" resultType="_int">
+			SELECT COUNT(*) FROM seceded_member
 	</select>
 	
 	

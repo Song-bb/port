@@ -76,7 +76,6 @@
 	                    <a href="/member">회원관리</a>
 	                    <ul class="sub_nav2">
 	                        <li><a href="/member">회원관리</a></li>
-	                        <li><a href="/order_list">주문내역</a></li>
 	                        <li><a href="/leave_member">탈퇴회원</a></li>
 	                    </ul>
 	                </li>
@@ -85,7 +84,6 @@
 	                    <ul class="sub_nav2">
 	                    	<li><a href="/items">상품관리</a></li>
 	                        <li><a href="/item_update">상품등록</a></li>
-	                        <li><a href="/item_amend">상품수정</a></li>
 	                        <li><a href="/review">상품후기</a></li>
 	                    </ul>
 	                </li>

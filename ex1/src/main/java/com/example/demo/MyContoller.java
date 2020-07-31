@@ -655,14 +655,8 @@ public class MyContoller {
 	
 	// 카페관리페이지(관리자전용)
 	@RequestMapping("/management")
-	public String management(HttpServletRequest request) {
-		HttpSession session = request.getSession();
-        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
-        	return "loginPage/loginPage_main";
-        } else {
-        	String user_id = session.getAttribute("user_id").toString();
-        	return "manager/management_main";
-        }
+	public String management() {
+		return "redirect:items";
 	}
 	
 	// 회원관리
@@ -1197,11 +1191,10 @@ public class MyContoller {
 	
 	// 탈퇴회원 리스트
 	@RequestMapping("/leave_member")
-	public String leave_member(Model model) {
-		List<dto_seceded_member> list = service_seced_member.list();
-		int count = list.size();
-		model.addAttribute("leave_member", list);
+	public String leave_member(@RequestParam(value="page", required=false) int page, Model model) {
+		int count = service_seced_member.count();
 		model.addAttribute("leave_member_count", count);
+		model.addAttribute("leave_member", service_seced_member.list());
 		return "manager/leave_member";
 	}
 	

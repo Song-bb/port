@@ -46,6 +46,10 @@ public class Service_seceded_member {
 		return dao_seded_member.list();
 	}
 	
+	public int count() {
+		return dao_seded_member.count();
+	}
+	
 	
 	
 	
