@@ -21,32 +21,27 @@ public class FileuploadService_banner {
 	public String restore(MultipartFile multipartFile) {
 		
 		String url = null;
+		String src = null;
 		
 		try {
-			//C:\Users\Gi7A-00\Documents\SprintBoot\Ex26_FileUploadParam\bin\main\static\ upload
-			//C:\Users\Gi7A-00\Documents\SprintBoot\Ex26_FileUploadParam\src\main\resources\static\ upload
-			
-			//C:\Users\ user\git\Gwail-jangsu\ex1\bin\main\static\ upload_banner
 			String savepath = ResourceUtils.getFile("classpath:static/upload_banner/").toPath().toString();
 			savepath = savepath.replace("\\", "/");
+			savepath = savepath.replace("/bin/main/static", "/src/main/resources/static");
 			SAVE_PATH = savepath;
 			PREFIX_URL = savepath;
 			
+			
 			// 파일 정보
 			String originFilename = multipartFile.getOriginalFilename();
-			String extName
-				= originFilename.substring(originFilename.lastIndexOf("."), originFilename.length());
-			Long size = multipartFile.getSize();
+			
+//			String extName
+//				= originFilename.subString(originFilename.lastIndexOf("."), originFilename.length());
+//			Long size = multipartFile.getSize();
 			
 			// 서버에서 저장 할 파일 이름
-			String saveFileName = genSaveFileName(extName);
+			String saveFileName = originFilename;
 			
-			/*
-			 System.out.println("originFilename : " + originFilename);
-			 System.out.println("extensionName : " + extName);
-			 System.out.println("size : " + size); 
-			 System.out.println("saveFileName : " + saveFileName);
-			 */
+			src = "upload_banner/" + saveFileName;
 			
 			writeFile(multipartFile, saveFileName);
 			url = PREFIX_URL + "/" + saveFileName;
@@ -57,39 +52,8 @@ public class FileuploadService_banner {
 			// throw new FileUploadException();	
 			throw new RuntimeException(e);
 		}
-		return url;
+		return src;
 	}
-	
-	
-	// 현재 시간을 기준으로 파일 이름 생성
-	private String genSaveFileName(String extName) {
-		String fileName = "";
-		
-		/*
-		  Calendar calendar = Calendar.getInstance(); 
-		  fileName += calendar.get(Calendar.YEAR); 
-		  fileName += calendar.get(Calendar.MONTH+1);
-		  fileName += calendar.get(Calendar.DATE); 
-		  fileName += calendar.get(Calendar.HOUR); 
-		  fileName += calendar.get(Calendar.MINUTE);
-		  fileName += calendar.get(Calendar.SECOND); 
-		  fileName += calendar.get(Calendar.MILLISECOND); 
-		  fileName += extName;
-		 */
-		LocalDate date = LocalDate.now();
-		LocalTime time = LocalTime.now();
-		fileName += date.getYear(); 
-		fileName += date.getMonth().getValue();
-		fileName += date.getDayOfMonth();
-		fileName += time.getHour();
-		fileName += time.getMinute();
-		fileName += time.getSecond();
-		fileName += time.getNano();
-		fileName += extName;
-		
-		return fileName;
-	}
-	
 	
 	// 파일을 실제로 write 하는 메서드
 	private void writeFile(MultipartFile multipartFile, String saveFileName)

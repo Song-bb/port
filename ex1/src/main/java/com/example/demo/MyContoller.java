@@ -22,7 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import com.example.demo.Service.FileuploadService_personal_que;
-import com.example.demo.Service.Service_banner_img;
+import com.example.demo.Service.Service_banner;
 import com.example.demo.Service.Service_event;
 import com.example.demo.Service.Service_fre_ask_board;
 import com.example.demo.Service.Service_items;
@@ -33,6 +33,7 @@ import com.example.demo.Service.Service_personal_que;
 import com.example.demo.Service.Service_seceded_member;
 import com.example.demo.dto.dto_members;
 import com.example.demo.dto.dto_seceded_member;
+import com.example.demo.Service.FileuploadService_banner;
 import com.example.demo.Service.FileuploadService_event;
 import com.example.demo.Service.FileuploadService_manager_item_update;
 
@@ -48,8 +49,6 @@ public class MyContoller {
 	@Autowired
 	Service_noticeBoard service_noticeBoard;
 	@Autowired
-	Service_banner_img service_banner;
-	@Autowired
 	Service_fre_ask_board service_fre_ask;
 	@Autowired
 	Service_myPage service_myPage;
@@ -62,21 +61,25 @@ public class MyContoller {
 	@Autowired
 	Service_items service_items;
 	@Autowired
+	Service_banner service_banner;
+	@Autowired
 	FileuploadService_event fileUploadService_event;
 	@Autowired
 	FileuploadService_manager_item_update itemuploadService;
+	@Autowired
+	FileuploadService_banner fileUploadService_banner;
 	
 	
 	
 	@RequestMapping("/")
 	public String root() throws Exception {
+		
 		return "redirect:main";
 	}
 	
 	// 메인페이지
 	@RequestMapping("/main")
 	public String mainPage(Model model) {
-		model.addAttribute("banner_img", service_banner.viewBanner());	
 		return "main";
 	}
 	
@@ -1243,7 +1246,7 @@ public class MyContoller {
 	}
 	
 	
-	/*==========이벤트관리자=========*/
+/*==========이벤트관리자=========*/
 	
 	// 이벤트리스트_메인 관리
 	@RequestMapping("/event_list")
@@ -1291,12 +1294,6 @@ public class MyContoller {
 		} else {
 			map.put( "event_banner2", "null" );
 		}
-		
-		
-		
-		
-	
-
 		
 		int nResult = service_event.event_updateok(map);
 		if( nResult < 1) {
@@ -1372,6 +1369,118 @@ public class MyContoller {
 			return "redirect:event_list";	
 		}
 	}
+	
+/* ============== 메인 베너 등록 관리 ===== */
+	
+	// 배너관리리스트
+	@RequestMapping("/banner_list")
+	public String manager_bannerlist(Model model) {
+		model.addAttribute("dtoB_listView", service_banner.banner_list());
+		return "manager/banner_list";
+	}
+	
+	// 배너등록(작성)
+	@RequestMapping("/banner_write")
+	public String manager_bannerWrite() {
+		return "manager/banner_write";
+	}
+	
+	// 파일업로드용 bean 생성
+	
+	
+	// 배너등록(작성)확인
+	@RequestMapping(value="/banner_writeOk", method = RequestMethod.POST)
+	public String manager_bannerWriteOk( @RequestParam(value="upload_banner_img", required=false) MultipartFile banner_img,
+										  HttpServletRequest request, Model model) {
+		
+		Map<String, String> map = new HashMap<String, String>();
+		//제목
+		String title = request.getParameter("banner_title");
+		map.put("banner_title", title);
+		
+		//img
+		if( !(banner_img.isEmpty()) ) {
+			String mainBanner = fileUploadService_banner.restore(banner_img);
+			map.put( "banner_img", mainBanner );
+		} else {
+			map.put( "banner_img", "null" );
+		}
+		
+		//링크
+		String href = request.getParameter("banner_href");
+		map.put("banner_href", href);
+		
+		int nResult = service_banner.banner_write(map);
+		if( nResult < 1) {
+			System.out.println("쓰기를 실패했습니다.");
+			return "redirect:banner_write";
+		}else {
+			System.out.println("쓰기를 성공했습니다.");
+			return "redirect:banner_list";	
+		}
+	}
+	
+	//배너삭제
+	@RequestMapping("/banner_delete")
+	public String banner_delete(HttpServletRequest request, Model model) {
+		String index = request.getParameter("banner_index");
+		
+		int nResult = service_banner.banner_delete(index);
+		if(nResult < 1) {
+			System.out.println("삭제를 실패했습니다.");
+			return "redirect:banner_list";
+		} else {
+			System.out.println("삭제를 성공했습니다.");
+			return "redirect:banner_list";
+		}
+	}
+	
+	
+	// 배너 수정
+	@RequestMapping("/banner_update")
+	public String banner_update(HttpServletRequest request, Model model) {
+		String index = request.getParameter("banner_index");
+						//update items
+		model.addAttribute("dtoB_update", service_banner.banner_update(index));
+		return "manager/banner_update" ;
+	}
+	
+	// 배너 수정확인
+	@RequestMapping(value="/banner_updateOk", method = RequestMethod.POST)
+	public String banner_updateOk(	@RequestParam(value="upload_banner_img", required=false) MultipartFile banner_img,
+									HttpServletRequest request, Model model) {
+		
+		Map<String, String> map = new HashMap<String, String>();
+		
+		String index = request.getParameter("banner_index");
+		map.put("banner_index", index);
+		
+		String title = request.getParameter("banner_title");
+		map.put("banner_title", title);
+		
+		//img
+		if( !(banner_img.isEmpty()) ) {
+			String mainBanner = fileUploadService_banner.restore(banner_img);
+			map.put( "banner_img", mainBanner );
+		} else {
+			map.put( "banner_img", "null" );
+		}
+		
+		String href = request.getParameter("banner_href");
+		map.put("banner_href", href);
+
+		
+		int nResult = service_banner.banner_updateok(map);
+		if( nResult < 1) {
+			System.out.println("수정을 실패했습니다.");
+			return "redirect:banner_list";
+		}else {
+			System.out.println("수정을 성공했습니다.");
+			return "redirect:banner_list";	
+		}
+	}
+	
+	
 	
 	/*=========== /관리자 페이지 =============*/
 	

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.example.demo.dao.IDao_banner">
+	
+	<!-- banner_list -->
+	<select id="banner_listDao" resultType="com.example.demo.dto.dto_banner"> 
+			SELECT * FROM banner ORDER BY banner_index DESC
+	</select>
+	
+	<!-- banner_write -->
+	<insert id="banner_writeDao">
+		INSERT INTO banner (banner_index, banner_title, banner_img, banner_href) VALUES (0, #{banner_title}, #{banner_img},#{banner_href})
+	</insert>
+	
+	<!-- banner_delete -->	
+	<delete id="banner_deleteDao">
+		DELETE FROM banner WHERE banner_index = #{banner_index}		
+	</delete>
+	
+	<!-- banner_update -->
+	<select id="banner_updateDao" resultType="com.example.demo.dto.dto_banner">
+		SELECT * FROM banner WHERE banner_index = #{banner_index}
+	</select>
+	
+	<!-- banner_updateok -->
+	
+	<update id="banner_updateokDao">
+			UPDATE banner SET banner_title = #{banner_title}, banner_href = #{banner_href}, banner_img = #{banner_img} 
+			WHERE banner_index = #{banner_index}
+	</update>
+
+</mapper>
+	
