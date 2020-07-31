@@ -22,11 +22,11 @@
 		                <div class="item_groupBox">
 		                    <div class="item_img_250320">
 		                        <div class="item_img" style="background-image: url('${ dto.item_img }')">
-		                            <a href="item_detail?item_detail=${ dto.idx }"></a>
+		                            <a href="item_detail?idx=${ dto.idx }"></a>
 		                        </div>
 		                    </div>
 		                    <div class="item_desc">
-		                        <p><a href="item_detail?item_detail=${ dto.idx }">${ dto.item_name }</a></p>
+		                        <p><a href="item_detail?idx=${ dto.idx }">${ dto.item_name }</a></p>
 		                        <p>${ dto.item_sale_price }</p>
 		                    </div>
 		                </div>

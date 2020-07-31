@@ -6,17 +6,18 @@
 
 
 	<c:import url="../header.jsp"></c:import>
-	
 	    <div id="item_detail_wrap">
-        <div class="item_detail_titleLink">
-            <ul>
-                    <!-- 해상 상품 카테고리 페이지 이동 -->
-                <li><a href="#"> 제철과일</a></li>
-                <li> > </li>
-                    <!-- 해당 상품 이름 -->
-                <li><a href="#"> 상품이름</a></li>
-            </ul>
-        </div>
+	    <c:forEach items="${ idx_show_detail }" var="dto">
+	        <div class="item_detail_titleLink">
+	        	<ul>
+	                <!-- 해상 상품 카테고리 페이지 이동 -->
+	                <li><a href="#"> ${ dto.item_category }</a></li>
+	                <li> > </li>
+	                <!-- 해당 상품 이름 -->
+	                <li><a href="#"> ${ dto.item_name }</a></li>
+	            </ul>
+	        </div>
+        </c:forEach>
         <!-- 상세페이지 상단-주문 -->
         <div id="item_detail_content1_wrap">
             <div id="item_detail_content1">
@@ -31,19 +32,20 @@
                         <p>사용자 총 평점 <span style="font-size: 1.5em; font-weight:800;">4.8/5.0</span> </p>
                     </div>
                 </div>
-
+			
+			<c:forEach items="${ idx_show_detail }" var="dto">
                 <div class="item_detail_content1_right">
                     <div class="item_detail_desc">
                         <div>
-                            <p class="goods_name">[워싱턴] 한입체리 500g</p>
+                            <p class="goods_name">${ dto.item_name }</p>
                         </div>
                         <div id="goods_prices">
-                            <p class="goods_dc">10%</p>
+                            <p class="goods_dc">${ dto.item_discount_rate }%</p>
                             <p>
                                 <!-- 원가 -->
-                                <span class="goods_orPrice">00,000원</span>&nbsp;&nbsp;
+                                <span class="goods_orPrice">${ dto.item_real_price }원</span>&nbsp;&nbsp;
                                 <!-- 판매가격 -->
-                                <span class="goods_dcPrice">00,000</span>원</span> 
+                                <span class="goods_dcPrice">${ dto.item_sale_price }</span>원</span> 
                             </p>
                         </div>
                         <div id="goods_info">
@@ -79,6 +81,8 @@
                         </div>                  
                     </div>
                 </div>
+            </c:forEach>
+            
                 <div id="item_detail_reviewBox_top">
                     <h3>상품리뷰(5)</h3>
                     <p class="reviewMore"><a href="#item_detail_review">더보기</a></p>
@@ -109,7 +113,6 @@
                 </div>
             </div>
         </div>
-
         <!-- 상세페이지 -->
         <div id="item_detail_content2">
 
