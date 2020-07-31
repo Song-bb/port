@@ -10,9 +10,9 @@
 	<!-- Swiper -->
 	  <div class="swiper-container">
 	    <div class="swiper-wrapper">
-
-	      <div class="swiper-slide" style="background-image: url('/img/main_banner_1.jpg')"><a href="#"></a></div>
-
+		<c:forEach items="${ dtoB_mainBanner }" var="mainBanner">
+	      <div class="swiper-slide" style="background-image: url('${ mainBanner.banner_img }')"><a href="${ mainBanner.banner_href }"></a></div>
+		</c:forEach>
 	    </div>
 	    <!-- Add Pagination -->
 	    <div class="swiper-pagination swiper-pagination-white"></div>

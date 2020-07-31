@@ -80,6 +80,7 @@ public class MyContoller {
 	// 메인페이지
 	@RequestMapping("/main")
 	public String mainPage(Model model) {
+		model.addAttribute("dtoB_mainBanner", service_banner.banner_list());
 		return "main";
 	}
 	
