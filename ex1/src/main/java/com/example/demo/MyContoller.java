@@ -195,8 +195,8 @@ public class MyContoller {
 	// 회원 탈퇴
 	@RequestMapping("/leave_gwailJangsu")
 	public String leave_gwailJangsu(@RequestParam("user_pw") String user_pw, 
-									@RequestParam("reason") String reason, 
-									@RequestParam("delete_content") String content, 
+									@RequestParam(value="reason", required=false) String reason, 
+									@RequestParam(value="delete_content", required=false) String content, 
 									HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession();
 		String user_id = session.getAttribute("user_id").toString();
@@ -1078,6 +1078,24 @@ public class MyContoller {
 			model.addAttribute("withdraw_member_select", service_members.member_detail( member_index ));
 			return "manager/withdraw_member";
 		}
+	}
+	
+	// 회원관리-탈퇴확인중
+	@RequestMapping("/withdraw_member_ok")
+	public String withdraw_member_ok(@RequestParam("user_id") String user_id, 
+									 @RequestParam("reason") String reason,
+									 @RequestParam("delete_content") String content,
+									 Model model ) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("user_id", user_id);
+		map.put("reason", reason);
+		map.put("content", content);
+        
+		int nResult = service_seced_member.leave_member( map );
+		if( nResult < 1 ) {
+			return "myPage/member_withdraw_member_fail";
+		}
+	return "manager/member";
 	}
 	
 	// 상품관리

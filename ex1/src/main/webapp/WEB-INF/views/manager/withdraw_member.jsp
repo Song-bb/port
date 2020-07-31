@@ -6,16 +6,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>선택회원 탈퇴</title>
 </head>
 	<style>
 		 #withdraw_member_wrap {
 		     width: 480px;
 		     height: 430px;
-		     padding: 20px;
 		 }
 		 #withdraw_member_title {
 		     margin-bottom: 10px;
+		     padding-left: 5px;
 		 }
 		 #withdraw_member_memberForm {
 		     width: 480px;
@@ -61,58 +61,76 @@
             <h3>회원탈퇴</h3>
         </div>
         <div id="withdraw_member_memberForm">
-            <form action="" method="post">
-                <table id="withdraw_member_memberTable">
-                    <c:forEach items="${ withdraw_member_select }" var="dto">
-                    <c:set var = "string1" value = "${ dto.join_date }"/>
-                    <c:set var = "string2" value = "${fn:substring(string1, 0, 10)}" />
-                    <tr>
-                        <th>아이디</th>
-                        <td>${ dto.user_id }</td>
-                    </tr>
-                    <tr>
-                        <th>이름</th>
-                        <td>${ dto.user_name }</td>
-                    </tr>
-                    <tr>
-                        <th>가입일</th>
-                        <td>${ string2 }</td>
-                    </tr>
-                    <tr>
-                        <th>이메일</th>
-                        <td>${ dto.user_email }</td>
-                    </tr>
-                    <tr>
-                        <th>연락처</th>
-                        <td>${ dto.user_phone }</td>
-                    </tr>
-                    <tr>
-                        <th>주소</th>
-                        <td>${ dto.user_address }</td>
-                    </tr>
-                    <tr>
-                        <th>회원등급</th>
-                        <td>${ dto.user_grade }</td>
-                    </tr>
-                    <tr>
-                        <th>구매금액</th>
-                        <td>${ dto.buying_price }</td>
-                    </tr>
-                    <tr>
-                        <th>적립금</th>
-                        <td class="withdraw_member_memberTable_td">${ dto.user_id }</td>
-                    </tr>
-                    </c:forEach>
-                </table>
-                <div id="withdraw_member_check">
-                    해당 회원을 탈퇴 시키시겠습니까?
-                </div>
-                <div id="withdraw_member_div">
-                    <button type="submit">확인</button>
-                </div>
-            </form>
+            <table id="withdraw_member_memberTable">
+                <c:forEach items="${ withdraw_member_select }" var="dto">
+                <c:set var = "string1" value = "${ dto.join_date }"/>
+                <c:set var = "string2" value = "${fn:substring(string1, 0, 10)}" />
+                <tr>
+                    <th>아이디</th>
+                    <td>${ dto.user_id }</td>
+                    <input type="hidden" id="user_id" value="${ dto.user_id }">
+                    <input type="hidden" id="reason" value="운영자 임의탈퇴">
+                </tr>
+                <tr>
+                    <th>이름</th>
+                    <td>${ dto.user_name }</td>
+                </tr>
+                <tr>
+                    <th>가입일</th>
+                    <td>${ string2 }</td>
+                </tr>
+                <tr>
+                    <th>이메일</th>
+                    <td>${ dto.user_email }</td>
+                </tr>
+                <tr>
+                    <th>연락처</th>
+                    <td>${ dto.user_phone }</td>
+                </tr>
+                <tr>
+                    <th>주소</th>
+                    <td>${ dto.user_address }</td>
+                </tr>
+                <tr>
+                    <th>회원등급</th>
+                    <td>${ dto.user_grade }</td>
+                </tr>
+                <tr>
+                    <th>구매금액</th>
+                    <td>${ dto.buying_price }</td>
+                </tr>
+                <tr>
+                    <th>적립금</th>
+                    <td class="withdraw_member_memberTable_td">${ dto.user_id }</td>
+                </tr>
+                <tr>
+                    <th>탈퇴사유</th>
+                    <td><textarea id="delete_content" cols="50" rows="5"></textarea></td>
+                </tr>
+                </c:forEach>
+            </table>
+            <div id="withdraw_member_check">
+                해당 회원을 탈퇴 시키시겠습니까?
+            </div>
+            <div id="withdraw_member_div">
+                <button type="button" onclick="withdraw_member_ok()">확인</button>
+            </div>
         </div>
     </div>
+    
+    <script>
+	function withdraw_member_ok() { 
+		var user_id = document.getElementsById('user_id').value;
+		var reason = document.getElementsById('reason').value;
+		var delete_content = document.getElementsById('delete_content').value;
+		alert( user_id + reason + delete_content);
+        var url = "/withdraw_member_ok?user_id=" + user_id + "&reason=" + reason + "&delete_content=" + delete_content;
+        alert( url) ;
+/* 		opener.document.location.href=url;
+		window.close(); */
+	}
+    </script>
+    
     
 </body>
 </html>

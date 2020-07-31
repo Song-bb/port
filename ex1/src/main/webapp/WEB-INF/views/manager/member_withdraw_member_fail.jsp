@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<!-- 관리자페이지 > 회원관리 -->
+<!-- 관리자페이지 > 회원관리 > 회원탈퇴시키기 실패 -->
 
 
 	<c:import url="header_management.jsp"></c:import>
@@ -159,5 +159,8 @@
 			window.open(url, "withdraw_member", "width=505, height=515, left=200, top=0"); 
 		}
 		
+		$(document).ready(function(){
+		     alert("회원 탈퇴시키기 실패하였습니다.");
+		});
 	</script>
 	
