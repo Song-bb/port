@@ -17,14 +17,13 @@
 	                <li><a href="#"> ${ dto.item_name }</a></li>
 	            </ul>
 	        </div>
-        </c:forEach>
         <!-- 상세페이지 상단-주문 -->
         <div id="item_detail_content1_wrap">
             <div id="item_detail_content1">
                 <div class="item_detail_content1_left">
                     <!-- .item_img => 상품리스트에 들어가는 이미지와 여기에 등록하는 이미지가 동일해야함 -->
                     <div class="item_img">
-                        <img src="http://placehold.it/500x640">
+                        <img src="${ dto.item_img }">
                     </div>
                     <div>
                         <!-- 리뷰와 총점은 DB데이터로 측정 -->
@@ -32,7 +31,7 @@
                         <p>사용자 총 평점 <span style="font-size: 1.5em; font-weight:800;">4.8/5.0</span> </p>
                     </div>
                 </div>
-			
+			</c:forEach>
 			<c:forEach items="${ idx_show_detail }" var="dto">
                 <div class="item_detail_content1_right">
                     <div class="item_detail_desc">
