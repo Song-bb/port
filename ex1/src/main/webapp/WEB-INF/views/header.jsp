@@ -63,7 +63,7 @@
 
 	<div id="header">
 		<div id="header_top_adv">
-			<a href="" >
+			<a href="/regularOrder_main" >
 				<div>
 					<!-- <img src="img/header_top_adv.JPG"> -->
 					<img src="img/header_top_adv.JPG">
