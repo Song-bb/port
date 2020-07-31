@@ -467,3 +467,147 @@
     padding: 10px;
     text-align: center;
 }
+
+
+/* ========== 배너 ========= */
+
+#banner_img_wrap{
+    width: 1050px;
+    margin:auto;
+    text-align: center;
+}
+#banner_img_wrap h3{
+    padding: 20px;
+    text-align: left;
+}
+#banner_img_wrap h4{
+	text-align: left;
+}
+
+
+#banner_img_wrap > div{
+	margin-bottom: 130px;
+}
+
+#banner_img_wrap table{
+    width: 100%;
+    border-bottom: 2px solid #459356;
+    border-top: 2px solid #459356;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+#banner_img_wrap table tr:first-child{
+    height: 40px;
+    background-color: #4593561a;
+}
+
+#banner_img_wrap table tr{
+    border-bottom: 1px solid #ededed;
+    height: 100px;
+}
+
+#banner_img_wrap table tr:first-child th:nth-child(2){
+   width: 40%;
+}
+
+#banner_img_wrap .banner_thumb {
+    width: 100%;
+    height: 100px;
+    background-color: pink;
+}
+#banner_img_wrap .banner_thumb > img{
+    object-fit: cover;
+    width: 100%;
+    height: 100px;
+}
+
+#banner_img_wrap .width60 {
+    width: 60px;
+}
+
+#banner_img_wrap .banner_writeForm_button{
+    width: 100px;
+    margin-top: 10px;
+    padding: 10px 0;
+    border:none;
+    background-color: #459356;
+    color:white;
+}
+
+/*=============배너 등록페이지=============*/
+
+#banner_write_wrap{
+    max-width: 1050px;
+    margin:auto;
+}
+#banner_write_wrap h3{
+    padding: 20px;
+    border-bottom: 2px solid #459356;
+    margin-bottom: 50px;
+}
+
+#banner_write_wrap table{
+    width: 800px;
+    margin:auto;
+    border-collapse: collapse;
+
+}
+#banner_write_wrap table td{
+    padding-bottom: 20px;
+}
+#banner_write_wrap .submit_button{
+    text-align: center;
+}
+#banner_write_wrap table td > input[type="file"]{
+    width: 57%;
+    padding-left: 20px;
+}
+
+#banner_write_wrap td > input.banner_title{
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    border: 1px solid #ededed;
+    font-size: 1.1em;
+}
+
+#banner_write_wrap textarea{
+    resize: none;
+    font-size: 1.1em;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ededed;
+}
+
+#banner_write_wrap table td>span:last-child{
+    font-size: 0.7em;
+    text-align: right;
+}
+
+#banner_write_wrap td input.banner_href{
+    width: 86%;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid #ededed;
+    float:right;
+}
+
+
+#banner_write_wrap table:first-child input[type="submit"]{
+    border:none;
+    width: 200px;
+    height: 50px;
+    margin-top: 40px ;
+    cursor: pointer;
+    text-align: center;
+    background-color: #459356;
+    color: white;
+}
+
+
+/* ========== /배너 ========= */
+
+
+

@@ -1239,6 +1239,7 @@ public class MyContoller {
 		model.addAttribute("startPage", startPage );
 		model.addAttribute("leave_member_page", page);
 		model.addAttribute("max_page", startPage + 1);
+		model.addAttribute("lastPage", lastPage);
 		
 		model.addAttribute("leave_member", service_seced_member.list_nextPage( page ));
 		model.addAttribute("leave_member_page", 1);

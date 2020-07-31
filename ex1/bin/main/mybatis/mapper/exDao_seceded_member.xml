@@ -18,5 +18,9 @@
 			SELECT COUNT(*) FROM seceded_member
 	</select>
 	
+	<select id="list_nextPage" resultType="com.example.demo.dto.dto_seceded_member"> 
+			SELECT * FROM seceded_member ORDER BY idx desc LIMIT #{param1}, 10
+	</select>
+	
 	
 </mapper>
