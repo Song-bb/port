@@ -19,10 +19,10 @@
             <table class="item_table">
                 <tr>
                     <td>
-                        <div class="item_groupBox">
-		                    <div class="item_img_250320">
+		                <div  class="item_groupBox">
+		                	<div class="item_img_250320">
 		                        <div class="item_img" style="background-image: url('${ dto.item_img }')">
-		                            <a href="/item_detail"></a>
+		                        	<a href="item_detail?item_detail=${ dto.idx }"></a>
 		                        </div>
 		                    </div>
 		                    <div class="item_desc">
