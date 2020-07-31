@@ -245,19 +245,19 @@ public class MyContoller {
 	public String fruitInSeason_main_new(Model model) {
 		model.addAttribute("season_count", service_items.nSeasonCount());
 		model.addAttribute("season_listview_new", service_items.season_list_new());
-		return "item/fruitInSeason_main";
+		return "item/fruitInSeason_main_new";
 	}
 	@RequestMapping("/fruitInSeason_main_down")
 	public String fruitInSeason_main_down(Model model) {
 		model.addAttribute("season_count", service_items.nSeasonCount());
 		model.addAttribute("season_listview_down", service_items.season_list_down());
-		return "item/fruitInSeason_main";
+		return "item/fruitInSeason_main_down";
 	}
 	@RequestMapping("/fruitInSeason_main_high")
 	public String fruitInSeason_main_high(Model model) {
 		model.addAttribute("season_count", service_items.nSeasonCount());
 		model.addAttribute("season_listview_high", service_items.season_list_up());
-		return "item/fruitInSeason_main";
+		return "item/fruitInSeason_main_high";
 	}
 	
 	// 수입과일메인
@@ -272,19 +272,19 @@ public class MyContoller {
 	public String importedFruit_main_new(Model model) {
 		model.addAttribute("imported_count", service_items.nimportedCount());
 		model.addAttribute("imported_listview_new", service_items.imported_list_new());
-		return "item/importedFruit_main";
+		return "item/importedFruit_main_new";
 	}
 	@RequestMapping("/importedFruit_main_down")
 	public String importedFruit_main_down(Model model) {
 		model.addAttribute("imported_count", service_items.nimportedCount());
 		model.addAttribute("imported_listview_down", service_items.imported_list_down());
-		return "item/importedFruit_main";
+		return "item/importedFruit_main_down";
 	}
 	@RequestMapping("/importedFruit_main_high")
 	public String importedFruit_main_high(Model model) {
 		model.addAttribute("imported_count", service_items.nimportedCount());
 		model.addAttribute("imported_listview_high", service_items.imported_list_up());
-		return "item/importedFruit_main";
+		return "item/importedFruit_main_high";
 	}
 
 	// 낙과채널메인
@@ -299,19 +299,19 @@ public class MyContoller {
 	public String fallenFruit_main_new( Model model ) {
 		model.addAttribute("fallen_count", service_items.nFallenCount());
 		model.addAttribute("fallen_listview_new", service_items.fallen_list_new());
-		return "item/fallenFruit_main";
+		return "item/fallenFruit_main_new";
 	}
 	@RequestMapping("/fallenFruit_main_down")
 	public String fallenFruit_main_down( Model model ) {
 		model.addAttribute("fallen_count", service_items.nFallenCount());
 		model.addAttribute("fallen_listview_down", service_items.fallen_list_down());
-		return "item/fallenFruit_main";
+		return "item/fallenFruit_main_down";
 	}
 	@RequestMapping("/fallenFruit_main_high")
 	public String fallenFruit_main_high( Model model ) {
 		model.addAttribute("fallen_count", service_items.nFallenCount());
 		model.addAttribute("fallen_listview_high", service_items.fallen_list_up());
-		return "item/fallenFruit_main";
+		return "item/fallenFruit_main_high";
 	}
 	
 	/*=========== 이벤트 페이지 =============*/
