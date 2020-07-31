@@ -15,7 +15,7 @@
 	    <div id="seasonpage_top_nav"><a href="/fruitInSeason_main_new">최신순 </a> | <a href="/fruitInSeason_main_down">낮은 가격 순 </a> | <a href="/fruitInSeason_main_high">높은 가격 순 </a></div>
 	    <div id="seasonpage_mid">
 
-        <c:forEach items="${ season_listview }" var="dto">
+        <c:forEach items="${ season_listview_down }" var="dto">
             <table class="item_table">
                 <tr>
                     <td>

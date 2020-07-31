@@ -240,6 +240,25 @@ public class MyContoller {
 		model.addAttribute("season_listview", service_items.season_list());
 		return "item/fruitInSeason_main";
 	}
+	// 제철과일정렬
+	@RequestMapping("/fruitInSeason_main_new")
+	public String fruitInSeason_main_new(Model model) {
+		model.addAttribute("season_count", service_items.nSeasonCount());
+		model.addAttribute("season_listview_new", service_items.season_list_new());
+		return "item/fruitInSeason_main";
+	}
+	@RequestMapping("/fruitInSeason_main_down")
+	public String fruitInSeason_main_down(Model model) {
+		model.addAttribute("season_count", service_items.nSeasonCount());
+		model.addAttribute("season_listview_down", service_items.season_list_down());
+		return "item/fruitInSeason_main";
+	}
+	@RequestMapping("/fruitInSeason_main_high")
+	public String fruitInSeason_main_high(Model model) {
+		model.addAttribute("season_count", service_items.nSeasonCount());
+		model.addAttribute("season_listview_high", service_items.season_list_up());
+		return "item/fruitInSeason_main";
+	}
 	
 	// 수입과일메인
 	@RequestMapping("/importedFruit_main")
@@ -248,12 +267,50 @@ public class MyContoller {
 		model.addAttribute("imported_listview", service_items.imported_list());
 		return "item/importedFruit_main";
 	}
+	// 상품 정렬
+	@RequestMapping("/importedFruit_main_new")
+	public String importedFruit_main_new(Model model) {
+		model.addAttribute("imported_count", service_items.nimportedCount());
+		model.addAttribute("imported_listview_new", service_items.imported_list_new());
+		return "item/importedFruit_main";
+	}
+	@RequestMapping("/importedFruit_main_down")
+	public String importedFruit_main_down(Model model) {
+		model.addAttribute("imported_count", service_items.nimportedCount());
+		model.addAttribute("imported_listview_down", service_items.imported_list_down());
+		return "item/importedFruit_main";
+	}
+	@RequestMapping("/importedFruit_main_high")
+	public String importedFruit_main_high(Model model) {
+		model.addAttribute("imported_count", service_items.nimportedCount());
+		model.addAttribute("imported_listview_high", service_items.imported_list_up());
+		return "item/importedFruit_main";
+	}
 
 	// 낙과채널메인
 	@RequestMapping("/fallenFruit_main")
 	public String fallenFruit_main( Model model ) {
 		model.addAttribute("fallen_count", service_items.nFallenCount());
 		model.addAttribute("fallen_listview", service_items.fallen_list());
+		return "item/fallenFruit_main";
+	}
+	// 낙과채널정렬
+	@RequestMapping("/fallenFruit_main_new")
+	public String fallenFruit_main_new( Model model ) {
+		model.addAttribute("fallen_count", service_items.nFallenCount());
+		model.addAttribute("fallen_listview_new", service_items.fallen_list_new());
+		return "item/fallenFruit_main";
+	}
+	@RequestMapping("/fallenFruit_main_down")
+	public String fallenFruit_main_down( Model model ) {
+		model.addAttribute("fallen_count", service_items.nFallenCount());
+		model.addAttribute("fallen_listview_down", service_items.fallen_list_down());
+		return "item/fallenFruit_main";
+	}
+	@RequestMapping("/fallenFruit_main_high")
+	public String fallenFruit_main_high( Model model ) {
+		model.addAttribute("fallen_count", service_items.nFallenCount());
+		model.addAttribute("fallen_listview_high", service_items.fallen_list_up());
 		return "item/fallenFruit_main";
 	}
 	

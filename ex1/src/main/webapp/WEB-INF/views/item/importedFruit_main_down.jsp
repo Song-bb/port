@@ -15,7 +15,7 @@
 	    <div id="importedpage_top_nav"><a href="/importedFruit_main_new">최신순 </a> | <a href="/importedFruit_main_down">낮은 가격 순 </a> | <a href="/importedFruit_main_high">높은 가격 순 </a></div>
 	    <div id="importedpage_mid">
 	    
-		<c:forEach items="${ imported_listview }" var="dto">
+		<c:forEach items="${ imported_listview_down }" var="dto">
 		    <table class="item_table">
 		        <tr>
 		            <td>
