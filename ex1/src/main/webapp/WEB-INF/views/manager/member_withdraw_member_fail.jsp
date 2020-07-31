@@ -112,7 +112,7 @@
         <div class="member_manager_select_page">
             <table class="member_manager_select_page_table">
                 <tr>
-               		<td class="member_manager_select_page_td"><a href="/member"><<</a></td>
+               		<td class="member_manager_select_page_td"><a href="/member_nextPage?page=1"><<</a></td>
                		<c:set var="current_page" value="${current_page}" />
                		<c:if test = "${ current_page != 1 }">
                			<td class="member_manager_select_page_td"><a href="/member_nextPage?page=${current_page-1}"><</a></td>

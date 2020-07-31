@@ -112,7 +112,7 @@
         <div class="member_manager_select_page">
             <table class="member_manager_select_page_table">
                 <tr>
-               		<td class="member_manager_select_page_td"><a href="/member_search_next?date_min=${date_min}&date_max=${date_max}&buying_min=${buying_min}&buying_max=${buying_max}&grade=${grade}&point_min=${point_min}&point_max=${point_max}&member_categori=${member_categori}&search_text=${search_text}&page=${startPage}"><<</a></td>
+               		<td class="member_manager_select_page_td"><a href="/member_search_next?date_min=${date_min}&date_max=${date_max}&buying_min=${buying_min}&buying_max=${buying_max}&grade=${grade}&point_min=${point_min}&point_max=${point_max}&member_categori=${member_categori}&search_text=${search_text}&page=1"><<</a></td>
                		<c:set var="current_page" value="${current_page}" />
                		<c:if test = "${ current_page != 1 }">
                			<td class="member_manager_select_page_td"><a href="/member_search_next?date_min=${date_min}&date_max=${date_max}&buying_min=${buying_min}&buying_max=${buying_max}&grade=${grade}&point_min=${point_min}&point_max=${point_max}&member_categori=${member_categori}&search_text=${search_text}&page=${current_page-1}"><</a></td>
