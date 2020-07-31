@@ -181,7 +181,7 @@ public class MyContoller {
 				session.setAttribute("user_point", list.get(0).getUser_point()); // 적립금 세션 저장
 				session.setAttribute("user_email", list.get(0).getUser_email()); // 이메일 세션 저장
 				session.setAttribute("user_phone", list.get(0).getUser_phone()); // 휴대폰번호 세션 저장
-				return "/main";
+				return "redirect:main";
 			} else { // 비밀번호 불일치
 				return "loginPage/login_fail_pw";
 			}
