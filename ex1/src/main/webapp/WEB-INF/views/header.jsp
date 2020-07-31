@@ -66,7 +66,7 @@
 			<a href="" >
 				<div>
 					<!-- <img src="img/header_top_adv.JPG"> -->
-					<img src="${ banner_img.address }">
+					<img src="img/header_top_adv.JPG">
 				</div>
 			</a>
 		</div>

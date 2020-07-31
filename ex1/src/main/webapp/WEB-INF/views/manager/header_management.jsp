@@ -23,7 +23,7 @@
 			<a href="" >
 				<div>
 					<!-- <img src="img/header_top_adv.JPG"> -->
-					<img src="${ banner_img.address }">
+					<img src="img/header_top_adv.JPG">
 				</div>
 			</a>
 		</div>
@@ -97,9 +97,9 @@
 	                    </ul>
 	                </li>
 	                <li>
-	                    <a href="/banner_img">배너관리</a>
+	                    <a href="/banner_list">배너관리</a>
 	                    <ul class="sub_nav2">
-	                        <li><a href="/banner_img">메인배너관리</a></li>
+	                        <li><a href="/banner_list">메인배너관리</a></li>
 	                    </ul>
 	                </li>
 	            </ul>
