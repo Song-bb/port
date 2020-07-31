@@ -1192,13 +1192,57 @@ public class MyContoller {
 		}
 	}
 	
-	// 탈퇴회원 리스트
+	// 탈퇴회원 리스트 - 첫페이지
 	@RequestMapping("/leave_member")
-	public String leave_member(@RequestParam(value="page", required=false) int page, Model model) {
+	public String leave_member(Model model) {
 		int count = service_seced_member.count();
 		model.addAttribute("leave_member_count", count);
 		model.addAttribute("leave_member", service_seced_member.list());
+		
+		int index = 10; // 한 페이지에 나타내는 글 수
+		int page1 = count / index; // 한페이지안에 글이 꽉 찬 페이지
+		int page2 = 0; 
+		if( count % index != 0 ) { // 잔여 글이 남아있으면
+			page2 = 1; // 한페이지안에 글이 꽉차진 않지만 있는 페이지
+		}
+		int lastPage = page1 + page2; // 총 나타내야 할 페이지
+		
+		model.addAttribute("leave_member_page", 1);
+		model.addAttribute("startPage", 1);
+		model.addAttribute("max_page", lastPage);
+		model.addAttribute("lastPage", lastPage);
 		return "manager/leave_member";
+	}
+	
+	// 탈퇴회원 리스트 - 다음페이지
+	@RequestMapping("/leave_member_nextPage")
+	public String leave_member_nextPage(@RequestParam("page") int page, Model model) {
+		int count = service_seced_member.count();
+		model.addAttribute("leave_member_count", count);
+		
+		int index = 10; // 한 페이지에 나타내는 글 수
+		int page1 = count / index; // 한페이지안에 글이 꽉 찬 페이지
+		int page2 = 0; 
+		if( count % index != 0 ) { // 잔여 글이 남아있으면
+			page2 = 1; // 한페이지안에 글이 꽉차진 않지만 있는 페이지
+		}
+		int lastPage = page1 + page2; // 총 나타내야 할 페이지
+		int maxPage = 5; // 한번에 나타내는 페이지수
+		int startPage = 1;
+		if( lastPage / maxPage != 0 || lastPage != 5 ) { // 5개 이후 페이지 추가 발생하면
+			if( page % 5 == 0 ) {
+				startPage = ((page / maxPage) * 5) + 1;
+			} else {
+				startPage = page + 1;
+			}
+		}
+		model.addAttribute("startPage", startPage );
+		model.addAttribute("leave_member_page", page);
+		model.addAttribute("max_page", startPage + 1);
+		
+		model.addAttribute("leave_member", service_seced_member.list_nextPage( page ));
+		model.addAttribute("leave_member_page", 1);
+		return "manager/leave_member_nextPage";
 	}
 	
 	// 상품 수정

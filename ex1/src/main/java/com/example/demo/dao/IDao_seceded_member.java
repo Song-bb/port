@@ -13,5 +13,6 @@ public interface IDao_seceded_member {
 	public int leave_member( Map<String, String> map );
 	public List<dto_seceded_member> list();
 	public int count();
+	public List<dto_seceded_member> list_nextPage( int page );
 	
 }

@@ -43,15 +43,17 @@
         <div class="member_manager_select_page">
             <table class="member_manager_select_page_table">
                 <tr>
-                    <td class="member_manager_select_page_td"><a href=""><<</a></td>
-                    <td class="member_manager_select_page_td"><a href=""><</a></td>
-                    <td class="member_manager_select_page_td"><a href="">1</a></td>
-                    <td class="member_manager_select_page_td"><a href="">2</a></td>
-                    <td class="member_manager_select_page_td"><a href="">3</a></td>
-                    <td class="member_manager_select_page_td"><a href="">4</a></td>
-                    <td class="member_manager_select_page_td"><a href="">5</a></td>
-                    <td class="member_manager_select_page_td"><a href="">></a></td>
-                    <td class="member_manager_select_page_td"><a href="">>></a></td>
+               		<td class="member_manager_select_page_td"><a href="/leave_member_nextPage?page=1"><<</a></td>
+               		<c:if test = "${ leave_member_page != 1 }">
+               			<td class="member_manager_select_page_td"><a href="/leave_member_nextPage?page=${leave_member_page-1}"><</a></td>
+               		</c:if>
+					<c:forEach var="index" begin="${ startPage }" end="${ max_page }">
+						<td class="member_manager_select_page_td"><a href="/leave_member_nextPage?page=${index}">${index}</a></td>
+					</c:forEach>
+					<c:if test = "${ leave_member_page != lastPage }">
+						<td class="member_manager_select_page_td"><a href="/leave_member_nextPage?page=${leave_member_page+1}">></a></td>
+					</c:if>
+					<td class="member_manager_select_page_td"><a href="/leave_member_nextPage?page=${lastPage}">>></a></td>
                 </tr>
             </table>
         </div>  

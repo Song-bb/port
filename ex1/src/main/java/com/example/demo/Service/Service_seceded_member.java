@@ -50,6 +50,15 @@ public class Service_seceded_member {
 		return dao_seded_member.count();
 	}
 	
+	public List<dto_seceded_member> list_nextPage(int page){
+		if( page == 1 ) {
+			return dao_seded_member.list();
+		} else {
+			int page_new = (page - 1) * 10;
+			return dao_seded_member.list_nextPage(page_new);
+		}
+	}
+	
 	
 	
 	
