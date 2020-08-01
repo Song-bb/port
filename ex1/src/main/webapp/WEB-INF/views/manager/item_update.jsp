@@ -26,6 +26,12 @@
                         </td>
                     </tr>
                     <tr class="item_update_tr">
+                        <td class="item_update_td">상품 번호</td>
+                        <td class="item_update_td">
+                            <input type="text" name="item_number" placeholder="상품 번호"/>
+                        </td>
+                    </tr>
+                    <tr class="item_update_tr">
                         <td class="item_update_td">상품 이름</td>
                         <td class="item_update_td">
                             <input type="text" name="item_name" placeholder="상품 이름"/>

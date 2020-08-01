@@ -7,6 +7,7 @@ public class dto_items {
 	
 	private String idx;
 	private String category_idx;
+	private String item_number;
 	private String item_name;
 	private String item_category;
 	private String item_img;
