@@ -114,7 +114,7 @@
         </div>
         <!-- 상세페이지 -->
         <div id="item_detail_content2">
-
+		
             <div class="item_detail_nav">
                 <ul>
                     <li><a href="#item_detail_content2" class="on">상세정보</a></li>
@@ -124,50 +124,52 @@
                 </ul>
 
             </div>
-
+		
 
              <!-- 상품 정보 -->
-            <div id="goods_info_detail">
-                <h4>상품정보</h4>
-                <table>
-                    <tr>
-                        <td class="goods_info_title">상품상태</td>
-                        <td class="goods_info_text">신상품</td>
-                        <td class="goods_info_title">상품번호</td>
-                        <td class="goods_info_text">00000000</td>
-                    </tr>
-                    <tr>
-                        <td class="goods_info_title">제조사</td>
-                        <td class="goods_info_text">영천복숭아</td>
-                        <td class="goods_info_title">브랜드</td>
-                        <td class="goods_info_text">과일장수</td>
-                    </tr>
-                    <tr>
-                        <td class="goods_info_title">원산지</td>
-                        <td class="goods_info_text">국산</td>
-                        <td class="goods_info_title"></td>
-                        <td class="goods_info_text"></td>
-                    </tr>
-                    <tr>
-                        <td class="goods_info_title">무게</td>
-                        <td class="goods_info_text">500g</td>
-                        <td class="goods_info_title">생산시기</td>
-                        <td class="goods_info_text">여름</td>
-                    </tr>
-                    <tr>
-                        <td class="goods_info_title">품종</td>
-                        <td class="goods_info_text">상세페이지참고</td>
-                        <td class="goods_info_title"></td>
-                        <td class="goods_info_text"></td>
-                    </tr>
-                    <tr>
-                        <td class="goods_info_title">영수증발급</td>
-                        <td class="goods_info_text">신용카드전표,현금영수증발급</td>
-                        <td class="goods_info_title">A/S 안내</td>
-                        <td class="goods_info_text">010-1234-4567</td>
-                    </tr>
-                </table>
-            </div>
+            <c:forEach items="${ idx_show_detail }" var="dto">
+	            <div id="goods_info_detail">
+	                <h4>상품정보</h4>
+	                <table>
+	                    <tr>
+	                        <td class="goods_info_title">상품상태</td>
+	                        <td class="goods_info_text">신상품</td>
+	                        <td class="goods_info_title">상품번호</td>
+	                        <td class="goods_info_text">${ dto.item_number }</td>
+	                    </tr>
+	                    <tr>
+	                        <td class="goods_info_title">제조사</td>
+	                        <td class="goods_info_text">영천복숭아</td>
+	                        <td class="goods_info_title">브랜드</td>
+	                        <td class="goods_info_text">과일장수</td>
+	                    </tr>
+	                    <tr>
+	                        <td class="goods_info_title">원산지</td>
+	                        <td class="goods_info_text">국산</td>
+	                        <td class="goods_info_title"></td>
+	                        <td class="goods_info_text"></td>
+	                    </tr>
+	                    <tr>
+	                        <td class="goods_info_title">무게</td>
+	                        <td class="goods_info_text">500g</td>
+	                        <td class="goods_info_title">생산시기</td>
+	                        <td class="goods_info_text">여름</td>
+	                    </tr>
+	                    <tr>
+	                        <td class="goods_info_title">품종</td>
+	                        <td class="goods_info_text">상세페이지참고</td>
+	                        <td class="goods_info_title"></td>
+	                        <td class="goods_info_text"></td>
+	                    </tr>
+	                    <tr>
+	                        <td class="goods_info_title">영수증발급</td>
+	                        <td class="goods_info_text">신용카드전표,현금영수증발급</td>
+	                        <td class="goods_info_title">A/S 안내</td>
+	                        <td class="goods_info_text">010-1234-4567</td>
+	                    </tr>
+	                </table>
+	            </div>
+            </c:forEach>
             <!-- 상품페이지 -->
             <div id="item_detail_page">
                 <p>
