@@ -169,13 +169,15 @@
 	                    </tr>
 	                </table>
 	            </div>
+            
+	            <!-- 상품페이지 -->
+	            <div id="item_detail_page">
+	                <p>
+	                    <img src="${ dto.item_img }" alt="본문">
+	                </p>
+	            </div>
             </c:forEach>
-            <!-- 상품페이지 -->
-            <div id="item_detail_page">
-                <p>
-                    <img src="img/itemPage.jpg" alt="본문">
-                </p>
-            </div>
+            
             <!-- 상품고지 -->
             <div id="goods_info_detail">
                 <h4>상품정보 제공고시</h4>
