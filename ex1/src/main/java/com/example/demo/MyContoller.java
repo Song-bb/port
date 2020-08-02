@@ -975,7 +975,6 @@ public class MyContoller {
 			map.put("search_text", "null");
 			model.addAttribute("search_text", "null");
 		}
-		model.addAttribute("page", 1);
 			
 		List<dto_members> list = service_members.member_search( map );
 		int count = service_members.detail_search_count3( map );
@@ -1088,7 +1087,7 @@ public class MyContoller {
         
 		int nResult = service_seced_member.leave_member( map );
 		if( nResult < 1 ) {
-			return "myPage/member_withdraw_member_fail";
+			return "manager/member_withdraw_member_fail";
 		}
 	return "redirect:member";
 	}
@@ -1098,6 +1097,37 @@ public class MyContoller {
 	public String member_point_pop(@RequestParam("index") String member_index, Model model ) {
 		model.addAttribute("withdraw_member_select", service_members.member_detail( member_index ));
 		return "manager/member_point";
+	}
+	
+	// 회원관리-회원 적립금 추가/삭감
+	@RequestMapping("/member_point_ok")
+	public String member_point_ok(@RequestParam("user_index") String member_index, 
+									@RequestParam("point") String point, Model model ) {
+		int nResult = service_members.update_point( member_index, point );
+		if( nResult < 1 ) {
+			return "manager/member_withdraw_member_fail";
+		} else {
+			return "redirect:member";
+		}
+	}
+	
+	// 회원관리-회원 등급 관리
+	@RequestMapping("/member_grade_pop")
+	public String member_grade_pop(@RequestParam("index") String member_index, Model model ) {
+		model.addAttribute("withdraw_member_select", service_members.member_detail( member_index ));
+		return "manager/member_grade";
+	}
+	
+	// 회원관리-회원 적립금 추가/삭감
+	@RequestMapping("/member_grade_ok")
+	public String member_grade_ok(@RequestParam("user_index") String member_index, 
+									@RequestParam("grade") String grade, Model model ) {
+		int nResult = service_members.update_grade( member_index, grade );
+		if( nResult < 1 ) {
+			return "manager/member_withdraw_member_fail";
+		} else {
+			return "redirect:member";
+		}
 	}
 	
 	// 상품관리

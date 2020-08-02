@@ -499,7 +499,14 @@
 			SELECT * FROM members WHERE user_index = #{param1}
 	</select>
 	
-
+	<update id="update_point"> 
+			UPDATE members SET user_point = #{param2} WHERE user_index = #{param1}
+	</update>
+	
+	<update id="update_grade"> 
+			UPDATE members SET user_grade = #{param2} WHERE user_index = #{param1}
+	</update>
+	
 	
 	
 	

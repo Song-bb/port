@@ -65,8 +65,8 @@ public interface IDao_members {
 	public int checkId( String user_id );
 	public int checkEmail( String user_email );
 	public List<dto_members> member_detail(String user_index);
-
-	
+	public int update_point(String member_index, String point);
+	public int update_grade(String member_index, String grade);
 	
 		
 }

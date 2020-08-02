@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>선택회원 탈퇴</title>
+<title>선택회원 등급 변경하기</title>
 </head>
 	<style>
 		 #withdraw_member_wrap {
@@ -59,7 +59,7 @@
 
 	<div id="withdraw_member_wrap">
         <div id="withdraw_member_title">
-            <h3>회원탈퇴</h3>
+            <h3>회원 등급 수정</h3>
         </div>
         <div id="withdraw_member_memberForm">
             <table id="withdraw_member_memberTable">
@@ -69,8 +69,7 @@
                 <tr>
                     <th>아이디</th>
                     <td>${ dto.user_id }</td>
-                    <input type="hidden" id="user_id" value="${ dto.user_id }">
-                    <input type="hidden" id="reason" value="운영자 임의탈퇴">
+                    <input type="hidden" id="user_index" value="${ dto.user_index }">
                 </tr>
                 <tr>
                     <th>이름</th>
@@ -93,41 +92,56 @@
                     <td>${ dto.user_address }</td>
                 </tr>
                 <tr>
-                    <th>회원등급</th>
-                    <td>${ dto.user_grade }</td>
-                </tr>
-                <tr>
                     <th>구매금액</th>
                     <td><fmt:formatNumber value="${ dto.buying_price }" pattern="###,###,###" /></td>
                 </tr>
                 <tr>
-                    <th>적립금</th>
+                    <th>현재 적립금</th>
                     <td><fmt:formatNumber value="${ dto.user_point }" pattern="###,###,###" /></td>
+                    <input type="hidden" id="current_point" value="${ dto.user_point }">
                 </tr>
                 <tr>
-                    <th>탈퇴사유</th>
-                    <td><textarea id="delete_content" cols="50" rows="5"></textarea></td>
+                    <th>회원등급</th>
+                    <td>${ dto.user_grade }</td>
+                </tr>
+                <tr>
+                    <th>변경 후 등급</th>
+                    <td>
+                    	<select id="grade" name="grade" onChange="select_grade()">
+                    		<option value="앵두">앵두</option>
+                    		<option value="자두">자두</option>
+                    		<option value="복숭아">복숭아</option>
+                    		<option value="과일매니저">과일매니저</option>
+                    	</select>
+                    </td>
                 </tr>
                 </c:forEach>
             </table>
             <div id="withdraw_member_check">
-                해당 회원을 탈퇴 시키시겠습니까?
+                해당 회원의 등급을 <span id="update_grade"></span>로 변경 하시겠습니까?
             </div>
             <div id="withdraw_member_div">
-                <button type="button" onclick="withdraw_member_ok()">확인</button>
+                <button type="button" onclick="member_grade_ok()">확인</button>
             </div>
         </div>
     </div>
     
     <script>
-	function withdraw_member_ok() {
-		var user_id = document.getElementById('user_id').value;
-		var reason = document.getElementById('reason').value;
-		var delete_content = document.getElementById('delete_content').value;
-        var url = "/withdraw_member_ok?user_id=" + user_id + "&reason=" + reason + "&delete_content=" + delete_content;
- 		opener.document.location.href=url;
+    function select_grade() {
+    	var user_grade = document.getElementById('grade').value;
+    	document.getElementById('update_grade').innerHTML = user_grade;
+    	document.getElementById('update_grade').style.color = 'red';
+    	document.getElementById('update_grade').style.fontSize = '14px';
+    }
+    
+    function member_grade_ok() {
+		var user_index = document.getElementById('user_index').value;
+		var user_grade = document.getElementById('grade').value;
+        var url = "/member_grade_ok?user_index=" + user_index + "&grade=" + user_grade;
+        opener.document.location.href=url;
 		window.close();
 	}
+
     </script>
     
     

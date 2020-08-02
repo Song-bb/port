@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -96,11 +97,11 @@
                 </tr>
                 <tr>
                     <th>구매금액</th>
-                    <td>${ dto.buying_price }</td>
+                    <td><fmt:formatNumber value="${ dto.buying_price }" pattern="###,###,###" /></td>
                 </tr>
                 <tr>
                     <th>현재 적립금</th>
-                    <td>${ dto.user_point }</td>
+                    <td><fmt:formatNumber value="${ dto.user_point }" pattern="###,###,###" /></td>
                     <input type="hidden" id="current_point" value="${ dto.user_point }">
                 </tr>
                 <tr>
@@ -109,7 +110,7 @@
                 </tr>
                 <tr>
                     <th>변경 후 적립금</th>
-                    <td><div id="amend_point"></div></td>
+                    <td><div id="amend_point"><fmt:formatNumber value="${ dto.user_point }" pattern="###,###,###" /></div></td>
                 </tr>
                 </c:forEach>
             </table>
@@ -128,15 +129,16 @@
 		var after_user_point = document.getElementById('add_point').value;
 		var new_point = parseInt(before_user_point) + parseInt(after_user_point);
 		document.getElementById("amend_point").innerHTML = numberWithCommas(new_point);
+		document.getElementById("amend_point").style.fontSize = '14px';
+		document.getElementById("amend_point").style.color = 'red';
     }
     
     function member_point_ok() {
 		var user_index = document.getElementById('user_index').value;
 		var point = removeComma(document.getElementById('amend_point').innerText);
         var url = "/member_point_ok?user_index=" + user_index + "&point=" + point;
- 		alert( url );
-        /*opener.document.location.href=url;
-		window.close();*/
+        opener.document.location.href=url;
+		window.close();
 	}
     
     function removeComma(str) {

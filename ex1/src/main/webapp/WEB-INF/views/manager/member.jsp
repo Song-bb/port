@@ -105,7 +105,7 @@
                 <div class="member_search_list_td5">
                     <button type="button" onclick="withdraw_member_pop()" class="member_search_list_td5_btn">선택한 회원 탈퇴</button>
                     <button type="button" onclick="member_point_pop()" class="member_search_list_td5_btn">선택한 회원 적립금 지급</button>
-                    <button type="button" onclick="" class="member_search_list_td5_btn">선택한 회원 등급 변경</button>
+                    <button type="button" onclick="member_grade_pop()" class="member_search_list_td5_btn">선택한 회원 등급 변경</button>
                 </div>
             </form>
         </div>
@@ -175,6 +175,22 @@
 				alert("적립금 추가/삭감할 회원을 선택해주세요.");
 			} else {
 				var url = "/member_point_pop?index=" + data_value;
+				window.open(url, "member_point_pop", "width=505, height=515, left=200, top=0"); 
+			}
+		}
+		
+		function member_grade_pop() { 
+			var data = document.getElementsByName('selected_checkbox');
+			var data_value;
+			for(var i=0; i<data.length; i++) {
+			    if(data[i].checked) {
+			    	data_value = data[i].value;
+			    }
+			}
+			if( data_value == undefined ){
+				alert("등급 변경할 회원을 선택해주세요.");
+			} else {
+				var url = "/member_grade_pop?index=" + data_value;
 				window.open(url, "member_point_pop", "width=505, height=515, left=200, top=0"); 
 			}
 		}

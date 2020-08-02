@@ -299,7 +299,16 @@ public class Service_members {
 	public List<dto_members> member_detail(String user_index) {
 		return dao_member.member_detail( user_index );
 	}
-
+	
+	/* 회원 적립금 추가/삭제 */
+	public int update_point( String member_index, String point ) {
+		return dao_member.update_point(member_index, point);
+	}
+	
+	/* 회원 등급 변경 */
+	public int update_grade( String member_index, String grade ) {
+		return dao_member.update_grade(member_index, grade);
+	}
 	
 	
 
