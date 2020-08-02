@@ -103,7 +103,7 @@
                     </c:forEach>
                 </table>
                 <div class="member_search_list_td5">
-                    <button type="button" onclick="withdraw_member();" class="member_search_list_td5_btn">선택한 회원 탈퇴</button>
+                    <button type="button" onclick="withdraw_member_pop()" class="member_search_list_td5_btn">선택한 회원 탈퇴</button>
                     <button type="button" onclick="" class="member_search_list_td5_btn">선택한 회원 적립금 지급</button>
                     <button type="button" onclick="" class="member_search_list_td5_btn">선택한 회원 등급 변경</button>
                 </div>
@@ -146,9 +146,21 @@
 				con.style.display = "none";
 			}
 		}
-
-		function withdraw_member() { 
-			openWin = window.open("withdraw_member_pop", "childForm", "width=450, height=500, left=200, top=0"); 
+		
+		function withdraw_member_pop() { 
+			var data = document.getElementsByName('selected_checkbox');
+			var data_value; // 여기에 선택된 radio 버튼의 값이 담기게 된다.
+			for(var i=0; i<data.length; i++) {
+			    if(data[i].checked) {
+			    	data_value = data[i].value;
+			    }
+			}
+			if( data_value == undefined ){
+				alert("탈퇴하실 회원을 선택해주세요.");
+			} else {
+				var url = "/withdraw_member_pop?member=" + data_value;
+				window.open(url, "withdraw_member", "width=505, height=515, left=200, top=0"); 
+			}
 		}
 		
 	</script>

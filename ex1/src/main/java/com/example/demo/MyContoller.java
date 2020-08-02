@@ -902,7 +902,7 @@ public class MyContoller {
 									   @RequestParam(value="point_max", required=false) String point_max,
 									   @RequestParam(value="member_categori", required=false) String member_categori,
 									   @RequestParam(value="search_text", required=false) String search_text,
-									   @RequestParam("page") int page,
+									   @RequestParam(value="page", required=false) int page,
 									   Model model) {
 		// 회원수 카운트
 		model.addAttribute("member_total_count", service_members.count_total());
@@ -975,7 +975,7 @@ public class MyContoller {
 			map.put("search_text", "null");
 			model.addAttribute("search_text", "null");
 		}
-		model.addAttribute("page", page);
+		model.addAttribute("page", 1);
 			
 		List<dto_members> list = service_members.member_search( map );
 		int count = service_members.detail_search_count3( map );
@@ -1071,12 +1071,8 @@ public class MyContoller {
 	// 회원관리-탈퇴시키기
 	@RequestMapping("/withdraw_member_pop")
 	public String withdraw_member_pop(@RequestParam("member") String member_index, Model model ) {
-		if( member_index.isEmpty() ) {
-			return "manaber/withdraw_member_fail";
-		} else {
-			model.addAttribute("withdraw_member_select", service_members.member_detail( member_index ));
-			return "manager/withdraw_member";
-		}
+		model.addAttribute("withdraw_member_select", service_members.member_detail( member_index ));
+		return "manager/withdraw_member";
 	}
 	
 	// 회원관리-탈퇴확인중
@@ -1094,7 +1090,14 @@ public class MyContoller {
 		if( nResult < 1 ) {
 			return "myPage/member_withdraw_member_fail";
 		}
-	return "manager/member";
+	return "redirect:member";
+	}
+	
+	// 회원관리-회원 적립금 관리
+	@RequestMapping("/member_point_pop")
+	public String member_point_pop(@RequestParam("index") String member_index, Model model ) {
+		model.addAttribute("withdraw_member_select", service_members.member_detail( member_index ));
+		return "manager/member_point";
 	}
 	
 	// 상품관리

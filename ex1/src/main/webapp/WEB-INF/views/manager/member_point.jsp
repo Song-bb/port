@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>선택회원 탈퇴</title>
+<title>선택회원 적립금 변경하기</title>
 </head>
 	<style>
 		 #withdraw_member_wrap {
@@ -58,7 +58,7 @@
 
 	<div id="withdraw_member_wrap">
         <div id="withdraw_member_title">
-            <h3>회원탈퇴</h3>
+            <h3>회원 적립금 수정</h3>
         </div>
         <div id="withdraw_member_memberForm">
             <table id="withdraw_member_memberTable">
@@ -68,8 +68,7 @@
                 <tr>
                     <th>아이디</th>
                     <td>${ dto.user_id }</td>
-                    <input type="hidden" id="user_id" value="${ dto.user_id }">
-                    <input type="hidden" id="reason" value="운영자 임의탈퇴">
+                    <input type="hidden" id="user_index" value="${ dto.user_index }">
                 </tr>
                 <tr>
                     <th>이름</th>
@@ -100,33 +99,55 @@
                     <td>${ dto.buying_price }</td>
                 </tr>
                 <tr>
-                    <th>적립금</th>
+                    <th>현재 적립금</th>
                     <td>${ dto.user_point }</td>
+                    <input type="hidden" id="current_point" value="${ dto.user_point }">
                 </tr>
                 <tr>
-                    <th>탈퇴사유</th>
-                    <td><textarea id="delete_content" cols="50" rows="5"></textarea></td>
+                    <th>추가/삭감할 적립금</th>
+                    <td><input type="text" id="add_point" onblur="add_point()"></td>
+                </tr>
+                <tr>
+                    <th>변경 후 적립금</th>
+                    <td><div id="amend_point"></div></td>
                 </tr>
                 </c:forEach>
             </table>
             <div id="withdraw_member_check">
-                해당 회원을 탈퇴 시키시겠습니까?
+                해당 회원의 포인트를 추가/삭감하시겠습니까?
             </div>
             <div id="withdraw_member_div">
-                <button type="button" onclick="withdraw_member_ok()">확인</button>
+                <button type="button" onclick="member_point_ok()">확인</button>
             </div>
         </div>
     </div>
     
     <script>
-	function withdraw_member_ok() {
-		var user_id = document.getElementById('user_id').value;
-		var reason = document.getElementById('reason').value;
-		var delete_content = document.getElementById('delete_content').value;
-        var url = "/withdraw_member_ok?user_id=" + user_id + "&reason=" + reason + "&delete_content=" + delete_content;
- 		opener.document.location.href=url;
-		window.close();
+    function add_point(){
+		var before_user_point = document.getElementById('current_point').value;
+		var after_user_point = document.getElementById('add_point').value;
+		var new_point = parseInt(before_user_point) + parseInt(after_user_point);
+		document.getElementById("amend_point").innerHTML = numberWithCommas(new_point);
+    }
+    
+    function member_point_ok() {
+		var user_index = document.getElementById('user_index').value;
+		var point = removeComma(document.getElementById('amend_point').innerText);
+        var url = "/member_point_ok?user_index=" + user_index + "&point=" + point;
+ 		alert( url );
+        /*opener.document.location.href=url;
+		window.close();*/
 	}
+    
+    function removeComma(str) {
+		n = parseInt(str.replace(/,/g,""));
+		return n;
+	}
+
+    function numberWithCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
     </script>
     
     

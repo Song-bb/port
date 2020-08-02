@@ -155,8 +155,12 @@
 			    	data_value = data[i].value;
 			    }
 			}
-	        var url = "/withdraw_member_pop?member=" + data_value;
-			window.open(url, "withdraw_member", "width=505, height=515, left=200, top=0"); 
+			if( data_value == undefined ){
+				alert("탈퇴하실 회원을 선택해주세요.");
+			} else {
+				var url = "/withdraw_member_pop?member=" + data_value;
+				window.open(url, "withdraw_member", "width=505, height=515, left=200, top=0"); 
+			}
 		}
 		
 		$(document).ready(function(){
