@@ -12,14 +12,12 @@
             <h3>주문 내역</h3> 
         </div>
         <div class="order_list_categori">
-            <form action="" method="post">
-                <select onChange="select_year()" class="select_categori_orderList" id="select_orderList" name="select_orderList" >
-                    <option value="" selected="selected">전체기간</option>
-                    <option value="2020">2020년</option>
-                    <option value="2019">2019년</option>
-                    <option value="2018">2018년</option>
-                </select>
-            </form>
+            <select onChange="select_year()" class="select_categori_orderList" id="select_orderList" name="select_orderList" >
+                <option value="" selected="selected">전체기간</option>
+                <option value="2020">2020년</option>
+                <option value="2019">2019년</option>
+                <option value="2018">2018년</option>
+            </select>
         </div>
         <div class="orderList">
             <table class="orderList_table">
@@ -74,11 +72,7 @@
 	<script>
 		function select_year(){
 			var year = document.getElementById('select_orderList').value;
-			if( year == undefined ){
-				alert("검색할 연도를 선택하세요");
-			} else {
-		        var url = "/order_list_selectYear?year=" + year + "&page=1";
-		        opener.document.location.href=url;
-			}
+	        var url = "/order_list_selectYear?year=" + year + "&page=1";
+	        document.location.href=url;
 		}
 	</script>

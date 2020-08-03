@@ -7,6 +7,7 @@ public class dto_myPage {
 	
 	private String idx;
 	private String user_id;
+	private String item_number;
 	private String order_number;
 	private String item_img;
 	private String item_text;

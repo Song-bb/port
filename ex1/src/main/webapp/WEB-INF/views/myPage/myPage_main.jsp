@@ -66,11 +66,11 @@
                     <div class="servicePage_title servicePage_title_1">주문 내역 <span>지난 3년간의 주문 내역 조회가 가능합니다.</span></div>
                     <div class="select_categori2">
                         <form class="select_categori_form2" action="" method="post">
-                            <select class="select_categori_select2" name="select2" >
-                                <option value="1" selected="selected">전체기간</option>
-                                <option value="2" >2020년</option>
-                                <option value="3">2019년</option>
-                                <option value="4">2018년</option>
+                            <select onChange="select_year_myPage()" id="select_orderList_myPage" class="select_categori_select2" name="select2" >
+                                <option value="" selected="selected">전체기간</option>
+                                <option value="2020" >2020년</option>
+                                <option value="2019">2019년</option>
+                                <option value="2018">2018년</option>
                             </select>
                         </form>
                     </div>
@@ -116,3 +116,13 @@
     
 	
 	<c:import url="../footer.jsp"></c:import>
+	
+	<script>
+		function select_year_myPage(){
+			alert( "1");
+			var year = document.getElementById('select_orderList_myPage').value;
+	        var url = "/myPage_main_selectYear?year=" + year + "&page=1";
+	        alert( url );
+	        /*document.location.href=url;*/
+		}
+	</script>

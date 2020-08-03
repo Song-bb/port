@@ -408,7 +408,7 @@ public class MyContoller {
 		return "servicePage/fre_que_select";
 	}
 	
-	// 자주하는페이지 검색
+	// 자주하는질푼 페이지 검색
 	@RequestMapping("/fre_ask_search")
 	public String fre_ask_search(@RequestParam("search_text") String search_text, Model model ) {
 		model.addAttribute("search_text", service_fre_ask.search_fre_ask( search_text ));
@@ -564,6 +564,29 @@ public class MyContoller {
         }
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	// 마이페이지 메인 - 년도별 선택
+	@RequestMapping("/myPage_main_selectYear")
+	public String myPage_main_selectYear( @RequestParam(value="year", required=false) int year, 
+										@RequestParam(value="page", required=false) int page, 
+										HttpServletRequest request, HttpServletResponse response, Model model ) {
+        HttpSession session = request.getSession();
+        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+        	return "loginPage/loginPage_main";
+        } else {
+        	String user_id = session.getAttribute("user_id").toString();
+        	model.addAttribute("my_order", service_myPage.order_list(user_id));
+    		return "myPage/myPage_main_selectYear";
+        }
+	}
+	
 	// 주문상세내역
 	@RequestMapping("/myOrder")
 	public String myOrder(HttpServletRequest request, HttpServletResponse response, Model model ) {
@@ -579,9 +602,13 @@ public class MyContoller {
 
 	// 정기배송내역
 	@RequestMapping("/myRegularorder")
-	public String myRegularorder() {
-		
-		return "myPage/myRegularorder";
+	public String myRegularorder(HttpServletRequest request) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else {
+	        	return "myPage/myRegularorder";
+	        }
 	}
 	
 	// 상품후기
@@ -593,21 +620,35 @@ public class MyContoller {
 	
 	// 상품후기작성
 	@RequestMapping("/myReview_write")
-	public String myReview_write() {
-		return "myPage/myReview_write";
+	public String myReview_write(HttpServletRequest request) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else {
+	        	return "myPage/myReview_write";
+	        }
 	}
 	
 	// 적립금
 	@RequestMapping("/myPoint")
-	public String myPoint() {
-		
-		return "myPage/myPoint";
+	public String myPoint(HttpServletRequest request) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else {
+	        	return "myPage/myPoint";
+	        }
 	}
 	
 	// 개인정보수정
 	@RequestMapping("/updateInform")
-	public String updateInform() {
-		return "myPage/updateInform";
+	public String updateInform(HttpServletRequest request) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else {
+	        	return "myPage/updateInform";
+	        }
 	}
 	
 	// 개인정보수정(비밀번호 재확인)
@@ -628,26 +669,41 @@ public class MyContoller {
 	public String check_password_ok(@RequestParam("user_pw") String user_pw, 
 									@RequestParam("user_id") String user_id, 
 									HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
-		List<dto_members> list = service_members.check_pw( user_id, user_pw );
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		if( user_pw.equals( list.get(0).getUser_pw()) ) { // 비밀번호 일치
-			return "myPage/updateInform";
-		} else { // 비밀번호 불일치
-			return "myPage/check_password_fail";
-		}
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else {
+	    		List<dto_members> list = service_members.check_pw( user_id, user_pw );
+	    		response.setContentType("text/html; charset=UTF-8");
+	    		PrintWriter out = response.getWriter();
+	    		if( user_pw.equals( list.get(0).getUser_pw()) ) { // 비밀번호 일치
+	    			return "myPage/updateInform";
+	    		} else { // 비밀번호 불일치
+	    			return "myPage/check_password_fail";
+	    		}
+	        }
 	}
 	
 	// 회원탈퇴
 	@RequestMapping("/withdraw_member")
-	public String withdraw_member() {
-		return "myPage/withdraw_member";
+	public String withdraw_member( HttpServletRequest request ) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else {
+	        	return "myPage/withdraw_member";
+	        }
 	}
 	
 	// 결제 페이지
 	@RequestMapping("/payment")
-	public String payment() {
-		return "payment/payment";
+	public String payment( HttpServletRequest request ) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else {
+	        	return "payment/payment";
+	        }
 	}
 	
 	// 결제 완료 페이지
@@ -660,79 +716,117 @@ public class MyContoller {
 	
 	// 카페관리페이지(관리자전용)
 	@RequestMapping("/management")
-	public String management() {
-		return "redirect:items";
+	public String management( HttpServletRequest request ) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	return "redirect:items";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 회원관리
 	@RequestMapping("/member")
-	public String member(Model model) {
-		List<dto_members> list_page_1 = service_members.list_page_1();
-		List<dto_members> list = service_members.member_list();
-		int list_count = list.size();
-		int page = list_count / 10;
-		int page_1 = 0;
-		if( list_count % 10 != 0 ) {
-			page_1 = 1;
-		}
-		int max_page = 5;
-		int lastPage = page + page_1;
-		model.addAttribute("max_page", max_page);
-		model.addAttribute("current_page", 1);
-		model.addAttribute("lastPage", lastPage); 
-		model.addAttribute("member_list", list_page_1 );
-		model.addAttribute("list_count", list_count );
-		model.addAttribute("member_total_count", service_members.count_total());
-		model.addAttribute("member_count_1", service_members.count_1());
-		model.addAttribute("member_count_2", service_members.count_2());
-		model.addAttribute("member_count_3", service_members.count_3());
-		model.addAttribute("member_count_4", service_members.count_4());
-		return "manager/member";
+	public String member(HttpServletRequest request, Model model) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	List<dto_members> list_page_1 = service_members.list_page_1();
+	    		List<dto_members> list = service_members.member_list();
+	    		int list_count = list.size();
+	    		int page = list_count / 10;
+	    		int page_1 = 0;
+	    		if( list_count % 10 != 0 ) {
+	    			page_1 = 1;
+	    		}
+	    		int max_page = 5;
+	    		int lastPage = page + page_1;
+	    		model.addAttribute("max_page", max_page);
+	    		model.addAttribute("current_page", 1);
+	    		model.addAttribute("lastPage", lastPage); 
+	    		model.addAttribute("member_list", list_page_1 );
+	    		model.addAttribute("list_count", list_count );
+	    		model.addAttribute("member_total_count", service_members.count_total());
+	    		model.addAttribute("member_count_1", service_members.count_1());
+	    		model.addAttribute("member_count_2", service_members.count_2());
+	    		model.addAttribute("member_count_3", service_members.count_3());
+	    		model.addAttribute("member_count_4", service_members.count_4());
+	    		return "manager/member";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 회원관리 - 다음페이지
 	@RequestMapping("/member_nextPage")
-	public String member_nextPage(@RequestParam("page") String page, Model model) {
-		List<dto_members> list_page_2 = service_members.list_page_2( page );
-		List<dto_members> list = service_members.member_list();
-		int list_count = list.size();
-		int page1 = list_count / 10;
-		int page_1 = 0;
-		if( list_count % 10 != 0 ) {
-			page_1 = 1;
-		}
-		int lastPage = page1 + page_1;
-		int max_page = 5;
-		if( Integer.parseInt(page) / max_page >= 1 && Integer.parseInt(page) != 5 ) {
-			int index = (Integer.parseInt(page) / max_page);
-			int startPage = ( max_page * index ) + 1;
-			model.addAttribute("startPage", startPage);
-			if( lastPage > startPage + 4 ) {
-				model.addAttribute("max_page", startPage + 4); 
-			} else {
-				model.addAttribute("max_page", lastPage); 
-			}
-		} else {
-			model.addAttribute("startPage", 1); 
-			model.addAttribute("max_page", max_page); 
-		}
-		model.addAttribute("current_page", page); 
-		model.addAttribute("lastPage", lastPage); 
-		model.addAttribute("member_list", list_page_2 );
-		model.addAttribute("list_count", list_count );
-		model.addAttribute("member_total_count", service_members.count_total());
-		model.addAttribute("member_count_1", service_members.count_1());
-		model.addAttribute("member_count_2", service_members.count_2());
-		model.addAttribute("member_count_3", service_members.count_3());
-		model.addAttribute("member_count_4", service_members.count_4());
-		return "manager/member_nextPage";
+	public String member_nextPage(@RequestParam("page") String page, 
+									HttpServletRequest request, Model model) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	List<dto_members> list_page_2 = service_members.list_page_2( page );
+	    		List<dto_members> list = service_members.member_list();
+	    		int list_count = list.size();
+	    		int page1 = list_count / 10;
+	    		int page_1 = 0;
+	    		if( list_count % 10 != 0 ) {
+	    			page_1 = 1;
+	    		}
+	    		int lastPage = page1 + page_1;
+	    		int max_page = 5;
+	    		if( Integer.parseInt(page) / max_page >= 1 && Integer.parseInt(page) != 5 ) {
+	    			int index = (Integer.parseInt(page) / max_page);
+	    			int startPage = ( max_page * index ) + 1;
+	    			model.addAttribute("startPage", startPage);
+	    			if( lastPage > startPage + 4 ) {
+	    				model.addAttribute("max_page", startPage + 4); 
+	    			} else {
+	    				model.addAttribute("max_page", lastPage); 
+	    			}
+	    		} else {
+	    			model.addAttribute("startPage", 1); 
+	    			model.addAttribute("max_page", max_page); 
+	    		}
+	    		model.addAttribute("current_page", page); 
+	    		model.addAttribute("lastPage", lastPage); 
+	    		model.addAttribute("member_list", list_page_2 );
+	    		model.addAttribute("list_count", list_count );
+	    		model.addAttribute("member_total_count", service_members.count_total());
+	    		model.addAttribute("member_count_1", service_members.count_1());
+	    		model.addAttribute("member_count_2", service_members.count_2());
+	    		model.addAttribute("member_count_3", service_members.count_3());
+	    		model.addAttribute("member_count_4", service_members.count_4());
+	    		return "manager/member_nextPage";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 회원 상세보기
 	@RequestMapping("/member_detail")
-	public String member_detail(@RequestParam("user_index") String user_index, Model model) {
-		model.addAttribute("member_detail", service_members.member_detail( user_index ));
-		return "manager/member_detail";
+	public String member_detail(@RequestParam("user_index") String user_index, 
+								HttpServletRequest request, Model model) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	model.addAttribute("member_detail", service_members.member_detail( user_index ));
+	    		return "manager/member_detail";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 회원 상세검색
@@ -745,84 +839,93 @@ public class MyContoller {
 									   @RequestParam(value="point_min", required=false) String point_min,
 									   @RequestParam(value="point_max", required=false) String point_max,
 									   @RequestParam("page") int page,
-										Model model) {
-		// 회원수 카운트
-		model.addAttribute("member_total_count", service_members.count_total());
-		model.addAttribute("member_count_1", service_members.count_1());
-		model.addAttribute("member_count_2", service_members.count_2());
-		model.addAttribute("member_count_3", service_members.count_3());
-		model.addAttribute("member_count_4", service_members.count_4());
-		
-		Map <String, String> map = new HashMap<String, String>();
-		if( !(date_min.isEmpty()) ) { 
-			map.put("date_min", date_min);
-			model.addAttribute("date_min", date_min);
-		} else { 
-			map.put("date_min", "1900-01-01 00:00:00");
-			model.addAttribute("date_min", "1900-01-01 00:00:00");
-		}
-		if( !(date_max.isEmpty()) ) { 
-			map.put("date_max", date_max); 
-			model.addAttribute("date_max", date_max);
-		} else { 
-			map.put("date_max", "2300-12-31 00:00:00");
-			model.addAttribute("date_max", "2300-12-31 00:00:00");
-		}
-		if( !(buying_min.isEmpty()) ) { 
-			map.put("buying_min", buying_min);
-			model.addAttribute("buying_min", buying_min);
-		} else { 
-			map.put("buying_min", "0"); 
-			model.addAttribute("buying_min", "0");
-		}
-		if( !(buying_max.isEmpty()) ) { 
-			map.put("buying_max", buying_max); 
-			model.addAttribute("buying_max", buying_max);
-		} else { 
-			map.put("buying_max", "999999999"); 
-			model.addAttribute("buying_max", "999999999");
-		}
-		if( !(grade.isEmpty()) ) { 
-			map.put("grade", grade); 
-			model.addAttribute("grade", grade);
-		} else { 
-			map.put("grade", "null"); 
-			model.addAttribute("grade", "null");
-		}
-		if( !(point_min.isEmpty()) ) { 
-			map.put("point_min", point_min); 
-			model.addAttribute("point_min", point_min);
-		} else { 
-			map.put("point_min", "0"); 
-			model.addAttribute("point_min", "0");
-		}
-		if( !(point_max.isEmpty()) ) { 
-			map.put("point_max", point_max); 
-			model.addAttribute("point_max", point_max);
-		} else { 
-			map.put("point_max", "999999999");
-			model.addAttribute("point_max", "999999999");
-		}
-		model.addAttribute("page", page);
-		
-		List<dto_members> list = service_members.detail_search( map, page );
-		int count = service_members.detail_search_count1( map );
+									   HttpServletRequest request, Model model) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	// 회원수 카운트
+	    		model.addAttribute("member_total_count", service_members.count_total());
+	    		model.addAttribute("member_count_1", service_members.count_1());
+	    		model.addAttribute("member_count_2", service_members.count_2());
+	    		model.addAttribute("member_count_3", service_members.count_3());
+	    		model.addAttribute("member_count_4", service_members.count_4());
+	    		
+	    		Map <String, String> map = new HashMap<String, String>();
+	    		if( !(date_min.isEmpty()) ) { 
+	    			map.put("date_min", date_min);
+	    			model.addAttribute("date_min", date_min);
+	    		} else { 
+	    			map.put("date_min", "1900-01-01 00:00:00");
+	    			model.addAttribute("date_min", "1900-01-01 00:00:00");
+	    		}
+	    		if( !(date_max.isEmpty()) ) { 
+	    			map.put("date_max", date_max); 
+	    			model.addAttribute("date_max", date_max);
+	    		} else { 
+	    			map.put("date_max", "2300-12-31 00:00:00");
+	    			model.addAttribute("date_max", "2300-12-31 00:00:00");
+	    		}
+	    		if( !(buying_min.isEmpty()) ) { 
+	    			map.put("buying_min", buying_min);
+	    			model.addAttribute("buying_min", buying_min);
+	    		} else { 
+	    			map.put("buying_min", "0"); 
+	    			model.addAttribute("buying_min", "0");
+	    		}
+	    		if( !(buying_max.isEmpty()) ) { 
+	    			map.put("buying_max", buying_max); 
+	    			model.addAttribute("buying_max", buying_max);
+	    		} else { 
+	    			map.put("buying_max", "999999999"); 
+	    			model.addAttribute("buying_max", "999999999");
+	    		}
+	    		if( !(grade.isEmpty()) ) { 
+	    			map.put("grade", grade); 
+	    			model.addAttribute("grade", grade);
+	    		} else { 
+	    			map.put("grade", "null"); 
+	    			model.addAttribute("grade", "null");
+	    		}
+	    		if( !(point_min.isEmpty()) ) { 
+	    			map.put("point_min", point_min); 
+	    			model.addAttribute("point_min", point_min);
+	    		} else { 
+	    			map.put("point_min", "0"); 
+	    			model.addAttribute("point_min", "0");
+	    		}
+	    		if( !(point_max.isEmpty()) ) { 
+	    			map.put("point_max", point_max); 
+	    			model.addAttribute("point_max", point_max);
+	    		} else { 
+	    			map.put("point_max", "999999999");
+	    			model.addAttribute("point_max", "999999999");
+	    		}
+	    		model.addAttribute("page", page);
+	    		
+	    		List<dto_members> list = service_members.detail_search( map, page );
+	    		int count = service_members.detail_search_count1( map );
 
-		int page_count = count / 10; // 페이지 꽉채운 게시물
-		int page_count2 = 0; // 잔여게시물
-		if( page % 10 != 0 ) {
-			page_count2 = 1;
-		}
-		int max_page = 5; // 한번에 보여지는 최대 페이지
-		int lastPage = page_count + page_count2; // 총 나타낼 페이지
-		model.addAttribute("max_page", max_page);
-		model.addAttribute("startPage", 1); // 첫페이지
-		model.addAttribute("lastPage", lastPage);
-		model.addAttribute("current_page", page);  // 현재페이지
-		
-		model.addAttribute("member_result_count", count );
-		model.addAttribute("result_detail_search", list );
-		return "manager/search_detail_member";
+	    		int page_count = count / 10; // 페이지 꽉채운 게시물
+	    		int page_count2 = 0; // 잔여게시물
+	    		if( page % 10 != 0 ) {
+	    			page_count2 = 1;
+	    		}
+	    		int max_page = 5; // 한번에 보여지는 최대 페이지
+	    		int lastPage = page_count + page_count2; // 총 나타낼 페이지
+	    		model.addAttribute("max_page", max_page);
+	    		model.addAttribute("startPage", 1); // 첫페이지
+	    		model.addAttribute("lastPage", lastPage);
+	    		model.addAttribute("current_page", page);  // 현재페이지
+	    		
+	    		model.addAttribute("member_result_count", count );
+	    		model.addAttribute("result_detail_search", list );
+	    		return "manager/search_detail_member";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 회원 상세검색 - 다음페이지
@@ -835,8 +938,14 @@ public class MyContoller {
 									   @RequestParam(value="point_min", required=false) String point_min,
 									   @RequestParam(value="point_max", required=false) String point_max,
 									   @RequestParam("page") int page,
-										Model model) {
-		// 회원수 카운트
+									   HttpServletRequest request, Model model) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	// 회원수 카운트
 				model.addAttribute("member_total_count", service_members.count_total());
 				model.addAttribute("member_count_1", service_members.count_1());
 				model.addAttribute("member_count_2", service_members.count_2());
@@ -889,6 +998,9 @@ public class MyContoller {
 				model.addAttribute("member_result_count", count );
 				model.addAttribute("result_detail_search", list );
 				return "manager/search_detail_member_nextPage";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 회원 상세검색 + 검색어 추가 - 첫페이지
@@ -903,97 +1015,106 @@ public class MyContoller {
 									   @RequestParam(value="member_categori", required=false) String member_categori,
 									   @RequestParam(value="search_text", required=false) String search_text,
 									   @RequestParam(value="page", required=false) int page,
-									   Model model) {
-		// 회원수 카운트
-		model.addAttribute("member_total_count", service_members.count_total());
-		model.addAttribute("member_count_1", service_members.count_1());
-		model.addAttribute("member_count_2", service_members.count_2());
-		model.addAttribute("member_count_3", service_members.count_3());
-		model.addAttribute("member_count_4", service_members.count_4());
-		
-		Map <String, String> map = new HashMap<String, String>();
-		if( !(date_min.isEmpty()) ) { 
-			map.put("date_min", date_min);
-			model.addAttribute("date_min", date_min);
-		} else { 
-			map.put("date_min", "1900-01-01 00:00:00");
-			model.addAttribute("date_min", "1900-01-01 00:00:00");
-		}
-		if( !(date_max.isEmpty()) ) { 
-			map.put("date_max", date_max); 
-			model.addAttribute("date_max", date_max);
-		} else { 
-			map.put("date_max", "2300-12-31 00:00:00");
-			model.addAttribute("date_max", "2300-12-31 00:00:00");
-		}
-		if( !(buying_min.isEmpty()) ) { 
-			map.put("buying_min", buying_min);
-			model.addAttribute("buying_min", buying_min);
-		} else { 
-			map.put("buying_min", "0"); 
-			model.addAttribute("buying_min", "0");
-		}
-		if( !(buying_max.isEmpty()) ) { 
-			map.put("buying_max", buying_max); 
-			model.addAttribute("buying_max", buying_max);
-		} else { 
-			map.put("buying_max", "999999999"); 
-			model.addAttribute("buying_max", "999999999");
-		}
-		if( !(grade.isEmpty()) ) { 
-			map.put("grade", grade); 
-			model.addAttribute("grade", grade);
-		} else { 
-			map.put("grade", "null"); 
-			model.addAttribute("grade", "null");
-		}
-		if( !(point_min.isEmpty()) ) { 
-			map.put("point_min", point_min); 
-			model.addAttribute("point_min", point_min);
-		} else { 
-			map.put("point_min", "0"); 
-			model.addAttribute("point_min", "0");
-		}
-		if( !(point_max.isEmpty()) ) { 
-			map.put("point_max", point_max); 
-			model.addAttribute("point_max", point_max);
-		} else { 
-			map.put("point_max", "999999999");
-			model.addAttribute("point_max", "999999999");
-		}
-		if( !(member_categori.isEmpty()) ) { 
-			map.put("member_categori", member_categori);
-			model.addAttribute("member_categori", member_categori);
-		} else { 
-			map.put("member_categori", "null");
-			model.addAttribute("member_categori", "user_name");
-		}
-		if( !(search_text.isEmpty()) ) { 
-			map.put("search_text", search_text);
-			model.addAttribute("search_text", search_text);
-		} else { 
-			map.put("search_text", "null");
-			model.addAttribute("search_text", "null");
-		}
-			
-		List<dto_members> list = service_members.member_search( map );
-		int count = service_members.detail_search_count3( map );
-		
-		int page_count = count / 10; // 페이지 꽉채운 게시물
-		int page_count2 = 0; // 잔여게시물
-		if( page % 10 != 0 ) {
-			page_count2 = 1;
-		}
-		int max_page = 5; // 한번에 보여지는 최대 페이지
-		int lastPage = page_count + page_count2; // 총 나타낼 페이지
-		model.addAttribute("max_page", max_page);
-		model.addAttribute("startPage", 1); // 첫페이지
-		model.addAttribute("lastPage", lastPage);
-		model.addAttribute("current_page", page);  // 현재페이지
-		
-		model.addAttribute("member_result_count2", count );
-		model.addAttribute("result_detail_search2", list );
-		return "manager/member_search";
+									   HttpServletRequest request, Model model) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	// 회원수 카운트
+	    		model.addAttribute("member_total_count", service_members.count_total());
+	    		model.addAttribute("member_count_1", service_members.count_1());
+	    		model.addAttribute("member_count_2", service_members.count_2());
+	    		model.addAttribute("member_count_3", service_members.count_3());
+	    		model.addAttribute("member_count_4", service_members.count_4());
+	    		
+	    		Map <String, String> map = new HashMap<String, String>();
+	    		if( !(date_min.isEmpty()) ) { 
+	    			map.put("date_min", date_min);
+	    			model.addAttribute("date_min", date_min);
+	    		} else { 
+	    			map.put("date_min", "1900-01-01 00:00:00");
+	    			model.addAttribute("date_min", "1900-01-01 00:00:00");
+	    		}
+	    		if( !(date_max.isEmpty()) ) { 
+	    			map.put("date_max", date_max); 
+	    			model.addAttribute("date_max", date_max);
+	    		} else { 
+	    			map.put("date_max", "2300-12-31 00:00:00");
+	    			model.addAttribute("date_max", "2300-12-31 00:00:00");
+	    		}
+	    		if( !(buying_min.isEmpty()) ) { 
+	    			map.put("buying_min", buying_min);
+	    			model.addAttribute("buying_min", buying_min);
+	    		} else { 
+	    			map.put("buying_min", "0"); 
+	    			model.addAttribute("buying_min", "0");
+	    		}
+	    		if( !(buying_max.isEmpty()) ) { 
+	    			map.put("buying_max", buying_max); 
+	    			model.addAttribute("buying_max", buying_max);
+	    		} else { 
+	    			map.put("buying_max", "999999999"); 
+	    			model.addAttribute("buying_max", "999999999");
+	    		}
+	    		if( !(grade.isEmpty()) ) { 
+	    			map.put("grade", grade); 
+	    			model.addAttribute("grade", grade);
+	    		} else { 
+	    			map.put("grade", "null"); 
+	    			model.addAttribute("grade", "null");
+	    		}
+	    		if( !(point_min.isEmpty()) ) { 
+	    			map.put("point_min", point_min); 
+	    			model.addAttribute("point_min", point_min);
+	    		} else { 
+	    			map.put("point_min", "0"); 
+	    			model.addAttribute("point_min", "0");
+	    		}
+	    		if( !(point_max.isEmpty()) ) { 
+	    			map.put("point_max", point_max); 
+	    			model.addAttribute("point_max", point_max);
+	    		} else { 
+	    			map.put("point_max", "999999999");
+	    			model.addAttribute("point_max", "999999999");
+	    		}
+	    		if( !(member_categori.isEmpty()) ) { 
+	    			map.put("member_categori", member_categori);
+	    			model.addAttribute("member_categori", member_categori);
+	    		} else { 
+	    			map.put("member_categori", "null");
+	    			model.addAttribute("member_categori", "user_name");
+	    		}
+	    		if( !(search_text.isEmpty()) ) { 
+	    			map.put("search_text", search_text);
+	    			model.addAttribute("search_text", search_text);
+	    		} else { 
+	    			map.put("search_text", "null");
+	    			model.addAttribute("search_text", "null");
+	    		}
+	    			
+	    		List<dto_members> list = service_members.member_search( map );
+	    		int count = service_members.detail_search_count3( map );
+	    		
+	    		int page_count = count / 10; // 페이지 꽉채운 게시물
+	    		int page_count2 = 0; // 잔여게시물
+	    		if( page % 10 != 0 ) {
+	    			page_count2 = 1;
+	    		}
+	    		int max_page = 5; // 한번에 보여지는 최대 페이지
+	    		int lastPage = page_count + page_count2; // 총 나타낼 페이지
+	    		model.addAttribute("max_page", max_page);
+	    		model.addAttribute("startPage", 1); // 첫페이지
+	    		model.addAttribute("lastPage", lastPage);
+	    		model.addAttribute("current_page", page);  // 현재페이지
+	    		
+	    		model.addAttribute("member_result_count2", count );
+	    		model.addAttribute("result_detail_search2", list );
+	    		return "manager/member_search";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 회원 상세검색 + 검색어 추가 - 다음페이지
@@ -1008,70 +1129,89 @@ public class MyContoller {
 									   @RequestParam(value="member_categori", required=false) String member_categori,
 									   @RequestParam(value="search_text", required=false) String search_text,
 									   @RequestParam("page") int page,
-									   Model model) {
-		// 회원수 카운트
-		model.addAttribute("member_total_count", service_members.count_total());
-		model.addAttribute("member_count_1", service_members.count_1());
-		model.addAttribute("member_count_2", service_members.count_2());
-		model.addAttribute("member_count_3", service_members.count_3());
-		model.addAttribute("member_count_4", service_members.count_4());
-		
-		Map <String, String> map = new HashMap<String, String>(); 
-		map.put("date_min", date_min);
-		model.addAttribute("date_min", date_min);
-		map.put("date_max", date_max); 
-		model.addAttribute("date_max", date_max);
-		map.put("buying_min", buying_min);
-		model.addAttribute("buying_min", buying_min);
-		map.put("buying_max", buying_max); 
-		model.addAttribute("buying_max", buying_max); 
-		map.put("grade", grade); 
-		model.addAttribute("grade", grade);
-		map.put("point_min", point_min); 
-		model.addAttribute("point_min", point_min);
-		map.put("point_max", point_max); 
-		model.addAttribute("point_max", point_max);
-		map.put("member_categori", member_categori);
-		model.addAttribute("member_categori", member_categori);
-		map.put("search_text", search_text);
-		model.addAttribute("search_text", search_text);
-		model.addAttribute("page", page);
-			
-		List<dto_members> list = service_members.member_search_next( page, map );
-		int count = service_members.detail_search_count3( map );
-		
-		int page_count = count / 10; // 페이지 꽉채운 게시물
-		int page_count2 = 0; // 잔여게시물
-		if( page % 10 != 0 ) {
-			page_count2 = 1;
-		}
-		int max_page = 5; // 한번에 보여지는 최대 페이지
-		int lastPage = page_count + page_count2; // 필요 페이지
-		if( lastPage / max_page >= 1 && lastPage != 5 ) {
-			int index = page / max_page;
-			int startPage = ( max_page * index ) + 1;
-			model.addAttribute("startPage", startPage);
-			if( lastPage > startPage + 4 ) {
-				model.addAttribute("max_page", startPage + 4); 
-			} else {
-				model.addAttribute("max_page", lastPage); 
-			}
-		} else {
-			model.addAttribute("startPage", 1); 
-			model.addAttribute("max_page", lastPage); 
-		} 
-		model.addAttribute("current_page", page);  // 현재페이지
-		
-		model.addAttribute("member_result_count2", count );
-		model.addAttribute("result_detail_search2", list );
-		return "manager/member_search_next";
+									   HttpServletRequest request, Model model) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	// 회원수 카운트
+	    		model.addAttribute("member_total_count", service_members.count_total());
+	    		model.addAttribute("member_count_1", service_members.count_1());
+	    		model.addAttribute("member_count_2", service_members.count_2());
+	    		model.addAttribute("member_count_3", service_members.count_3());
+	    		model.addAttribute("member_count_4", service_members.count_4());
+	    		
+	    		Map <String, String> map = new HashMap<String, String>(); 
+	    		map.put("date_min", date_min);
+	    		model.addAttribute("date_min", date_min);
+	    		map.put("date_max", date_max); 
+	    		model.addAttribute("date_max", date_max);
+	    		map.put("buying_min", buying_min);
+	    		model.addAttribute("buying_min", buying_min);
+	    		map.put("buying_max", buying_max); 
+	    		model.addAttribute("buying_max", buying_max); 
+	    		map.put("grade", grade); 
+	    		model.addAttribute("grade", grade);
+	    		map.put("point_min", point_min); 
+	    		model.addAttribute("point_min", point_min);
+	    		map.put("point_max", point_max); 
+	    		model.addAttribute("point_max", point_max);
+	    		map.put("member_categori", member_categori);
+	    		model.addAttribute("member_categori", member_categori);
+	    		map.put("search_text", search_text);
+	    		model.addAttribute("search_text", search_text);
+	    		model.addAttribute("page", page);
+	    			
+	    		List<dto_members> list = service_members.member_search_next( page, map );
+	    		int count = service_members.detail_search_count3( map );
+	    		
+	    		int page_count = count / 10; // 페이지 꽉채운 게시물
+	    		int page_count2 = 0; // 잔여게시물
+	    		if( page % 10 != 0 ) {
+	    			page_count2 = 1;
+	    		}
+	    		int max_page = 5; // 한번에 보여지는 최대 페이지
+	    		int lastPage = page_count + page_count2; // 필요 페이지
+	    		if( lastPage / max_page >= 1 && lastPage != 5 ) {
+	    			int index = page / max_page;
+	    			int startPage = ( max_page * index ) + 1;
+	    			model.addAttribute("startPage", startPage);
+	    			if( lastPage > startPage + 4 ) {
+	    				model.addAttribute("max_page", startPage + 4); 
+	    			} else {
+	    				model.addAttribute("max_page", lastPage); 
+	    			}
+	    		} else {
+	    			model.addAttribute("startPage", 1); 
+	    			model.addAttribute("max_page", lastPage); 
+	    		} 
+	    		model.addAttribute("current_page", page);  // 현재페이지
+	    		
+	    		model.addAttribute("member_result_count2", count );
+	    		model.addAttribute("result_detail_search2", list );
+	    		return "manager/member_search_next";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 회원관리-탈퇴시키기
 	@RequestMapping("/withdraw_member_pop")
-	public String withdraw_member_pop(@RequestParam("member") String member_index, Model model ) {
-		model.addAttribute("withdraw_member_select", service_members.member_detail( member_index ));
-		return "manager/withdraw_member";
+	public String withdraw_member_pop(@RequestParam("member") String member_index, 
+									HttpServletRequest request, Model model ) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	model.addAttribute("withdraw_member_select", service_members.member_detail( member_index ));
+	    		return "manager/withdraw_member";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 회원관리-탈퇴확인중
@@ -1094,176 +1234,308 @@ public class MyContoller {
 	
 	// 회원관리-회원 적립금 관리
 	@RequestMapping("/member_point_pop")
-	public String member_point_pop(@RequestParam("index") String member_index, Model model ) {
-		model.addAttribute("withdraw_member_select", service_members.member_detail( member_index ));
-		return "manager/member_point";
+	public String member_point_pop(@RequestParam("index") String member_index, 
+									HttpServletRequest request, Model model ) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	model.addAttribute("withdraw_member_select", service_members.member_detail( member_index ));
+	    		return "manager/member_point";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 회원관리-회원 적립금 추가/삭감
 	@RequestMapping("/member_point_ok")
 	public String member_point_ok(@RequestParam("user_index") String member_index, 
-									@RequestParam("point") String point, Model model ) {
-		int nResult = service_members.update_point( member_index, point );
-		if( nResult < 1 ) {
-			return "manager/member_withdraw_member_fail";
-		} else {
-			return "redirect:member";
-		}
+									@RequestParam("point") String point, 
+									HttpServletRequest request, Model model ) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	    		int nResult = service_members.update_point( member_index, point );
+	    		if( nResult < 1 ) {
+	    			return "manager/member_withdraw_member_fail";
+	    		} else {
+	    			return "redirect:member";
+	    		}
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 회원관리-회원 등급 관리
 	@RequestMapping("/member_grade_pop")
-	public String member_grade_pop(@RequestParam("index") String member_index, Model model ) {
-		model.addAttribute("withdraw_member_select", service_members.member_detail( member_index ));
-		return "manager/member_grade";
+	public String member_grade_pop(@RequestParam("index") String member_index, HttpServletRequest request, Model model ) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	model.addAttribute("withdraw_member_select", service_members.member_detail( member_index ));
+	    		return "manager/member_grade";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 회원관리-회원 등급 변경
 	@RequestMapping("/member_grade_ok")
 	public String member_grade_ok(@RequestParam("user_index") String member_index, 
-									@RequestParam("grade") String grade, Model model ) {
-		int nResult = service_members.update_grade( member_index, grade );
-		if( nResult < 1 ) {
-			return "manager/member_withdraw_member_fail";
-		} else {
-			return "redirect:member";
-		}
+									@RequestParam("grade") String grade, 
+									HttpServletRequest request, Model model ) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	    		int nResult = service_members.update_grade( member_index, grade );
+	    		if( nResult < 1 ) {
+	    			return "manager/member_withdraw_member_fail";
+	    		} else {
+	    			return "redirect:member";
+	    		}
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 상품관리
 	@RequestMapping("/items")
-	public String items(Model model) {
-		model.addAttribute("all_count", service_items.nAllCount());
-		model.addAttribute("all_listview", service_items.All_viewDao());
-		return "manager/items";
+	public String items(HttpServletRequest request, Model model) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	model.addAttribute("all_count", service_items.nAllCount());
+	    		model.addAttribute("all_listview", service_items.All_viewDao());
+	    		return "manager/items";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 게시판관리_메인(공지사항)
 	@RequestMapping("/notice_board_manager")
-	public String notice_board() {
-		return "manager/notice_board";
+	public String notice_board(HttpServletRequest request) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	return "manager/notice_board";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 배너관리
 	@RequestMapping("/banner_img")
-	public String banner_img() {
-		return "manager/banner_img";
+	public String banner_img(HttpServletRequest request) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	return "manager/banner_img";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 자주하는질문 관리
 	@RequestMapping("/fre_ask_board")
-	public String fre_ask_board() {
-		return "manager/fre_ask_board";
+	public String fre_ask_board(HttpServletRequest request) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	return "manager/fre_ask_board";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 주문내역(회원관리) - 첫페이지
 	@RequestMapping("/order_list")
-	public String order_list(Model model) {
-		model.addAttribute("order_list", service_myPage.manager_view());
-		int count = service_myPage.manager_viewCount();
-		int index = 10; // 한 페이지에 나타내는 글 수
-		int page1 = count / index; // 한페이지안에 글이 꽉 찬 페이지
-		int page2 = 0; 
-		if( count % index != 0 ) { // 잔여 글이 남아있으면
-			page2 = 1; // 한페이지안에 글이 꽉차진 않지만 있는 페이지
-		}
-		int lastPage = page1 + page2; // 총 나타내야 할 페이지
-		
-		model.addAttribute("orderList_page", 1);
-		model.addAttribute("startPage", 1);
-		model.addAttribute("max_page", lastPage);
-		model.addAttribute("lastPage", lastPage);
-		return "manager/order_list";
+	public String order_list(HttpServletRequest request, Model model) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	model.addAttribute("order_list", service_myPage.manager_view());
+	    		int count = service_myPage.manager_viewCount();
+	    		int index = 10; // 한 페이지에 나타내는 글 수
+	    		int page1 = count / index; // 한페이지안에 글이 꽉 찬 페이지
+	    		int page2 = 0; 
+	    		if( count % index != 0 ) { // 잔여 글이 남아있으면
+	    			page2 = 1; // 한페이지안에 글이 꽉차진 않지만 있는 페이지
+	    		}
+	    		int lastPage = page1 + page2; // 총 나타내야 할 페이지
+	    		
+	    		model.addAttribute("orderList_page", 1);
+	    		model.addAttribute("startPage", 1);
+	    		model.addAttribute("max_page", lastPage);
+	    		model.addAttribute("lastPage", lastPage);
+	    		return "manager/order_list";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 주문내역(회원관리) - 다음페이지
 	@RequestMapping("/order_list_nextPage")
-	public String order_list_nextPage( @RequestParam(value="page", required=false) int page, Model model) {
-		model.addAttribute("order_list", service_myPage.manager_view(page));
-		int count = service_myPage.manager_viewCount();
-		
-		int index = 10; // 한 페이지에 나타내는 글 수
-		int page1 = count / index; // 한페이지안에 글이 꽉 찬 페이지
-		int page2 = 0; 
-		if( count % index != 0 ) { // 잔여 글이 남아있으면
-			page2 = 1; // 한페이지안에 글이 꽉차진 않지만 있는 페이지
-		}
-		int lastPage = page1 + page2; // 총 나타내야 할 페이지
-		int maxPage = 5; // 한번에 나타내는 페이지수
-		int startPage = 1;
-		if( lastPage / maxPage != 0 || lastPage != 5 ) { // 5개 이후 페이지 추가 발생하면
-			if( page % 5 == 0 ) {
-				startPage = ((page / maxPage) * 5) + 1;
-			} else {
-				startPage = page + 1;
-			}
-		}
-		if( page == 1 ) {
-			model.addAttribute("orderList_page", 1);
-			model.addAttribute("startPage", 1);
-			model.addAttribute("max_page", lastPage);
-			model.addAttribute("lastPage", lastPage);
-		} else {
-			model.addAttribute("startPage", startPage );
-			model.addAttribute("orderList_page", page);
-			model.addAttribute("max_page", startPage + 1);
-			model.addAttribute("lastPage", lastPage);
-		}	
-		return "manager/order_list_nextPage";
+	public String order_list_nextPage( @RequestParam(value="page", required=false) int page, 
+										HttpServletRequest request, Model model) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	model.addAttribute("order_list", service_myPage.manager_view(page));
+	    		int count = service_myPage.manager_viewCount();
+	    		
+	    		int index = 10; // 한 페이지에 나타내는 글 수
+	    		int page1 = count / index; // 한페이지안에 글이 꽉 찬 페이지
+	    		int page2 = 0; 
+	    		if( count % index != 0 ) { // 잔여 글이 남아있으면
+	    			page2 = 1; // 한페이지안에 글이 꽉차진 않지만 있는 페이지
+	    		}
+	    		int lastPage = page1 + page2; // 총 나타내야 할 페이지
+	    		int maxPage = 5; // 한번에 나타내는 페이지수
+	    		int startPage = 1;
+	    		if( lastPage / maxPage != 0 || lastPage != 5 ) { // 5개 이후 페이지 추가 발생하면
+	    			if( page % 5 == 0 ) {
+	    				startPage = ((page / maxPage) * 5) + 1;
+	    			} else {
+	    				startPage = page + 1;
+	    			}
+	    		}
+	    		if( page == 1 ) {
+	    			model.addAttribute("orderList_page", 1);
+	    			model.addAttribute("startPage", 1);
+	    			model.addAttribute("max_page", lastPage);
+	    			model.addAttribute("lastPage", lastPage);
+	    		} else {
+	    			model.addAttribute("startPage", startPage );
+	    			model.addAttribute("orderList_page", page);
+	    			model.addAttribute("max_page", startPage + 1);
+	    			model.addAttribute("lastPage", lastPage);
+	    		}	
+	    		return "manager/order_list_nextPage";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 주문내역(회원관리) - 년도선택 - 다음페이지
 	@RequestMapping("/order_list_selectYear")
-	public String order_list_selectYear( @RequestParam("page") int page, @RequestParam("year") int year, Model model) {
-		model.addAttribute("order_list", service_myPage.manager_view_year(page, year));
-		int count = service_myPage.manager_viewCount_year(year);
-		
-		int index = 10; // 한 페이지에 나타내는 글 수
-		int page1 = count / index; // 한페이지안에 글이 꽉 찬 페이지
-		int page2 = 0; 
-		if( count % index != 0 ) { // 잔여 글이 남아있으면
-			page2 = 1; // 한페이지안에 글이 꽉차진 않지만 있는 페이지
-		}
-		int lastPage = page1 + page2; // 총 나타내야 할 페이지
-		int maxPage = 5; // 한번에 나타내는 페이지수
-		int startPage = 1;
-		if( lastPage / maxPage != 0 || lastPage != 5 ) { // 5개 이후 페이지 추가 발생하면
-			if( page % 5 == 0 ) {
-				startPage = ((page / maxPage) * 5) + 1;
-			} else {
-				startPage = page + 1;
-			}
-		}
-		if( page == 1 ) {
-			model.addAttribute("orderList_page", 1);
-			model.addAttribute("startPage", 1);
-			model.addAttribute("max_page", lastPage);
-			model.addAttribute("lastPage", lastPage);
-		} else {
-			model.addAttribute("startPage", startPage );
-			model.addAttribute("orderList_page", page);
-			model.addAttribute("max_page", startPage + 1);
-			model.addAttribute("lastPage", lastPage);
-		}
-		return "manager/order_list_selectYear";
+	public String order_list_selectYear( @RequestParam("page") int page, 
+										@RequestParam("year") int year, 
+										HttpServletRequest request, Model model) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	model.addAttribute("order_list", service_myPage.manager_view_year(page, year));
+	    		int count = service_myPage.manager_viewCount_year(year);
+	    		
+	    		int index = 10; // 한 페이지에 나타내는 글 수
+	    		int page1 = count / index; // 한페이지안에 글이 꽉 찬 페이지
+	    		int page2 = 0; 
+	    		if( count % index != 0 ) { // 잔여 글이 남아있으면
+	    			page2 = 1; // 한페이지안에 글이 꽉차진 않지만 있는 페이지
+	    		}
+	    		int lastPage = page1 + page2; // 총 나타내야 할 페이지
+	    		int maxPage = 5; // 한번에 나타내는 페이지수
+	    		int startPage = 1;
+	    		if( lastPage / maxPage != 0 || lastPage != 5 ) { // 5개 이후 페이지 추가 발생하면
+	    			if( page % 5 == 0 ) {
+	    				startPage = ((page / maxPage) * 5) + 1;
+	    			} else {
+	    				startPage = page + 1;
+	    			}
+	    		}
+	    		if( page == 1 ) {
+	    			model.addAttribute("orderList_page", 1);
+	    			model.addAttribute("startPage", 1);
+	    			model.addAttribute("max_page", lastPage);
+	    			model.addAttribute("lastPage", lastPage);
+	    		} else {
+	    			model.addAttribute("startPage", startPage );
+	    			model.addAttribute("orderList_page", page);
+	    			model.addAttribute("max_page", startPage + 1);
+	    			model.addAttribute("lastPage", lastPage);
+	    		}
+	    		return "manager/order_list_selectYear";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 1:1 문의 관리
 	@RequestMapping("/personal_question_manager")
-	public String personal_question() {
-		return "manager/personal_question";
+	public String personal_question( HttpServletRequest request ) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	return "manager/personal_question";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 1:1 문의 관리
 	@RequestMapping("/review")
-	public String review() {
-		return "manager/review";
+	public String review( HttpServletRequest request ) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	return "manager/review";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 상품 등록
 	@RequestMapping("/item_update")
-	public String item_update() {
-		return "manager/item_update";
+	public String item_update(HttpServletRequest request) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	return "manager/item_update";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 상품 등록 저장
@@ -1319,71 +1591,98 @@ public class MyContoller {
 	
 	// 탈퇴회원 리스트 - 첫페이지
 	@RequestMapping("/leave_member")
-	public String leave_member(Model model) {
-		int count = service_seced_member.count();
-		model.addAttribute("leave_member_count", count);
-		model.addAttribute("leave_member", service_seced_member.list());
-		
-		int index = 10; // 한 페이지에 나타내는 글 수
-		int page1 = count / index; // 한페이지안에 글이 꽉 찬 페이지
-		int page2 = 0; 
-		if( count % index != 0 ) { // 잔여 글이 남아있으면
-			page2 = 1; // 한페이지안에 글이 꽉차진 않지만 있는 페이지
-		}
-		int lastPage = page1 + page2; // 총 나타내야 할 페이지
-		
-		model.addAttribute("leave_member_page", 1);
-		model.addAttribute("startPage", 1);
-		model.addAttribute("max_page", lastPage);
-		model.addAttribute("lastPage", lastPage);
-		return "manager/leave_member";
+	public String leave_member(HttpServletRequest request, Model model) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	int count = service_seced_member.count();
+	    		model.addAttribute("leave_member_count", count);
+	    		model.addAttribute("leave_member", service_seced_member.list());
+	    		
+	    		int index = 10; // 한 페이지에 나타내는 글 수
+	    		int page1 = count / index; // 한페이지안에 글이 꽉 찬 페이지
+	    		int page2 = 0; 
+	    		if( count % index != 0 ) { // 잔여 글이 남아있으면
+	    			page2 = 1; // 한페이지안에 글이 꽉차진 않지만 있는 페이지
+	    		}
+	    		int lastPage = page1 + page2; // 총 나타내야 할 페이지
+	    		
+	    		model.addAttribute("leave_member_page", 1);
+	    		model.addAttribute("startPage", 1);
+	    		model.addAttribute("max_page", lastPage);
+	    		model.addAttribute("lastPage", lastPage);
+	    		return "manager/leave_member";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 탈퇴회원 리스트 - 다음페이지
 	@RequestMapping("/leave_member_nextPage")
-	public String leave_member_nextPage(@RequestParam("page") int page, Model model) {
-		int count = service_seced_member.count();
-		model.addAttribute("leave_member_count", count);
-		
-		int index = 10; // 한 페이지에 나타내는 글 수
-		int page1 = count / index; // 한페이지안에 글이 꽉 찬 페이지
-		int page2 = 0; 
-		if( count % index != 0 ) { // 잔여 글이 남아있으면
-			page2 = 1; // 한페이지안에 글이 꽉차진 않지만 있는 페이지
-		}
-		int lastPage = page1 + page2; // 총 나타내야 할 페이지
-		int maxPage = 5; // 한번에 나타내는 페이지수
-		int startPage = 1;
-		if( lastPage / maxPage != 0 || lastPage != 5 ) { // 5개 이후 페이지 추가 발생하면
-			if( page % 5 == 0 ) {
-				startPage = ((page / maxPage) * 5) + 1;
-			} else {
-				startPage = page + 1;
-			}
-		}
-		if( page == 1 ) {
-			model.addAttribute("leave_member_page", 1);
-			model.addAttribute("startPage", 1);
-			model.addAttribute("max_page", lastPage);
-			model.addAttribute("lastPage", lastPage);
-		} else {
-			model.addAttribute("startPage", startPage );
-			model.addAttribute("leave_member_page", page);
-			model.addAttribute("max_page", startPage + 1);
-			model.addAttribute("lastPage", lastPage);
-		}	
-		
-		model.addAttribute("leave_member", service_seced_member.list_nextPage( page ));
-		model.addAttribute("leave_member_page", 1);
-		return "manager/leave_member_nextPage";
+	public String leave_member_nextPage(@RequestParam("page") int page, HttpServletRequest request, Model model) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	int count = service_seced_member.count();
+	    		model.addAttribute("leave_member_count", count);
+	    		
+	    		int index = 10; // 한 페이지에 나타내는 글 수
+	    		int page1 = count / index; // 한페이지안에 글이 꽉 찬 페이지
+	    		int page2 = 0; 
+	    		if( count % index != 0 ) { // 잔여 글이 남아있으면
+	    			page2 = 1; // 한페이지안에 글이 꽉차진 않지만 있는 페이지
+	    		}
+	    		int lastPage = page1 + page2; // 총 나타내야 할 페이지
+	    		int maxPage = 5; // 한번에 나타내는 페이지수
+	    		int startPage = 1;
+	    		if( lastPage / maxPage != 0 || lastPage != 5 ) { // 5개 이후 페이지 추가 발생하면
+	    			if( page % 5 == 0 ) {
+	    				startPage = ((page / maxPage) * 5) + 1;
+	    			} else {
+	    				startPage = page + 1;
+	    			}
+	    		}
+	    		if( page == 1 ) {
+	    			model.addAttribute("leave_member_page", 1);
+	    			model.addAttribute("startPage", 1);
+	    			model.addAttribute("max_page", lastPage);
+	    			model.addAttribute("lastPage", lastPage);
+	    		} else {
+	    			model.addAttribute("startPage", startPage );
+	    			model.addAttribute("leave_member_page", page);
+	    			model.addAttribute("max_page", startPage + 1);
+	    			model.addAttribute("lastPage", lastPage);
+	    		}	
+	    		
+	    		model.addAttribute("leave_member", service_seced_member.list_nextPage( page ));
+	    		model.addAttribute("leave_member_page", 1);
+	    		return "manager/leave_member_nextPage";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 상품 수정
 	@RequestMapping("/item_amend")
 	public String item_amend(@RequestParam("idx") String idx, 
 			 				HttpServletRequest request, HttpServletResponse response, Model model) {
-		model.addAttribute("idx_show_detail", service_items.detail_idx_read(idx));
-		return "manager/item_amend";
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	model.addAttribute("idx_show_detail", service_items.detail_idx_read(idx));
+	    		return "manager/item_amend";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 상품 수정 저장
@@ -1398,30 +1697,37 @@ public class MyContoller {
 								@RequestParam("idx") String idx,
 								@RequestParam("item_img") MultipartFile item_img,
 								HttpServletRequest request, HttpServletResponse response, Model model) {
-		
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("item_name", item_name);
-		map.put("item_category", item_category);
-		map.put("item_origin", item_origin);
-		map.put("item_real_price", item_real_price );
-		map.put("item_sale_price", item_sale_price );
-		map.put("item_sale_discount", item_sale_discount );
-		map.put("item_description", item_description );
-		map.put("idx", idx );
-		if( !(item_img.isEmpty())  ) {
-			String file = itemuploadService.restore(item_img);
-			map.put( "file", file );
-		} else { map.put( "file", "null" ); }
-		
-		System.out.println( map );
-		
-		int nResult = service_items.item_update(map);
-		if( nResult < 1 ) {
-			return "manager/item_amend_fail";
-		} else {
-			return "manager/items";
-		}
-		
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	Map<String, String> map = new HashMap<String, String>();
+	    		map.put("item_name", item_name);
+	    		map.put("item_category", item_category);
+	    		map.put("item_origin", item_origin);
+	    		map.put("item_real_price", item_real_price );
+	    		map.put("item_sale_price", item_sale_price );
+	    		map.put("item_sale_discount", item_sale_discount );
+	    		map.put("item_description", item_description );
+	    		map.put("idx", idx );
+	    		if( !(item_img.isEmpty())  ) {
+	    			String file = itemuploadService.restore(item_img);
+	    			map.put( "file", file );
+	    		} else { map.put( "file", "null" ); }
+	    		
+	    		System.out.println( map );
+	    		
+	    		int nResult = service_items.item_update(map);
+	    		if( nResult < 1 ) {
+	    			return "manager/item_amend_fail";
+	    		} else {
+	    			return "manager/items";
+	    		}
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	
@@ -1429,17 +1735,35 @@ public class MyContoller {
 	
 	// 이벤트리스트_메인 관리
 	@RequestMapping("/event_list")
-	public String event_list(Model model) {
-		model.addAttribute("dtoE_mainList", service_event.event_list());
-		return "manager/event_list";
+	public String event_list(HttpServletRequest request, Model model) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	model.addAttribute("dtoE_mainList", service_event.event_list());
+	    		return "manager/event_list";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 이벤트 수정
 	@RequestMapping("/event_update")
 	public String event_update(HttpServletRequest request, Model model) {
-		String index = request.getParameter("event_index");
-		model.addAttribute("dtoE_update", service_event.event_update(index));
-		return "manager/event_update" ;
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	String index = request.getParameter("event_index");
+	    		model.addAttribute("dtoE_update", service_event.event_update(index));
+	    		return "manager/event_update" ;
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 이벤트 수정확인
@@ -1447,62 +1771,88 @@ public class MyContoller {
 	public String event_updateOk(	@RequestParam(value="upload_banner1", required=false) MultipartFile banner1,
 									@RequestParam(value="upload_banner2", required=false) MultipartFile banner2,
 									HttpServletRequest request, Model model) {
-		
-		Map<String, String> map = new HashMap<String, String>();
-		
-		String index = request.getParameter("event_index");
-		map.put("event_index", index);
-		
-		String title = request.getParameter("event_title");
-		map.put("event_title", title);
-		
-		String content = request.getParameter("event_content");
-		content = content.replace("\r\n","<br>");
-		map.put("event_content",content);
-		
-		if( !(banner1.isEmpty()) ) {
-			String Ebanner1 = fileUploadService_event.restore(banner1);
-			map.put( "event_banner1", Ebanner1 );
-		} else {
-			map.put( "event_banner1", "null" );
-		}
-		
-		if( !(banner2.isEmpty()) ) {
-			String Ebanner2 = fileUploadService_event.restore(banner2);
-			map.put( "event_banner2", Ebanner2 );
-		} else {
-			map.put( "event_banner2", "null" );
-		}
-		
-		int nResult = service_event.event_updateok(map);
-		if( nResult < 1) {
-			System.out.println("수정을 실패했습니다.");
-			return "redirect:event_list";
-		}else {
-			System.out.println("수정을 성공했습니다.");
-			return "redirect:event_list";	
-		}
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	Map<String, String> map = new HashMap<String, String>();
+	    		
+	    		String index = request.getParameter("event_index");
+	    		map.put("event_index", index);
+	    		
+	    		String title = request.getParameter("event_title");
+	    		map.put("event_title", title);
+	    		
+	    		String content = request.getParameter("event_content");
+	    		content = content.replace("\r\n","<br>");
+	    		map.put("event_content",content);
+	    		
+	    		if( !(banner1.isEmpty()) ) {
+	    			String Ebanner1 = fileUploadService_event.restore(banner1);
+	    			map.put( "event_banner1", Ebanner1 );
+	    		} else {
+	    			map.put( "event_banner1", "null" );
+	    		}
+	    		
+	    		if( !(banner2.isEmpty()) ) {
+	    			String Ebanner2 = fileUploadService_event.restore(banner2);
+	    			map.put( "event_banner2", Ebanner2 );
+	    		} else {
+	    			map.put( "event_banner2", "null" );
+	    		}
+	    		
+	    		int nResult = service_event.event_updateok(map);
+	    		if( nResult < 1) {
+	    			System.out.println("수정을 실패했습니다.");
+	    			return "redirect:event_list";
+	    		}else {
+	    			System.out.println("수정을 성공했습니다.");
+	    			return "redirect:event_list";	
+	    		}
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	
 	// 이벤트 삭제
 	@RequestMapping("/event_delete")
 	public String event_delete(HttpServletRequest request, Model model) {
-		String index = request.getParameter("event_index");
-		int nResult = service_event.event_delete(index);
-		if( nResult < 1) {
-			System.out.println("삭제를 실패했습니다.");
-			return "redirect:event_list";
-		}else {
-			System.out.println("삭제를 성공했습니다.");
-			return "redirect:event_list";	
-		}
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	    		String index = request.getParameter("event_index");
+	    		int nResult = service_event.event_delete(index);
+	    		if( nResult < 1) {
+	    			System.out.println("삭제를 실패했습니다.");
+	    			return "redirect:event_list";
+	    		}else {
+	    			System.out.println("삭제를 성공했습니다.");
+	    			return "redirect:event_list";	
+	    		}
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 관리자 이벤트 작성페이지
 	@RequestMapping("/event_write")
-	public String manager_eventWrite() {
-		return "manager/event_write";
+	public String manager_eventWrite(HttpServletRequest request) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	return "manager/event_write";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	//파일업로드용 bean 생성(상단에생성되어있음 name = multipartResolver)
@@ -1514,54 +1864,81 @@ public class MyContoller {
 										@RequestParam(value="upload_banner2", required=false) MultipartFile banner2,
 										HttpServletRequest request, Model model) {
 		
-		Map<String, String> map = new HashMap<String, String>();
-		String title = request.getParameter("event_title");
-		map.put("event_title", title);
-		
-		String content = request.getParameter("event_content");
-		content = content.replace("\r\n","<br>");
-		map.put("event_content",content);
-		
-		String date = request.getParameter("event_date");
-		map.put("event_date", date);
-		
-		if( !(banner1.isEmpty()) ) {
-			String Ebanner1 = fileUploadService_event.restore(banner1);
-			map.put( "event_banner1", Ebanner1 );
-		} else {
-			map.put( "event_banner1", "null" );
-		}
-		
-		if( !(banner2.isEmpty()) ) {
-			String Ebanner2 = fileUploadService_event.restore(banner2);
-			map.put( "event_banner2", Ebanner2 );
-		} else {
-			map.put( "event_banner2", "null" );
-		}
-		
-		int nResult = service_event.event_write(map);
-		if( nResult < 1) {
-			System.out.println("쓰기를 실패했습니다.");
-			return "redirect:event_write";
-		}else {
-			System.out.println("쓰기를 성공했습니다.");
-			return "redirect:event_list";	
-		}
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	Map<String, String> map = new HashMap<String, String>();
+	    		String title = request.getParameter("event_title");
+	    		map.put("event_title", title);
+	    		
+	    		String content = request.getParameter("event_content");
+	    		content = content.replace("\r\n","<br>");
+	    		map.put("event_content",content);
+	    		
+	    		String date = request.getParameter("event_date");
+	    		map.put("event_date", date);
+	    		
+	    		if( !(banner1.isEmpty()) ) {
+	    			String Ebanner1 = fileUploadService_event.restore(banner1);
+	    			map.put( "event_banner1", Ebanner1 );
+	    		} else {
+	    			map.put( "event_banner1", "null" );
+	    		}
+	    		
+	    		if( !(banner2.isEmpty()) ) {
+	    			String Ebanner2 = fileUploadService_event.restore(banner2);
+	    			map.put( "event_banner2", Ebanner2 );
+	    		} else {
+	    			map.put( "event_banner2", "null" );
+	    		}
+	    		
+	    		int nResult = service_event.event_write(map);
+	    		if( nResult < 1) {
+	    			System.out.println("쓰기를 실패했습니다.");
+	    			return "redirect:event_write";
+	    		}else {
+	    			System.out.println("쓰기를 성공했습니다.");
+	    			return "redirect:event_list";	
+	    		}
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 /* ============== 메인 베너 등록 관리 ===== */
 	
 	// 배너관리리스트
 	@RequestMapping("/banner_list")
-	public String manager_bannerlist(Model model) {
-		model.addAttribute("dtoB_listView", service_banner.banner_list());
-		return "manager/banner_list";
+	public String manager_bannerlist(HttpServletRequest request, Model model) {		
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+
+	    		model.addAttribute("dtoB_listView", service_banner.banner_list());
+	    		return "manager/banner_list";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 배너등록(작성)
 	@RequestMapping("/banner_write")
-	public String manager_bannerWrite() {
-		return "manager/banner_write";
+	public String manager_bannerWrite( HttpServletRequest request ) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	return "manager/banner_write";
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 파일업로드용 bean 생성
@@ -1572,56 +1949,83 @@ public class MyContoller {
 	public String manager_bannerWriteOk( @RequestParam(value="upload_banner_img", required=false) MultipartFile banner_img,
 										  HttpServletRequest request, Model model) {
 		
-		Map<String, String> map = new HashMap<String, String>();
-		//제목
-		String title = request.getParameter("banner_title");
-		map.put("banner_title", title);
-		
-		//img
-		if( !(banner_img.isEmpty()) ) {
-			String mainBanner = fileUploadService_banner.restore(banner_img);
-			map.put( "banner_img", mainBanner );
-		} else {
-			map.put( "banner_img", "null" );
-		}
-		
-		//링크
-		String href = request.getParameter("banner_href");
-		map.put("banner_href", href);
-		
-		int nResult = service_banner.banner_write(map);
-		if( nResult < 1) {
-			System.out.println("쓰기를 실패했습니다.");
-			return "redirect:banner_write";
-		}else {
-			System.out.println("쓰기를 성공했습니다.");
-			return "redirect:banner_list";	
-		}
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	        	Map<String, String> map = new HashMap<String, String>();
+	    		//제목
+	    		String title = request.getParameter("banner_title");
+	    		map.put("banner_title", title);
+	    		
+	    		//img
+	    		if( !(banner_img.isEmpty()) ) {
+	    			String mainBanner = fileUploadService_banner.restore(banner_img);
+	    			map.put( "banner_img", mainBanner );
+	    		} else {
+	    			map.put( "banner_img", "null" );
+	    		}
+	    		
+	    		//링크
+	    		String href = request.getParameter("banner_href");
+	    		map.put("banner_href", href);
+	    		
+	    		int nResult = service_banner.banner_write(map);
+	    		if( nResult < 1) {
+	    			System.out.println("쓰기를 실패했습니다.");
+	    			return "redirect:banner_write";
+	    		}else {
+	    			System.out.println("쓰기를 성공했습니다.");
+	    			return "redirect:banner_list";	
+	    		}
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	//배너삭제
 	@RequestMapping("/banner_delete")
 	public String banner_delete(HttpServletRequest request, Model model) {
-		String index = request.getParameter("banner_index");
-		
-		int nResult = service_banner.banner_delete(index);
-		if(nResult < 1) {
-			System.out.println("삭제를 실패했습니다.");
-			return "redirect:banner_list";
-		} else {
-			System.out.println("삭제를 성공했습니다.");
-			return "redirect:banner_list";
-		}
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	
+	    		String index = request.getParameter("banner_index");
+	    		
+	    		int nResult = service_banner.banner_delete(index);
+	    		if(nResult < 1) {
+	    			System.out.println("삭제를 실패했습니다.");
+	    			return "redirect:banner_list";
+	    		} else {
+	    			System.out.println("삭제를 성공했습니다.");
+	    			return "redirect:banner_list";
+	    		}
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	
 	// 배너 수정
 	@RequestMapping("/banner_update")
 	public String banner_update(HttpServletRequest request, Model model) {
-		String index = request.getParameter("banner_index");
-						//update items
-		model.addAttribute("dtoB_update", service_banner.banner_update(index));
-		return "manager/banner_update" ;
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	    		
+	        	String index = request.getParameter("banner_index");
+				//update items
+				model.addAttribute("dtoB_update", service_banner.banner_update(index));
+				return "manager/banner_update" ;
+	        } else {
+	        	return "manager/notAccess";
+	        }
 	}
 	
 	// 배너 수정확인
