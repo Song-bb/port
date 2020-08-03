@@ -609,5 +609,98 @@
 
 /* ========== /배너 ========= */
 
-
-
+/* ========== order_list =========== */
+ .order_list_wrap {
+     width: 1050px;
+     margin: 0 auto;
+ }
+ .order_list_title {
+     height: 50px;
+     line-height: 50px;
+ }
+ .order_list_categori {
+     height: 30px;
+     text-align: right;
+     padding-bottom: 15px;
+ }
+ .select_categori_orderList {
+     height: 25px;
+ }
+ .orderList {
+     width: 1050px;
+ }
+ .orderList_table {
+     border-collapse: collapse;
+     border-top: 2px solid #459356;
+     border-bottom: 2px solid #459356;
+     width: 1050px;
+ }
+ .orderList_table_td {
+     border-bottom: 1px solid rgba(179, 178, 178, 0.507);
+     text-align: center;
+     padding: 5px;
+ }
+ .orderList_table_td1 {
+     width: 100px;
+ }
+ .orderList_table_td2 {
+     width: 600px;
+ }
+ .orderList_table_td3 {
+     width: 120px;
+ }
+ .orderList_table_td4 {
+     width: 100px;
+ }
+ .orderList_table_td5 {
+     width: 100px;
+ }
+ .orderList_table_td_1 {
+     text-align: left;
+     width: 150px;
+     float: left;
+     margin-right: 10px;
+     margin-left: 10px;
+     height: 200px;
+     line-height: 200px;
+     overflow: hidden;
+ }
+ .orderList_table_td_2 {
+     text-align: left;
+     float: right;
+     width: 420px;
+     height: 200px;
+     line-height: 200px;
+     overflow: hidden;
+ }
+ #orderList_table_img {
+	width: 150px;
+}
+ .orderList_table_td_2_div {
+ 	clear: both;
+ 	margin-left: 10px;
+ 	vertical-align: middle;
+ }
+ .orderList_table_td3_1 {
+     text-align: right;
+     padding-right: 10px;;
+ }
+ .order_list_select_page {
+     text-align: center;
+     padding-top: 15px;
+ }
+ .order_list_select_page_table {
+     margin: 0 auto;
+ }
+ .order_list_select_page_td {
+     padding: 5px;
+ }
+ .order_list_select_page_td a {
+     text-decoration: none;
+     color: rgb(50,50,50);
+ }
+ .orderList_table_td a {
+     text-decoration: none;
+     color: rgb(50,50,50);
+ }
+/* ========== /order_list =========== */

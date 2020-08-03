@@ -1118,7 +1118,7 @@ public class MyContoller {
 		return "manager/member_grade";
 	}
 	
-	// 회원관리-회원 적립금 추가/삭감
+	// 회원관리-회원 등급 변경
 	@RequestMapping("/member_grade_ok")
 	public String member_grade_ok(@RequestParam("user_index") String member_index, 
 									@RequestParam("grade") String grade, Model model ) {
@@ -1156,10 +1156,96 @@ public class MyContoller {
 		return "manager/fre_ask_board";
 	}
 	
-	// 주문내역(회원관리)
+	// 주문내역(회원관리) - 첫페이지
 	@RequestMapping("/order_list")
-	public String order_list() {
+	public String order_list(Model model) {
+		model.addAttribute("order_list", service_myPage.manager_view());
+		int count = service_myPage.manager_viewCount();
+		int index = 10; // 한 페이지에 나타내는 글 수
+		int page1 = count / index; // 한페이지안에 글이 꽉 찬 페이지
+		int page2 = 0; 
+		if( count % index != 0 ) { // 잔여 글이 남아있으면
+			page2 = 1; // 한페이지안에 글이 꽉차진 않지만 있는 페이지
+		}
+		int lastPage = page1 + page2; // 총 나타내야 할 페이지
+		
+		model.addAttribute("orderList_page", 1);
+		model.addAttribute("startPage", 1);
+		model.addAttribute("max_page", lastPage);
+		model.addAttribute("lastPage", lastPage);
 		return "manager/order_list";
+	}
+	
+	// 주문내역(회원관리) - 다음페이지
+	@RequestMapping("/order_list_nextPage")
+	public String order_list_nextPage( @RequestParam(value="page", required=false) int page, Model model) {
+		model.addAttribute("order_list", service_myPage.manager_view(page));
+		int count = service_myPage.manager_viewCount();
+		
+		int index = 10; // 한 페이지에 나타내는 글 수
+		int page1 = count / index; // 한페이지안에 글이 꽉 찬 페이지
+		int page2 = 0; 
+		if( count % index != 0 ) { // 잔여 글이 남아있으면
+			page2 = 1; // 한페이지안에 글이 꽉차진 않지만 있는 페이지
+		}
+		int lastPage = page1 + page2; // 총 나타내야 할 페이지
+		int maxPage = 5; // 한번에 나타내는 페이지수
+		int startPage = 1;
+		if( lastPage / maxPage != 0 || lastPage != 5 ) { // 5개 이후 페이지 추가 발생하면
+			if( page % 5 == 0 ) {
+				startPage = ((page / maxPage) * 5) + 1;
+			} else {
+				startPage = page + 1;
+			}
+		}
+		if( page == 1 ) {
+			model.addAttribute("orderList_page", 1);
+			model.addAttribute("startPage", 1);
+			model.addAttribute("max_page", lastPage);
+			model.addAttribute("lastPage", lastPage);
+		} else {
+			model.addAttribute("startPage", startPage );
+			model.addAttribute("orderList_page", page);
+			model.addAttribute("max_page", startPage + 1);
+			model.addAttribute("lastPage", lastPage);
+		}	
+		return "manager/order_list_nextPage";
+	}
+	
+	// 주문내역(회원관리) - 년도선택 - 다음페이지
+	@RequestMapping("/order_list_selectYear")
+	public String order_list_selectYear( @RequestParam("page") int page, @RequestParam("year") int year, Model model) {
+		model.addAttribute("order_list", service_myPage.manager_view_year(page, year));
+		int count = service_myPage.manager_viewCount_year(year);
+		
+		int index = 10; // 한 페이지에 나타내는 글 수
+		int page1 = count / index; // 한페이지안에 글이 꽉 찬 페이지
+		int page2 = 0; 
+		if( count % index != 0 ) { // 잔여 글이 남아있으면
+			page2 = 1; // 한페이지안에 글이 꽉차진 않지만 있는 페이지
+		}
+		int lastPage = page1 + page2; // 총 나타내야 할 페이지
+		int maxPage = 5; // 한번에 나타내는 페이지수
+		int startPage = 1;
+		if( lastPage / maxPage != 0 || lastPage != 5 ) { // 5개 이후 페이지 추가 발생하면
+			if( page % 5 == 0 ) {
+				startPage = ((page / maxPage) * 5) + 1;
+			} else {
+				startPage = page + 1;
+			}
+		}
+		if( page == 1 ) {
+			model.addAttribute("orderList_page", 1);
+			model.addAttribute("startPage", 1);
+			model.addAttribute("max_page", lastPage);
+			model.addAttribute("lastPage", lastPage);
+		} else {
+			model.addAttribute("startPage", startPage );
+			model.addAttribute("orderList_page", page);
+			model.addAttribute("max_page", startPage + 1);
+			model.addAttribute("lastPage", lastPage);
+		}
+		return "manager/order_list_selectYear";
 	}
 	
 	// 1:1 문의 관리

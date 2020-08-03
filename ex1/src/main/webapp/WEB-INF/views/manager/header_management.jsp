@@ -77,6 +77,7 @@
 	                    <ul class="sub_nav2">
 	                        <li><a href="/member">회원관리</a></li>
 	                        <li><a href="/leave_member">탈퇴회원</a></li>
+	                        <li><a href="/order_list">주문관리</a></li>
 	                    </ul>
 	                </li>
 	                <li>

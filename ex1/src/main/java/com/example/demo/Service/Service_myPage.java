@@ -20,7 +20,71 @@ public class Service_myPage {
 	public List<dto_myPage> order_list(String user_id) {
 		return dao_myPage.myOrder(user_id);
 	}
+
+	public List<dto_myPage> manager_view() {
+		return dao_myPage.manager_view();
+	}
 	
+	public List<dto_myPage> manager_view(int page) {
+		if( page == 1 ) {
+			return dao_myPage.manager_view();
+		} else {
+			int newPage = (page-1) * 10;
+			return dao_myPage.manager_view_page(newPage);
+		}
+	}
+	
+	public List<dto_myPage> manager_view_year(int page, int year) {
+		int newYear = year;
+		String newYear_min;
+		String newYear_max;
+		if( year == 2018 ) {
+			newYear_min = "2018-01-01";
+			newYear_max = "2018-12-31";
+		} else if( year == 2019) {
+			newYear_min = "2019-01-01";
+			newYear_max = "2019-12-31";
+		} else if( year == 2020 ) {
+			newYear_min = "2020-01-01";
+			newYear_max = "2020-12-31";
+		} else {
+			if( page == 1 ) {
+				return dao_myPage.manager_view();
+			} else {
+				int newPage = (page-1) * 10;
+				return dao_myPage.manager_view_page(newPage);
+			}
+		}
+		if( page == 1 ) {
+			return dao_myPage.manager_view_year(newYear_min, newYear_max);
+		} else {
+			int newPage = (page-1) * 10;
+			return dao_myPage.manager_view_page_year(newYear_min, newYear_max, newPage);
+		}
+	}
+	
+	public int manager_viewCount() {
+		return dao_myPage.manager_viewCount();
+	}
+	
+	public int manager_viewCount_year(int year) {
+		int newYear = year;
+		String newYear_min;
+		String newYear_max;
+		if( year == 2018 ) {
+			newYear_min = "2018-01-01";
+			newYear_max = "2018-12-31";
+		} else if( year == 2019) {
+			newYear_min = "2019-01-01";
+			newYear_max = "2019-12-31";
+		} else if( year == 2020 ) {
+			newYear_min = "2020-01-01";
+			newYear_max = "2020-12-31";
+		} else {
+			return dao_myPage.manager_viewCount();
+		}
+		return dao_myPage.manager_view_year_count(newYear_min, newYear_max);
+	}
 	
 	
 	

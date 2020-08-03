@@ -10,6 +10,11 @@ import com.example.demo.dto.dto_myPage;
 public interface IDao_myPage {
 	
 	public List<dto_myPage> myOrder(String user_id);
-	
+	public List<dto_myPage> manager_view();
+	public List<dto_myPage> manager_view_page(int page);
+	public List<dto_myPage> manager_view_year(String newYear_min, String newYear_max);
+	public List<dto_myPage> manager_view_page_year(String newYear_min, String newYear_max, int page);
+	public int manager_viewCount();
+	public int manager_view_year_count(String newYear_min, String newYear_max);
 	
 }

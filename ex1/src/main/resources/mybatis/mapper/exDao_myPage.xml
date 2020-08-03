@@ -10,7 +10,30 @@
 			SELECT * FROM order_list WHERE user_id = #{param1} ORDER BY idx desc
 	</select>
 
+	<select id="manager_view" resultType="com.example.demo.dto.dto_myPage"> 
+			SELECT * FROM order_list ORDER BY idx desc LIMIT 0, 10
+	</select>
+	
+	<select id="manager_viewCount" resultType="_int"> 
+			SELECT COUNT(*) FROM order_list ORDER BY idx desc
+	</select>
 
-
+	<select id="manager_view_page" resultType="com.example.demo.dto.dto_myPage"> 
+			SELECT * FROM order_list ORDER BY idx desc LIMIT #{param1}, 10
+	</select>
+	
+	<select id="manager_view_year" resultType="com.example.demo.dto.dto_myPage"> 
+			SELECT * FROM order_list WHERE date BETWEEN #{param1} AND #{param2} ORDER BY idx desc LIMIT 0, 10
+	</select>
+	
+	<select id="manager_view_page_year" resultType="com.example.demo.dto.dto_myPage"> 
+			SELECT * FROM order_list WHERE date BETWEEN #{param1} AND #{param2} ORDER BY idx desc LIMIT #{param3}, 10
+	</select>
+	
+	<select id="manager_view_year_count" resultType="_int"> 
+			SELECT COUNT(*) FROM order_list WHERE date BETWEEN #{param1} AND #{param2}
+	</select>
+	
+	
 	
 </mapper>
