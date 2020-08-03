@@ -16,5 +16,12 @@ public class dto_items {
 	private String item_real_price;
 	private String item_sale_price;
 	private String item_description;
+	private String item_weight;
+	private String item_season;
+	private String item_farm;
+	private String item_state;
+	private String sale_unit;
+	private String delivery_sale;
+	
 	
 }

@@ -1540,6 +1540,12 @@ public class MyContoller {
 								@RequestParam("item_sale_price") String item_sale_price,
 								@RequestParam("item_sale_discount") String item_sale_discount,
 								@RequestParam("item_description") String item_description,
+								@RequestParam("item_weight") String item_weight,
+								@RequestParam("item_season") String item_season,
+								@RequestParam("item_farm") String item_farm,
+								@RequestParam("item_state") String item_state,
+								@RequestParam("sale_unit") String sale_unit,
+								@RequestParam("delivery_sale") String delivery_sale,
 								@RequestParam("item_img") MultipartFile item_img,
 								HttpServletRequest request, HttpServletResponse response, Model model) {
 		
@@ -1552,6 +1558,12 @@ public class MyContoller {
 		map.put("item_sale_price", item_sale_price );
 		map.put("item_sale_discount", item_sale_discount );
 		map.put("item_description", item_description );
+		map.put("item_weight", item_weight);
+		map.put("item_season", item_season);
+		map.put("item_farm", item_farm );
+		map.put("item_state", item_state );
+		map.put("sale_unit", sale_unit );
+		map.put("delivery_sale", delivery_sale );
 		if( !(item_img.isEmpty())  ) {
 			String file = itemuploadService.restore(item_img);
 			map.put( "file", file );
@@ -1681,11 +1693,18 @@ public class MyContoller {
 	@RequestMapping(value="/item_amend_ok", method = RequestMethod.POST)
 	public String item_amend_ok(@RequestParam("item_name") String item_name,
 								@RequestParam("item_category") String item_category,
+								@RequestParam("item_number") String item_number,
 								@RequestParam("item_origin") String item_origin,
 								@RequestParam("item_real_price") String item_real_price,
 								@RequestParam("item_sale_price") String item_sale_price,
 								@RequestParam("item_sale_discount") String item_sale_discount,
 								@RequestParam("item_description") String item_description,
+								@RequestParam("item_weight") String item_weight,
+								@RequestParam("item_season") String item_season,
+								@RequestParam("item_farm") String item_farm,
+								@RequestParam("item_state") String item_state,
+								@RequestParam("sale_unit") String sale_unit,
+								@RequestParam("delivery_sale") String delivery_sale,
 								@RequestParam("idx") String idx,
 								@RequestParam("item_img") MultipartFile item_img,
 								HttpServletRequest request, HttpServletResponse response, Model model) {
@@ -1696,14 +1715,21 @@ public class MyContoller {
 	        	String user_id = session.getAttribute("user_id").toString();
 	        	
 	        	Map<String, String> map = new HashMap<String, String>();
-	    		map.put("item_name", item_name);
+	        	map.put("item_name", item_name);
 	    		map.put("item_category", item_category);
 	    		map.put("item_origin", item_origin);
+	    		map.put("item_number", item_number);
 	    		map.put("item_real_price", item_real_price );
 	    		map.put("item_sale_price", item_sale_price );
 	    		map.put("item_sale_discount", item_sale_discount );
 	    		map.put("item_description", item_description );
-	    		map.put("idx", idx );
+	    		map.put("item_weight", item_weight);
+	    		map.put("item_season", item_season);
+	    		map.put("item_farm", item_farm );
+	    		map.put("item_state", item_state );
+	    		map.put("sale_unit", sale_unit );
+	    		map.put("delivery_sale", delivery_sale );
+	    		map.put("idx", idx);
 	    		if( !(item_img.isEmpty())  ) {
 	    			String file = itemuploadService.restore(item_img);
 	    			map.put( "file", file );
