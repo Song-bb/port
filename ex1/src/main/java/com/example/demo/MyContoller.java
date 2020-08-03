@@ -993,7 +993,7 @@ public class MyContoller {
 		
 		model.addAttribute("member_result_count2", count );
 		model.addAttribute("result_detail_search2", list );
-		return "manager/search_member";
+		return "manager/member_search";
 	}
 	
 	// 회원 상세검색 + 검색어 추가 - 다음페이지
