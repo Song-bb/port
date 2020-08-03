@@ -34,6 +34,12 @@
                         </td>
                     </tr>
                     <tr class="item_update_tr">
+                        <td class="item_update_td">원산지</td>
+                        <td class="item_update_td">
+                            <input type="text" name="item_origin" value="${ dto.item_origin }"/>
+                        </td>
+                    </tr>
+                    <tr class="item_update_tr">
                         <td class="item_update_td">실제 가격</td>
                         <td class="item_update_td">
                             <input type="text" name="item_real_price" value="${ dto.item_real_price }"/>

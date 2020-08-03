@@ -83,11 +83,11 @@
 	
 	
 	<insert id="item_insert">
-		INSERT INTO items (idx, category_idx, item_number, item_name, item_category, item_img, item_discount_rate, item_real_price, item_sale_price, item_description) VALUES (0, #{ category_index }, #{ item_number }, #{ item_name }, #{ item_category }, #{ file }, #{ item_sale_discount }, #{ item_real_price }, #{ item_sale_price }, #{ item_description } );
+		INSERT INTO items (idx, category_idx, item_number, item_name, item_category, item_origin, item_img, item_discount_rate, item_real_price, item_sale_price, item_description) VALUES (0, #{ category_index }, #{ item_number }, #{ item_name }, #{ item_category }, #{ item_origin }, #{ file }, #{ item_sale_discount }, #{ item_real_price }, #{ item_sale_price }, #{ item_description } );
 	</insert>
 	
 	<update id="item_update">
-		UPDATE items SET item_name = #{ item_name }, item_category= #{ item_category }, item_number = #{ item_number }, item_img= #{ file }, item_discount_rate = #{ item_sale_discount }, item_real_price = #{ item_real_price }, item_sale_price = #{ item_sale_price }, item_description = #{ item_description } WHERE idx = #{ idx };
+		UPDATE items SET item_name = #{ item_name }, item_category = #{ item_category }, item_origin = #{ item_origin }, item_number = #{ item_number }, item_img = #{ file }, item_discount_rate = #{ item_sale_discount }, item_real_price = #{ item_real_price }, item_sale_price = #{ item_sale_price }, item_description = #{ item_description } WHERE idx = #{ idx };
 	</update>
 	
 	<delete id="item_delete">

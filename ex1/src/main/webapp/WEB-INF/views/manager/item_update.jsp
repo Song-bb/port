@@ -38,6 +38,12 @@
                         </td>
                     </tr>
                     <tr class="item_update_tr">
+                        <td class="item_update_td">원산지</td>
+                        <td class="item_update_td">
+                            <input type="text" name="item_origin" placeholder="원산지"/>
+                        </td>
+                    </tr>
+                    <tr class="item_update_tr">
                         <td class="item_update_td">실제 가격</td>
                         <td class="item_update_td">
                             <input type="text" name="item_real_price" placeholder="실 가격"/>

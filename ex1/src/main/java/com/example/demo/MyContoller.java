@@ -1185,6 +1185,7 @@ public class MyContoller {
 	public String item_update_ok(@RequestParam("item_name") String item_name,
 								@RequestParam("item_category") String item_category,
 								@RequestParam("item_number") String item_number,
+								@RequestParam("item_origin") String item_origin,
 								@RequestParam("item_real_price") String item_real_price,
 								@RequestParam("item_sale_price") String item_sale_price,
 								@RequestParam("item_sale_discount") String item_sale_discount,
@@ -1195,6 +1196,7 @@ public class MyContoller {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("item_name", item_name);
 		map.put("item_category", item_category);
+		map.put("item_origin", item_origin);
 		map.put("item_number", item_number);
 		map.put("item_real_price", item_real_price );
 		map.put("item_sale_price", item_sale_price );
@@ -1302,6 +1304,7 @@ public class MyContoller {
 	@RequestMapping(value="/item_amend_ok", method = RequestMethod.POST)
 	public String item_amend_ok(@RequestParam("item_name") String item_name,
 								@RequestParam("item_category") String item_category,
+								@RequestParam("item_origin") String item_origin,
 								@RequestParam("item_real_price") String item_real_price,
 								@RequestParam("item_sale_price") String item_sale_price,
 								@RequestParam("item_sale_discount") String item_sale_discount,
@@ -1313,6 +1316,7 @@ public class MyContoller {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("item_name", item_name);
 		map.put("item_category", item_category);
+		map.put("item_origin", item_origin);
 		map.put("item_real_price", item_real_price );
 		map.put("item_sale_price", item_sale_price );
 		map.put("item_sale_discount", item_sale_discount );

@@ -10,6 +10,7 @@ public class dto_items {
 	private String item_number;
 	private String item_name;
 	private String item_category;
+	private String item_origin;
 	private String item_img;
 	private String item_discount_rate;
 	private String item_real_price;
