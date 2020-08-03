@@ -559,19 +559,11 @@ public class MyContoller {
         	return "loginPage/loginPage_main";
         } else {
         	String user_id = session.getAttribute("user_id").toString();
-        	model.addAttribute("my_order", service_myPage.order_list(user_id));
+        	model.addAttribute("my_order", service_myPage.order_list_main(user_id));
     		return "myPage/myPage_main";
         }
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	// 마이페이지 메인 - 년도별 선택
 	@RequestMapping("/myPage_main_selectYear")
 	public String myPage_main_selectYear( @RequestParam(value="year", required=false) int year, 
@@ -582,7 +574,7 @@ public class MyContoller {
         	return "loginPage/loginPage_main";
         } else {
         	String user_id = session.getAttribute("user_id").toString();
-        	model.addAttribute("my_order", service_myPage.order_list(user_id));
+        	model.addAttribute("my_order", service_myPage.order_list(user_id, year, page));
     		return "myPage/myPage_main_selectYear";
         }
 	}

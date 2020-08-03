@@ -17,8 +17,37 @@ public class Service_myPage {
 	/*  마이페이지  */
 	/* 마이오더-리스트 */
 
-	public List<dto_myPage> order_list(String user_id) {
+	public List<dto_myPage> order_list_main(String user_id){
 		return dao_myPage.myOrder(user_id);
+	}
+	
+	public List<dto_myPage> order_list(String user_id, int year, int page) {
+		int newYear = year;
+		String newYear_min;
+		String newYear_max;
+		if( year == 2018 ) {
+			newYear_min = "2018-01-01";
+			newYear_max = "2018-12-31";
+		} else if( year == 2019) {
+			newYear_min = "2019-01-01";
+			newYear_max = "2019-12-31";
+		} else if( year == 2020 ) {
+			newYear_min = "2020-01-01";
+			newYear_max = "2020-12-31";
+		} else {
+			if( page == 1 ) {
+				return dao_myPage.myOrder(user_id);
+			} else {
+				int newPage = (page-1) * 10;
+				return dao_myPage.manager_view_page_userId(user_id, newPage);
+			}
+		}
+		if( page == 1 ) {
+			return dao_myPage.manager_view_yearId(user_id, newYear_min, newYear_max);
+		} else {
+			int newPage = (page-1) * 10;
+			return dao_myPage.manager_view_page_yearId(user_id, newYear_min, newYear_max, newPage);
+		}
 	}
 
 	public List<dto_myPage> manager_view() {

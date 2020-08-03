@@ -119,10 +119,8 @@
 	
 	<script>
 		function select_year_myPage(){
-			alert( "1");
 			var year = document.getElementById('select_orderList_myPage').value;
 	        var url = "/myPage_main_selectYear?year=" + year + "&page=1";
-	        alert( url );
-	        /*document.location.href=url;*/
+	        document.location.href=url;
 		}
 	</script>

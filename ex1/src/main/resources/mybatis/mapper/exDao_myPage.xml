@@ -7,7 +7,7 @@
 <mapper namespace="com.example.demo.dao.IDao_myPage">
 	
 	<select id="myOrder" resultType="com.example.demo.dto.dto_myPage"> 
-			SELECT * FROM order_list WHERE user_id = #{param1} ORDER BY idx desc
+			SELECT * FROM order_list WHERE user_id = #{param1} ORDER BY idx desc LIMIT 0, 10
 	</select>
 
 	<select id="manager_view" resultType="com.example.demo.dto.dto_myPage"> 
@@ -34,6 +34,17 @@
 			SELECT COUNT(*) FROM order_list WHERE date BETWEEN #{param1} AND #{param2}
 	</select>
 	
+	<select id="manager_view_page_userId" resultType="com.example.demo.dto.dto_myPage"> 
+			SELECT * FROM order_list WHERE user_id = #{param1} ORDER BY idx desc LIMIT #{param3}, 10
+	</select>
+	
+	<select id="manager_view_yearId" resultType="com.example.demo.dto.dto_myPage"> 
+			SELECT * FROM order_list WHERE user_id = #{param1} AND date BETWEEN #{param2} AND #{param3} ORDER BY idx desc LIMIT 0, 10
+	</select>
+	
+	<select id="manager_view_page_yearId" resultType="com.example.demo.dto.dto_myPage"> 
+			SELECT * FROM order_list WHERE user_id = #{param1} AND date BETWEEN #{param2} AND #{param3} ORDER BY idx desc LIMIT #{param4}, 10
+	</select>
 	
 	
 </mapper>
