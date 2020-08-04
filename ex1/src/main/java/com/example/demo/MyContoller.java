@@ -751,6 +751,7 @@ public class MyContoller {
 									@RequestParam(value="Buy_date", required=false) String Buy_date,
 									@RequestParam(value="review_content", required=false) String review_content,
 									@RequestParam(value="review_score", required=false) String review_score,
+									@RequestParam(value="user_id", required=false) String user_id,
 									 Model model) {
 		Map <String, String> map = new HashMap<String, String>();
 		map.put("item_number", item_number);
@@ -761,7 +762,7 @@ public class MyContoller {
 		map.put("Buy_date", Buy_date);
 		map.put("review_content", review_content);
 		map.put("review_score", review_score);
-		
+		map.put("user_id", user_id);
 		return service_review.addReview(map);
 	}
 	

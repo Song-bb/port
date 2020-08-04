@@ -8,5 +8,7 @@ import org.apache.ibatis.annotations.Mapper;
 public interface IDao_review {
 
 	public int addReview(Map<String, String> map);
+	public int count_user()
+	
 	
 }

@@ -40,7 +40,8 @@
             	<input type="hidden" value="${ dto.item_text }" id="item_name">
             	<input type="hidden" value="${ dto.item_number }" id="item_number">
             	<input type="hidden" value="${ dto.price_actual }" id="Buy_price">
-            	<input type="hidden" value="${ string2 }" id="Buy_date">
+            	<input type="hidden" value="${ dto.price_actual }" id="Buy_price">
+            	<input type="hidden" value="${ dto.user_id }" id="user_id">
             </c:forEach>
         </table>
         <div class="review_write_content">
@@ -71,6 +72,7 @@
     		var Buy_price = document.getElementById('Buy_price').value;
     		var Buy_date = document.getElementById('Buy_date').value;
     		var review_content = document.getElementById('review_write_content').value;
+    		var user_id = document.getElementById('user_id').value;
 			var data = document.getElementsByName('star');
 			var score; // 여기에 선택된 radio 버튼의 값이 담기게 된다.
 			for(var i=0; i<data.length; i++) {
