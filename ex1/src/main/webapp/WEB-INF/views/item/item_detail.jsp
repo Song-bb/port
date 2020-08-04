@@ -47,9 +47,9 @@
 	                        </div>
 	                        <div id="goods_info">
 	                            <table>
-	                                <tr><td class="goods_info_title">판매단위 </td><td class="goods_info_text">1팩 / 500g</td></tr>
+	                                <tr><td class="goods_info_title">판매단위 </td><td class="goods_info_text">${ dto.sale_unit } / ${ dto.item_weight }</td></tr>
 	                                <tr><td class="goods_info_title">원산지 </td><td class="goods_info_text">${ dto.item_origin }</td> </tr>
-	                                <tr><td class="goods_info_title">택배배송 </td><td class="goods_info_text">무료배송</td></tr>
+	                                <tr><td class="goods_info_title">택배배송 </td><td class="goods_info_text">${ dto.delivery_sale }</td></tr>
 	                                <tr><td class="goods_info_title">안내사항 </td><td class="goods_info_text">식품 특성상 중량차이가 있을 수 있습니다.식품 특성상 중량차이가 있을 수 있습니다.
 	                                    식품 특성상 중량차이가 있을 수 있습니다</td>
 	                                </tr>
@@ -127,13 +127,13 @@
 	                <table>
 	                    <tr>
 	                        <td class="goods_info_title">상품상태</td>
-	                        <td class="goods_info_text">신상품</td>
+	                        <td class="goods_info_text">${ dto.item_state }</td>
 	                        <td class="goods_info_title">상품번호</td>
 	                        <td class="goods_info_text">${ dto.item_number }</td>
 	                    </tr>
 	                    <tr>
 	                        <td class="goods_info_title">제조사</td>
-	                        <td class="goods_info_text">영천복숭아</td>
+	                        <td class="goods_info_text">${ dto.item_farm }</td>
 	                        <td class="goods_info_title">브랜드</td>
 	                        <td class="goods_info_text">과일장수</td>
 	                    </tr>
@@ -145,9 +145,9 @@
 	                    </tr>
 	                    <tr>
 	                        <td class="goods_info_title">무게</td>
-	                        <td class="goods_info_text">500g</td>
+	                        <td class="goods_info_text">${ dto.item_weight }</td>
 	                        <td class="goods_info_title">생산시기</td>
-	                        <td class="goods_info_text">여름</td>
+	                        <td class="goods_info_text">${ dto.item_season }</td>
 	                    </tr>
 	                    <tr>
 	                        <td class="goods_info_title">품종</td>
