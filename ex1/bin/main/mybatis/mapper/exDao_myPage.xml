@@ -50,5 +50,11 @@
 			SELECT * FROM order_list WHERE user_id = #{param1} AND date BETWEEN #{param2} AND #{param3} ORDER BY idx desc LIMIT #{param4}, 10
 	</select>
 	
+	<select id="myOrder_review" resultType="com.example.demo.dto.dto_myPage"> 
+			SELECT * FROM order_list WHERE order_number = #{param1}
+	</select>
+	
+	
+	
 	
 </mapper>

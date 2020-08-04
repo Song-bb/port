@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,8 +22,9 @@
                     <th>구매금액</th>
                     <th>구매일자</th>
                 </tr>
+                <c:forEach items="${ myOrder_review }" var="dto">
                 <tr>
-                    <td>00000000</td>
+                    <td>${ dto.order_number }</td>
                     <td onclick="" style="cursor:pointer" class="write_itemInfo">
                         <p><img src="http://placehold.it/500x500" alt="#"></p>
                         <span>사과 200g 외</span>
@@ -30,6 +32,7 @@
                     <td>13,900 원</td>
                     <td>2020-07-02</td>
                 </tr>
+                </c:forEach>
             </table>
             <div class="review_write_content">
                 <p>상품평을 등록해주세요</p>

@@ -21,5 +21,6 @@ public interface IDao_myPage {
 	public List<dto_myPage> manager_view_yearId(String user_id, String newYear_min, String newYear_max);
 	public List<dto_myPage> manager_view_page_yearId(String user_id, String newYear_min, String newYear_max, int page);
 	public List<dto_myPage> myPoint(String user_id);
+	public List<dto_myPage> myOrder_review(String orderNumber);
 	
 }
