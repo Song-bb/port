@@ -743,7 +743,7 @@ public class MyContoller {
 	
 	// 상품후기작성중
 	@RequestMapping("/myReview_write_ok")
-	public int myReview_write_ok(@RequestParam(value="item_number", required=false) String item_number,
+	public void myReview_write_ok(@RequestParam(value="item_number", required=false) String item_number,
 									@RequestParam(value="item_img", required=false) String item_img,
 									@RequestParam(value="item_name", required=false) String item_name,
 									@RequestParam(value="order_number", required=false) String order_number,
@@ -763,7 +763,7 @@ public class MyContoller {
 		map.put("review_content", review_content);
 		map.put("review_score", review_score);
 		map.put("user_id", user_id);
-		return service_review.addReview(map);
+		service_review.addReview(map);
 	}
 	
 	// 적립금

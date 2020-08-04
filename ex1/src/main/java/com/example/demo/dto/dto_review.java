@@ -6,7 +6,8 @@ import lombok.Data;
 public class dto_review {
 	
 	private String idx;
-	private String user_index;
+	private int user_index;
+	private String user_id;
 	private String item_number;
 	private String item_img;
 	private String item_name;
