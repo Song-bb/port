@@ -27,7 +27,7 @@
 		                    </div>
 		                    <div class="item_desc">
 		                        <p><a href="item_detail?idx=${ dto.idx }">${ dto.item_name }</a></p>
-		                        <p>${ dto.item_sale_price }</p>
+		                        <p>${ dto.item_sale_price }원</p>
 		                    </div>
 		                </div>
 		            </td>
