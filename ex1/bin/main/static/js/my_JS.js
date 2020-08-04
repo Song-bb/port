@@ -32,16 +32,6 @@ $(document).ready(function(){
 
 
 
-//review popup
-
-function reviewPop() { 
-	window.open(
-		"myReview_write", "a", 
-		"width=600, height=800, left=200, top=0"
-	); 
-}
-
-
 
 // 주문조회 popup
 function order_select_Pop() { 

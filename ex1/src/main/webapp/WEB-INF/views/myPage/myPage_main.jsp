@@ -98,7 +98,7 @@
                                 <td class="order_board_table_td order_td5">
                                     <div class="order_td5_2">
                                     												<!-- 팝업이벤트파일 : my_JS.js  -->				
-                                            <button class="order_td5_2_1" type="button" onclick="reviewPop();">리뷰쓰기</button>
+                                            <button class="order_td5_2_1" type="button" onclick="reviewPop(${ dto.order_number });">리뷰쓰기</button>
                                             <button class="order_td5_2_1" type="button" onclick="location.href='/myOrder'">주문상세</button>
                                     </div>
                                     <div class="order_td5_1">${ dto.statement }</div>
@@ -139,4 +139,12 @@
 	        var url = "/myPage_main_selectYear?year=" + year + "&page=1";
 	        document.location.href=url;
 		}
+	
+		function reviewPop(int ordernumber) { 
+			var number = ordernumber;
+			alert(number);
+			window.open(url, "a", "width=600, height=800, left=200, top=0"); 
+		}
+		
 	</script>
+	
