@@ -6,7 +6,13 @@
     
 <mapper namespace="com.example.demo.dao.IDao_review">
 
-
+	<insert id="addReview"> 
+			INSERT INTO review (idx, user_index, user_id, item_number, item_img, item_name, order_number, Buy_price, Buy_date, review_content, review_score, write_date) VALUES (0, #{param1}, #{user_id}, #{item_number}, #{item_img}, #{item_name}, #{order_number}, #{Buy_price}, #{Buy_date}, #{review_content}, #{review_score}, default)
+	</insert>
+	
+	<select id="count_user" resultType="_int"> 
+			SELECT COUNT(*) FROM review WHERE user_id = #{param1}
+	</select>
 	
 	
 </mapper>

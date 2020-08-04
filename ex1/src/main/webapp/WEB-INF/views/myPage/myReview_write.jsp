@@ -40,7 +40,7 @@
             	<input type="hidden" value="${ dto.item_text }" id="item_name">
             	<input type="hidden" value="${ dto.item_number }" id="item_number">
             	<input type="hidden" value="${ dto.price_actual }" id="Buy_price">
-            	<input type="hidden" value="${ dto.price_actual }" id="Buy_price">
+            	<input type="hidden" value="${ dto.date }" id="date">
             	<input type="hidden" value="${ dto.user_id }" id="user_id">
             </c:forEach>
         </table>
@@ -70,10 +70,10 @@
     		var item_name1 = document.getElementById('item_name').value;
     		var order_number1 = document.getElementById('order_number').value;
     		var Buy_price1 = document.getElementById('Buy_price').value;
-    		var Buy_date1 = document.getElementById('Buy_date').value;
+    		var Buy_date1 = document.getElementById('date').value;
     		var review_content1 = document.getElementById('review_write_content').value;
     		var user_id1 = document.getElementById('user_id').value;
-			var data = document.getElementsByName('star');
+    		var data = document.getElementsByName('star');
 			var score; // 여기에 선택된 radio 버튼의 값이 담기게 된다.
 			for(var i=0; i<data.length; i++) {
 			    if(data[i].checked) {
@@ -88,20 +88,22 @@
 	    		    //async:true,// false 일 경우 동기 요청으로 변경
 	    		    type:'POST' // GET, PUT
 	    		    data: {
-	    		    	item_number:item_number1,
-	    		    	item_img:item_img1,
-	    		    	item_name:item_name1,
-	    		    	order_number:order_number1,
-	    		    	Buy_price:Buy_price1,
-	    		    	Buy_date:Buy_date1,
-	    		    	review_content:review_content1,
-	    		    	review_score:score,
-	    		    	user_id:user_id1
+	    		    	"item_number":item_number1,
+	    		    	"item_img":item_img1,
+	    		    	"item_name":item_name1,
+	    		    	"order_number":order_number1,
+	    		    	"Buy_price":Buy_price1,
+	    		    	"Buy_date":Buy_date1,
+	    		    	"review_content":review_content1,
+	    		    	"review_score":score,
+	    		    	"user_id":user_id1
 	    		    },// 전송할 데이터
 	    		    //dataType:'json', // xml, json, script, html
 	    		    //beforeSend:function(jqXHR) {},// 서버 요청 전 호출 되는 함수 return false; 일 경우 요청 중단
 	    		    success:function(jqXHR) {
 	    		    	alert("리뷰 등록이 완료 되었습니다.");
+	    		    	opener.document.location.href=url;
+	    		    	window.close();
 	    		    },// 요청 완료 시
 	    		    error:function(jqXHR) {
 	    		    	alert("다시 시도해주세요");
