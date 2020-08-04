@@ -75,50 +75,19 @@
 			</div>
 			<table class="main_1_item">
 				<tr>
+				<c:forEach items="${ dtoB_mainItem1_Fallen }" var="mainItem1" begin="0" end="3">
 					<td class="main_item">
 						<div class="item_img_250320">
-							<div class="item_img">
-								<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
+							<div class="item_img" style="background-image: url('${ mainItem1.item_img }')">
+								<a href="item_detail?idx=${ mainItem1.idx }">
 							</div>
 						</div>
 						<div class="item_desc">
-							<p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-							<p>5,000 원</p>
+							<p><a href="/item_detail">${ mainItem1.item_name }</a></p>
+							<p>${ mainItem1.item_sale_price }원</p>
 						</div>
 					</td>
-					<td class="main_item">
-						<div class="item_img_250320">
-							<div class="item_img">
-								<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-							</div>
-						</div>
-						<div class="item_desc">
-							<p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-							<p>5,000 원</p>
-						</div>
-					</td>
-					<td class="main_item">
-						<div class="item_img_250320">
-							<div class="item_img">
-								<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-							</div>
-						</div>
-						<div class="item_desc">
-							<p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-							<p>5,000 원</p>
-						</div>
-					</td>
-					<td class="main_item">
-						<div class="item_img_250320">
-							<div class="item_img">
-								<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-							</div>
-						</div>
-						<div class="item_desc">
-							<p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-							<p>5,000 원</p>
-						</div>
-					</td>
+				</c:forEach>
 				</tr>
 			</table>
 		</div>
@@ -130,50 +99,19 @@
 			</div>
 			<table class="main_1_item">
 				<tr>
+				<c:forEach items="${ dtoB_mainItem2_season }" var="mainItem2" begin="0" end="3">
 					<td class="main_item">
 						<div class="item_img_250320">
-							<div class="item_img">
-								<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
+							<div class="item_img" style="background-image: url('${ mainItem2.item_img }')">
+								<a href="item_detail?idx=${ mainItem2.idx }">
 							</div>
 						</div>
 						<div class="item_desc">
-							<p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-							<p>5,000 원</p>
+							<p><a href="/item_detail">${ mainItem2.item_name }</a></p>
+							<p>${ mainItem2.item_sale_price }원</p>
 						</div>
 					</td>
-					<td class="main_item">
-						<div class="item_img_250320">
-							<div class="item_img">
-								<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-							</div>
-						</div>
-						<div class="item_desc">
-							<p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-							<p>5,000 원</p>
-						</div>
-					</td>
-					<td class="main_item">
-						<div class="item_img_250320">
-							<div class="item_img">
-								<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-							</div>
-						</div>
-						<div class="item_desc">
-							<p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-							<p>5,000 원</p>
-						</div>
-					</td>
-					<td class="main_item">
-						<div class="item_img_250320">
-							<div class="item_img">
-								<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-							</div>
-						</div>
-						<div class="item_desc">
-							<p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-							<p>5,000 원</p>
-						</div>
-					</td>
+				</c:forEach>
 				</tr>
 			</table>
 		</div>
@@ -185,50 +123,19 @@
 			</div>
 			<table class="main_1_item">
 				<tr>
+				<c:forEach items="${ dtoB_mainItem3_Imported }" var="mainItem3" begin="0" end="3">
 					<td class="main_item">
 						<div class="item_img_250320">
-							<div class="item_img">
-								<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
+							<div class="item_img" style="background-image: url('${ mainItem3.item_img }')">
+								<a href="item_detail?idx=${ mainItem3.idx }">
 							</div>
 						</div>
 						<div class="item_desc">
-							<p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-							<p>5,000 원</p>
+							<p><a href="/item_detail">${ mainItem3.item_name }</a></p>
+							<p>${ mainItem3.item_sale_price }원</p>
 						</div>
 					</td>
-					<td class="main_item">
-						<div class="item_img_250320">
-							<div class="item_img">
-								<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-							</div>
-						</div>
-						<div class="item_desc">
-							<p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-							<p>5,000 원</p>
-						</div>
-					</td>
-					<td class="main_item">
-						<div class="item_img_250320">
-							<div class="item_img">
-								<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-							</div>
-						</div>
-						<div class="item_desc">
-							<p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-							<p>5,000 원</p>
-						</div>
-					</td>
-					<td class="main_item">
-						<div class="item_img_250320">
-							<div class="item_img">
-								<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-							</div>
-						</div>
-						<div class="item_desc">
-							<p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-							<p>5,000 원</p>
-						</div>
-					</td>
+				</c:forEach>
 				</tr>
 			</table>
 		</div>
