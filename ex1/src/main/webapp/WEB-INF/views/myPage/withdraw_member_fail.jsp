@@ -20,7 +20,6 @@
                     </div>
                     <div class="myPage_main_profile1_gradle2">
                         <a href="" class="myPage_main_profile1_gradle2_1">전체등급 보기</a>
-                        <a href="" class="myPage_main_profile1_gradle2_2">다음 달 예상등급 보기</a>
                     </div>
                 </div>
                 <div class="myPage_main_profile2">
@@ -28,7 +27,6 @@
                     <br>
                     <a href="/myPoint"><span class="myPage_main_profile2_1"><%= session.getAttribute("user_point") %></span><span class="myPage_main_profile2_1"> 원 </span>></a><br>
                     <br>
-                    <a href="/myPoint"><span class="myPage_main_profile2_2">소멸예정 : <span>0</span> 원</span></a>
                 </div>
             </div>  
         </div>

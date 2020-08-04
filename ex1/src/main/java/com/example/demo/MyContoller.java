@@ -450,7 +450,7 @@ public class MyContoller {
         	return "loginPage/loginPage_main";
         } else {
         	String user_id = session.getAttribute("user_id").toString();
-        	model.addAttribute("order_number", service_myPage.order_list(user_id));
+        	model.addAttribute("order_number", service_myPage.order_list_main(user_id));
         	return "servicePage/personal_que_select_order_nb";
         }
 	}
@@ -587,7 +587,7 @@ public class MyContoller {
         	return "loginPage/loginPage_main";
         } else {
         	String user_id = session.getAttribute("user_id").toString();
-        	model.addAttribute("my_order", service_myPage.order_list(user_id));
+        	model.addAttribute("my_order", service_myPage.order_list_main(user_id));
         	return "myPage/myOrder";
         }
 	}
@@ -651,7 +651,7 @@ public class MyContoller {
         	return "loginPage/loginPage_main";
         } else {
         	String user_id = session.getAttribute("user_id").toString();
-        	model.addAttribute("my_order", service_myPage.order_list(user_id));
+        	model.addAttribute("my_order", service_myPage.order_list_main(user_id));
         	return "myPage/check_password";
         }
 	}
