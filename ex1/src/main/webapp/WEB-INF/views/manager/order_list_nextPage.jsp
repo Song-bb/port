@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!-- 관리자페이지 > 주문관리 -->
 
@@ -25,7 +26,6 @@
                     <td class="orderList_table_td orderList_table_td1">주문번호</td>
                     <td class="orderList_table_td orderList_table_td2">상품정보</td>
                     <td class="orderList_table_td orderList_table_td3">상품금액<br>(수량)</td>
-                    <td class="orderList_table_td orderList_table_td4">배송비</td>
                     <td class="orderList_table_td orderList_table_td5">진행상태</td>
                 </tr>
                 <c:forEach items="${ order_list }" var="dto">
@@ -39,8 +39,7 @@
 	                        	<a href="">${ dto.item_text }</a>
 	                        </div>
 	                    </td>
-	                    <td class="orderList_table_td orderList_table_td3_1">${ dto.price_item } 원<br>(${ dto.count } 개)</td>
-	                    <td class="orderList_table_td orderList_table_td3_1">${ dto.price_delevery } 원</td>
+	                    <td class="orderList_table_td orderList_table_td3_1"><fmt:formatNumber value="${ dto.price_item }" pattern="###,###,###" /> 원<br>(${ dto.count } 개)</td>
 	                    <td class="orderList_table_td orderList_table_td5">${ dto.statement }</td>
 	                </tr>
                 </c:forEach>

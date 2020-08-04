@@ -32,10 +32,10 @@
 				<div><a href="/regularOrder_main"><img src="img/delevery1.JPG"></a></div>
 				<div>
 					<div class="sub_nav">
-						<a href="/myPage_main"><%= session.getAttribute("user_name") %> 님</a> |
+						<a href="/myPage_main?page=1"><%= session.getAttribute("user_name") %> 님</a> |
 						<div class="sub_navBox sub_navBox2">
 							<ul>
-								<li><a href="/myPage_main">주문내역</a></li>
+								<li><a href="/myPage_main?page=1">주문내역</a></li>
 								<li><a href="/myRegularorder">정기배송</a></li>
 								<li><a href="/myCart">장바구니</a></li>
 								<li><a href="/myReview">상품 후기</a></li>

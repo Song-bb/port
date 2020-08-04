@@ -26,9 +26,10 @@
 	            <div class="myPage_main_profile2">
 	                적립금<br>
 	                <br>
-	                <a href="/myPoint"><span
-	                        class="myPage_main_profile2_1"><%= session.getAttribute("user_point") %></span><span
-	                        class="myPage_main_profile2_1"> 원 </span>></a><br>
+	                <a href="/myPoint">
+	                	<% String user_id = session.getAttribute("user_point").toString(); %>
+	                	<span class="myPage_main_profile2_1"><%= session.getAttribute("user_point") %></span>
+	                    <span class="myPage_main_profile2_1"> 원 </span>></a><br>
 	                <br>
 	            </div>
 	        </div>

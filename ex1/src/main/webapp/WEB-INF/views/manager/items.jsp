@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!-- 관리자페이지 > 상품관리 -->
 
@@ -39,7 +40,7 @@
 	                    <td class="managerlist_td_category">${ dto.item_category }</td>
 	                    <td class="managerlist_td_img"><img src="${ dto.item_img }" height="160px" width="125px"></td>
 	                    <td class="managerlist_td_name"><a href="item_amend?idx=${ dto.idx }">${ dto.item_name }</a></td>
-	                    <td class="managerlist_td_price">${ dto.item_sale_price }</td>
+	                    <td class="managerlist_td_price"><fmt:formatNumber value="${ dto.item_sale_price }" pattern="###,###,###" /> 원</td>
 	                </tr>
                 </c:forEach>
             </table>
