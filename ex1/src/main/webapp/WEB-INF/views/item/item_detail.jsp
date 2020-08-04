@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!-- 상품상세페이지 -->
 
 
@@ -40,9 +40,9 @@
 	                            <p class="goods_dc">${ dto.item_discount_rate }%</p>
 	                            <p>
 	                                <!-- 원가 -->
-	                                <span class="goods_orPrice">${ dto.item_real_price }원</span>&nbsp;&nbsp;
+	                                <span class="goods_orPrice"><fmt:formatNumber value="${ dto.item_real_price }" pattern="###,###,###" />원</span>&nbsp;&nbsp;
 	                                <!-- 판매가격 -->
-	                                <span class="goods_dcPrice">${ dto.item_sale_price }</span>원</span> 
+	                                <span class="goods_dcPrice"><fmt:formatNumber value="${ dto.item_sale_price }" pattern="###,###,###" /></span>원</span> 
 	                            </p>
 	                        </div>
 	                        <div id="goods_info">

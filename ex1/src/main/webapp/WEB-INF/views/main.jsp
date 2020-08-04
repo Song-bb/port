@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!-- main -->
 
@@ -38,7 +39,8 @@
 						</div>
 						<div class="item_desc">
 							<p><a href="/item_detail">${ mainItem0.item_name }</a></p>
-							<p>${ mainItem0.item_sale_price }원</p>
+							<p><span><fmt:formatNumber value="${ mainItem0.item_sale_price }" pattern="###,###,###" /></span><span>원</span></p>
+							<p><span><fmt:formatNumber value="${ mainItem0.item_real_price }" pattern="###,###,###" /></span><span>원</span></p>
 						</div>
 					</td>
 				</c:forEach>
@@ -84,7 +86,8 @@
 						</div>
 						<div class="item_desc">
 							<p><a href="/item_detail">${ mainItem1.item_name }</a></p>
-							<p>${ mainItem1.item_sale_price }원</p>
+							<p><span><fmt:formatNumber value="${ mainItem1.item_sale_price }" pattern="###,###,###" /></span><span>원</span></p>
+							<p><span><fmt:formatNumber value="${ mainItem1.item_real_price }" pattern="###,###,###" /></span><span>원</span></p>
 						</div>
 					</td>
 				</c:forEach>
@@ -108,7 +111,8 @@
 						</div>
 						<div class="item_desc">
 							<p><a href="/item_detail">${ mainItem2.item_name }</a></p>
-							<p>${ mainItem2.item_sale_price }원</p>
+							<p><span><fmt:formatNumber value="${ mainItem2.item_sale_price }" pattern="###,###,###" /></span><span>원</span></p>
+							<p><span><fmt:formatNumber value="${ mainItem2.item_real_price }" pattern="###,###,###" /></span><span>원</span></p>
 						</div>
 					</td>
 				</c:forEach>
@@ -132,7 +136,8 @@
 						</div>
 						<div class="item_desc">
 							<p><a href="/item_detail">${ mainItem3.item_name }</a></p>
-							<p>${ mainItem3.item_sale_price }원</p>
+							<p><span><fmt:formatNumber value="${ mainItem3.item_sale_price }" pattern="###,###,###" /></span><span>원</span></p>
+							<p><span><fmt:formatNumber value="${ mainItem3.item_real_price }" pattern="###,###,###" /></span><span>원</span></p>
 						</div>
 					</td>
 				</c:forEach>

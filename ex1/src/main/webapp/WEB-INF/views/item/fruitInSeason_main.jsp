@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!-- 제철과일 -->
 
 
@@ -27,7 +27,8 @@
 		                    </div>
 		                    <div class="item_desc">
 		                        <p><a href="item_detail?idx=${ dto.idx }">${ dto.item_name }</a></p>
-		                        <p>${ dto.item_sale_price }원</p>
+		                        <p><span><fmt:formatNumber value="${ dto.item_sale_price }" pattern="###,###,###" /></span><span>원</span></p>
+								<p><span><fmt:formatNumber value="${ dto.item_real_price }" pattern="###,###,###" /></span><span>원</span></p>
 		                    </div>
 		                </div>
 	            	</td>

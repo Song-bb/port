@@ -27,7 +27,8 @@
 		                    </div>
 		                    <div class="item_desc">
 		                        <p><a href="item_detail?idx=${ dto.idx }">${ dto.item_name }</a></p>
-		                        <p>${ dto.item_sale_price }원</p>
+		                        <p><span><fmt:formatNumber value="${ dto.item_sale_price }" pattern="###,###,###" /></span><span>원</span></p>
+								<p><span><fmt:formatNumber value="${ dto.item_real_price }" pattern="###,###,###" /></span><span>원</span></p>
 		                    </div>
 		                </div>
 	            	</td>

@@ -285,10 +285,18 @@ div.sub_navBox > a {
 }
 .item_desc p {
 	font-size: 16px;
-	 
 	font-weight: bold;
 	padding-top: 10px;
 	color: rgb(50, 50, 50);
+}
+.item_desc p:last-child{
+	padding-top:0;
+}
+.item_desc p:last-child span {
+	font-size: 0.8em;
+	color: #c3c3c3;
+	text-decoration: line-through;
+	
 }
 .item_desc p a {
 	
@@ -332,6 +340,12 @@ div.sub_navBox > a {
 .event_img {
 	width: 340px;
 	height: 340px;
+	background-position: center;
+}
+.event_img > a{
+	display:inline-block;
+	width: 100%;
+	height: 100%;
 }
 .event_desc {
 	height: 150px;

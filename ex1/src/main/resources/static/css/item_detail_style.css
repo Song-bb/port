@@ -37,6 +37,10 @@
     position: relative;
 }
 
+.item_detail_content1_left .item_img{
+	height: 85%;
+	overflow: hidden;
+}
 #item_detail_content1_left .item_img, .item_img>img {
     width: 100%;
 }
@@ -80,7 +84,7 @@
     float:right;
 }
 #goods_prices span.goods_orPrice {
-    color: #ededed;
+    color: #c3c3c3;
     text-decoration: line-through;
 }
 #goods_prices span.goods_dcPrice {
@@ -280,6 +284,7 @@ tr.item_reviewBox > td {
 }
 #item_detail_page > p {
     text-align: center;
+    padding: 50px 0;
 }
 
 /* ============ 리뷰 */
