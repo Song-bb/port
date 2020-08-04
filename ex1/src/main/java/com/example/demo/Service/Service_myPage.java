@@ -21,6 +21,10 @@ public class Service_myPage {
 		return dao_myPage.myOrder(user_id);
 	}
 	
+	public int countOrder(String user_id) {
+		return dao_myPage.countOrder(user_id);
+	}
+	
 	public List<dto_myPage> order_list(String user_id, int year, int page) {
 		int newYear = year;
 		String newYear_min;

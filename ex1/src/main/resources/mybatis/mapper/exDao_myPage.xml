@@ -10,6 +10,10 @@
 			SELECT * FROM order_list WHERE user_id = #{param1} ORDER BY idx desc LIMIT 0, 10
 	</select>
 
+	<select id="countOrder" resultType="_int"> 
+			SELECT COUNT(*) FROM order_list WHERE user_id = #{param1}
+	</select>
+	
 	<select id="manager_view" resultType="com.example.demo.dto.dto_myPage"> 
 			SELECT * FROM order_list ORDER BY idx desc LIMIT 0, 10
 	</select>
