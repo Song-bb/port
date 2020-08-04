@@ -13,7 +13,7 @@
         </div>
         <div id="item_update_body">
             <form action="/item_update_ok" method="POST" enctype="multipart/form-data">
-                                <table>
+                <table>
                     <tr class="item_update_tr">
                         <td class="item_update_td">카테고리</td>
                         <td class="item_update_td">

@@ -2,6 +2,8 @@ package com.example.demo;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -1534,7 +1536,6 @@ public class MyContoller {
 	@RequestMapping(value="/item_update_ok", method = RequestMethod.POST)
 	public String item_update_ok(@RequestParam("item_name") String item_name,
 								@RequestParam("item_category") String item_category,
-								@RequestParam("item_number") String item_number,
 								@RequestParam("item_origin") String item_origin,
 								@RequestParam("item_real_price") String item_real_price,
 								@RequestParam("item_sale_price") String item_sale_price,
@@ -1548,6 +1549,16 @@ public class MyContoller {
 								@RequestParam("delivery_sale") String delivery_sale,
 								@RequestParam("item_img") MultipartFile item_img,
 								HttpServletRequest request, HttpServletResponse response, Model model) {
+		
+		String item_number = "";
+		LocalDate date = LocalDate.now();
+		LocalTime time = LocalTime.now();
+		item_number += date.getYear(); 
+		item_number += date.getMonth().getValue();
+		item_number += date.getDayOfMonth();
+		item_number += time.getHour();
+		item_number += time.getMinute();
+		
 		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("item_name", item_name);
@@ -1693,7 +1704,6 @@ public class MyContoller {
 	@RequestMapping(value="/item_amend_ok", method = RequestMethod.POST)
 	public String item_amend_ok(@RequestParam("item_name") String item_name,
 								@RequestParam("item_category") String item_category,
-								@RequestParam("item_number") String item_number,
 								@RequestParam("item_origin") String item_origin,
 								@RequestParam("item_real_price") String item_real_price,
 								@RequestParam("item_sale_price") String item_sale_price,
@@ -1718,7 +1728,6 @@ public class MyContoller {
 	        	map.put("item_name", item_name);
 	    		map.put("item_category", item_category);
 	    		map.put("item_origin", item_origin);
-	    		map.put("item_number", item_number);
 	    		map.put("item_real_price", item_real_price );
 	    		map.put("item_sale_price", item_sale_price );
 	    		map.put("item_sale_discount", item_sale_discount );
