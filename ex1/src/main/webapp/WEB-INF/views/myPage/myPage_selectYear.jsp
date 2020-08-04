@@ -37,7 +37,7 @@
                     <div class="servicePage_side_table_div">
                         <table class="servicePage_side_table">
                             <tr>
-                                <td class="selected_page_td"><a href="/myPage_main"><div>주문 내역<span>></span></div></a></td>
+                                <td class="selected_page_td"><a href="/myPage_main?page=1"><div>주문 내역<span>></span></div></a></td>
                             </tr>
                             <tr>
                                 <td><a href="/myRegularorder"><div>정기배송 내역<span>></span></div></a></td>
@@ -106,6 +106,23 @@
                             </c:forEach>
                         </table>
                     </div>
+                    <div class="member_manager_select_page">
+			            <table class="member_manager_select_page_table">
+			                <tr>
+			               		<td class="member_manager_select_page_td"><a href="/myPage_main?page=1"><<</a></td>
+			               		<c:if test = "${ myOrder_page != 1 }">
+			               			<td class="member_manager_select_page_td"><a href="/myPage_main?page=${myOrder_page-1}"><</a></td>
+			               		</c:if>
+								<c:forEach var="index" begin="${ startPage }" end="${ max_page }">
+									<td class="member_manager_select_page_td"><a href="/myPage_main?page=${index}">${index}</a></td>
+								</c:forEach>
+								<c:if test = "${ myOrder_page != lastPage }">
+									<td class="member_manager_select_page_td"><a href="/myPage_main?page=${myOrder_page+1}">></a></td>
+								</c:if>
+								<td class="member_manager_select_page_td"><a href="/myPage_main?page=${lastPage}">>></a></td>
+			                </tr>
+			            </table>
+        			</div> 
                 </div><!-- servicePage_right -->
             </div><!-- pageWrap -->
             <div id="servicePage_main_end"></div>

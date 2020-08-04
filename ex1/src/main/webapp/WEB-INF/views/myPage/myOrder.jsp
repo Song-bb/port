@@ -42,7 +42,7 @@
                 <div class="mypage_detail_side_table_div">
                     <table class="mypage_detail_side_table">
                         <tr>
-                            <td class="selected_page_td"><a href="/myPage_main">
+                            <td class="selected_page_td"><a href="/myPage_main?page=1">
                                     <div>주문 내역<span>></span></div>
                                 </a></td>
                         </tr>

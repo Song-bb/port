@@ -41,7 +41,7 @@
 	                <div class="servicePage_side_table_div">
 	                    <table class="servicePage_side_table">
 	                        <tr>
-	                            <td><a href="/myPage_main">
+	                            <td><a href="/myPage_main?page=1">
 	                                    <div>주문 내역<span>></span></div>
 	                                </a></td>
 	                        </tr>
