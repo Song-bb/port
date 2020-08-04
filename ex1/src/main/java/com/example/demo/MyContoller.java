@@ -1440,13 +1440,13 @@ public class MyContoller {
 	
 	// 게시판관리_메인(공지사항)
 	@RequestMapping("/notice_board_manager")
-	public String notice_board(HttpServletRequest request) {
+	public String notice_board(HttpServletRequest request, Model model) {
 		 HttpSession session = request.getSession();
 	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
 	        	return "loginPage/loginPage_main";
 	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
 	        	String user_id = session.getAttribute("user_id").toString();
-	        	
+	        	model.addAttribute("noticeboard_list", service_noticeBoard.list_notice());
 	        	return "manager/notice_board";
 	        } else {
 	        	return "manager/notAccess";
