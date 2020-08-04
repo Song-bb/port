@@ -728,11 +728,13 @@ public class MyContoller {
 	
 	// 상품후기작성
 	@RequestMapping("/myReview_write")
-	public String myReview_write(HttpServletRequest request) {
+	public String myReview_write(@RequestParam(value="orderNumber", required=false) int orderNumber, 
+									HttpServletRequest request, Model model) {
 		 HttpSession session = request.getSession();
 	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
 	        	return "loginPage/loginPage_main";
 	        } else {
+	        	model.addAttribute("myOrder_review", service_myPage.myOrder_review(orderNumber));
 	        	return "myPage/myReview_write";
 	        }
 	}
