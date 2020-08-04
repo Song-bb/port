@@ -123,7 +123,7 @@ public class Service_myPage {
 		return dao_myPage.myPoint(user_id);
 	}
 	
-	public List<dto_myPage> myOrder_review(int orderNumber) {
+	public List<dto_myPage> myOrder_review(String orderNumber) {
 		return dao_myPage.myOrder_review(orderNumber);
 	}
 	

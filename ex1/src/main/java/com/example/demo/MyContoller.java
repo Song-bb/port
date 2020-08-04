@@ -728,7 +728,7 @@ public class MyContoller {
 	
 	// 상품후기작성
 	@RequestMapping("/myReview_write")
-	public String myReview_write(@RequestParam(value="orderNumber", required=false) int orderNumber, 
+	public String myReview_write(@RequestParam(value="orderNumber", required=false) String orderNumber, 
 									HttpServletRequest request, Model model) {
 		 HttpSession session = request.getSession();
 	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
