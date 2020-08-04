@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -23,6 +22,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
+import com.example.demo.Service.FileuploadService_banner;
+import com.example.demo.Service.FileuploadService_event;
+import com.example.demo.Service.FileuploadService_manager_item_update;
 import com.example.demo.Service.FileuploadService_personal_que;
 import com.example.demo.Service.Service_banner;
 import com.example.demo.Service.Service_event;
@@ -32,12 +34,9 @@ import com.example.demo.Service.Service_members;
 import com.example.demo.Service.Service_myPage;
 import com.example.demo.Service.Service_noticeBoard;
 import com.example.demo.Service.Service_personal_que;
+import com.example.demo.Service.Service_review;
 import com.example.demo.Service.Service_seceded_member;
 import com.example.demo.dto.dto_members;
-import com.example.demo.dto.dto_seceded_member;
-import com.example.demo.Service.FileuploadService_banner;
-import com.example.demo.Service.FileuploadService_event;
-import com.example.demo.Service.FileuploadService_manager_item_update;
 
 
 
@@ -64,6 +63,9 @@ public class MyContoller {
 	Service_items service_items;
 	@Autowired
 	Service_banner service_banner;
+	@Autowired
+	Service_review service_review;
+	
 	@Autowired
 	FileuploadService_event fileUploadService_event;
 	@Autowired
@@ -737,6 +739,30 @@ public class MyContoller {
 	        	model.addAttribute("myOrder_review", service_myPage.myOrder_review(orderNumber));
 	        	return "myPage/myReview_write";
 	        }
+	}
+	
+	// 상품후기작성중
+	@RequestMapping("/myReview_write_ok")
+	public int myReview_write_ok(@RequestParam(value="item_number", required=false) String item_number,
+									@RequestParam(value="item_img", required=false) String item_img,
+									@RequestParam(value="item_name", required=false) String item_name,
+									@RequestParam(value="order_number", required=false) String order_number,
+									@RequestParam(value="Buy_price", required=false) String Buy_price,
+									@RequestParam(value="Buy_date", required=false) String Buy_date,
+									@RequestParam(value="review_content", required=false) String review_content,
+									@RequestParam(value="review_score", required=false) String review_score,
+									 Model model) {
+		Map <String, String> map = new HashMap<String, String>();
+		map.put("item_number", item_number);
+		map.put("item_img", item_img);
+		map.put("item_name", item_name);
+		map.put("order_number", order_number);
+		map.put("Buy_price", Buy_price);
+		map.put("Buy_date", Buy_date);
+		map.put("review_content", review_content);
+		map.put("review_score", review_score);
+		
+		return service_review.addReview(map);
 	}
 	
 	// 적립금

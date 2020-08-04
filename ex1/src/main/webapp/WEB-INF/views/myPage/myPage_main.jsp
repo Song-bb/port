@@ -97,9 +97,8 @@
                                 <td class="order_board_table_td order_td4 order_td7"><fmt:formatNumber value="${ dto.price_delivery }" pattern="###,###,###" /> 원</td>
                                 <td class="order_board_table_td order_td5">
                                     <div class="order_td5_2">
-                                    		<input type="hidden" value="${ dto.order_number }"	id="order_number">			
-                                            <button class="order_td5_2_1" type="button" onclick="reviewPop();">리뷰쓰기</button>
-                                            <button class="order_td5_2_1" type="button" onclick="location.href='/myOrder'">주문상세</button>
+                                        <button class="order_td5_2_1" type="button" onclick="reviewPop(${dto.order_number});">리뷰쓰기</button>
+                                        <button class="order_td5_2_1" type="button" onclick="location.href='/myOrder'">주문상세</button>
                                     </div>
                                     <div class="order_td5_1">${ dto.statement }</div>
                                 </td>
@@ -140,8 +139,7 @@
 	        document.location.href=url;
 		}
 	
-		function reviewPop() { 
-			var order_number = document.getElementById('order_number').value;
+		function reviewPop(order_number) { 
 			var url = "/myReview_write?orderNumber=" + order_number;
 			window.open(url, "a", "width=600, height=800, left=200, top=0"); 
 		}
