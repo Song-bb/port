@@ -730,11 +730,13 @@ public class MyContoller {
 	
 	// 적립금
 	@RequestMapping("/myPoint")
-	public String myPoint(HttpServletRequest request) {
+	public String myPoint(HttpServletRequest request, Model model) {
 		 HttpSession session = request.getSession();
 	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
 	        	return "loginPage/loginPage_main";
 	        } else {
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	model.addAttribute("myPoint", service_myPage.myPoint(user_id));
 	        	return "myPage/myPoint";
 	        }
 	}

@@ -119,6 +119,10 @@ public class Service_myPage {
 		return dao_myPage.manager_view_year_count(newYear_min, newYear_max);
 	}
 	
+	public List<dto_myPage> myPoint(String user_id) {
+		return dao_myPage.myPoint(user_id);
+	}
+	
 	
 	
 	
