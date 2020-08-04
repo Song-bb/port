@@ -22,6 +22,7 @@
                                 <option value="제철과일">제철과일</option>
                                 <option value="수입과일">수입과일</option>
                                 <option value="낙과채널">낙과채널</option>
+                                <option value="정기배송">정기배송</option>
                             </select>
                         </td>
                     </tr>
