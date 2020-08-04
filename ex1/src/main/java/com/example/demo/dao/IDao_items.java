@@ -46,5 +46,6 @@ public interface IDao_items {
 	
 	// 전체상품보기
 	public List<dto_items> All_viewDao();
+	public List<dto_items> All_viewDao_new();
 	public int all_countDao();
 }

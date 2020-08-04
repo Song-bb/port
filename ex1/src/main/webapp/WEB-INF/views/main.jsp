@@ -29,50 +29,19 @@
 			</div>
 			<table class="main_1_item">	
 				<tr>
+				<c:forEach items="${ dtoB_mainItem0_ListAll }" var="mainItem0" begin="0" end="3">
 					<td class="main_item">
 						<div class="item_img_250320">
-							<div class="item_img">
-								<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
+							<div class="item_img" style="background-image: url('${ mainItem0.item_img }')">
+								<a href="item_detail?idx=${ mainItem0.idx }">
 							</div>
 						</div>
 						<div class="item_desc">
-							<p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-							<p>5,000 원</p>
+							<p><a href="/item_detail">${ mainItem0.item_name }</a></p>
+							<p>${ mainItem0.item_sale_price }원</p>
 						</div>
 					</td>
-					<td class="main_item">
-						<div class="item_img_250320">
-							<div class="item_img">
-								<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-							</div>
-						</div>
-						<div class="item_desc">
-							<p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-							<p>5,000 원</p>
-						</div>
-					</td>
-					<td class="main_item">
-						<div class="item_img_250320">
-							<div class="item_img">
-								<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-							</div>
-						</div>
-						<div class="item_desc">
-							<p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-							<p>5,000 원</p>
-						</div>
-					</td>
-					<td class="main_item">
-						<div class="item_img_250320">
-							<div class="item_img">
-								<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-							</div>
-						</div>
-						<div class="item_desc">
-							<p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-							<p>5,000 원</p>
-						</div>
-					</td>
+				</c:forEach>
 				</tr>
 			</table>
 		</div>
@@ -84,33 +53,17 @@
 			</div>
 			<table class="main_2_event">
 				<tr>
+				<c:forEach items="${ dtoB_mainEvent }" var="mainEvent" begin="0" end="2">
 					<td class="main_event">
-						<div class="event_img">
-							<a href="/event_sub"><img src="http://placehold.it/340x340"></a>	
+						<div class="event_img" style="background-image: url('${mainEvent.event_banner1}')">
+							<a href="/event_sub?event_index=${ mainEvent.event_index }"></a>	
 						</div>
 						<div class="event_desc">
-							<p><a href="/event_sub">여름 과일 대잔치</a></p>
-							<p><a href="/event_sub">달콤 시원한 여름의 맛!</a></p>
+							<p><a href="/event_sub?event_index=${ mainEvent.event_index }">${mainEvent.event_title}</a></p>
+							<!-- <p><a href="/event_sub?event_index=${ mainEvent.event_index }">달콤 시원한 여름의 맛!</a></p> -->
 						</div>
 					</td>
-					<td class="main_event">
-						<div class="event_img">
-							<a href="/event_sub"><img src="http://placehold.it/340x340"></a>	
-						</div>
-						<div class="event_desc">
-							<p><a href="/event_sub">여름 과일 대잔치</a></p>
-							<p><a href="/event_sub">달콤 시원한 여름의 맛!</a></p>
-						</div>
-					</td>
-					<td class="main_event">
-						<div class="event_img">
-							<a href="/event_sub"><img src="http://placehold.it/340x340"></a>	
-						</div>
-						<div class="event_desc">
-							<p><a href="/event_sub">여름 과일 대잔치</a></p>
-							<p><a href="/event_sub">달콤 시원한 여름의 맛!</a></p>
-						</div>
-					</td>
+				</c:forEach>
 				</tr>
 			</table>
 		</div>

@@ -92,6 +92,10 @@ public class Service_items {
 	public List<dto_items> All_viewDao(){
 		return dao_items.All_viewDao();
 	}
+	// 전체상품보기(최신순)
+	public List<dto_items> All_viewDao_new(){
+		return dao_items.All_viewDao_new();
+	}
 	public int nAllCount() {
 		int nAllCount = dao_items.all_countDao();
 		return nAllCount;
