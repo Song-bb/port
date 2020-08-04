@@ -7,7 +7,7 @@
 	<c:import url="../header.jsp"></c:import>
 	
 	
-	<div id="page_wrap1">
+    <div id="page_wrap1">
         <div class="myPage_main_profile">
             <div class="myPage_main_profile_1">
                 <div class="myPage_main_profile1">
@@ -68,7 +68,6 @@
 			        <div id="point_body">
 			            <div id="point_result">
 			                <div id="point_1">현재 적립금 : 1,000원</div>
-			                <div id="point_2">소멸 예정 적립금 : 1,000원</div>
 			            </div>
 			            <div id="point_table_div">
 			                <table id="point_table">
