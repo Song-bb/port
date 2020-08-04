@@ -441,6 +441,18 @@
     width: 200px;
     height: 30px;
 }
+#item_season {
+    width: 200px;
+    height: 30px;
+}
+#item_state {
+    width: 200px;
+    height: 30px;
+}
+#delivery_sale {
+    width: 200px;
+    height: 30px;
+}
 .item_update_tr {
     height: 70px;
 }

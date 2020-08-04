@@ -111,7 +111,7 @@
               <tr class="item_update_tr">
                   <td class="item_update_td">택배 배송</td>
                   <td class="item_update_td">
-                      <select name="item_state" id="item_state">
+                      <select name="delivery_sale" id="delivery_sale">
                       	<option value="">선택하세요</option>
                           <option value="무료배송">무료배송</option>
                           <option value="배송비 3000원">배송비 3000원</option>
