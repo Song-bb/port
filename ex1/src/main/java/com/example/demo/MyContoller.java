@@ -630,7 +630,59 @@ public class MyContoller {
         } else {
         	String user_id = session.getAttribute("user_id").toString();
         	model.addAttribute("my_order", service_myPage.order_list(user_id, year, page));
-    		return "myPage/myPage_selectYear";
+    		
+        	int count = service_myPage.countOrder(user_id);
+    		
+    		int index = 10; // 한 페이지에 나타내는 글 수
+    		int page1 = count / index; // 한페이지안에 글이 꽉 찬 페이지
+    		int page2 = 0; 
+    		if( count % index != 0 ) { // 잔여 글이 남아있으면
+    			page2 = 1; // 한페이지안에 글이 꽉차진 않지만 있는 페이지
+    		}
+    		int lastPage = page1 + page2; // 총 나타내야 할 페이지
+    		int maxPage = 5; // 한번에 나타내는 페이지수
+    		int startPage = 1;
+    		if( lastPage / maxPage != 0 || lastPage != 5 ) { // 5개 이후 페이지 추가 발생하면
+    			if( page % 5 == 0 ) {
+    				startPage = ((page / maxPage) * 5) + 1;
+    			} else {
+    				startPage = page + 1;
+    			}
+    		}
+    		if( page == 1 ) { // 1페이지
+    			model.addAttribute("myOrder_page", 1);
+    			model.addAttribute("startPage", 1);
+    			if( lastPage > maxPage ) { // 마지막페이지가 5보다 크면
+    				model.addAttribute("lastPage", 5);
+    				model.addAttribute("max_page", 5);
+    			}else { // 5보다 작으면
+    				model.addAttribute("lastPage", lastPage);
+    				model.addAttribute("max_page", lastPage);
+    			}
+    		} else { // 2페이지 이상
+    			model.addAttribute("startPage", startPage );
+    			model.addAttribute("myOrder_page", page);
+    			if( page / 5 >= 1 && page != 5 ) { // 6페이지 이상
+        			if( lastPage > startPage + 4 ) { // 마지막페이지가 5의 배수보다 크면
+        				model.addAttribute("lastPage", startPage + 4);
+        				model.addAttribute("max_page", startPage + 4);
+        			}else { // 5보다 작으면
+        				model.addAttribute("lastPage", lastPage);
+        				model.addAttribute("max_page", lastPage);
+        			}
+    			} else { // 5페이지 이하
+    				model.addAttribute("max_page", startPage + 4);
+        			model.addAttribute("lastPage", lastPage);
+        			if( lastPage > maxPage ) { // 마지막페이지가 5보다 크면
+        				model.addAttribute("lastPage", 5);
+        				model.addAttribute("max_page", 5);
+        			}else { // 5보다 작으면
+        				model.addAttribute("lastPage", lastPage);
+        				model.addAttribute("max_page", lastPage);
+        			}
+    			}
+    		}		
+        	return "myPage/myPage_selectYear";
         }
 	}
 	
