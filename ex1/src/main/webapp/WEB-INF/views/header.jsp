@@ -90,7 +90,7 @@
 						<a href="/regularOrder_main">배송지역 검색</a>
 					<% } else { %>
 						<div class="sub_nav">
-							<a href="/myPage_main?page=1"><%= session.getAttribute("user_name") %> 님</a> |
+							<a href="/myPage_main?page=1">${ user_name } 님</a> |
 								<div class="sub_navBox sub_navBox2">
 									<ul>
 										<li><a href="/myPage_main?page=1">주문내역</a></li>

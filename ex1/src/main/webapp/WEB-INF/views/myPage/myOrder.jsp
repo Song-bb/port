@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!-- 주문상세내역 -->
 
@@ -12,9 +13,9 @@
         <div class="myPage_main_profile_1">
             <div class="myPage_main_profile1">
                 <div class="myPage_main_profile1_gradle">
-                    <div class="myPage_main_profile1_gradle_icon"><%= session.getAttribute("user_grade") %></div>
+                    <div class="myPage_main_profile1_gradle_icon">${ user_grade }</div>
                     <div class="myPage_main_profile1_gradle_text1">
-                        <strong><%= session.getAttribute("user_name") %> </strong>님<br>
+                        <strong>${ user_name } </strong>님<br>
                         <br>
                         5% 적립 + 최초 1회 무료배송
                     </div>
@@ -27,7 +28,7 @@
                 적립금<br>
                 <br>
                 <a href="/myPoint"><span
-                        class="myPage_main_profile2_1"><%= session.getAttribute("user_point") %></span><span
+                        class="myPage_main_profile2_1"><fmt:formatNumber value="${ user_point }" pattern="###,###,###" /></span><span
                         class="myPage_main_profile2_1"> 원 </span>></a><br>
                 <br>
             </div>
@@ -103,8 +104,7 @@
                                 <td class="detail_order_board_table_td detail_order_td4 detail_order_td7">구매 일자</td>
                             </tr>
                             <tr class="detail_order_board_table_tr">
-                                <td class="detail_order_board_table_td detail_order_td1 detail_order_td6">${
-                                    dto.order_number }</td>
+                                <td class="detail_order_board_table_td detail_order_td1 detail_order_td6">${ dto.order_number }</td>
                                 <td class="detail_order_board_table_td detail_order_td2">
                                     <div class="detail_order_td2_1">
                                         <a href=""><img img id="order_td2_1_img" src="${ dto.item_img }"></a>
@@ -113,12 +113,8 @@
                                         <a href="">${ dto.item_text }</a>
                                     </div>
                                 </td>
-                                <td class="detail_order_board_table_td detail_detail_order_td3 detail_order_td7">${
-                                    dto.price_item }
-                                    원<br>(${ dto.count }개)</td>
-                                <td
-                                    class="detail_detail_order_board_table_td detail_detail_order_td4 detail_order_td7 detail_order_board_table_td">
-                                    ${ dto.date }</td>
+                                <td class="detail_order_board_table_td detail_detail_order_td3 detail_order_td7"><fmt:formatNumber value="${ dto.price_item }" pattern="###,###,###" /> 원<br>(${ dto.count }개)</td>
+                                <td class="detail_detail_order_board_table_td detail_detail_order_td4 detail_order_td7 detail_order_board_table_td">${ dto.date }</td>
                             </tr>
                         </table>
                     </div>
@@ -141,23 +137,23 @@
                                 </tr>
                                 <tr class="order_info_table_tr">
                                     <td class="order_info_table_td_1">총 상품 가격</td>
-                                    <td class="order_info_table_td_2">${ dto.price_item } 원</td>
+                                    <td class="order_info_table_td_2"><fmt:formatNumber value="${ dto.price_item }" pattern="###,###,###" /> 원</td>
                                 </tr>
                                 <tr class="order_info_table_tr">
                                     <td class="order_info_table_td_1">할인 금액</td>
-                                    <td class="order_info_table_td_2">${ dto.price_sale } 원</td>
+                                    <td class="order_info_table_td_2"><fmt:formatNumber value="${ dto.price_sale }" pattern="###,###,###" /> 원</td>
                                 </tr>
                                 <tr class="order_info_table_tr order_info_table_tr_last">
                                     <td class="order_info_table_td_1">배송비</td>
-                                    <td class="order_info_table_td_2">${ dto.price_delevery } 원</td>
+                                    <td class="order_info_table_td_2"><fmt:formatNumber value="${ dto.price_delevery }" pattern="###,###,###" /> 원</td>
                                 </tr>
                                 <tr class="order_info_table_tr">
                                     <td class="order_info_table_td_1"></td>
-                                    <td class="order_info_table_td_2">${ dto.price_actual } 원</td>
+                                    <td class="order_info_table_td_2"><fmt:formatNumber value="${ dto.price_actual }" pattern="###,###,###" /> 원</td>
                                 </tr>
                                 <tr class="order_info_table_tr order_info_table_tr_result">
                                     <td class="order_info_table_td_1"><strong>총 결제 금액</strong></td>
-                                    <td class="order_info_table_td_2"><strong>${ dto.price_actual } 원</strong></td>
+                                    <td class="order_info_table_td_2"><strong><fmt:formatNumber value="${ dto.price_actual }" pattern="###,###,###" /> 원</strong></td>
                                 </tr>
                             </table>
                         </div>
@@ -189,7 +185,7 @@
                     </div>
                 </c:forEach>
                 <div id="mypage_detail_box_info_foot">
-                    <a href="/myPage_main"><button>주문목록 돌아가기</button></a>
+                    <a href="/myPage_main?page=1"><button>주문목록 돌아가기</button></a>
                 </div>
             </div>
         </div>

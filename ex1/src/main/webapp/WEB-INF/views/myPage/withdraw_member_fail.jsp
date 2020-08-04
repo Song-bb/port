@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!-- 회원탈퇴실패 -->
 
@@ -11,9 +12,9 @@
             <div class="myPage_main_profile_1">
                 <div class="myPage_main_profile1">
                     <div class="myPage_main_profile1_gradle">
-                        <div class="myPage_main_profile1_gradle_icon"><%= session.getAttribute("user_grade") %></div>
+                        <div class="myPage_main_profile1_gradle_icon">${ user_grade }</div>
                         <div class="myPage_main_profile1_gradle_text1">
-                            <strong><%= session.getAttribute("user_name") %> </strong>님<br>
+                            <strong>${ user_name } </strong>님<br>
                             <br>
                             5% 적립 + 최초 1회 무료배송
                         </div>
@@ -25,7 +26,7 @@
                 <div class="myPage_main_profile2">
                     적립금<br>
                     <br>
-                    <a href="/myPoint"><span class="myPage_main_profile2_1"><%= session.getAttribute("user_point") %></span><span class="myPage_main_profile2_1"> 원 </span>></a><br>
+                    <a href="/myPoint"><span class="myPage_main_profile2_1"><fmt:formatNumber value="${ user_point }" pattern="###,###,###" /></span><span class="myPage_main_profile2_1"> 원 </span>></a><br>
                     <br>
                 </div>
             </div>  
@@ -107,9 +108,9 @@
 			                        </td>
 			                    </tr>
 			                </table>
-			                <input type="hidden" name="user_id" value="<%= session.getAttribute("user_name") %>">
+			                <input type="hidden" name="user_id" value="${ user_id }">
 			                <div id="delete_user_foot_body_btn">
-			                    <a href="/myPage_main" style="color: #459356; display: inline-block; width: 150px; height: 50px; border: 1px solid #459356; border-radius: 5px; line-height: 50px; text-align: center; margin-top:10px;">취소</a>
+			                    <a href="/myPage_main?page=1" style="color: #459356; display: inline-block; width: 150px; height: 50px; border: 1px solid #459356; border-radius: 5px; line-height: 50px; text-align: center; margin-top:10px;">취소</a>
 			                    <button type="submit">탈퇴</button>
 			                </div>
 		                </form>

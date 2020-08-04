@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!-- 비밀번호 재확인 -->
 
@@ -12,9 +13,9 @@
 	        <div class="myPage_main_profile_1">
 	            <div class="myPage_main_profile1">
 	                <div class="myPage_main_profile1_gradle">
-	                    <div class="myPage_main_profile1_gradle_icon"><%= session.getAttribute("user_grade") %></div>
+	                    <div class="myPage_main_profile1_gradle_icon">${ user_grade }</div>
 	                    <div class="myPage_main_profile1_gradle_text1">
-	                        <strong><%= session.getAttribute("user_name") %> </strong>님<br>
+	                        <strong>${ user_name } </strong>님<br>
 	                        <br>
 	                        5% 적립 + 최초 1회 무료배송
 	                    </div>
@@ -27,8 +28,7 @@
 	                적립금<br>
 	                <br>
 	                <a href="/myPoint">
-	                	<% String user_id = session.getAttribute("user_point").toString(); %>
-	                	<span class="myPage_main_profile2_1"><%= session.getAttribute("user_point") %></span>
+	                	<span class="myPage_main_profile2_1"><fmt:formatNumber value="${ user_point }" pattern="###,###,###" /></span>
 	                    <span class="myPage_main_profile2_1"> 원 </span>></a><br>
 	                <br>
 	            </div>
@@ -82,7 +82,7 @@
 	                    <h2>비밀번호 재확인</h2>
 	                </div>
 	                <form action="check_password_ok" method="post">
-	                    <input type="hidden" name="user_id" value="<%= session.getAttribute("user_id") %>">
+	                    <input type="hidden" name="user_id" value="${ user_id }">
 	                    <div id="update_form">
 	                        <table id="update_form_table">
 	                            <tr>

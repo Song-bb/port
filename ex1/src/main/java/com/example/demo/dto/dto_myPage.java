@@ -14,7 +14,7 @@ public class dto_myPage {
 	private String date;
 	private String price_item;
 	private String price_sale;
-	private String price_delevery;
+	private String price_delivery;
 	private String price_actual;
 	private String count;
 	private String payment;
