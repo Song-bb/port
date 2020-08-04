@@ -74,7 +74,6 @@
 			                    <tr class="point_table_tr">
 			                        <td class="point_table_td">날짜</td>
 			                        <td class="point_table_td">내용</td>
-			                        <td class="point_table_td">유효기간</td>
 			                        <td class="point_table_td">금액</td>
 			                    </tr>
 			                    <tr class="point_table_tr">
@@ -84,7 +83,6 @@
 			                            주문번호 : 202007020001<br>
 			                            주문금액 : 13,900 원 * 등급혜택 3% 적립
 			                        </td>
-			                        <td class="point_table_td">2021-07-03</td>
 			                        <td class="point_table_td">417 원</td>
 			                    </tr>
 			                </table>

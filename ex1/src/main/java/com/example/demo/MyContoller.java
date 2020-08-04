@@ -712,9 +712,13 @@ public class MyContoller {
 	
 	// 상품후기
 	@RequestMapping("/myReview")
-	public String myReview() {
-		
-		return "myPage/myReview";
+	public String myReview(HttpServletRequest request) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else {
+	        	return "myPage/myReview";
+	        }
 	}
 	
 	// 상품후기작성
