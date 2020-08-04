@@ -681,7 +681,7 @@ public class MyContoller {
         				model.addAttribute("max_page", lastPage);
         			}
     			}
-    		}		
+    		}	
         	return "myPage/myPage_selectYear";
         }
 	}
