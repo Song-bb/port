@@ -7,31 +7,38 @@
 <mapper namespace="com.example.demo.dao.IDao_noticeBoard">
 	
 	<select id="listDao" resultType="com.example.demo.dto.dto_noticeBoard"> 
-			SELECT * FROM notice_board ORDER BY notice_index desc
+		SELECT * FROM notice_board ORDER BY notice_index desc;
 	</select>
 
 	<select id="articleCount" resultType="_int">
-			SELECT COUNT(*) FROM notice_board
+		SELECT COUNT(*) FROM notice_board;
 	</select>
 
 	<select id="viewDao" resultType="com.example.demo.dto.dto_noticeBoard">
-			SELECT * FROM notice_board WHERE notice_index = #{notice_index} 
+		SELECT * FROM notice_board WHERE notice_index = #{notice_index};
 	</select>
 	
 	<update id="updateViewCount"> 
-			UPDATE notice_board SET notice_hit = notice_hit + 1 WHERE notice_index = #{notice_index} 
+		UPDATE notice_board SET notice_hit = notice_hit + 1 WHERE notice_index = #{notice_index};
+	</update>
+	
+	<insert id="notice_insert">
+		INSERT INTO notice_board (notice_index, notice_title, notice_writer, notice_date, notice_hit, notice_content) VALUES (0, #{ notice_title }, #{ notice_writer }, #{ notice_date }, #{ notice_hit }, #{ notice_content });
+	</insert>
+	<update id="notice_update"> 
+		UPDATE notice_board SET notice_title = #{ notice_title }, notice_content = #{ notice_content } WHERE notice_index = #{ notice_index };
 	</update>
 	
 	<select id="search1" resultType="com.example.demo.dto.dto_noticeBoard">
-			SELECT * FROM notice_board WHERE notice_index = #{param1}
+		SELECT * FROM notice_board WHERE notice_index = #{param1};
 	</select>
 	
 	<select id="search2" resultType="com.example.demo.dto.dto_noticeBoard">
-			SELECT * FROM notice_board WHERE notice_title like CONCAT('%',#{param1},'%') ORDER BY notice_index desc
+		SELECT * FROM notice_board WHERE notice_title like CONCAT('%',#{param1},'%') ORDER BY notice_index desc;
 	</select>
 	
 	<select id="search3" resultType="com.example.demo.dto.dto_noticeBoard">
-			SELECT * FROM notice_board WHERE notice_content like CONCAT('%',#{param1},'%') ORDER BY notice_index desc
+		SELECT * FROM notice_board WHERE notice_content like CONCAT('%',#{param1},'%') ORDER BY notice_index desc;
 	</select>
 
 
