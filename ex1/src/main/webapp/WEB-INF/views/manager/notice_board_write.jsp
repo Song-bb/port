@@ -15,11 +15,15 @@
        		<div id="noticeboard_body">
 	            <table>
 	                <tr class="noticeboard_table_tr">
+	                	<td class="noticeboard_table_update_td">제목</td>
 	                    <td class="noticeboard_table_update_td">
-							제목 <input type="text" name="notice_title"/>
+							<input type="text" name="notice_title"/>
 						</td>
+					</tr>
+					<tr class="noticeboard_table_tr">
+						<td class="noticeboard_table_update_td">내용</td>
 	                    <td class="noticeboard_table_update_td">
-	                    	내용 <textarea></textarea>
+	                    	<textarea name="notice_content"></textarea>
 	                    </td>
 	                </tr>
 	            </table>

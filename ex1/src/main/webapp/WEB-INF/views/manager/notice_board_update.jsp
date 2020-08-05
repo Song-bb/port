@@ -16,11 +16,15 @@
 	            <table>
 	                <c:forEach items="${ noticeboard_list }" var="dto">
 		                <tr class="noticeboard_table_tr">
+		                	<td class="noticeboard_table_update_td">제목</td>
 		                    <td class="noticeboard_table_update_td">
-								제목 <input type="text" name="notice_title" value="${ dto.notice_title }"/>
+								<input type="text" name="notice_title" value="${ dto.notice_title }"/>
 							</td>
-		                    <td class="noticeboard_table_update_td">
-		                    	내용 <textarea>${ dto.notice_content }</textarea>
+		                </tr>
+		             	<tr>
+		             		<td class="noticeboard_table_update_td">내용</td>
+		                	<td class="noticeboard_table_update_td">
+		                    	<textarea name="notice_content">${ dto.notice_content }</textarea>
 		                    </td>
 		                </tr>
 	                </c:forEach>
