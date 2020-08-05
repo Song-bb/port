@@ -1,6 +1,7 @@
 package com.example.demo.Service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,6 +47,12 @@ public class Service_noticeBoard {
 		}
 	}
 	
+	public int notice_insert(Map<String, String> map) {
+		return dao_noticeBoard.notice_insert(map);
+	}
+	public int notice_update(Map<String, String> map) {
+		return dao_noticeBoard.notice_update(map);
+	}
 	
 	
 	
