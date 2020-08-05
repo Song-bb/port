@@ -1484,6 +1484,75 @@ public class MyContoller {
 	        }
 	}
 	
+	// 공지사항 작성
+	@RequestMapping("/notice_board_write")
+	public String notice_board_write() {
+		return "manager/notice_board_write";
+	}
+	
+	// 공지사항 작성확인
+	@RequestMapping(value="/notice_board_write_ok", method = RequestMethod.POST)
+	public String notice_board_write_ok (@RequestParam("notice_index") String notice_index,
+										@RequestParam("notice_title") String notice_title,
+										@RequestParam("notice_writer") String notice_writer,
+										@RequestParam("notice_content") String notice_content,
+										HttpServletRequest request, HttpServletResponse response, Model model) {
+									
+			String notice_date = "";
+			LocalDate date = LocalDate.now();
+			LocalTime time = LocalTime.now();
+			notice_date += date.getYear(); 
+			notice_date += date.getMonth().getValue();
+			notice_date += date.getDayOfMonth();
+									
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("notice_index", notice_index);
+			map.put("notice_title", notice_title);
+			map.put("notice_writer", notice_writer);
+			map.put("notice_content", notice_content);
+			map.put("notice_date", notice_date );
+			
+			System.out.println( map );
+			
+			int nResult = service_items.item_insert(map);
+			if( nResult < 1 ) {
+				return "manager/notice_board_write_fail";
+			} else {
+				return "manager/notice_board_manager";
+			}
+	}
+	
+	// 공지사항 수정
+	@RequestMapping("/notice_board_update")
+	public String notice_board_update(@RequestParam("notice_index") String notice_index, 
+									HttpServletRequest request, HttpServletResponse response, Model model) {
+		model.addAttribute("notice_board_list", service_noticeBoard.view_notice(notice_index));
+		return "manager/notice_board_update";
+	}
+	
+	// 공지사항 수정확인
+	@RequestMapping(value="/notice_board_update_ok", method=RequestMethod.POST)
+	public String notice_board_write_ok (@RequestParam("notice_index") String notice_index,
+										@RequestParam("notice_title") String notice_title,
+										@RequestParam("notice_content") String notice_content,
+										HttpServletRequest request, HttpServletResponse response, Model model) {
+									
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("notice_index", notice_index);
+			map.put("notice_title", notice_title);
+			map.put("notice_content", notice_content);
+			
+			System.out.println( map );
+			
+			int nResult = service_items.item_insert(map);
+			if( nResult < 1 ) {
+				return "manager/notice_board_update_fail";
+			} else {
+				return "manager/notice_board_manager";
+			}
+	}
+	
+	
 	// 배너관리
 	@RequestMapping("/banner_img")
 	public String banner_img(HttpServletRequest request) {

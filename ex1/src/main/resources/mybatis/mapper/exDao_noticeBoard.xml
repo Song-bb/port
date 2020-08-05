@@ -23,7 +23,7 @@
 	</update>
 	
 	<insert id="notice_insert">
-		INSERT INTO notice_board (notice_index, notice_title, notice_writer, notice_date, notice_hit, notice_content) VALUES (0, #{ notice_title }, #{ notice_writer }, #{ notice_date }, #{ notice_hit }, #{ notice_content });
+		INSERT INTO notice_board (notice_index, notice_title, notice_writer, notice_date, notice_hit, notice_content) VALUES (0, #{ notice_title }, #{ notice_writer }, #{ notice_date }, 0, #{ notice_content });
 	</insert>
 	<update id="notice_update"> 
 		UPDATE notice_board SET notice_title = #{ notice_title }, notice_content = #{ notice_content } WHERE notice_index = #{ notice_index };
