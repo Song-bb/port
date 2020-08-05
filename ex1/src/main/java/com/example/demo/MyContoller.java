@@ -1500,8 +1500,7 @@ public class MyContoller {
 									
 			String notice_date = "";
 			LocalDate date = LocalDate.now();
-			LocalTime time = LocalTime.now();
-			notice_date += date.getYear(); 
+			notice_date += date.getYear();
 			notice_date += date.getMonth().getValue();
 			notice_date += date.getDayOfMonth();
 									
@@ -1514,12 +1513,18 @@ public class MyContoller {
 			
 			System.out.println( map );
 			
-			int nResult = service_items.item_insert(map);
+			int nResult = service_noticeBoard.notice_insert(map);
 			if( nResult < 1 ) {
 				return "manager/notice_board_write_fail";
 			} else {
 				return "manager/notice_board_manager";
 			}
+	}
+	
+	// 공지사항 작성실패
+	@RequestMapping("/notice_board_write_fail")
+	public String notice_board_write_fail() {
+		return "manager/notice_board_write";
 	}
 	
 	// 공지사항 수정
@@ -1544,12 +1549,18 @@ public class MyContoller {
 			
 			System.out.println( map );
 			
-			int nResult = service_items.item_insert(map);
+			int nResult = service_noticeBoard.notice_update(map);
 			if( nResult < 1 ) {
 				return "manager/notice_board_update_fail";
 			} else {
 				return "manager/notice_board_manager";
 			}
+	}
+	
+	// 공지사항 작성실패
+	@RequestMapping("/notice_board_update_fail")
+	public String notice_board_update_fail() {
+		return "manager/notice_board_update";
 	}
 	
 	

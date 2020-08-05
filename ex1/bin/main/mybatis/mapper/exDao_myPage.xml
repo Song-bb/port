@@ -54,13 +54,10 @@
 			SELECT * FROM order_list WHERE order_number = #{param1}
 	</select>
 	
-	<select id="pointList" resultType="com.example.demo.dto.dto_user_point"> 
+	<select id="pointList" resultType="com.example.demo.dto.dto_myPage"> 
 			SELECT * FROM user_point WHERE user_id = #{param1} ORDER BY idx desc
 	</select>
 	
-	<select id="myPoint" resultType="com.example.demo.dto.dto_user_point"> 
-			SELECT total_point FROM user_point WHERE user_id = #{param1} ORDER BY idx desc
-	</select>
 	
 	
 </mapper>
