@@ -127,6 +127,10 @@ public class Service_myPage {
 		return dao_myPage.myOrder_review(orderNumber);
 	}
 	
+	public List<dto_myPage> pointList(String user_id) {
+		return dao_myPage.pointList(user_id);
+	}
+	
 	
 	
 	
