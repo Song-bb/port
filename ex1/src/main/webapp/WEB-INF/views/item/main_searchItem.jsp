@@ -11,31 +11,31 @@
 	<div id="searchItem_wrap">
         <div id="searchItem_top">
             <h2>검색 결과</h2>
-            <p>등록된 제품 :  개</p>
+            <p>등록된 제품 : ${ main_searchItem_count } 개</p>
         </div>
         <div id="searchItem_top_nav"><a href="">최신순 </a> | <a href="">낮은 가격 순 </a> | <a href="">높은 가격 순 </a></div>
         <div id="importedpage_mid">
         
-		${ main_searchItem }
-            <table class="item_table1">
-                <tr>
-                    <td>
-                        <div class="item_groupBox1">
-                            <div class="item_img_2503201">
-                                <div class="item_img1" style="background-image: url('/fruit.jpg')">
-                                    <a href=""></a>
-                                </div>
-                            </div>
-                            <div class="item_desc1">
-                                <p><a href=""></a></p>
-                                <p><span><fmt:formatNumber value="" pattern="###,###,###" /></span><span>원</span></p>
-                                <p><span><fmt:formatNumber value="" pattern="###,###,###" /></span><span>원</span></p>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-
+        <c:forEach items="${ main_searchItem }" var="dto">
+		    <table class="item_table">
+		        <tr>
+		            <td>
+		                <div class="item_groupBox">
+		                    <div class="item_img_250320">
+		                        <div class="item_img" style="background-image: url('${ dto.item_img }')">
+		                            <a href="item_detail?idx=${ dto.idx }"></a>
+		                        </div>
+		                    </div>
+		                    <div class="item_desc">
+		                        <p><a href="item_detail?idx=${ dto.idx }">${ dto.item_name }</a></p>
+		                        <p><span><fmt:formatNumber value="${ dto.item_sale_price }" pattern="###,###,###" /></span><span>원</span></p>
+								<p><span><fmt:formatNumber value="${ dto.item_real_price }" pattern="###,###,###" /></span><span>원</span></p>
+		                    </div>
+		                </div>
+		            </td>
+		        </tr>
+		    </table>
+		</c:forEach>
         
         </div>
     </div>

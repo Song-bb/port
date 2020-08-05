@@ -125,6 +125,9 @@
 		SELECT * FROM items WHERE item_name like CONCAT('%',#{param1},'%') ORDER BY idx DESC;
 	</select>
 
+	<select id="mainSerch_count" resultType="_int">
+		SELECT COUNT(*) FROM items WHERE item_name like CONCAT('%',#{param1},'%');
+	</select>
 
 	
 </mapper>
