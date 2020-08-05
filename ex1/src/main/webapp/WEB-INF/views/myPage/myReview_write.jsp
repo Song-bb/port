@@ -84,7 +84,9 @@
 				alert("별점을 체크해주세요.");
 			} else {
 	    		var url = "/myReview_write_ok?itemN=" + item_number + "&itemI=" + item_img + "&itemE=" + item_name + "&orderN=" + order_number + "&priceB=" + Buy_price + "&dateB=" + Buy_date + "&content=" + review_content + "&id=" + user_id + "&score=" + score;
-	    		alert( url );
+	    		opener.location.href = url;
+	    		alert("상품 리뷰가 등록되었습니다.");
+	    		window.close();
 			}
     	}
     	

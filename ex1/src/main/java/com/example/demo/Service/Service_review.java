@@ -15,8 +15,9 @@ public class Service_review {
 	
 	public int addReview( Map<String, String> map ) {
 		String user_id = map.get("user_id").toString();
-		int user_index = dao_review.count_user(user_id) + 1;
-		return dao_review.addReview(user_index, map);
+		String user_index = String.valueOf(dao_review.count_user(user_id) + 1);
+		map.put("user_index", user_index);
+		return dao_review.addReview(map);
 	}
 	
 }
