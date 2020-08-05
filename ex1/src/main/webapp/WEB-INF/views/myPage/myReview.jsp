@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <!-- 상품후기 -->
 
@@ -70,48 +71,30 @@
                     <table id="mypage_review_table">
                           <tr class="review_table_tr">
                               <td class="review_table_td_1">번호</td>
-                              <td class="review_table_td_1">제목</td>
-                              <td class="review_table_td_1">조회</td>
+                              <td class="review_table_td_1">내용</td>
                               <td class="review_table_td_1">작성일</td>
                           </tr>
-                          <tr class="review_table_tr review_table_tr_click show">
-                              <td class="review_table_td_2">1</td>
-                              <td class="review_table_td_2 review_table_td_title">마음에 들어요~</td>
-                              <td class="review_table_td_2">22</td>
-                              <td class="review_table_td_2">2020-07-02</td>
-                          </tr>
-                          <tr id="review_table_tr_hidden" class="hide">
-                              <td></td>
-                              <td id="review_table_td_hidden">
-                                      <p>상품명 : 알찬사과 200g외<br>
-                                      주문번호 : 202007020001<br>
-                                      등록평점 : 4.5</p>
-                                      <br>
-                                      <br>
-                                      과일이 아주 신선해요~ 다음에 또 주문할게요~
-                              </td>
-                              <td></td>
-                              <td></td>
-                          </tr>
-                          <tr class="review_table_tr review_table_tr_click show">
-                              <td class="review_table_td_2">2</td>
-                              <td class="review_table_td_2 review_table_td_title">최고에요~</td>
-                              <td class="review_table_td_2">12</td>
-                              <td class="review_table_td_2">2020-07-04</td>
-                          </tr>
-                           <tr id="review_table_tr_hidden" class="hide">
-                              <td></td>
-                              <td id="review_table_td_hidden">
-                                      <p>상품명 : 알찬사과 200g외<br>
-                                      주문번호 : 202007020001<br>
-                                      등록평점 : 4.5</p>
-                                      <br>
-                                      <br>
-                                      과일이 아주 신선해요~ 다음에 또 주문할게요~
-                              </td>
-                              <td></td>
-                              <td></td>
-                          </tr>
+                          <c:forEach items="${ myReview }" var="dto">
+                          <c:set var = "string1" value = "${ dto.date }"/>
+                          <c:set var = "string2" value = "${fn:substring(string1, 0, 10)}" />
+	                          <tr class="review_table_tr review_table_tr_click show">
+	                              <td class="review_table_td_2">${ dto.user_index }</td>
+	                              <td class="review_table_td_2 review_table_td_title">${ dto.review_content }</td>
+	                              <td class="review_table_td_2">${ string2 }</td>
+	                          </tr>
+	                          <tr id="review_table_tr_hidden" class="hide">
+	                              <td></td>
+	                              <td id="review_table_td_hidden">
+	                                      <p>상품명 : ${ dto.item_name }<br>
+	                                      주문번호 : ${ dto.order_number }<br>
+	                                      등록평점 : ${ dto.review_score }</p>
+	                                      <br>
+	                                      <br>
+	                                      ${ dto.review_content }
+	                              </td>
+	                              <td></td>
+	                          </tr>
+						  </c:forEach>
                       </table>
                 </div>
                 </div>

@@ -719,11 +719,13 @@ public class MyContoller {
 	
 	// 상품후기
 	@RequestMapping("/myReview")
-	public String myReview(HttpServletRequest request) {
+	public String myReview(HttpServletRequest request, Model model) {
 		 HttpSession session = request.getSession();
 	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
 	        	return "loginPage/loginPage_main";
 	        } else {
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	model.addAttribute("myReview", service_review.viewReview(user_id));
 	        	return "myPage/myReview";
 	        }
 	}
@@ -763,7 +765,7 @@ public class MyContoller {
 		map.put("review_content", review_content);
 		map.put("review_score", review_score);
 		map.put("user_id", user_id);
-		model.addAttribute("myReview", service_review.addReview(map));
+		service_review.addReview(map);
 		return "myPage/myReview";
 	}
 	
