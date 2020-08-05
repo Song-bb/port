@@ -238,7 +238,7 @@ public class MyContoller {
 		}
 		return "myPage/withdraw_member_fail";
 	}
-	
+	//
 	// 정기배송메인
 	@RequestMapping("/regularOrder_main")
 	public String regularOrder_main(Model model) {
