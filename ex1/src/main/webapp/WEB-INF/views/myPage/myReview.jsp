@@ -67,15 +67,14 @@
                     <div class="mypage_review_title">
                     	<h2>상품 후기</h2>
                     </div>
-                    
                     <table id="mypage_review_table">
                           <tr class="review_table_tr">
                               <td class="review_table_td_1">번호</td>
                               <td class="review_table_td_1">내용</td>
                               <td class="review_table_td_1">작성일</td>
                           </tr>
-                          <c:forEach items="${ myReview }" var="dto">
-                          <c:set var = "string1" value = "${ dto.date }"/>
+                        <c:forEach items="${ myReview }" var="dto">
+                          <c:set var = "string1" value = "${ dto.write_date }"/>
                           <c:set var = "string2" value = "${fn:substring(string1, 0, 10)}" />
 	                          <tr class="review_table_tr review_table_tr_click show">
 	                              <td class="review_table_td_2">${ dto.user_index }</td>
@@ -94,8 +93,8 @@
 	                              </td>
 	                              <td></td>
 	                          </tr>
-						  </c:forEach>
-                      </table>
+					 </c:forEach>
+                     </table>
                 </div>
                 </div>
             </div>

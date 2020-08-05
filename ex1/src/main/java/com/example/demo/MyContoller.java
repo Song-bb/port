@@ -766,7 +766,7 @@ public class MyContoller {
 		map.put("review_score", review_score);
 		map.put("user_id", user_id);
 		service_review.addReview(map);
-		return "myPage/myReview";
+		return "redirect:myReview";
 	}
 	
 	// 적립금

@@ -14,5 +14,13 @@
 			SELECT COUNT(*) FROM review WHERE user_id = #{param1}
 	</select>
 	
+	<select id="viewReview" resultType="com.example.demo.dto.dto_review"> 
+			SELECT * FROM review WHERE user_id = #{param1} ORDER BY user_index desc
+	</select>
+	
+	
+	
+	
+	
 	
 </mapper>
