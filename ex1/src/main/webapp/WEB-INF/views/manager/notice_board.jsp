@@ -22,7 +22,7 @@
                 <c:forEach items="${ noticeboard_list }" var="dto">
 	                <tr class="noticeboard_table_tr">
 	                    <td class="noticeboard_table_td">${ dto.notice_index }</td>
-	                    <td class="noticeboard_table_td"><a href="/manager_notice_update?notice_index=${ dto.notice_index }">${ dto.notice_title }</a></td>
+	                    <td class="noticeboard_table_td"><a href="notice_board_update?notice_index=${ dto.notice_index }">${ dto.notice_title }</a></td>
 	                    <td class="noticeboard_table_td">${ dto.notice_date }</td>
 	                    <td class="noticeboard_table_td">${ dto.notice_writer }</td>
 	                </tr>
@@ -30,7 +30,7 @@
             </table>
         </div>
         <div id="noticeboard_foot">
-            <button><a href="/manager_notice_write">글 쓰기</a></button>
+            <button><a href="notice_board_write">글 쓰기</a></button>
         </div>
     </div>
 	
