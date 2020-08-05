@@ -238,7 +238,14 @@ public class MyContoller {
 		}
 		return "myPage/withdraw_member_fail";
 	}
-	//
+	
+	// 메인 상품검색
+	@RequestMapping("/main_searchItem")
+	public String main_searchItem(@RequestParam(value="search", required=false) String search, Model model) {
+		model.addAttribute("main_searchItem", service_items.mainSerch(search));
+		return "item/main_searchItem";
+	}
+	
 	// 정기배송메인
 	@RequestMapping("/regularOrder_main")
 	public String regularOrder_main(Model model) {
