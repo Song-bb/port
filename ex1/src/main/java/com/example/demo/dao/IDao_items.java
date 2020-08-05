@@ -28,10 +28,17 @@ public interface IDao_items {
 	public List<dto_items> fallenFruit_upDao();
 	public List<dto_items> fallenFruit_newviewDao();
 	
+	// 정기배송
+	public List<dto_items> Delivery_viewDao();
+	public List<dto_items> Delivery_downDao();
+	public List<dto_items> Delivery_upDao();
+	public List<dto_items> Delivery_newDao();
+	
 	// 상품 카운트 세기
 	public int fruitInSeason_countDao();
 	public int importedFruit_countDao();
 	public int fallenFruit_countDao();
+	public int Delivery_countDao();
 	
 	// 상품보기
 	public List<dto_items> item_detail_idx_read(String idx);

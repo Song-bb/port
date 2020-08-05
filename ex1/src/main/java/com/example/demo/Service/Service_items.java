@@ -69,9 +69,28 @@ public class Service_items {
 		return nFallenCount;
 	}
 	
+	// 정기배송
+	public List<dto_items> Delivery_list(){
+		return dao_items.Delivery_viewDao();
+	};
+	public List<dto_items> Delivery_list_down(){
+		return dao_items.Delivery_downDao();
+	};
+	public List<dto_items> Delivery_list_up(){
+		return dao_items.Delivery_upDao();
+	};
+	public List<dto_items> Delivery_list_new(){
+		return dao_items.Delivery_newDao();
+	};
+	public int nDeliveryCount(){
+		int nDeliveryCount = dao_items.Delivery_countDao();
+		return nDeliveryCount;
+	};
+	
 	public List<dto_items> detail_idx_read(String idx){
 		return dao_items.item_detail_idx_read(idx);
 	}
+	
 	
 	// 상품등록하기
 	public int item_insert(Map<String, String> map) {

@@ -241,8 +241,9 @@ public class MyContoller {
 	
 	// 정기배송메인
 	@RequestMapping("/regularOrder_main")
-	public String regularOrder_main() {
-		
+	public String regularOrder_main(Model model) {
+		model.addAttribute("delivery_count", service_items.nDeliveryCount());
+		model.addAttribute("delivery_listview", service_items.Delivery_list());
 		return "regular_order/regularOrder_main";
 	}
 	
@@ -1460,7 +1461,6 @@ public class MyContoller {
 	        	return "loginPage/loginPage_main";
 	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
 	        	String user_id = session.getAttribute("user_id").toString();
-	        	
 	        	model.addAttribute("all_count", service_items.nAllCount());
 	    		model.addAttribute("all_listview", service_items.All_viewDao());
 	    		return "manager/items";
@@ -1738,6 +1738,10 @@ public class MyContoller {
 			String category_index = String.valueOf(SeasonCount);
 			map.put("category_index", category_index);
 		} else if (item_category.equals("낙과채널")) {
+			int FallenCount = service_items.nFallenCount() + 1 ;
+			String category_index = String.valueOf(FallenCount);
+			map.put("category_index", category_index);
+		} else if (item_category.equals("정기배송")) {
 			int FallenCount = service_items.nFallenCount() + 1 ;
 			String category_index = String.valueOf(FallenCount);
 			map.put("category_index", category_index);

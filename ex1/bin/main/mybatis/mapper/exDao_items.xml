@@ -67,6 +67,27 @@
 	<select id="fallenFruit_countDao" resultType="_int">
 		SELECT COUNT(*) FROM items WHERE item_category='낙과채널';
 	</select>
+	
+	
+	<select id="Delivery_viewDao" resultType="com.example.demo.dto.dto_items">
+		SELECT * FROM items WHERE item_category='정기배송';
+	</select>
+	
+	<select id="Delivery_downDao" resultType="com.example.demo.dto.dto_items">
+		SELECT * FROM items WHERE item_category='정기배송' ORDER BY item_sale_price ASC;
+	</select>
+	
+	<select id="Delivery_upDao" resultType="com.example.demo.dto.dto_items">
+		SELECT * FROM items WHERE item_category='정기배송' ORDER BY item_sale_price DESC;
+	</select>
+	
+	<select id="Delivery_newDao" resultType="com.example.demo.dto.dto_items">
+		SELECT * FROM items WHERE item_category='정기배송' ORDER BY category_idx DESC;
+	</select>
+	
+	<select id="Delivery_countDao" resultType="_int">
+		SELECT COUNT(*) FROM items WHERE item_category='정기배송';
+	</select>
 
 
 	<select id="item_detail_idx_read" resultType="com.example.demo.dto.dto_items">
@@ -98,6 +119,12 @@
 	<delete id="item_delete">
 		DELETE FROM items WHERE idx = #{ idx };
 	</delete>
+
+	<!-- 메인 상품검색 -->
+	<select id="mainSerch" resultType="com.example.demo.dto.dto_items">
+		SELECT * FROM items WHERE item_name like CONCAT('%',#{param1},'%') ORDER BY idx DESC;
+	</select>
+
 
 	
 </mapper>
