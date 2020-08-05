@@ -778,6 +778,7 @@ public class MyContoller {
 	        } else {
 	        	String user_id = session.getAttribute("user_id").toString();
 	        	model.addAttribute("myPoint", service_myPage.myPoint(user_id));
+	        	model.addAttribute("pointList", service_myPage.pointList(user_id));
 	        	return "myPage/myPoint";
 	        }
 	}
