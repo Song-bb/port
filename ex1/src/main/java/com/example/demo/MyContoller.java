@@ -243,6 +243,7 @@ public class MyContoller {
 	@RequestMapping("/main_searchItem")
 	public String main_searchItem(@RequestParam(value="search", required=false) String search, Model model) {
 		model.addAttribute("main_searchItem", service_items.mainSerch(search));
+		model.addAttribute("main_searchItem_count", service_items.mainSerch_count(search));
 		return "item/main_searchItem";
 	}
 	

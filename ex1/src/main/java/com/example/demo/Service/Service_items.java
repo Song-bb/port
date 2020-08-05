@@ -124,6 +124,9 @@ public class Service_items {
 	public List<dto_items> mainSerch(String search){
 		return dao_items.mainSerch(search);
 	}
+	public int mainSerch_count(String search) {
+		return dao_items.mainSerch_count(search);
+	}
 	
 	
 	

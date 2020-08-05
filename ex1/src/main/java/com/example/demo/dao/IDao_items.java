@@ -58,4 +58,5 @@ public interface IDao_items {
 	
 	// 메인 상품검색
 	public List<dto_items> mainSerch(String search);
+	public int mainSerch_count(String search);
 }
