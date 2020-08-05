@@ -127,6 +127,12 @@ public class Service_items {
 	public int mainSerch_count(String search) {
 		return dao_items.mainSerch_count(search);
 	}
+	public List<dto_items> mainSerch_down(String search){
+		return dao_items.mainSerch_down(search);
+	}
+	public List<dto_items> mainSerch_high(String search){
+		return dao_items.mainSerch_high(search);
+	}
 	
 	
 	

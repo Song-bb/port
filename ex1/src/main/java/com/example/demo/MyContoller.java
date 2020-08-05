@@ -244,7 +244,35 @@ public class MyContoller {
 	public String main_searchItem(@RequestParam(value="search", required=false) String search, Model model) {
 		model.addAttribute("main_searchItem", service_items.mainSerch(search));
 		model.addAttribute("main_searchItem_count", service_items.mainSerch_count(search));
+		model.addAttribute("search_text", search);
 		return "item/main_searchItem";
+	}
+	
+	// 메인 상품검색 - 최신순
+	@RequestMapping("/main_searchItem_new")
+	public String main_searchItem_new(@RequestParam(value="search", required=false) String search, Model model) {
+		model.addAttribute("main_searchItem", service_items.mainSerch(search));
+		model.addAttribute("main_searchItem_count", service_items.mainSerch_count(search));
+		model.addAttribute("search_text", search);
+		return "item/main_searchItem_new";
+	}
+	
+	// 메인 상품검색 - 낮은 가격 순
+	@RequestMapping("/main_searchItem_down")
+	public String main_searchItem_down(@RequestParam(value="search", required=false) String search, Model model) {
+		model.addAttribute("main_searchItem", service_items.mainSerch_down(search));
+		model.addAttribute("main_searchItem_count", service_items.mainSerch_count(search));
+		model.addAttribute("search_text", search);
+		return "item/main_searchItem_down";
+	}
+	
+	// 메인 상품검색 - 높은 가격 순
+	@RequestMapping("/main_searchItem_high")
+	public String main_searchItem_high(@RequestParam(value="search", required=false) String search, Model model) {
+		model.addAttribute("main_searchItem", service_items.mainSerch_high(search));
+		model.addAttribute("main_searchItem_count", service_items.mainSerch_count(search));
+		model.addAttribute("search_text", search);
+		return "item/main_searchItem_high";
 	}
 	
 	// 정기배송메인

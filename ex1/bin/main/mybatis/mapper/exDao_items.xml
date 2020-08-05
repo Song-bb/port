@@ -129,6 +129,16 @@
 		SELECT COUNT(*) FROM items WHERE item_name like CONCAT('%',#{param1},'%');
 	</select>
 
+	<select id="mainSerch_down" resultType="com.example.demo.dto.dto_items">
+		SELECT * FROM items WHERE item_name like CONCAT('%',#{param1},'%') ORDER BY item_sale_price ASC;
+	</select>
+	
+	<select id="mainSerch_high" resultType="com.example.demo.dto.dto_items">
+		SELECT * FROM items WHERE item_name like CONCAT('%',#{param1},'%') ORDER BY item_sale_price DESC;
+	</select>
+	
+	
+	
 	
 </mapper>
 	
