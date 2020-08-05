@@ -1505,6 +1505,23 @@ public class MyContoller {
 	        }
 	}
 	
+	// 상품관리 - 카테고리 선택
+	@RequestMapping("/items_selectCategori")
+	public String items(@RequestParam(value="categori", required=false) String categori, 
+						HttpServletRequest request, Model model) {
+		 HttpSession session = request.getSession();
+	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+	        	return "loginPage/loginPage_main";
+	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	model.addAttribute("all_count", service_items.nCategoriCount(categori));
+	    		model.addAttribute("all_listview", service_items.categoriView(categori));
+	    		return "manager/items_selectCategori";
+	        } else {
+	        	return "manager/notAccess";
+	        }
+	}
+	
 	// 게시판관리_메인(공지사항)
 	@RequestMapping("/notice_board_manager")
 	public String notice_board(HttpServletRequest request, Model model) {
@@ -1858,8 +1875,8 @@ public class MyContoller {
 			String category_index = String.valueOf(FallenCount);
 			map.put("category_index", category_index);
 		} else if (item_category.equals("정기배송")) {
-			int FallenCount = service_items.nFallenCount() + 1 ;
-			String category_index = String.valueOf(FallenCount);
+			int regularCount = service_items.nFallenCount() + 1 ;
+			String category_index = String.valueOf(regularCount);
 			map.put("category_index", category_index);
 		}
 			
@@ -1869,7 +1886,7 @@ public class MyContoller {
 		if( nResult < 1 ) {
 			return "manager/item_update_fail";
 		} else {
-			return "manager/items";
+			return "redirect:items";
 		}
 	}
 	
@@ -2019,7 +2036,7 @@ public class MyContoller {
 	    		if( nResult < 1 ) {
 	    			return "manager/item_amend_fail";
 	    		} else {
-	    			return "manager/items";
+	    			return "redirect:items";
 	    		}
 	        } else {
 	        	return "manager/notAccess";

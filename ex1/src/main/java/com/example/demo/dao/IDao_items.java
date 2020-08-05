@@ -45,6 +45,7 @@ public interface IDao_items {
 	
 	// 상품등록하기
 	public int item_insert(Map<String, String> map);
+	public int categori_count(String item_category);
 	
 	// 상품수정하기
 	public int item_update(Map<String, String> map);
@@ -62,6 +63,10 @@ public interface IDao_items {
 	public List<dto_items> mainSerch_down(String search);
 	public List<dto_items> mainSerch_high(String search);
 	
+	
+	// 관리자페이지 - 상품보기(카테고리 선택)
+	public List<dto_items> season_categoriView(String categori);
+	public int season_categoriCount(String categori);
 	
 	
 }

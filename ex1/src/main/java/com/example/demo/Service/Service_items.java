@@ -94,6 +94,9 @@ public class Service_items {
 	
 	// 상품등록하기
 	public int item_insert(Map<String, String> map) {
+		String item_category = map.get("item_category").toString();
+		String categori_idx = String.valueOf((dao_items.categori_count(item_category)) + 1);
+		map.put("categori_idx", categori_idx);
 		int nInsertCount = dao_items.item_insert(map);
 		return nInsertCount;
 	}
@@ -133,6 +136,24 @@ public class Service_items {
 	public List<dto_items> mainSerch_high(String search){
 		return dao_items.mainSerch_high(search);
 	}
+	
+	// 관리자페이지-상품관리 // 카테고리별 선택
+	public List<dto_items> categoriView (String categori){
+		if( categori.equals("모든상품") ) {
+			return dao_items.All_viewDao();
+		} else {
+			return dao_items.season_categoriView(categori);
+		}
+	}
+	// 관리자페이지-상품관리 // 카테고리별 선택 카운트
+	public int nCategoriCount(String categori) {
+		if( categori.equals("모든상품") ) {
+			return dao_items.all_countDao();
+		} else {
+			return dao_items.season_categoriCount(categori);
+		}
+	}
+	
 	
 	
 	
