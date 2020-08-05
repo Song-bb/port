@@ -743,15 +743,15 @@ public class MyContoller {
 	
 	// 상품후기작성중
 	@RequestMapping("/myReview_write_ok")
-	public void myReview_write_ok(@RequestParam(value="item_number", required=false) String item_number,
-									@RequestParam(value="item_img", required=false) String item_img,
-									@RequestParam(value="item_name", required=false) String item_name,
-									@RequestParam(value="order_number", required=false) String order_number,
-									@RequestParam(value="Buy_price", required=false) String Buy_price,
-									@RequestParam(value="Buy_date", required=false) String Buy_date,
-									@RequestParam(value="review_content", required=false) String review_content,
-									@RequestParam(value="review_score", required=false) String review_score,
-									@RequestParam(value="user_id", required=false) String user_id,
+	public void myReview_write_ok(@RequestParam(value="itemN", required=false) String item_number,
+									@RequestParam(value="itemI", required=false) String item_img,
+									@RequestParam(value="itemE", required=false) String item_name,
+									@RequestParam(value="orderN", required=false) String order_number,
+									@RequestParam(value="priceB", required=false) String Buy_price,
+									@RequestParam(value="dateB", required=false) String Buy_date,
+									@RequestParam(value="content", required=false) String review_content,
+									@RequestParam(value="score", required=false) String review_score,
+									@RequestParam(value="id", required=false) String user_id,
 									 Model model) {
 		Map <String, String> map = new HashMap<String, String>();
 		map.put("item_number", item_number);
