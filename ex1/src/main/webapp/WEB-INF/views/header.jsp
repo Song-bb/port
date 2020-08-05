@@ -141,8 +141,8 @@
 				</div>
 				<div>
 					<div id="search_box">
-						<form id="search_form" action="" method="post">
-							<input id="search" type="text">
+						<form id="search_form" action="/main_searchItem" method="post">
+							<input id="search" type="text" name="search">
 							<button id="search_btn" type="submit"><i id="search_btn_i" class="fa fa-search"></i></button>
 						</form>
 						<a id="cart" href="/myCart"><img id="cart_icon" src="img/cart.png"></a>

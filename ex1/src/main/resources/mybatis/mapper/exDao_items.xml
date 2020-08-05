@@ -99,6 +99,12 @@
 		DELETE FROM items WHERE idx = #{ idx };
 	</delete>
 
+	<!-- 메인 상품검색 -->
+	<select id="mainSerch" resultType="com.example.demo.dto.dto_items">
+		SELECT * FROM items WHERE item_name like CONCAT('%',#{param1},'%') ORDER BY idx DESC;
+	</select>
+
+
 	
 </mapper>
 	

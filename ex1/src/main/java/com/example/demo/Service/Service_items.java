@@ -101,6 +101,11 @@ public class Service_items {
 		return nAllCount;
 	}
 	
+	// 메인 상품 검색
+	public List<dto_items> mainSerch(String search){
+		return dao_items.mainSerch(search);
+	}
+	
 	
 	
 
