@@ -94,7 +94,7 @@
                                     </div>
                                 </td>
                                 <td class="order_board_table_td order_td3 order_td7">${ dto.price_actual } 원<br>(${ dto.count }개)</td>
-                                <td class="order_board_table_td order_td4 order_td7">${ dto.price_delevery } 원</td>
+                                <td class="order_board_table_td order_td4 order_td7">${ dto.price_delivery } 원</td>
                                 <td class="order_board_table_td order_td5">
                                     <div class="order_td5_2">
                                     												<!-- 팝업이벤트파일 : my_JS.js  -->				
