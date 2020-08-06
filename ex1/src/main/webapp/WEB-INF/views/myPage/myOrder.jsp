@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!-- 주문상세내역 -->
@@ -81,15 +82,17 @@
 
             <div class="mypage_detail_right">
                 <c:forEach items="${ my_order }" var="dto">
+                <c:set var = "string1" value = "${ dto.date }"/>
+                <c:set var = "string2" value = "${fn:substring(string1, 0, 10)}" />
                     <div class="mypage_detail_title mypage_detail_title_1">
                         <h2>주문 / 배송 상세 정보</h2>
                     </div>
                     <div id="mypage_detail_info_div">
                         <div id="mypage_detail_info1">
-                            <span>주문 일자 ${ dto.date } | 주문번호 ${ dto.order_number }</span>
+                            <span>주문 일자 ${ string2 } | 주문번호 ${ dto.order_number }</span>
                             <div id="mypage_detail_info2">
                                 <button><a href="">주문 내역 삭제</a></button>
-                                <button><a href="">영수증 발급 내역</a></button>
+                                <button><a href='javascript:void(0);' onclick="cashReceipt_pop(${ dto.order_number });">영수증 발급 내역</a></button>
                             </div>
                         </div>
 
@@ -122,7 +125,7 @@
                         <div id="mypage_detail_order_info_header">
                             <h3>결제 정보</h3>
                             <div id="mypage_detail_order_info_header_btn">
-                                <button><a href="">현금영수증 정보 확인</a></button>
+                                <button><a href='javascript:void(0);' onclick="cashReceipt_pop(${ dto.order_number });">현금영수증 정보 확인</a></button>
                             </div>
                         </div>
                         <div id="mypage_detail_order_info_body">
@@ -194,3 +197,12 @@
 </div>
 
 	<c:import url="../footer.jsp"></c:import>
+	
+	
+	<script>
+		function cashReceipt_pop(orderNumber) {
+			var url = "/cashReceipt?orderNumber=" + orderNumber;
+			window.open(url, "cashReceipt", "width=520, height=640, left=200, top=0"); 
+		}
+	
+	</script>

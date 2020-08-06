@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -91,49 +94,53 @@
             <h3>구매영수증</h3>
         </div>
         <div id="cashReceipt_body">
-            <table id="cashReceipt_table">
-                <tr>
-                    <td class="cashReceipt_th">주문번호</td>
-                    <td class="cashReceipt_td"><b>202007020001</b></td>
-                </tr>
-                <tr>
-                    <td class="cashReceipt_th">거래일시</td>
-                    <td class="cashReceipt_td">2020.07.02</td>
-                </tr>
-                <tr>
-                    <td class="cashReceipt_th">상품명</td>
-                    <td class="cashReceipt_td">알찬사과 200g 외</td>
-                </tr>
-                <tr>
-                    <td class="cashReceipt_th">합계</td>
-                    <td class="cashReceipt_td"><b>13,900</b> 원</td>
-                </tr>
-                <tr>
-                    <td class="cashReceipt_th">회사명</td>
-                    <td class="cashReceipt_td">과일장수</td>
-                </tr>
-                <tr>
-                    <td class="cashReceipt_th">서명</td>
-                    <td class="cashReceipt_td">장탱구</td>
-                </tr>
-                <tr>
-                    <td class="cashReceipt_th2" colspan="2">
-                        <p>구매 영수증은 세금계산서 등 세무상 증빙서류로 활용할 수 없으며, 거래내역 및 거래 금액을 확인하는 용도로만 사용 가능합니다.</p>
-                        <div id="cashReceipt_table_logo">
-                            <div id="cashReceipt_logo"><img src="logo.jpg"></div>
-                            <div id="cashReceipt_description">
-                                서울시 노원구 ooooo oo (대표 장 송 신)<br>
-                                <br>
-                                사업자 등록번호: ooo - oo - ooooo<br>
-                                <br>
-                                문의전화 : 070-0000-0000 / 팩스 : 000-0000-0000
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+        	<c:forEach items="${ my_order }" var="dto">
+        	<c:set var = "string1" value = "${ dto.date }"/>
+            <c:set var = "string2" value = "${fn:substring(string1, 0, 10)}" />
+	            <table id="cashReceipt_table">
+	                <tr>
+	                    <td class="cashReceipt_th">주문번호</td>
+	                    <td class="cashReceipt_td"><b>${ dto.order_number }</b></td>
+	                </tr>
+	                <tr>
+	                    <td class="cashReceipt_th">거래일시</td>
+	                    <td class="cashReceipt_td">${ string2 }</td>
+	                </tr>
+	                <tr>
+	                    <td class="cashReceipt_th">상품명</td>
+	                    <td class="cashReceipt_td">${ dto.item_text }</td>
+	                </tr>
+	                <tr>
+	                    <td class="cashReceipt_th">합계</td>
+	                    <td class="cashReceipt_td"><b><fmt:formatNumber value="${ dto.price_actual }" pattern="###,###,###" /></b> 원</td>
+	                </tr>
+	                <tr>
+	                    <td class="cashReceipt_th">회사명</td>
+	                    <td class="cashReceipt_td">과일장수</td>
+	                </tr>
+	                <tr>
+	                    <td class="cashReceipt_th">구매인</td>
+	                    <td class="cashReceipt_td">${ user_id }</td>
+	                </tr>
+	                <tr>
+	                    <td class="cashReceipt_th2" colspan="2">
+	                        <p>구매 영수증은 세금계산서 등 세무상 증빙서류로 활용할 수 없으며, 거래내역 및 거래 금액을 확인하는 용도로만 사용 가능합니다.</p>
+	                        <div id="cashReceipt_table_logo">
+	                            <div id="cashReceipt_logo"><img src="img/logo.png"></div>
+	                            <div id="cashReceipt_description">
+	                                서울시 노원구 ooooo oo (대표 장 송 신)<br>
+	                                <br>
+	                                사업자 등록번호: ooo - oo - ooooo<br>
+	                                <br>
+	                                문의전화 : 070-0000-0000 / 팩스 : 000-0000-0000
+	                            </div>
+	                        </div>
+	                    </td>
+	                </tr>
+	            </table>
+	        </c:forEach>
             <div id="cashReceipt_btn">
-                <button type="button" onclick="cashReceipt_close();" id="cashReceipt_close_btn">확인</button>
+                <button type="button" onclick="window.close();" id="cashReceipt_close_btn">확인</button>
             </div>
         </div>
     </div>

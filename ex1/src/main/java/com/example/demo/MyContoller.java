@@ -742,6 +742,19 @@ public class MyContoller {
         	return "myPage/myOrder";
         }
 	}
+	
+	// 마이영수증
+	@RequestMapping("/cashReceipt")
+	public String cashReceipt(@RequestParam(value="orderNumber", required=false) String orderNumber, 
+							HttpServletRequest request, HttpServletResponse response, Model model ) {
+        HttpSession session = request.getSession();
+        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+        	return "loginPage/loginPage_main";
+        } else {
+        	model.addAttribute("my_order", service_myPage.orderDetail(orderNumber));
+        	return "myPage/cashReceipt";
+        }
+	}
 
 	// 정기배송내역
 	@RequestMapping("/myRegularorder")
