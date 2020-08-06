@@ -326,35 +326,35 @@ public class Service_members {
 		TransactionStatus status = transactionManager.getTransaction(definition);
 		String user_id = map.get("user_id").toString();
 		try {
-			if( map.get("user_pw") != null ) { // 비밀번호 변경
+			if( !(map.get("user_pw").equals("null")) ) { // 비밀번호 변경
 				String user_pw = map.get("user_pw").toString();
 				dao_member.update_userId(user_id, user_pw);
 			}
-			if( map.get("user_email") != null ) { // 이메일 변경
+			if( !(map.get("user_email").equals("null")) ) { // 이메일 변경
 				String user_email = map.get("user_email").toString();
 				dao_member.update_userEmail(user_id, user_email);
 			}
-			if( map.get("user_name") != null ) { // 이름 변경
+			if( !(map.get("user_name").equals("null")) ) { // 이름 변경
 				String user_name = map.get("user_name").toString();
 				dao_member.update_userName(user_id, user_name);
 			}
-			if( map.get("phone") != null ) { // 폰번호 변경
+			if( !(map.get("phone").equals("null")) ) { // 폰번호 변경
 				String phone = map.get("phone").toString();
 				dao_member.update_userPhone(user_id, phone);
 			}
-			if( map.get("postcode") != null ) { // 우편번호 변경
+			if( !(map.get("postcode").equals("null")) ) { // 우편번호 변경
 				String postcode = map.get("postcode").toString();
 				dao_member.update_userPostcode(user_id, postcode);
 			}
-			if( map.get("address") != null ) { // 우편번호 변경
+			if( !(map.get("address").equals("")) ) { // 주소 변경
 				String address = map.get("address").toString();
 				dao_member.update_userAddress(user_id, address);
 			}
-			if( map.get("user_gender") != null ) { // 우편번호 변경
+			if( !(map.get("user_gender").equals("null")) ) { // 성별 변경
 				String user_gender = map.get("user_gender").toString();
 				dao_member.update_userGender(user_id, user_gender);
 			}
-			if( map.get("user_birth") != null ) { // 우편번호 변경
+			if( !(map.get("user_birth").equals("null")) ) { // 생일 변경
 				String user_birth = map.get("user_birth").toString();
 				dao_member.update_userBirth(user_id, user_birth);
 			}

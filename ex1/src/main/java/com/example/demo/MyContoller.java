@@ -876,7 +876,7 @@ public class MyContoller {
 	
 	// 회원정보수정 확인
 	@RequestMapping("/update_ok")
-	public String update_ok(@RequestParam(value="user_id", required=false) String user_id,
+	public void update_ok(@RequestParam(value="user_id", required=false) String user_id,
 							@RequestParam(value="user_pw", required=false) String user_pw,
 							@RequestParam(value="user_pw_ok", required=false) String user_pw_ok,
 							@RequestParam(value="user_email", required=false) String user_email,
@@ -888,24 +888,65 @@ public class MyContoller {
 							@RequestParam(value="address3", required=false) String address3,
 							@RequestParam(value="gender_select", required=false) String user_gender,
 							@RequestParam(value="user_birth", required=false) String user_birth,
-							Model model) {
+							HttpServletResponse response, Model model) throws Exception {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("user_id", user_id);
-		if( user_pw != null && user_pw.equals(user_pw_ok) ) 
-			map.put("user_pw", user_pw);
-		map.put("user_email", user_email);
-		map.put("user_name", user_name);
-		map.put("phone", phone);
-		map.put("postcode", postcode);
-		String address = address1 + " " + address2 + " " + address3;
+		if( !(user_pw.isEmpty()) ) { 
+			if( user_pw != null && user_pw.equals(user_pw_ok) ) 
+				map.put("user_pw", user_pw);
+		} else { 
+			map.put("user_pw", "null");
+		}
+		if( !(user_email.isEmpty()) ) { 
+			map.put("user_email", user_email);
+		} else { 
+			map.put("user_email", "null");
+		}
+		if( !(user_name.isEmpty()) ) { 
+			map.put("user_name", user_name);
+		} else { 
+			map.put("user_name", "null");
+		}
+		if( !(phone.isEmpty()) ) { 
+			map.put("phone", phone);
+		} else { 
+			map.put("phone", "null");
+		}
+		if( !(postcode.isEmpty()) ) { 
+			map.put("postcode", postcode);
+		} else { 
+			map.put("postcode", "null");
+		}
+		String address = "";
+		if( !(address1.isEmpty()) ) { 
+			address += address1;
+		}
+		if( !(address2.isEmpty()) ) { 
+			address += " " + address2;
+		}
+		if( !(address3.isEmpty()) ) { 
+			address += " " + address3;
+		}
 		map.put("address", address);
-		map.put("user_gender", user_gender);
-		map.put("user_birth", user_birth);
+		if( user_gender != null ) { 
+			map.put("user_gender", user_gender);
+		} else { 
+			map.put("user_gender", "null");
+		}
+		if( !(user_birth.isEmpty()) ) { 
+			map.put("user_birth", user_birth);
+		} else { 
+			map.put("user_birth", "null");
+		}
 		int nResult = service_members.updateMember(map);
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		if( nResult < 1 ) {
-			return "myPage/update_fail";
+			out.println("<script>alert('다시 시도해주세요'); history.go(-1);</script>");
+			out.flush();
 		} else {
-			return "myPage/update_ok";
+			out.println("<script>alert('회원정보 수정 완료 되었습니다.'); window.location.href='/myPage_main?page=1';</script>");
+			out.flush();
 		}
 	}
 	
