@@ -148,3 +148,9 @@
 		
 	
 	<c:import url="../footer.jsp"></c:import>
+
+<script>
+	$(document).ready(function(){
+	     alert("회원정보가 변경되었습니다.");
+	});
+</script>

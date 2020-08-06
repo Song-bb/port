@@ -148,3 +148,9 @@
 		
 	
 	<c:import url="../footer.jsp"></c:import>
+
+<script>
+	$(document).ready(function(){
+	     alert("다시 시도해주세요");
+	});
+</script>

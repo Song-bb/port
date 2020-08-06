@@ -874,6 +874,41 @@ public class MyContoller {
 		}
 	}
 	
+	// 회원정보수정 확인
+	@RequestMapping("/update_ok")
+	public String update_ok(@RequestParam(value="user_id", required=false) String user_id,
+							@RequestParam(value="user_pw", required=false) String user_pw,
+							@RequestParam(value="user_pw_ok", required=false) String user_pw_ok,
+							@RequestParam(value="user_email", required=false) String user_email,
+							@RequestParam(value="user_name", required=false) String user_name,
+							@RequestParam(value="phone", required=false) String phone,
+							@RequestParam(value="postcode", required=false) String postcode,
+							@RequestParam(value="address1", required=false) String address1,
+							@RequestParam(value="address2", required=false) String address2,
+							@RequestParam(value="address3", required=false) String address3,
+							@RequestParam(value="gender_select", required=false) String user_gender,
+							@RequestParam(value="user_birth", required=false) String user_birth,
+							Model model) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("user_id", user_id);
+		if( user_pw != null && user_pw.equals(user_pw_ok) ) 
+			map.put("user_pw", user_pw);
+		map.put("user_email", user_email);
+		map.put("user_name", user_name);
+		map.put("phone", phone);
+		map.put("postcode", postcode);
+		String address = address1 + " " + address2 + " " + address3;
+		map.put("address", address);
+		map.put("user_gender", user_gender);
+		map.put("user_birth", user_birth);
+		int nResult = service_members.updateMember(map);
+		if( nResult < 1 ) {
+			return "myPage/update_fail";
+		} else {
+			return "myPage/update_ok";
+		}
+	}
+	
 	// 회원탈퇴
 	@RequestMapping("/withdraw_member")
 	public String withdraw_member( HttpServletRequest request ) {

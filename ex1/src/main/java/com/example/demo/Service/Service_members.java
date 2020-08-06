@@ -6,6 +6,9 @@ import java.util.Map;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.TransactionDefinition;
+import org.springframework.transaction.TransactionStatus;
 
 import com.example.demo.dao.IDao_members;
 import com.example.demo.dto.dto_members;
@@ -16,6 +19,10 @@ public class Service_members {
 	@Autowired
 	IDao_members dao_member;
 
+	@Autowired
+	PlatformTransactionManager transactionManager;
+	@Autowired
+	TransactionDefinition definition;
 	
 	/* 로그인 */
 	public List<dto_members> login( String user_id ) {
@@ -312,6 +319,51 @@ public class Service_members {
 	
 	public List<dto_members> memberDetail(String user_id){
 		return dao_member.memberDetail(user_id);
+	}
+	
+	/* 회원정보수정 */
+	public int updateMember( Map<String, String> map ) {
+		TransactionStatus status = transactionManager.getTransaction(definition);
+		String user_id = map.get("user_id").toString();
+		try {
+			if( map.get("user_pw") != null ) { // 비밀번호 변경
+				String user_pw = map.get("user_pw").toString();
+				dao_member.update_userId(user_id, user_pw);
+			}
+			if( map.get("user_email") != null ) { // 이메일 변경
+				String user_email = map.get("user_email").toString();
+				dao_member.update_userEmail(user_id, user_email);
+			}
+			if( map.get("user_name") != null ) { // 이름 변경
+				String user_name = map.get("user_name").toString();
+				dao_member.update_userName(user_id, user_name);
+			}
+			if( map.get("phone") != null ) { // 폰번호 변경
+				String phone = map.get("phone").toString();
+				dao_member.update_userPhone(user_id, phone);
+			}
+			if( map.get("postcode") != null ) { // 우편번호 변경
+				String postcode = map.get("postcode").toString();
+				dao_member.update_userPostcode(user_id, postcode);
+			}
+			if( map.get("address") != null ) { // 우편번호 변경
+				String address = map.get("address").toString();
+				dao_member.update_userAddress(user_id, address);
+			}
+			if( map.get("user_gender") != null ) { // 우편번호 변경
+				String user_gender = map.get("user_gender").toString();
+				dao_member.update_userGender(user_id, user_gender);
+			}
+			if( map.get("user_birth") != null ) { // 우편번호 변경
+				String user_birth = map.get("user_birth").toString();
+				dao_member.update_userBirth(user_id, user_birth);
+			}
+			transactionManager.commit(status);
+			return 1;
+		} catch(Exception e) {
+			transactionManager.rollback(status);
+			return 0;
+		}
 	}
 	
 	

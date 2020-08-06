@@ -68,6 +68,15 @@ public interface IDao_members {
 	public int update_point(String member_index, String point);
 	public int update_grade(String member_index, String grade);
 	public List<dto_members> memberDetail(String user_id);
+	public int update_userId(String user_id, String user_pw); // 비밀번호 변경
+	public int update_userEmail(String user_id, String user_email); // 이메일 변경
+	public int update_userName(String user_id, String user_name); // 이름 변경
+	public int update_userPhone(String user_id, String phone); // 폰번호 변경
+	public int update_userPostcode(String user_id, String postcode); // 우편번호 변경
+	public int update_userAddress(String user_id, String address); // 주소 변경
+	public int update_userGender(String user_id, String user_gender); // 성별 변경
+	public int update_userBirth(String user_id, String user_birth); // 생일 변경
+	
 
 		
 }

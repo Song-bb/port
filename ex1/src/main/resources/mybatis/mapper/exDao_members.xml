@@ -511,8 +511,37 @@
 			SELECT * FROM members WHERE user_id = #{param1}
 	</select>
 	
+	<update id="update_userId"> 
+			UPDATE members SET user_pw = #{param2} WHERE user_id = #{param1}
+	</update>
 	
+	<update id="update_userEmail"> 
+			UPDATE members SET user_email = #{param2} WHERE user_id = #{param1}
+	</update>
 	
+	<update id="update_userName"> 
+			UPDATE members SET user_name = #{param2} WHERE user_id = #{param1}
+	</update>
+	
+	<update id="update_userPhone"> 
+			UPDATE members SET user_phone = #{param2} WHERE user_id = #{param1}
+	</update>
+
+	<update id="update_userPostcode"> 
+			UPDATE members SET postcode = #{param2} WHERE user_id = #{param1}
+	</update>
+	
+	<update id="update_userAddress"> 
+			UPDATE members SET user_address = #{param2} WHERE user_id = #{param1}
+	</update>	
+		
+	<update id="update_userGender"> 
+			UPDATE members SET user_gender = #{param2} WHERE user_id = #{param1}
+	</update>	
+	
+	<update id="update_userBirth"> 
+			UPDATE members SET user_birth = #{param2} WHERE user_id = #{param1}
+	</update>	
 	
 	
 	
