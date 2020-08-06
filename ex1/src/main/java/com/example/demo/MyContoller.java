@@ -732,13 +732,13 @@ public class MyContoller {
 	
 	// 주문상세내역
 	@RequestMapping("/myOrder")
-	public String myOrder(HttpServletRequest request, HttpServletResponse response, Model model ) {
+	public String myOrder(@RequestParam(value="orderNumber", required=false) String orderNumber, 
+							HttpServletRequest request, HttpServletResponse response, Model model ) {
         HttpSession session = request.getSession();
         if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
         	return "loginPage/loginPage_main";
         } else {
-        	String user_id = session.getAttribute("user_id").toString();
-        	model.addAttribute("my_order", service_myPage.order_list_main(user_id));
+        	model.addAttribute("my_order", service_myPage.orderDetail(orderNumber));
         	return "myPage/myOrder";
         }
 	}

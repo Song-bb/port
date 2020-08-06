@@ -140,12 +140,12 @@
                                     <td class="order_info_table_td_2"><fmt:formatNumber value="${ dto.price_item }" pattern="###,###,###" /> 원</td>
                                 </tr>
                                 <tr class="order_info_table_tr">
-                                    <td class="order_info_table_td_1">할인 금액</td>
+                                    <td class="order_info_table_td_1">할인 후 금액</td>
                                     <td class="order_info_table_td_2"><fmt:formatNumber value="${ dto.price_sale }" pattern="###,###,###" /> 원</td>
                                 </tr>
                                 <tr class="order_info_table_tr order_info_table_tr_last">
                                     <td class="order_info_table_td_1">배송비</td>
-                                    <td class="order_info_table_td_2"><fmt:formatNumber value="${ dto.price_delevery }" pattern="###,###,###" /> 원</td>
+                                    <td class="order_info_table_td_2"><fmt:formatNumber value="${ dto.price_delivery }" pattern="###,###,###" /> 원</td>
                                 </tr>
                                 <tr class="order_info_table_tr">
                                     <td class="order_info_table_td_1"></td>
