@@ -229,9 +229,7 @@
 }
 #member_manager_selectBox_bottom {
     width: 1050px;
-    border-bottom: 1px solid rgba(179, 178, 178, 0.507);
-    border-left: 1px solid rgba(179, 178, 178, 0.507);
-    border-right: 1px solid rgba(179, 178, 178, 0.507);
+    border: 1px solid rgba(179, 178, 178, 0.507);
     height: 150px;
     display: block;
 }

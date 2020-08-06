@@ -12,23 +12,6 @@
 	    <div id="member_manager_main_wrap">
         <div id="member_manager_main_title"><h3>회원리스트</h3></div>
         <form method="post">
-	        <div class="member_manager_selectBox">
-	            <div class="member_manager_selectBox_serch">
-	                <div class="member_manager_selectBox_serch_select_div">
-                        <select class="member_manager_selectBox_serch_select" name="member_categori">
-                            <option value="user_name">이름</option>
-                            <option value="user_id">아이디</option>
-                            <option value="user_phone">휴대폰번호</option>
-                            <option value="user_birth">생일</option>
-                        </select>
-                        <input type="text" placeholder="내용을 입력해 주세요." class="member_manager_selectBox_serch_search" name="search_text">
-                        <button type="submit" formaction="/member_search" class="member_manager_selectBox_serch_btn">검색</button>
-	                </div>
-	                <div class="member_manager_selectBox_serch_select_div_bottom">
-	                    <a href='javascript:search_close();' id="member_manager_selectBox_serch_select_div_bottom_a">상세검색 닫기</a>
-	                </div>
-	            </div>
-	        </div>
 	        <div id="member_manager_selectBox_bottom">
 	            <div class="member_manager_selectBox_serch_bottom">
 	                <div class="member_manager_selectBox_serch_bottom_div">
