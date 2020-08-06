@@ -52,7 +52,7 @@
 	                       <td><a href="/myPoint"><div>적립금<span>></span></div></a></td>
 	                   </tr>
 	                   <tr>
-	                       <td class="selected_page_td"><a href="/updateInform"><div>개인정보수정<span>></span></div></a></td>
+	                       <td class="selected_page_td"><a href="/check_password"><div>개인정보수정<span>></span></div></a></td>
 	                   </tr>
 	               </table>
 	           </div>

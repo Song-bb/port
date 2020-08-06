@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!-- 제철과일 -->
 
@@ -38,21 +39,6 @@
         
 	    </div>
 
-	    <div id="seasonpage_btm">
-	        <table class="seasonpage_table">
-	            <tr class="seasonpage_table_tr">
-	                <td class="seasonpage_table_td"><a href="">&laquo;</a></td>
-	                <td class="seasonpage_table_td"><a href="">&lt;</a></td>
-	                <td class="seasonpage_table_td"><a href="">1</a></td>
-	                <td class="seasonpage_table_td"><a href="">2</a></td>
-	                <td class="seasonpage_table_td"><a href="">3</a></td>
-	                <td class="seasonpage_table_td"><a href="">4</a></td>
-	                <td class="seasonpage_table_td"><a href="">5</a></td>
-	                <td class="seasonpage_table_td"><a href="">&gt;</a></td>
-	                <td class="seasonpage_table_td"><a href="">&raquo;</a></td>
-	            </tr>
-	        </table>
-	    </div>
 	</div>
 	
 	

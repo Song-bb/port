@@ -280,6 +280,7 @@ public class MyContoller {
 	public String regularOrder_main(Model model) {
 		model.addAttribute("delivery_count", service_items.nDeliveryCount());
 		model.addAttribute("delivery_listview", service_items.Delivery_list());
+		model.addAttribute("regularItem", service_items.regularItem());
 		return "regular_order/regularOrder_main";
 	}
 	
@@ -834,19 +835,22 @@ public class MyContoller {
 	}
 	
 	// 개인정보수정
-	@RequestMapping("/updateInform")
-	public String updateInform(HttpServletRequest request) {
-		 HttpSession session = request.getSession();
+	@RequestMapping("/updateInform") 
+	public String updateInform(HttpServletRequest request, Model model) {
+		HttpSession session = request.getSession();
 	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
 	        	return "loginPage/loginPage_main";
 	        } else {
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	List<dto_members> list = service_members.memberDetail(user_id);
+	        	model.addAttribute("member_detail", list);
 	        	return "myPage/updateInform";
 	        }
 	}
 	
 	// 개인정보수정(비밀번호 재확인)
 	@RequestMapping("/check_password")
-	public String check_password(HttpServletRequest request, HttpServletResponse response, Model model) {
+	public String check_password(HttpServletRequest request , Model model) {
 		HttpSession session = request.getSession();
         if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
         	return "loginPage/loginPage_main";
@@ -861,20 +865,13 @@ public class MyContoller {
 	@RequestMapping("/check_password_ok")
 	public String check_password_ok(@RequestParam("user_pw") String user_pw, 
 									@RequestParam("user_id") String user_id, 
-									HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
-		 HttpSession session = request.getSession();
-	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
-	        	return "loginPage/loginPage_main";
-	        } else {
-	    		List<dto_members> list = service_members.check_pw( user_id, user_pw );
-	    		response.setContentType("text/html; charset=UTF-8");
-	    		PrintWriter out = response.getWriter();
-	    		if( user_pw.equals( list.get(0).getUser_pw()) ) { // 비밀번호 일치
-	    			return "myPage/updateInform";
-	    		} else { // 비밀번호 불일치
-	    			return "myPage/check_password_fail";
-	    		}
-	        }
+									Model model) {
+		List<dto_members> list = service_members.check_pw( user_id, user_pw );
+		if( user_pw.equals( list.get(0).getUser_pw()) ) { // 비밀번호 일치
+			return "redirect:updateInform";
+		} else { // 비밀번호 불일치
+			return "myPage/check_password_fail";
+		}
 	}
 	
 	// 회원탈퇴

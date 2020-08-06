@@ -69,7 +69,7 @@
                                 </a></td>
                         </tr>
                         <tr>
-                            <td><a href="/updateInform">
+                            <td><a href="/check_password">
                                     <div>개인정보수정<span>></span></div>
                                 </a></td>
                         </tr>
@@ -91,7 +91,6 @@
                         <div id="mypage_detail_info1">
                             <span>주문 일자 ${ string2 } | 주문번호 ${ dto.order_number }</span>
                             <div id="mypage_detail_info2">
-                                <button><a href="">주문 내역 삭제</a></button>
                                 <button><a href='javascript:void(0);' onclick="cashReceipt_pop(${ dto.order_number });">영수증 발급 내역</a></button>
                             </div>
                         </div>

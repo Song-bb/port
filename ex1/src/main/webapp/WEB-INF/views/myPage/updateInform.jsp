@@ -65,7 +65,7 @@
 	                                </a></td>
 	                        </tr>
 	                        <tr>
-	                            <td class="selected_page_td"><a href="/updateInform">
+	                            <td class="selected_page_td"><a href="/check_password">
 	                                    <div>개인정보수정<span>></span></div>
 	                                </a></td>
 	                        </tr>
@@ -80,61 +80,60 @@
 	                <div id="update_title">
 	                    <h2>회원정보 수정하기</h2>
 	                </div>
+	                
 	                <form action="update_ok.jsp">
 	                    <div id="update_form">
-	                        <table id="update_form_table">
-	                            <tr>
-	                            	<th>아이디 </th>
-	                                <td><input type="text" placeholder="${ user_id }" class="input_text">
+	                    	<c:forEach items="${ member_detail }" var="dto">
+		                        <table id="update_form_table">
+		                            <tr>
+		                            	<th>아이디 </th>
+		                                <td><input type="text" placeholder="${ dto.user_id }" class="input_text">
+		                                </td>
+		                            </tr>
+		                            <tr>
+		                                <th>새 비밀번호 </th>
+		                                <td><input type="password" name="user_pw" placeholder="비밀번호" class="input_text"></td>
+		                            </tr>
+		                            <tr>
+		                                <th>비밀번호 확인</th>
+		                                <td><input type="password" name="user_pw" placeholder="비밀번호 확인" class="input_text"></td>
+		                            </tr>
+		                            <tr>
+		                                <th>이메일</th>
+		                                <td><input type="email" name="email" placeholder="${ dto.user_email }" class="input_text"></td>
+		                            </tr>
+		                            <tr>
+		                                <th>이름 </th>
+		                                <td><input type="text" name="user_name" placeholder="${ dto.user_name }" class="input_text"></td>
+		                            </tr>
+		                            <tr>
+		                                <th>휴대폰 </th>
+		                                <td><input type="text" name="phone" placeholder="${ dto.user_phone }" class="input_text">
+		                            </tr>
+		                            <tr>
+		                                <th>주소 </th>
+		                                <td class="join_address">
+	                                	<input type="text" class="input_text_2" id="sample6_postcode" placeholder="우편번호">
+										<input type="button" id="address_button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+										<input type="text" class="input_text" id="sample6_address" placeholder="주소"><br>
+										<input type="text" class="input_text_2" id="sample6_detailAddress" placeholder="상세주소">
+										<input type="text" class="input_text_2" id="sample6_extraAddress" placeholder="참고항목">
 	                                </td>
-	                            </tr>
-	                            <tr>
-	                                <th>새 비밀번호 </th>
-	                                <td><input type="password" name="user_pw" placeholder="비밀번호" class="input_text"></td>
-	                            </tr>
-	                            <tr>
-	                                <th>비밀번호 확인</th>
-	                                <td><input type="password" name="user_pw" placeholder="비밀번호 확인" class="input_text"></td>
-	                            </tr>
-	                            <tr>
-	                                <th>이메일</th>
-	                                <td><input type="email" name="email" placeholder="이메일" class="input_text"><button type="submit"
-	                                        id="email_button">이메일 인증</button></td>
-	                            </tr>
-	                            <tr>
-	                                <th>이름 </th>
-	                                <td><input type="text" name="user_name" placeholder="${ user_name }"
-	                                        class="input_text"></td>
-	                            </tr>
-	                            <tr>
-	                                <th>휴대폰 </th>
-	                                <td><input type="text" name="phone" placeholder="전화번호" class="input_text"><button type="submit"
-	                                        id="email_button">휴대폰 인증</button></td>
-	                            </tr>
-	                            <tr>
-	                                <th>주소 </th>
-	                                <td class="join_address">
-                                	<input type="text" class="input_text_2" id="sample6_postcode" placeholder="우편번호">
-									<input type="button" id="address_button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-									<input type="text" class="input_text" id="sample6_address" placeholder="주소"><br>
-									<input type="text" class="input_text_2" id="sample6_detailAddress" placeholder="상세주소">
-									<input type="text" class="input_text_2" id="sample6_extraAddress" placeholder="참고항목">
-                                </td>
-	                            </tr>
-	                            <tr>
-	                                <th>성별 </th>
-	                                <td>
-	                                   	<label name="genter_select"><input type="radio" name="gender_select" value="male" class="update_radio">남자</label>
-                                    	<label name="genter_select"><input type="radio" name="gender_select" value="female" class="update_radio">여자</label>
-                                    	<label name="genter_select"><input type="radio" name="gender_select" value="nothing" class="update_radio">선택 안함</label>
-	                                </td>
-	                            </tr>
-	                            <tr>
-	                                <th>생년월일</th>
-	                                <td><input type="date" max="9999.12.31" class="input_text"></td>
-	                            </tr>
-	                        </table>
-	
+		                            </tr>
+		                            <tr>
+		                                <th>성별 </th>
+		                                <td>
+		                                   	<label name="genter_select"><input type="radio" name="gender_select" value="male" class="update_radio">남자</label>
+	                                    	<label name="genter_select"><input type="radio" name="gender_select" value="female" class="update_radio">여자</label>
+	                                    	<label name="genter_select"><input type="radio" name="gender_select" value="nothing" class="update_radio">선택 안함</label>
+		                                </td>
+		                            </tr>
+		                            <tr>
+		                                <th>생년월일</th>
+		                                <td><input type="date" class="input_text"></td>
+		                            </tr>
+		                        </table>
+							</c:forEach>
 	                    </div>
 	                    <div id="update_btn">
 	                        <button type="submit" id="update_btn_1">수정</button>

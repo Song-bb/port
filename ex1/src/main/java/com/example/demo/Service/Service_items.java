@@ -154,6 +154,11 @@ public class Service_items {
 		}
 	}
 	
+	// 정기배송 아이템
+	public List<dto_items> regularItem(){
+		return dao_items.regularItem();
+	}
+	
 	
 	
 	

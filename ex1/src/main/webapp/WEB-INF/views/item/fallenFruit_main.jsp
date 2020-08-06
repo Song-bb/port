@@ -39,21 +39,6 @@
         
         </div>
         
-        <div id="fallenpage_btm">
-            <table class="fallenpage_table">
-                <tr class="fallenpage_table_tr">
-                    <td class="fallenpage_table_td"><a href="">&laquo;</a></td>
-                    <td class="fallenpage_table_td"><a href="">&lt;</a></td>
-                    <td class="fallenpage_table_td"><a href="">1</a></td>
-                    <td class="fallenpage_table_td"><a href="">2</a></td>
-                    <td class="fallenpage_table_td"><a href="">3</a></td>
-                    <td class="fallenpage_table_td"><a href="">4</a></td>
-                    <td class="fallenpage_table_td"><a href="">5</a></td>
-                    <td class="fallenpage_table_td"><a href="">&gt;</a></td>
-                    <td class="fallenpage_table_td"><a href="">&raquo;</a></td>
-                </tr>
-            </table>
-        </div>
     </div>
 	
 	

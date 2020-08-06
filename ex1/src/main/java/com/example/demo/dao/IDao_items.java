@@ -68,5 +68,9 @@ public interface IDao_items {
 	public List<dto_items> season_categoriView(String categori);
 	public int season_categoriCount(String categori);
 	
+	// 정기배송 아이템
+	public List<dto_items> regularItem();
+	
+	
 	
 }

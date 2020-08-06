@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!-- 정기배송페이지 -->
 
@@ -20,50 +21,26 @@
             <div>
                 <!-- 아이템 DB -->
                 <!-- 클래스 season_item -->
-                <table class="item_table">
-	                <tr>
-	                    <td>
-		                    <!-- 클래스 season_item -->
-	                        <div class="season_item">
-	                            <div class="item_img_250320">
-									<div class="item_img">
-										<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-									</div>
-								</div>
-	                            <div class="item_desc">
-	                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-	                                <p>5,000 원</p>
-	                            </div>
-	                        </div>
-	                    </td>
-	                    <td>
-	                        <div class="season_item">
-	                            <div class="item_img_250320">
-									<div class="item_img">
-										<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-									</div>
-								</div>
-	                            <div class="item_desc">
-	                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-	                                <p>5,000 원</p>
-	                            </div>
-	                        </div>
-	                    </td>
-	                    <td>
-	                        <div class="season_item">
-	                            <div class="item_img_250320">
-									<div class="item_img">
-										<a href="/item_detail"><img src="http://placehold.it/250x320"></a>	
-									</div>
-								</div>
-	                            <div class="item_desc">
-	                                <p><a href="/item_detail">[워싱턴] 한입체리</a></p>
-	                                <p>5,000 원</p>
-	                            </div>
-	                        </div>
-	                    </td>
-	                </tr>
-	            </table>
+                <c:forEach items="${ regularItem }" var="dto">
+				    <table class="item_table">
+				        <tr>
+				            <td>
+				                <div class="item_groupBox">
+				                    <div class="item_img_250320">
+				                        <div class="item_img" style="background-image: url('${ dto.item_img }')">
+				                            <a href="item_detail?idx=${ dto.idx }"></a>
+				                        </div>
+				                    </div>
+				                    <div class="item_desc">
+				                        <p><a href="item_detail?idx=${ dto.idx }">${ dto.item_name }</a></p>
+				                        <p><span><fmt:formatNumber value="${ dto.item_sale_price }" pattern="###,###,###" /></span><span>원</span></p>
+										<p><span><fmt:formatNumber value="${ dto.item_real_price }" pattern="###,###,###" /></span><span>원</span></p>
+				                    </div>
+				                </div>
+				            </td>
+				        </tr>
+				    </table>
+	            </c:forEach>
             </div>
         </div><!-- /Month_delivery_item -->
        	<div id="lastMonth_delivery">

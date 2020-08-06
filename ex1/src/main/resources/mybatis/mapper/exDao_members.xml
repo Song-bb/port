@@ -507,6 +507,11 @@
 			UPDATE members SET user_grade = #{param2} WHERE user_index = #{param1}
 	</update>
 	
+	<select id="memberDetail" resultType="com.example.demo.dto.dto_members">
+			SELECT * FROM members WHERE user_id = #{param1}
+	</select>
+	
+	
 	
 	
 	

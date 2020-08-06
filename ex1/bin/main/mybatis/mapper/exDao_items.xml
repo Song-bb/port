@@ -150,6 +150,10 @@
 		SELECT COUNT(*) FROM items WHERE item_category = #{param1};
 	</select>
 	
+	<!-- 정기배송 아이템 -->
+	<select id="regularItem" resultType="com.example.demo.dto.dto_items">
+		SELECT * FROM items ORDER BY category_idx DESC LIMIT 0, 3;
+	</select>
 	
 	
 	

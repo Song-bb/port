@@ -98,7 +98,7 @@
 										<li><a href="/myCart">장바구니</a></li>
 										<li><a href="/myReview">상품 후기</a></li>
 										<li><a href="/myPoint">적립금</a></li>
-										<li><a href="/updateInform">개인정보수정</a></li>
+										<li><a href="/check_password">개인정보수정</a></li>
 									</ul>
 								</div>
 						</div>

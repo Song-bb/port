@@ -310,6 +310,11 @@ public class Service_members {
 		return dao_member.update_grade(member_index, grade);
 	}
 	
+	public List<dto_members> memberDetail(String user_id){
+		return dao_member.memberDetail(user_id);
+	}
+	
+	
 	
 
 	

@@ -49,26 +49,6 @@
                     </c:forEach>
                 </table>
             </div>
-            <div class="select_page_div">
-                <table class="select_page_table">
-                    <tr class="select_page_table_tr">
-                        <td class="select_page_table_td"><a href=""><<</a></td>
-                        <td class="select_page_table_td"><a href=""><</a></td>
-                        <td class="select_page_table_td"><a href="">1</a></td>
-                        <td class="select_page_table_td"><a href="">2</a></td>
-                        <td class="select_page_table_td"><a href="">3</a></td>
-                        <td class="select_page_table_td"><a href="">4</a></td>
-                        <td class="select_page_table_td"><a href="">5</a></td>
-                        <td class="select_page_table_td"><a href="">6</a></td>
-                        <td class="select_page_table_td"><a href="">7</a></td>
-                        <td class="select_page_table_td"><a href="">8</a></td>
-                        <td class="select_page_table_td"><a href="">9</a></td>
-                        <td class="select_page_table_td"><a href="">10</a></td>
-                        <td class="select_page_table_td"><a href="">></a></td>
-                        <td class="select_page_table_td"><a href="">>></a></td>
-                    </tr>
-                </table>
-            </div>
             <div class="order_search_div">
             	<form action="/notice_board_search" method="post">
 	                <div class="order_search_filter">

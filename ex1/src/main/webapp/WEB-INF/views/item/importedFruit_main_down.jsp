@@ -38,20 +38,5 @@
 		
 	    </div>
 	    
-	    <div id="importedpage_btm">
-	        <table class="importedpage_table">
-	            <tr class="importedpage_table_tr">
-	                <td class="importedpage_table_td"><a href="">&laquo;</a></td>
-	                <td class="importedpage_table_td"><a href="">&lt;</a></td>
-	                <td class="importedpage_table_td"><a href="">1</a></td>
-	                <td class="importedpage_table_td"><a href="">2</a></td>
-	                <td class="importedpage_table_td"><a href="">3</a></td>
-	                <td class="importedpage_table_td"><a href="">4</a></td>
-	                <td class="importedpage_table_td"><a href="">5</a></td>
-	                <td class="importedpage_table_td"><a href="">&gt;</a></td>
-	                <td class="importedpage_table_td"><a href="">&raquo;</a></td>
-	            </tr>
-	        </table>
-	    </div>
 	</div>
 	<c:import url="../footer.jsp"></c:import>

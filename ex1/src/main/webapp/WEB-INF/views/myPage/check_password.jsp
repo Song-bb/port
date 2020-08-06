@@ -67,7 +67,7 @@
 	                                </a></td>
 	                        </tr>
 	                        <tr>
-	                            <td class="selected_page_td"><a href="/updateInform">
+	                            <td class="selected_page_td"><a href="/check_password">
 	                                    <div>개인정보수정<span>></span></div>
 	                                </a></td>
 	                        </tr>
