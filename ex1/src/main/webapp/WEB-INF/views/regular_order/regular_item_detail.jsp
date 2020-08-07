@@ -73,7 +73,7 @@
 	                            <p>총 상품 금액</p>
 	                                  <!--  count -->
 	                            <p>
-	                                <span>개월 수 <span id="resule_count"></span> 개월</span>&nbsp;&nbsp;
+	                                <span>개월 수 <span id="result_count"></span> 개월</span>&nbsp;&nbsp;
 	                            						<!-- dcPrice*count -->
 	                                <span class="total_price" id="result_price"><fmt:formatNumber value="${ dto.item_sale_price }" pattern="###,###,###" /></span> 원
 	                            </p>
@@ -393,12 +393,15 @@
 	
 	
 	<script>
+		function count_item(){
+		    var count_item = $("#count_item option:selected").val();
+		}
 		function change_price(){
-			var count_item = document.getElementById("count_item").value;
+			var count_item = $("#count_item option:selected").val();
 			var item_sale_price = document.getElementById("item_sale_price").value;
 			var result_Price = count_item * item_sale_price;
 			var result_Price_new = result_Price.toLocaleString();
-			document.getElementById("resule_count").innerHTML = count_item;
+			document.getElementById("result_count").innerHTML = count_item;
 			document.getElementById("result_price").innerHTML = result_Price_new;
 		}
 	</script>

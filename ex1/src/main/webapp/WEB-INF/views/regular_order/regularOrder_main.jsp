@@ -14,7 +14,7 @@
         </div>
         <form>
         	<!-- 정기배송 패키지 상품 상세페이지로 연동 -->
-            <button type="submit" formaction="#"> 정기배송 신청하기</button>
+            <button><a href="regular_item_detail?idx=18">정기배송 신청하기</a></button>
         </form>
         <div id="Month_delivery_item">
             <h3>[ 이번달 정기배송 패키지 상품 ]</h3>
@@ -32,7 +32,7 @@
 				                        </div>
 				                    </div>
 				                    <div class="item_desc">
-				                        <p><a href="regular_item_detail?idx=${ dto.idx }">${ dto.item_name }</a></p>
+				                        <p><a href="item_detail?idx=${ dto.idx }">${ dto.item_name }</a></p>
 				                        <p><span><fmt:formatNumber value="${ dto.item_sale_price }" pattern="###,###,###" /></span><span>원</span></p>
 										<p><span><fmt:formatNumber value="${ dto.item_real_price }" pattern="###,###,###" /></span><span>원</span></p>
 				                    </div>
