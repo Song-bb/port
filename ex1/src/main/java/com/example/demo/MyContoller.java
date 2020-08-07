@@ -949,7 +949,7 @@ public class MyContoller {
 			out.flush();
 		}
 	}
-	
+	//
 	// 회원탈퇴
 	@RequestMapping("/withdraw_member")
 	public String withdraw_member( HttpServletRequest request ) {
