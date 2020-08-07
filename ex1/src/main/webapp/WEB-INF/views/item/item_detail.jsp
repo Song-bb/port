@@ -288,7 +288,7 @@
 	            <div class="item_detail_subTitle">
 	                <h3>상품문의</h3>
 	                <p>구매하려는 상품에 대해 궁금하신 점이 있으신 경우 문의해주세요.</p>
-	                <button class="QNAbutton">상품문의하기</button>
+	                <button class="QNAbutton" type="button">상품문의하기</button>
 	            </div>
 	            <table>
 	                <tr>
