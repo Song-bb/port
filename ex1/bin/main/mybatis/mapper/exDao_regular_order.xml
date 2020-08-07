@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.example.demo.dao.IDao_regular_order">
+
+
+	<insert id="regular_order_insert">
+		INSERT INTO items (idx, user_idx, user_id, order_number, order_date, item_number, item_name, item_price, week, start_date, last_date ) VALUES (0, #{ user_idx }, #{ user_id }, #{ order_number }, #{ order_date }, #{ item_number }, #{ item_name }, #{ item_price }, #{ week }, #{ start_date }, #{ last_date } );
+	</insert>
+	
+	<select id="regular_order_list" resultType="com.example.demo.dto.dto_regular_order">
+		SELECT COUNT(*) FROM items WHERE user_id = #{user_id};
+	</select>
+
+
+</mapper>
