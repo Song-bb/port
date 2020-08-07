@@ -101,8 +101,8 @@
 		              </tr>
 		          </table>
 		          <div id="item_question_btnDiv">
-		          	<input type="hidden" value="${ user_id }" id="user_id">
-		          	<input type="hidden" value="${ dto.item_number }" id="item_number">
+		          	  <input type="hidden" value="${ dto.idx }" id="item_idx">
+		          	  <input type="hidden" value="${ user_id }" id="user_id">
 		              <button type="button" onclick="request_item();" id="item_question_submit">문의하기</button>
 		              <button type="button" onclick="window.close();" id="item_question_cancel">취소</button>
 		          </div>
@@ -110,7 +110,7 @@
         </div>
     </div>
     
-    <script>
+    <script>	
     	function request_item(){
     		/*
     		 * path : 전송 URL
@@ -133,33 +133,51 @@
     		    }
     		    document.body.appendChild(form);
     		    form.submit();
+    		    
+    		    
+    		     var winName='MyWindow';
+				  var winURL='search.action';
+				  var windowoption='resizable=yes,height=600,width=800,location=0,menubar=0,scrollbars=1';
+				  var params = { 'param1' : '1','param2' :'2'};         
+				  var form = document.createElement("form");
+				  form.setAttribute("method", "post");
+				  form.setAttribute("action", winURL);
+				  form.setAttribute("target",winName);  
+				  for (var i in params) {
+				    if (params.hasOwnProperty(i)) {
+				      var input = document.createElement('input');
+				      input.type = 'hidden';
+				      input.name = i;
+				      input.value = params[i];
+				      form.appendChild(input);
+				    }
+				  }              
+				  document.body.appendChild(form);                       
+				  window.open('', winName,windowoption);
+				  form.target = winName;
+				  form.submit();                 
+				  document.body.removeChild(form);      
     		}*/
     		var form = document.createElement("form");
     		form.setAttribute("method", "post");
     		form.setAttribute("action", "/item_question_ok");
     		
-    		var user_id = document.getElementById("user_id").value;
-    		var item_number = document.getElementById("item_number").value;
-    		var content = document.getElementById("content").value;
+    		window.opener.name = "parentPage";
+    		form.setAttribute("target", "parentPage");
     		
-    		var hiddenField1 = document.createElement("input");
-    		hiddenField1.setAttribute("type", "hidden");
-    		hiddenField1.setAttribute("name", "user_id");
-    		hiddenField1.setAttribute("value", user_id);
-    		form.appendChild(hiddenField1);
+    		var user_id1 = document.getElementById("user_id").value;
+    		var item_idx1 = document.getElementById("item_idx").value;
+    		var content1 = document.getElementById("content").value;
     		
-    		var hiddenField2 = document.createElement("input");
-    		hiddenField2.setAttribute("type", "hidden");
-    		hiddenField2.setAttribute("name", "item_number");
-    		hiddenField2.setAttribute("value", item_number);
-    		form.appendChild(hiddenField2);
+    		var params = {user_id:user_id1, item_idx:item_idx1, content:content1}; 
 
-    		var hiddenField3 = document.createElement("input");
-    		hiddenField3.setAttribute("type", "hidden");
-    		hiddenField3.setAttribute("name", "content");
-    		hiddenField3.setAttribute("value", content);
-    		form.appendChild(hiddenField3);
-    		
+		    for(var key in params) {
+		        var hiddenField = document.createElement("input");
+		        hiddenField.setAttribute("type", "hidden");
+		        hiddenField.setAttribute("name", key);
+		        hiddenField.setAttribute("value", params[key]);
+		        form.appendChild(hiddenField);
+		    }   
     		document.body.appendChild(form);
 			form.submit();
 			window.close();

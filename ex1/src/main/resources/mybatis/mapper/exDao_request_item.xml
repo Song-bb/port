@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.example.demo.dao.IDao_request_item">
+
+	<insert id="insertQuestion"> 
+			INSERT INTO request_item (idx, user_id, item_idx, content, reply, stateOfReply, write_date) VALUES (0, #{user_id}, #{item_idx}, #{content}, "답변 대기중입니다.", "답변대기중", default)
+	</insert>
+	
+	<select id="view_question" resultType="com.example.demo.dto.dto_request_item"> 
+		SELECT * FROM request_item WHERE item_idx = #{param1} ORDER BY idx desc;
+	</select>
+	
+	
+	
+	
+</mapper>

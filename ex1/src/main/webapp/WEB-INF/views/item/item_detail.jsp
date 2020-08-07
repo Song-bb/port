@@ -297,43 +297,23 @@
 	                    <th>작성자</th>
 	                    <th>작성일</th>
 	                </tr>
-	                <tr class="QNA_show">
-	                    <td>답변완료</td>
-	                    <td>택배사는 어디인가요?</td>
-	                    <td>abc****</td>
-	                    <td>2020-08-15 <br> 12:00</td>
-	                </tr>
-	                <tr class="QNA_hide">
-	                    <td></td>
-	                    <td>
-	                        <p>
-	                            안녕하세요 고객님^^ 과일장수를 이용해주셔서 감사합니다.<br>
-	                            과일장수는 대한통운사를 이용하고 있습니다.<br>
-	                            신선하고 최고의 품질을 빠르고 안전하게 보내기 위해 최선을 다하는 과일장수가 되겠습니다. 감사합니다^^
-	                        </p>
-	                    </td>
-	                    <td></td>
-	                    <td></td>
-	                </tr>
-	                <tr class="QNA_show">
-	                    <td>답변완료</td>
-	                    <td>워싱턴 체리인데 원산지는 국산인가요?</td>
-	                    <td>bbb****</td>
-	                    <td>2020-08-15 <br> 07:23</td>
-	                </tr>
-	                <tr class="QNA_hide">
-	                    <td></td>
-	                    <td>
-	                        <p>
-	                            안녕하세요 고객님^^ 과일장수를 이용해주셔서 감사합니다.<br>
-	                            해당 상품은 특정 지역명의 이름을 딴 상품임으로 원산지와는 상관없습니다.<br>
-	                            하지만 그 무엇과도 비교할 수 없는 최고의 상품임을 과일장수가 약속드립니다<br>
-	                            신선하고 최고의 품질을 빠르고 안전하게 보내기 위해 최선을 다하는 과일장수가 되겠습니다. 감사합니다^^
-	                        </p>
-	                    </td>
-	                    <td></td>
-	                    <td></td>
-	                </tr>
+	                <c:forEach items="${ question_item }" var="dto4">
+	            	<c:set var = "string1" value = "${ dto4.write_date }"/>
+	                <c:set var = "string2" value = "${fn:substring(string1, 0, 10)}" />
+		                <tr class="QNA_show">
+		                    <td>${ dto4.stateOfReply }</td>
+		                    <td>${ dto4.content }</td>
+		                    <td>${ dto4.user_id }</td>
+		                    <td>${ string2 }</td>
+		                </tr>
+		                <tr class="QNA_hide">
+		                    <td colspan="4">
+		                        <p>
+		                            ${ dto4.reply }
+		                        </p>
+		                    </td>
+		                </tr>
+					</c:forEach>
 	            </table>
 	            
 	        </div>

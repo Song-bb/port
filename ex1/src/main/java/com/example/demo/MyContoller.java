@@ -34,6 +34,7 @@ import com.example.demo.Service.Service_members;
 import com.example.demo.Service.Service_myPage;
 import com.example.demo.Service.Service_noticeBoard;
 import com.example.demo.Service.Service_personal_que;
+import com.example.demo.Service.Service_request_item;
 import com.example.demo.Service.Service_review;
 import com.example.demo.Service.Service_seceded_member;
 import com.example.demo.dto.dto_members;
@@ -65,6 +66,8 @@ public class MyContoller {
 	Service_banner service_banner;
 	@Autowired
 	Service_review service_review;
+	@Autowired
+	Service_request_item service_request;
 	
 	@Autowired
 	FileuploadService_event fileUploadService_event;
@@ -623,6 +626,7 @@ public class MyContoller {
 		}
 		model.addAttribute("review_item", service_review.review_item(item_number)); // 리뷰 정보 4개까지
 		model.addAttribute("review_allIitem", service_review.review_allIitem(item_number)); // 리뷰정보 all
+		model.addAttribute("question_item", service_request.view_question(idx));
 		return "item/item_detail";
 	}
 	
@@ -643,11 +647,16 @@ public class MyContoller {
 	
 	// 상품상세페이지 - 상품문의 글쓰기 확인중
 	@RequestMapping("item_question_ok")
-	public void item_question_ok(@RequestParam("user_id") String user_id, 
-									@RequestParam("item_number") String item_number,
+	public String item_question_ok(@RequestParam("user_id") String user_id, 
+									@RequestParam("item_idx") String item_idx,
 									@RequestParam("content") String content,
 									 Model model) {
-    	System.out.println( user_id + item_number + content );
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("user_id", user_id);
+		map.put("item_idx", item_idx);
+		map.put("content", content);
+		int nResult = service_request.insertQuestion(map);
+    	return "redirect:item_detail?idx=" + item_idx;
 	}
 	
 	// 마이페이지 메인
