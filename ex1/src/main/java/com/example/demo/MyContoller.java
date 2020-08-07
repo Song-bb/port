@@ -611,17 +611,18 @@ public class MyContoller {
 	@RequestMapping("/item_detail")
 	public String item_detail(@RequestParam("idx") String idx, 
 				HttpServletRequest request, HttpServletResponse response, Model model) {
-		model.addAttribute("idx_show_detail", service_items.detail_idx_read(idx));
-		String item_number = service_items.check_itemNumber(idx).get(0).getItem_number();
-		int reviewCount = service_review.itemDetail_reviewCount(item_number);
+		model.addAttribute("idx_show_detail", service_items.detail_idx_read(idx)); // 상품 상세정보
+		String item_number = service_items.check_itemNumber(idx).get(0).getItem_number(); // 상품번호 받아오기
+		int reviewCount = service_review.itemDetail_reviewCount(item_number); // 리뷰 갯수 받아오기
 		model.addAttribute("itemReview_count", reviewCount);
-		if( reviewCount > 0 ) {
+		if( reviewCount > 0 ) { // 리뷰 있으면
 			float average = service_review.itemDetail_reviewTotal(item_number) / reviewCount;
 			model.addAttribute("itemReview_score", average);
-		} else {
+		} else { // 리뷰 없으면
 			model.addAttribute("itemReview_score", "0");
 		}
-		model.addAttribute("review_item", service_review.review_item(item_number));
+		model.addAttribute("review_item", service_review.review_item(item_number)); // 리뷰 정보 4개까지
+		model.addAttribute("review_allIitem", service_review.review_allIitem(item_number)); // 리뷰정보 all
 		return "item/item_detail";
 	}
 	

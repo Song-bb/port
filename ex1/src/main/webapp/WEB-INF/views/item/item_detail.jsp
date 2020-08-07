@@ -260,15 +260,15 @@
 	                <h3>상품리뷰</h3>
 	                <p>상품을 구매하신 분들이 작성하신 후기입니다. 리뷰 작성시 포인트가 지급됩니다.</p>
 	            </div>
-	            	<c:forEach items="${ review_item }" var="dto2">
-	            	<c:set var = "string1" value = "${ dto2.write_date }"/>
+	            	<c:forEach items="${ review_allIitem }" var="dto3">
+	            	<c:set var = "string1" value = "${ dto3.write_date }"/>
 	                <c:set var = "string2" value = "${fn:substring(string1, 0, 10)}" />
 		                <table>
 		                    <tr class="item_reviewBox2">
-		                        <td class="reviewStar">평점 : ${ dto2.review_score }</td>
-		                        <td class="reviewWriter"><span>구매자 : ${ dto2.user_id } </span><br><span> 날짜 : ${ string2 }</span></td>
+		                        <td class="reviewStar">평점 : ${ dto3.review_score }</td>
+		                        <td class="reviewWriter"><span>구매자 : ${ dto3.user_id } </span><br><span> 날짜 : ${ string2 }</span></td>
 		                        <td class="reviewContent">
-		                        	<p>${ dto2.review_content }</p>
+		                        	<p>${ dto3.review_content }</p>
 		                        </td>
 		                    </tr>
 		                </table>
@@ -288,7 +288,7 @@
 	            <div class="item_detail_subTitle">
 	                <h3>상품문의</h3>
 	                <p>구매하려는 상품에 대해 궁금하신 점이 있으신 경우 문의해주세요.</p>
-	                <button class="QNAbutton">상품문의하기</button>
+	                <button class="QNAbutton" type="button">상품문의하기</button>
 	            </div>
 	            <table>
 	                <tr>

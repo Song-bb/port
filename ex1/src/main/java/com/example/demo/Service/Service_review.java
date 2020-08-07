@@ -43,6 +43,10 @@ public class Service_review {
 		return dao_review.review_item(item_number);
 	}
 	
+	public List<dto_review> review_allIitem(String item_number){
+		return dao_review.review_allIitem(item_number);
+	}	
+	
 	
 	
 	

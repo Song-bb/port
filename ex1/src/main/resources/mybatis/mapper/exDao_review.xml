@@ -29,6 +29,11 @@
 	<select id="review_item" resultType="com.example.demo.dto.dto_review"> 
 			SELECT * FROM review WHERE item_number = #{param1} ORDER BY user_index desc LIMIT 0,4
 	</select>
+
+	<select id="review_allIitem" resultType="com.example.demo.dto.dto_review"> 
+			SELECT * FROM review WHERE item_number = #{param1} ORDER BY user_index desc
+	</select>
+
 	
 	
 	
