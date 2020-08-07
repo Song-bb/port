@@ -8,11 +8,11 @@
 
 
 	<insert id="regular_order_insert">
-		INSERT INTO items (idx, user_idx, user_id, order_number, order_date, item_number, item_name, item_price, week, start_date, last_date ) VALUES (0, #{ user_idx }, #{ user_id }, #{ order_number }, #{ order_date }, #{ item_number }, #{ item_name }, #{ item_price }, #{ week }, #{ start_date }, #{ last_date } );
+		INSERT INTO regular_order (idx, user_idx, user_id, order_number, order_date, item_number, item_name, item_price, week, start_date, last_date ) VALUES (0, #{ user_idx }, #{ user_id }, #{ order_number }, #{ order_date }, #{ item_number }, #{ item_name }, #{ item_price }, #{ week }, #{ start_date }, #{ last_date } );
 	</insert>
 	
 	<select id="regular_order_list" resultType="com.example.demo.dto.dto_regular_order">
-		SELECT COUNT(*) FROM items WHERE user_id = #{user_id};
+		SELECT * FROM regular_order WHERE user_id = #{user_id};
 	</select>
 
 
