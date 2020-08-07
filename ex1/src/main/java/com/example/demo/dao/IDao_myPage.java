@@ -23,6 +23,7 @@ public interface IDao_myPage {
 	public List<dto_myPage> myPoint(String user_id);
 	public List<dto_myPage> myOrder_review(String orderNumber);
 	public List<dto_myPage> pointList(String user_id);
+	public List<dto_myPage> orderDetail(String orderNumber);
 	
 	
 }
