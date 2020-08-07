@@ -626,6 +626,13 @@ public class MyContoller {
 		return "item/item_detail";
 	}
 	
+	// 상품상세페이지 - 상품문의하기
+	@RequestMapping("item_question")
+	public String item_question(@RequestParam("idx") String idx, Model model) {
+		model.addAttribute("item_inform", service_items.detail_idx_read(idx));
+		return "item/item_question";
+	}
+	
 	// 마이페이지 메인
 	@RequestMapping("/myPage_main")
 	public String myPage_main( @RequestParam(value="page", required=false) int page, 

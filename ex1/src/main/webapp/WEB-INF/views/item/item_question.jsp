@@ -1,0 +1,144 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>상품 문의하기</title>
+
+	<style>
+		#item_question_wrap {
+            margin: 0 auto;
+            width: 480px;
+            height: 350px;
+            padding: 10px;
+        }
+        #item_question_title {
+            height: 40px;
+            border-bottom: 2px solid #459356;
+        }
+        #item_question_body {
+            margin-top: 15px;
+        }
+        #item_question_table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        #item_question_th {
+            border: 1px solid rgba(179, 178, 178, 0.507);
+            width: 100px;
+            text-align: center;
+            color: rgb(120, 120, 120);
+            font-size: 14px;
+            height: 40px;
+        }
+        #item_question_td {
+            border: 1px solid rgba(179, 178, 178, 0.507);
+        }
+        #item_question_td2 {
+            border: 1px solid rgba(179, 178, 178, 0.507);
+            color: rgb(120, 120, 120);
+            font-weight: 700;
+            font-size: 14px;
+            padding-left: 10px;
+        }
+        #item_question_btnDiv {
+            margin-top: 15px;
+            text-align: center;
+        }
+        #item_question_submit {
+            width: 100px;
+            height: 40px;
+            background-color: #459356;
+            color: #fff;
+            font-weight: 600;
+            border: none;
+        }
+        #item_question_submit:hover {
+            width: 100px;
+            height: 40px;
+            background-color: #fff;
+            color: #459356;
+            font-weight: 600;
+            border: 1px solid #459356;
+        }
+        #item_question_cancel {
+            width: 100px;
+            height: 40px;
+            background-color: #459356;
+            color: #fff;
+            font-weight: 600;
+            border: none;
+        }
+        #item_question_cancel:hover {
+            width: 100px;
+            height: 40px;
+            background-color: #fff;
+            color: #459356;
+            font-weight: 600;
+            border: 1px solid #459356;
+        }
+	</style>
+
+</head>
+<body>
+
+	<div id="item_question_wrap">
+        <div id="item_question_title">
+            <h3>상품 문의하기</h3>
+        </div>
+        <div id="item_question_body">
+        	<form>
+	        	<c:forEach items="${ item_inform }" var="dto">
+	            <table id="item_question_table">
+	                <tr>
+	                    <td id="item_question_th">상품명</td>
+	                    <td id="item_question_td2">${ dto.item_name }</td>
+	                </tr>
+	                <tr>
+	                    <td id="item_question_th">문의내용</td>
+	                    <td id="item_question_td"><textarea cols="50" rows="10"></textarea></td>
+	                </tr>
+	            </table>
+	            </c:forEach>
+	            <div id="item_question_btnDiv">
+	                <button type="button" onclick="request_item();" id="item_question_submit">문의하기</button>
+	                <button type="button" onclick="window.close();" id="item_question_cancel">취소</button>
+	            </div>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+    	function request_item(){
+    		/*
+    		 * path : 전송 URL
+    		 * params : 전송 데이터 {'q':'a','s':'b','c':'d'...}으로 묶어서 배열 입력
+    		 * method : 전송 방식(생략가능)
+    		 */
+    		function post_to_url(path, params, method) {
+    		    method = method || "post"; // Set method to post by default, if not specified.
+    		    // The rest of this code assumes you are not using a library.
+    		    // It can be made less wordy if you use one.
+    		    var form = document.createElement("form");
+    		    form.setAttribute("method", method);
+    		    form.setAttribute("action", path);
+    		    for(var key in params) {
+    		        var hiddenField = document.createElement("input");
+    		        hiddenField.setAttribute("type", "hidden");
+    		        hiddenField.setAttribute("name", key);
+    		        hiddenField.setAttribute("value", params[key]);
+    		        form.appendChild(hiddenField);
+    		    }
+    		    document.body.appendChild(form);
+    		    form.submit();
+    		}
+
+
+    		출처: https://wfreud.tistory.com/87 [잡쫑의 개인 라이브러리]
+    	}
+    </script>
+	
+</body>
+</html>
