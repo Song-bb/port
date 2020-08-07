@@ -17,5 +17,8 @@ public interface IDao_review {
 	public int itemDetail_reviewCount(String item_number);
 	public List<dto_review> itemReview_point(String item_number);
 	public List<dto_review> review_item(String item_number);
+	public List<dto_review> review_allIitem(String item_number);
+	
+	
 	
 }

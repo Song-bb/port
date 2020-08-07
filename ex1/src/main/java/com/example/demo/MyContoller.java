@@ -605,6 +605,7 @@ public class MyContoller {
 			model.addAttribute("itemReview_score", "0");
 		}
 		model.addAttribute("review_item", service_review.review_item(item_number));
+		model.addAttribute("review_allIitem", service_review.review_allIitem(item_number));
 		return "item/item_detail";
 	}
 	
