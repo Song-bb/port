@@ -89,31 +89,29 @@
             <h3>상품 문의하기</h3>
         </div>
         <div id="item_question_body">
-        	<form>
-	        	<c:forEach items="${ item_inform }" var="dto">
-	            <table id="item_question_table">
-	                <tr>
-	                    <td id="item_question_th">상품명</td>
-	                    <td id="item_question_td2">${ dto.item_name }</td>
-	                </tr>
-	                <tr>
-	                    <td id="item_question_th">문의내용</td>
-	                    <td id="item_question_td"><textarea cols="50" rows="10" name="content"></textarea></td>
-	                </tr>
-	            </table>
-	            <div id="item_question_btnDiv">
-	            	<input type="hidden" value="${ user_id }" name="user_id">
-	            	<input type="hidden" value="${ dto.item_number }" name="item_number">
-	                <button type="button" onclick="request_item();" id="item_question_submit">문의하기</button>
-	                <button type="button" onclick="window.close();" id="item_question_cancel">취소</button>
-	            </div>
-	            </c:forEach>
-            </form>
+        	<c:forEach items="${ item_inform }" var="dto">
+		          <table id="item_question_table">
+		              <tr>
+		                  <td id="item_question_th">상품명</td>
+		                  <td id="item_question_td2">${ dto.item_name }</td>
+		              </tr>
+		              <tr>
+		                  <td id="item_question_th">문의내용</td>
+		                  <td id="item_question_td"><textarea cols="50" rows="10" id="content"></textarea></td>
+		              </tr>
+		          </table>
+		          <div id="item_question_btnDiv">
+		          	<input type="hidden" value="${ user_id }" id="user_id">
+		          	<input type="hidden" value="${ dto.item_number }" id="item_number">
+		              <button type="button" onclick="request_item();" id="item_question_submit">문의하기</button>
+		              <button type="button" onclick="window.close();" id="item_question_cancel">취소</button>
+		          </div>
+            </c:forEach>
         </div>
     </div>
     
     <script>
-    	function request_item(path, params){
+    	function request_item(){
     		/*
     		 * path : 전송 URL
     		 * params : 전송 데이터 {'q':'a','s':'b','c':'d'...}으로 묶어서 배열 입력
@@ -136,25 +134,20 @@
     		    document.body.appendChild(form);
     		    form.submit();
     		}*/
-    		window.opener.name = "parentPage";
-    		method = method || "post";
     		var form = document.createElement("form");
-    		form.setAttribute("method", method);
-    		form.setAttribute("target", "parentPage" );
-    		form.setAttribute("action", "item_question_ok");
-    		document.charset = "utf-8";
+    		form.setAttribute("method", "post");
+    		form.setAttribute("action", "/item_question_ok");
     		
-    		var aJson = new Object();
-    		aJson.user_id = document.getElementById("user_id").value;
-    		aJson.item_number = document.getElementById("item_number").value;
-    		aJson.content = document.getElementById("content").value;
-			
+    		var user_id = document.getElementById("user_id").value;
+    		var item_number = document.getElementById("item_number").value;
+    		var content = document.getElementById("content").value;
+    		
     		var hiddenField1 = document.createElement("input");
     		hiddenField1.setAttribute("type", "hidden");
     		hiddenField1.setAttribute("name", "user_id");
     		hiddenField1.setAttribute("value", user_id);
     		form.appendChild(hiddenField1);
-
+    		
     		var hiddenField2 = document.createElement("input");
     		hiddenField2.setAttribute("type", "hidden");
     		hiddenField2.setAttribute("name", "item_number");

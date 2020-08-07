@@ -643,17 +643,11 @@ public class MyContoller {
 	
 	// 상품상세페이지 - 상품문의 글쓰기 확인중
 	@RequestMapping("item_question_ok")
-	public String item_question_ok(@RequestParam("idx") String idx, 
-								HttpServletRequest request, Model model) {
-		HttpSession session = request.getSession();
-		if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
-        	return "loginPage/loginPage_main";
-        } else {
-        	String user_id = session.getAttribute("user_id").toString();
-        	model.addAttribute("user_id", user_id);
-			model.addAttribute("item_inform", service_items.detail_idx_read(idx));
-        }
-		return "item/item_question_ok";
+	public void item_question_ok(@RequestParam("user_id") String user_id, 
+									@RequestParam("item_number") String item_number,
+									@RequestParam("content") String content,
+									 Model model) {
+    	System.out.println( user_id + item_number + content );
 	}
 	
 	// 마이페이지 메인
