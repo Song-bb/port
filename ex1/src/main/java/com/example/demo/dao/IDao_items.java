@@ -71,6 +71,7 @@ public interface IDao_items {
 	// 정기배송 아이템
 	public List<dto_items> regularItem();
 	
+	public List<dto_items> check_itemNumber(String item_idx);
 	
 	
 }

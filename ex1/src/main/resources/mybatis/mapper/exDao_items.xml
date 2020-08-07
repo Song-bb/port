@@ -155,6 +155,9 @@
 		SELECT * FROM items ORDER BY category_idx DESC LIMIT 0, 3;
 	</select>
 	
+	<select id="check_itemNumber" resultType="com.example.demo.dto.dto_items"> 
+			SELECT * FROM items WHERE idx = #{param1}
+	</select>
 	
 	
 </mapper>

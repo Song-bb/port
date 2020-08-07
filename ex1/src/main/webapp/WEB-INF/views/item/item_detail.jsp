@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!-- 상품상세페이지 -->
 
 
@@ -82,30 +83,19 @@
 	                </div>
 	            
 	                <div id="item_detail_reviewBox_top">
-	                    <h3>상품리뷰(5)</h3>
-	                    <p class="reviewMore"><a href="#item_detail_review">더보기</a></p>
+	                    <h3>상품리뷰(${ itemReview_count })</h3>
+	                    <p class="reviewMore"><a href="#item_detail_content3">더보기</a></p>
 	                    <!-- 상품 후기 db list로 가져올텐데 table? -->
-	                    <table>
-	                        <tr class="item_reviewBox">
-	                            <td class="reviewStar">평점</td>
-	                            <td class="reviewWriter"><span>Writer</span><span>Date</span></td>
-	                            <td class="reviewContent"><p class="textEllipsis">맛있게 잘먹겠습니다~ 맛있는과일 많이파세요~ 맛있는과일이왔어요배송도빨라요~~~</p></td>
-	                        </tr>
-	                        <tr class="item_reviewBox">
-	                            <td class="reviewStar">평점</td>
-	                            <td class="reviewWriter"><span>Writer</span><span>Date</span></td>
-	                            <td class="reviewContent"><p class="textEllipsis">맛있게 잘먹겠습니다~ 맛있는과일 많이파세요~ 맛있는과일이왔어요배송도빨라요~~~</p></td>
-	                        </tr>
-	                        <tr class="item_reviewBox">
-	                            <td class="reviewStar">평점</td>
-	                            <td class="reviewWriter"><span>Writer</span><span>Date</span></td>
-	                            <td class="reviewContent"><p class="textEllipsis">맛있게 잘먹겠습니다~ 맛있는과일 많이파세요~ 맛있는과일이왔어요배송도빨라요~~~</p></td>
-	                        </tr>
-	                        <tr class="item_reviewBox">
-	                            <td class="reviewStar">평점</td>
-	                            <td class="reviewWriter"><span>Writer</span><span>Date</span></td>
-	                            <td class="reviewContent"><p class="textEllipsis">맛있게 잘먹겠습니다~ 맛있는과일 많이파세요~ 맛있는과일이왔어요배송도빨라요~~~</p></td>
-	                        </tr>
+	                    <table> <!-- 상품후기 최근글 4개만 보여주기 -->
+	                        <c:forEach items="${ review_item }" var="dto2">
+		                    <c:set var = "string1" value = "${ dto2.write_date }"/>
+	                    	<c:set var = "string2" value = "${fn:substring(string1, 0, 10)}" />
+		                        <tr class="item_reviewBox">
+		                            <td class="reviewStar">평점 : ${ dto2.review_score }</td>
+		                            <td class="reviewWriter"><span>구매자 : ${ dto2.user_id } </span><br><span> 날짜 : ${ string2 }</span></td>
+		                            <td class="reviewContent"><p class="textEllipsis">${ dto2.review_content }</p></td>
+		                        </tr>
+		                    </c:forEach>
 	                    </table>
 	                </div>
 	            </div>
@@ -270,52 +260,19 @@
 	                <h3>상품리뷰</h3>
 	                <p>상품을 구매하신 분들이 작성하신 후기입니다. 리뷰 작성시 포인트가 지급됩니다.</p>
 	            </div>
-	                <table>
-	                    <tr class="item_reviewBox2">
-	                        <td class="reviewStar">평점</td>
-	                        <td class="reviewWriter"><span>Writer</span><span>Date</span></td>
-	                        <td class="reviewContent">
-	                        	<p>
-	                        	잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-	                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-	                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-	                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-	                            </p>
-	                        </td>
-	                    </tr>
-	                </table>
-	                <table>
-	                    <tr class="item_reviewBox2">
-	                        <td class="reviewStar">평점</td>
-	                        <td class="reviewWriter"><span>Writer</span><span>Date</span></td>
-	                        <td class="reviewContent">
-	                        	<p>
-	                        	잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-	                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-	                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-	                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-	                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-	                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-	                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-	                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-	                            </p>
-	                        </td>
-	                    </tr>
-	                </table>
-	                <table>
-	                    <tr class="item_reviewBox2">
-	                        <td class="reviewStar">평점</td>
-	                        <td class="reviewWriter"><span>Writer</span><span>Date</span></td>
-	                        <td class="reviewContent">
-	                        	<p>
-	                        	잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-	                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-	                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-	                            잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다잘먹겠습니다
-	                            </p>
-	                        </td>
-	                    </tr>
-	                </table>
+	            	<c:forEach items="${ review_item }" var="dto2">
+	            	<c:set var = "string1" value = "${ dto2.write_date }"/>
+	                <c:set var = "string2" value = "${fn:substring(string1, 0, 10)}" />
+		                <table>
+		                    <tr class="item_reviewBox2">
+		                        <td class="reviewStar">평점 : ${ dto2.review_score }</td>
+		                        <td class="reviewWriter"><span>구매자 : ${ dto2.user_id } </span><br><span> 날짜 : ${ string2 }</span></td>
+		                        <td class="reviewContent">
+		                        	<p>${ dto2.review_content }</p>
+		                        </td>
+		                    </tr>
+		                </table>
+		            </c:forEach>
 	        </div>
 	        <!-- 상품문의 /로그인후게시물작성 -->
 	        <div id="item_detail_content4">

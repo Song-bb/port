@@ -1,5 +1,6 @@
 package com.example.demo.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 
@@ -157,6 +158,10 @@ public class Service_items {
 	// 정기배송 아이템
 	public List<dto_items> regularItem(){
 		return dao_items.regularItem();
+	}
+	
+	public List<dto_items> check_itemNumber(String idx) {
+		return dao_items.check_itemNumber(idx);
 	}
 	
 	

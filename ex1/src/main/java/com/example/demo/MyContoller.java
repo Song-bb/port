@@ -595,14 +595,16 @@ public class MyContoller {
 	public String item_detail(@RequestParam("idx") String idx, 
 				HttpServletRequest request, HttpServletResponse response, Model model) {
 		model.addAttribute("idx_show_detail", service_items.detail_idx_read(idx));
-		int reviewCount = service_review.itemDetail_reviewCount(idx);
+		String item_number = service_items.check_itemNumber(idx).get(0).getItem_number();
+		int reviewCount = service_review.itemDetail_reviewCount(item_number);
 		model.addAttribute("itemReview_count", reviewCount);
 		if( reviewCount > 0 ) {
-			float average = service_review.itemDetail_reviewTotal(idx, reviewCount) / reviewCount;
+			float average = service_review.itemDetail_reviewTotal(item_number) / reviewCount;
 			model.addAttribute("itemReview_score", average);
 		} else {
 			model.addAttribute("itemReview_score", "0");
 		}
+		model.addAttribute("review_item", service_review.review_item(item_number));
 		return "item/item_detail";
 	}
 	

@@ -18,10 +18,6 @@
 			SELECT * FROM review WHERE user_id = #{param1} ORDER BY user_index desc
 	</select>
 	
-	<select id="check_itemNumber" resultType="com.example.demo.dto.dto_items"> 
-			SELECT * FROM items WHERE idx = #{param1}
-	</select>
-	
 	<select id="itemDetail_reviewCount" resultType="_int"> 
 			SELECT COUNT(*) FROM review WHERE item_number = #{param1}
 	</select>
@@ -29,6 +25,11 @@
 	<select id="itemReview_point" resultType="com.example.demo.dto.dto_review"> 
 			SELECT review_score FROM review WHERE item_number = #{param1}
 	</select>
+	
+	<select id="review_item" resultType="com.example.demo.dto.dto_review"> 
+			SELECT * FROM review WHERE item_number = #{param1} ORDER BY user_index desc LIMIT 0,4
+	</select>
+	
 	
 	
 	
