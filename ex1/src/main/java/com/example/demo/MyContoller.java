@@ -38,6 +38,7 @@ import com.example.demo.Service.Service_request_item;
 import com.example.demo.Service.Service_review;
 import com.example.demo.Service.Service_seceded_member;
 import com.example.demo.dto.dto_members;
+import com.example.demo.dto.dto_user_point;
 
 
 
@@ -889,8 +890,9 @@ public class MyContoller {
 	        	return "loginPage/loginPage_main";
 	        } else {
 	        	String user_id = session.getAttribute("user_id").toString();
-	        	model.addAttribute("myPoint", service_myPage.myPoint(user_id));
-	        	model.addAttribute("pointList", service_myPage.pointList(user_id));
+	        	List<dto_user_point> list = service_myPage.pointList(user_id);
+	        	model.addAttribute("pointList", list);
+	        	model.addAttribute("user_point", list.get(0).getTotal_point());
 	        	return "myPage/myPoint";
 	        }
 	}

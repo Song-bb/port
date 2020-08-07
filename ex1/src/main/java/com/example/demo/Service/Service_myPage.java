@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.IDao_myPage;
 import com.example.demo.dto.dto_myPage;
+import com.example.demo.dto.dto_user_point;
 
 @Service
 public class Service_myPage {
@@ -119,15 +120,11 @@ public class Service_myPage {
 		return dao_myPage.manager_view_year_count(newYear_min, newYear_max);
 	}
 	
-	public List<dto_myPage> myPoint(String user_id) {
-		return dao_myPage.myPoint(user_id);
-	}
-	
 	public List<dto_myPage> myOrder_review(String orderNumber) {
 		return dao_myPage.myOrder_review(orderNumber);
 	}
 	
-	public List<dto_myPage> pointList(String user_id) {
+	public List<dto_user_point> pointList(String user_id) {
 		return dao_myPage.pointList(user_id);
 	}
 	

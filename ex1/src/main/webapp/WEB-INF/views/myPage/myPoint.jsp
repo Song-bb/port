@@ -86,9 +86,9 @@
 				                        <td class="point_table_td point_table_td_content">
 				                            상품명 : ${ dto.item_name }<br>
 				                            주문번호 : ${ dto.order_number }<br>
-				                            주문금액 : ${ dto.price } 원 * 등급혜택 ${ dto.point_rate }% 적립
+				                            주문금액 : <fmt:formatNumber value="${ dto.price }" pattern="###,###,###" /> 원 * 등급혜택 ${ dto.point_rate }% 적립
 				                        </td>
-				                        <td class="point_table_td">${ dto.point } 원</td>
+				                        <td class="point_table_td"><fmt:formatNumber value="${ dto.point }" pattern="###,###,###" /> 원</td>
 				                    </tr>
 			                    </c:forEach>
 			                </table>
