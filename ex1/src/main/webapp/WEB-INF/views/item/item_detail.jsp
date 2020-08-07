@@ -27,8 +27,9 @@
 	                    </div>
 	                    <div>
 	                        <!-- 리뷰와 총점은 DB데이터로 측정 -->
-	                        <p>리뷰수 <span style="font-size: 1.5em; font-weight:800;">500</span> </p>
-	                        <p>사용자 총 평점 <span style="font-size: 1.5em; font-weight:800;">4.8/5.0</span> </p>
+	                        <p>리뷰수 <span style="font-size: 1.5em; font-weight:800;">${ itemReview_count }</span> </p>
+	                        <p>사용자 총 평점 <span style="font-size: 1.5em; font-weight:800;">${ itemReview_score }</span> </p>
+
 	                    </div>
 	                </div>
 	                <div class="item_detail_content1_right">
@@ -42,7 +43,8 @@
 	                                <!-- 원가 -->
 	                                <span class="goods_orPrice"><fmt:formatNumber value="${ dto.item_real_price }" pattern="###,###,###" />원</span>&nbsp;&nbsp;
 	                                <!-- 판매가격 -->
-	                                <span class="goods_dcPrice"><fmt:formatNumber value="${ dto.item_sale_price }" pattern="###,###,###" /></span>원</span> 
+	                                <span class="goods_dcPrice"><fmt:formatNumber value="${ dto.item_sale_price }" pattern="###,###,###" /></span>원</span>
+	                                <input type="hidden" id="item_sale_price" value="${ dto.item_sale_price }">
 	                            </p>
 	                        </div>
 	                        <div id="goods_info">
@@ -69,7 +71,7 @@
 	                            <p>
 	                                <span>총 수량 <span id="resule_count"></span> 개</span>&nbsp;&nbsp;
 	                            						<!-- dcPrice*count -->
-	                                <span class="total_price">00,000</span>원
+	                                <span class="total_price" id="result_price"><fmt:formatNumber value="${ dto.item_sale_price }" pattern="###,###,###" /></span> 원
 	                            </p>
 	                        </div>
 	                        <div class="goods_order">
@@ -432,22 +434,35 @@
 	
 	<script>
 		function change_price(){
-			
+			var count_item = document.getElementById("count_item").value;
+			var item_sale_price = document.getElementById("item_sale_price").value;
+			var result_Price = count_item * item_sale_price;
+			var result_Price_new = result_Price.toLocaleString();
+			document.getElementById("resule_count").innerHTML = count_item;
+			document.getElementById("result_price").innerHTML = result_Price_new;
 		}
 	
 		function countUp(){
 			var count_item = document.getElementById("count_item").value;
 			count_item++;
+			var item_sale_price = document.getElementById("item_sale_price").value;
+			var result_Price = count_item * item_sale_price;
+			var result_Price_new = result_Price.toLocaleString();
 			document.getElementById("count_item").value = count_item;
 			document.getElementById("resule_count").innerHTML = count_item;
+			document.getElementById("result_price").innerHTML = result_Price_new;
 		}
 		
 		function countDown(){
 			var count_item = document.getElementById("count_item").value;
 			if( count_item > 1 ){
 				count_item--;
+				var item_sale_price = document.getElementById("item_sale_price").value;
+				var result_Price = count_item * item_sale_price;
+				var result_Price_new = result_Price.toLocaleString();
 				document.getElementById("count_item").value = count_item;
 				document.getElementById("resule_count").innerHTML = count_item;
+				document.getElementById("result_price").innerHTML = result_Price_new;
 			}
 		}
 	</script>

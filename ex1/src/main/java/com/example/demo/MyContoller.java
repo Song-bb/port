@@ -595,6 +595,14 @@ public class MyContoller {
 	public String item_detail(@RequestParam("idx") String idx, 
 				HttpServletRequest request, HttpServletResponse response, Model model) {
 		model.addAttribute("idx_show_detail", service_items.detail_idx_read(idx));
+		int reviewCount = service_review.itemDetail_reviewCount(idx);
+		model.addAttribute("itemReview_count", reviewCount);
+		if( reviewCount > 0 ) {
+			float average = service_review.itemDetail_reviewTotal(idx, reviewCount) / reviewCount;
+			model.addAttribute("itemReview_score", average);
+		} else {
+			model.addAttribute("itemReview_score", "0");
+		}
 		return "item/item_detail";
 	}
 	
