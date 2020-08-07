@@ -98,26 +98,28 @@
 	                </tr>
 	                <tr>
 	                    <td id="item_question_th">문의내용</td>
-	                    <td id="item_question_td"><textarea cols="50" rows="10"></textarea></td>
+	                    <td id="item_question_td"><textarea cols="50" rows="10" name="content"></textarea></td>
 	                </tr>
 	            </table>
-	            </c:forEach>
 	            <div id="item_question_btnDiv">
+	            	<input type="hidden" value="${ user_id }" name="user_id">
+	            	<input type="hidden" value="${ dto.item_number }" name="item_number">
 	                <button type="button" onclick="request_item();" id="item_question_submit">문의하기</button>
 	                <button type="button" onclick="window.close();" id="item_question_cancel">취소</button>
 	            </div>
+	            </c:forEach>
             </form>
         </div>
     </div>
     
     <script>
-    	function request_item(){
+    	function request_item(path, params){
     		/*
     		 * path : 전송 URL
     		 * params : 전송 데이터 {'q':'a','s':'b','c':'d'...}으로 묶어서 배열 입력
     		 * method : 전송 방식(생략가능)
     		 */
-    		function post_to_url(path, params, method) {
+    		/*function post_to_url(path, params, method) {
     		    method = method || "post"; // Set method to post by default, if not specified.
     		    // The rest of this code assumes you are not using a library.
     		    // It can be made less wordy if you use one.
@@ -133,10 +135,41 @@
     		    }
     		    document.body.appendChild(form);
     		    form.submit();
-    		}
+    		}*/
+    		window.opener.name = "parentPage";
+    		method = method || "post";
+    		var form = document.createElement("form");
+    		form.setAttribute("method", method);
+    		form.setAttribute("target", "parentPage" );
+    		form.setAttribute("action", "item_question_ok");
+    		document.charset = "utf-8";
+    		
+    		var aJson = new Object();
+    		aJson.user_id = document.getElementById("user_id").value;
+    		aJson.item_number = document.getElementById("item_number").value;
+    		aJson.content = document.getElementById("content").value;
+			
+    		var hiddenField1 = document.createElement("input");
+    		hiddenField1.setAttribute("type", "hidden");
+    		hiddenField1.setAttribute("name", "user_id");
+    		hiddenField1.setAttribute("value", user_id);
+    		form.appendChild(hiddenField1);
 
+    		var hiddenField2 = document.createElement("input");
+    		hiddenField2.setAttribute("type", "hidden");
+    		hiddenField2.setAttribute("name", "item_number");
+    		hiddenField2.setAttribute("value", item_number);
+    		form.appendChild(hiddenField2);
 
-    		출처: https://wfreud.tistory.com/87 [잡쫑의 개인 라이브러리]
+    		var hiddenField3 = document.createElement("input");
+    		hiddenField3.setAttribute("type", "hidden");
+    		hiddenField3.setAttribute("name", "content");
+    		hiddenField3.setAttribute("value", content);
+    		form.appendChild(hiddenField3);
+    		
+    		document.body.appendChild(form);
+			form.submit();
+			window.close();
     	}
     </script>
 	
