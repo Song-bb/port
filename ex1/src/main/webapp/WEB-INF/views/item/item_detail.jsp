@@ -58,16 +58,16 @@
 	                        <!-- 상품수 증가  -->
 	                        <div class="goods_count">
 	                            <form>
-	                                <button type="button" class="btnDown">-</button>
-	                                    <input type="text" value=1>
-	                                <button type="button" class="btnUp">+</button>
+	                                <button type="button" class="btnDown" onclick="countDown();">-</button>
+	                                    <input type="text" value=1 onblur="change_price();" id="count_item">
+	                                <button type="button" class="btnUp" onclick="countUp();">+</button>
 	                            </form>
 	                        </div>
 	                        <div class="total_goods_price">
 	                            <p>총 상품 금액</p>
 	                                  <!--  count -->
 	                            <p>
-	                                <span>총 수량 1개</span>&nbsp;&nbsp;
+	                                <span>총 수량 <span id="resule_count"></span> 개</span>&nbsp;&nbsp;
 	                            						<!-- dcPrice*count -->
 	                                <span class="total_price">00,000</span>원
 	                            </p>
@@ -428,3 +428,26 @@
 </c:forEach>	
 	
 	<c:import url="../footer.jsp"></c:import>
+	
+	
+	<script>
+		function change_price(){
+			
+		}
+	
+		function countUp(){
+			var count_item = document.getElementById("count_item").value;
+			count_item++;
+			document.getElementById("count_item").value = count_item;
+			document.getElementById("resule_count").innerHTML = count_item;
+		}
+		
+		function countDown(){
+			var count_item = document.getElementById("count_item").value;
+			if( count_item > 1 ){
+				count_item--;
+				document.getElementById("count_item").value = count_item;
+				document.getElementById("resule_count").innerHTML = count_item;
+			}
+		}
+	</script>
