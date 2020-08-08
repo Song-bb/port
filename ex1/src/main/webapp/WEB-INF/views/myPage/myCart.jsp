@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <!-- 장바구니 -->
 
@@ -20,7 +21,6 @@
                     <td class="cart_head_info">상품명</td>
                     <td class="cart_head_saleprice">가격</td>
                     <td class="cart_head_count">수량</td>
-                    <td class="cart_head_count">배송비</td>
                    	<td class="cart_head_price">결제금액</td>
                    	<td>삭제</td>
                 </tr>
@@ -32,13 +32,11 @@
 	                    <a href="item_detail?idx=${ cart.item_idx }"></a></div>
                     </td>
                     <td> <div class="cart_info_name"><a href="item_detail?idx=${ cart.item_idx }">${ cart.item_name }</a></div></td>
-                    <td><div class="cart_info_saleprice"></div>${ cart.item_sale_price }<br>원</td>
+                    <td><div class="cart_info_saleprice"></div><fmt:formatNumber value="${ cart.item_sale_price }" pattern="###,###,###" /><br>원</td>
                     <td class="cart_count">${ cart.item_order_amount }<br>개</td>
-                    <td> 배송비<br> 3000원 </td>
-                    <td class="cart_price">${ cart.item_order_price }원</td>
+                    <td class="cart_price"><fmt:formatNumber value="${ cart.item_order_price }" pattern="###,###,###" />원</td>
                     <td> <a href="MyCart_delete?cart_idx=${cart.cart_idx}"> × </a> </td>
                 </tr>
-                <p>총가격 은 어디갔나... ${ cart.item_order_price }</p>
              </c:forEach>
             </table>
             <div class="checkBoxAll">
@@ -52,7 +50,7 @@
         <div id="cart_foot">
         	<div class="cart_footer_top">
 	            <p id="cart_foot_info">총 상품 금액</p>
-	            <p id="cart_foot_price"><span>${ cart_finalPrice }</span>원</p>
+	            <p id="cart_foot_price"><span><fmt:formatNumber value="${ cart_finalPrice}" pattern="###,###,###" /></span>원</p>
 	        </div>
            <button id=cart_btn_2 type="submit">결제하기</button>
         </div>
