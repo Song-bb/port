@@ -15,7 +15,7 @@ public class Service_regular_order {
 	@Autowired
 	IDao_regular_order dao_regular_order;
 	
-	public List<dto_regular_order> detail_idx_read(String user_id){
+	public List<dto_regular_order> regular_order_list(String user_id){
 		return dao_regular_order.regular_order_list(user_id);
 	}
 	

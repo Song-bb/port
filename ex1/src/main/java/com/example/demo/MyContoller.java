@@ -34,6 +34,7 @@ import com.example.demo.Service.Service_members;
 import com.example.demo.Service.Service_myPage;
 import com.example.demo.Service.Service_noticeBoard;
 import com.example.demo.Service.Service_personal_que;
+import com.example.demo.Service.Service_regular_order;
 import com.example.demo.Service.Service_request_item;
 import com.example.demo.Service.Service_review;
 import com.example.demo.Service.Service_seceded_member;
@@ -69,6 +70,8 @@ public class MyContoller {
 	Service_review service_review;
 	@Autowired
 	Service_request_item service_request;
+	@Autowired
+	Service_regular_order service_regular_order;
 	
 	@Autowired
 	FileuploadService_event fileUploadService_event;
@@ -844,11 +847,13 @@ public class MyContoller {
 
 	// 정기배송내역
 	@RequestMapping("/myRegularorder")
-	public String myRegularorder(HttpServletRequest request) {
+	public String myRegularorder(HttpServletRequest request, HttpServletResponse response, Model model) {
 		 HttpSession session = request.getSession();
 	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
 	        	return "loginPage/loginPage_main";
 	        } else {
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	model.addAttribute("regular_order_list", service_regular_order.regular_order_list(user_id));
 	        	return "myPage/myRegularorder";
 	        }
 	}
