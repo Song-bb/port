@@ -83,8 +83,8 @@
 				                    <tr class="delivery_search_body_table_tr">
 				                        <td class="delivery_search_body_table_td delivery_search_number">${ dto.order_number }</td>
 				                        <td class="delivery_search_body_table_td delivery_search_content">${ dto.item_name }</td>
-				                        <td class="delivery_search_body_table_td delivery_search_price">${ dto.item_price }</td>
-				                        <td class="delivery_search_body_table_td delivery_search_month">${ dto.week }</td>
+				                        <td class="delivery_search_body_table_td delivery_search_price"><fmt:formatNumber value="${ dto.item_price }" pattern="###,###,###" />원</td>
+				                        <td class="delivery_search_body_table_td delivery_search_month">매월 ${ dto.week }일</td>
 				                        <td class="delivery_search_body_table_td delivery_search_start_end">${ dto.start_date }<br>/${ dto.last_date }</td>
 				                        <td class="delivery_search_body_table_td delivery_search_select"><button>취소</button></td>
 				                    </tr>
