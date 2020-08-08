@@ -87,22 +87,6 @@
 			                        <td class="delivery_search_body_table_td delivery_search_start_end">2020-07-16<br>/2020-08-13</td>
 			                        <td class="delivery_search_body_table_td delivery_search_select"><button>취소</button></td>
 			                    </tr>
-			                    <tr class="delivery_search_body_table_tr">
-			                        <td class="delivery_search_body_table_td delivery_search_number">202007160002</td>
-			                        <td class="delivery_search_body_table_td delivery_search_content">정기배송 패키지2</td>
-			                        <td class="delivery_search_body_table_td delivery_search_price">65,000</td>
-			                        <td class="delivery_search_body_table_td delivery_search_month">2주</td>
-			                        <td class="delivery_search_body_table_td delivery_search_start_end">2020-07-16<br>/2020-09-17</td>
-			                        <td class="delivery_search_body_table_td delivery_search_select"><button>취소</button></td>
-			                    </tr>
-			                    <tr class="delivery_search_body_table_tr">
-			                        <td class="delivery_search_body_table_td delivery_search_number">202007160003</td>
-			                        <td class="delivery_search_body_table_td delivery_search_content">정기배송 패키지3</td>
-			                        <td class="delivery_search_body_table_td delivery_search_price">95,000</td>
-			                        <td class="delivery_search_body_table_td delivery_search_month">4주</td>
-			                        <td class="delivery_search_body_table_td delivery_search_start_end">2020-07-16<br>/2020-11-19</td>
-			                        <td class="delivery_search_body_table_td delivery_search_select"><button>취소</button></td>
-			                    </tr>
 			                </table>
 			            </div>
 			        </div>

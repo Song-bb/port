@@ -68,6 +68,8 @@
 	                                	<option value="6">6개월</option>
 	                                	<option value="12">12개월</option>
 	                                </select>
+	                                <p>배송 날짜</p>
+	                                <input type="text" name="week" id="week" /> 일
 
 	                        </div>
 	                        <div class="total_goods_price">
