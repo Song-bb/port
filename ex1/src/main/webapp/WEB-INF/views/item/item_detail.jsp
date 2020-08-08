@@ -60,6 +60,7 @@
 	                        </div>
 	                        
 	                        <form method="post" name="form">
+	                        <input type="hidden" name="item_idx" value="${dto.idx}" >
 	                        <!-- 상품수 증가  -->
 	                        <div class="goods_count">
 	                           
