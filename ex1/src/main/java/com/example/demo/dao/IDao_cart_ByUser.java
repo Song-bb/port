@@ -14,6 +14,9 @@ public interface IDao_cart_ByUser {
 	//카트 리스트
 	public List<dto_cart> cart_listDao();
 	
+	//카트 리스트(로그인)
+	public List<dto_cart> login_cart_listDao(String user_idx);
+	
 	//카트에 상품 추가
 	public int cart_itemInsertDao(Map<String, String> map);
 	

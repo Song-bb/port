@@ -23,10 +23,39 @@
 			INNER JOIN items AS i ON c.item_idx = i.idx 
 			INNER JOIN members AS m ON c.user_idx = m.user_index
 	</select>
+	
+	<!-- cart_list(login) -->
+	<select id="login_cart_listDao" resultType="com.example.demo.dto.dto_cart">
+			SELECT 
+			c.cart_idx,
+			c.user_idx,
+			c.item_idx,
+			m.user_id,
+			i.item_number,
+			i.item_name,
+			i.item_img,
+			i.item_sale_price,
+			c.item_order_amount,
+			(item_sale_price * item_order_amount) item_order_price
+			FROM
+				cart AS c
+			INNER JOIN 
+				items AS i 
+			ON 
+				c.item_idx = i.idx 
+			INNER JOIN
+				members AS m 
+			ON 
+				c.user_idx = m.user_index
+			WHERE 
+				c.user_idx = #{user_idx}
+         	ORDER BY 
+         		c.cart_idx ASC
+    </select>
    
 	<insert id="cart_itemInsertDao">
-		INSERT INTO cart (cart_idx, user_idx, item_idx, item_order_amount, item_order_price)
-		VALUES ( 0, #{user_idx}, #{item_idx}, #{item_order_amount}, #{item_order_price} )
+		INSERT INTO cart (cart_idx, user_idx, item_idx, item_order_amount)
+		VALUES ( 0, #{user_idx}, #{item_idx}, #{item_order_amount} )
 	</insert>
 	
 	<delete id="cart_item_deleteDao">

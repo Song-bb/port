@@ -415,19 +415,27 @@ public class MyContoller {
 	
 	/*=========== /이벤트 페이지 =============*/
 	/*=========== 장바구니 =============*/
+	
 	// 장바구니메인
 	@RequestMapping("/myCart")
 	public String myCart(HttpServletRequest request, Model model) {
-		
-		
-		model.addAttribute("cart_list", service_cart.cart_list());
-		
 		HttpSession session = request.getSession();
+        if( session.getAttribute("user_id") == null ) { // 로그인이 되어있지 않으면
+        	
+        	return "myPage/myCart";
+        	
+        } else {
+		
 		String user = (String)session.getAttribute("user_index"); 
+		
 		String finalPrice = service_cart.cart_item_order_finalPrice(user);
 		model.addAttribute("cart_finalPrice", finalPrice);
 		
+		List<dto_cart> loginList = service_cart.login_cart_list(user);
+		model.addAttribute("cart_list", loginList);
+		
 		return "myPage/myCart";
+        }
 	}
 	
 	// 장바구니 상품추가
@@ -455,10 +463,10 @@ public class MyContoller {
     		
     		if( nResult < 1) {
     			System.out.println("상품추가실패");
-    			return "myPage/myCart";
+    			return "redirect:myCart";
     		}else {
     			System.out.println("상품추가");
-    			return "myPage/myCart";	
+    			return "redirect:myCart";	
     		}
         }
 		

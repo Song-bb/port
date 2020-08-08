@@ -16,5 +16,4 @@ public class dto_cart {
 	private String item_sale_price;	 //상품판매가격
 	private String item_order_amount;//구매수량
 	private String item_order_price; //상품구매가격(수량*가격)
-	private String item_order_finalPrice; // 최종가격
 }

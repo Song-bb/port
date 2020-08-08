@@ -20,6 +20,11 @@ public class Service_cart {
 		return dao_cart.cart_listDao();
 	}
 	
+	//카트 상품 리스트(로그인)
+	public List<dto_cart> login_cart_list(String user_idx){
+		return dao_cart.login_cart_listDao(user_idx);
+	}
+	
 	//카트 상품 생성
 	public int cart_itemInsert(Map<String, String> map) {
 		int nResult = dao_cart.cart_itemInsertDao(map);
