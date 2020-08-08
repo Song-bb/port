@@ -366,7 +366,19 @@ public class Service_members {
 		}
 	}
 	
-	
+	/* 아이디 찾기 */
+	public int found_id(String user_name, String user_email) {
+		int nfound_id = dao_member.found_id(user_name, user_email);
+		return nfound_id;
+	}
+	public List<dto_members> found_id_list(String user_name, String user_email){
+		return dao_member.found_id_list(user_name, user_email);
+	}
+	/* 비밀번호 찾기 */
+	public int found_pw(String user_id, String user_name, String user_email) {
+		int nfound_pw = dao_member.found_pw(user_id, user_name, user_email);
+		return nfound_pw;
+	}
 	
 
 	

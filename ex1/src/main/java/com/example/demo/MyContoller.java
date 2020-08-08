@@ -461,6 +461,29 @@ public class MyContoller {
 	public String foundId() {
 		return "myPage/myFoundId";
 	}
+	// 아이디 찾기
+	@RequestMapping(value="/found_id", method = RequestMethod.POST)
+	public String found_id(@RequestParam("user_name") String user_name, 
+							@RequestParam("user_email") String user_email,
+							HttpServletRequest request, HttpServletResponse response, Model model ) {
+		
+		model.addAttribute("found_id_list", service_members.found_id_list(user_name, user_email));
+		model.addAttribute("found_id", service_members.found_id(user_name, user_email));
+		
+		return "myPage/found_id";
+	}
+	// 비밀번호 찾기
+	@RequestMapping(value="/found_pw", method = RequestMethod.POST)
+	public String found_pw(@RequestParam("user_id") String user_id,
+							@RequestParam("user_name") String user_name,
+							@RequestParam("user_email") String user_email, 
+							HttpServletRequest request, HttpServletResponse response, Model model) {
+		
+		model.addAttribute("found_pw", service_members.found_pw(user_id, user_name, user_email));
+		
+		return "myPage/found_pw";
+	}
+	
 
 	// 자주하는질문 페이지
 	@RequestMapping("/fre_ask_questions")

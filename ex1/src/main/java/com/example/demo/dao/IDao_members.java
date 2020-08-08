@@ -77,6 +77,11 @@ public interface IDao_members {
 	public int update_userGender(String user_id, String user_gender); // 성별 변경
 	public int update_userBirth(String user_id, String user_birth); // 생일 변경
 	
+	// 아이디 찾기
+	public int found_id( String user_name, String user_email );
+	public List<dto_members> found_id_list(String user_name, String user_email);
+	// 비밀번호 찾기
+	public int found_pw( String user_id, String user_name, String user_email );
 
 		
 }
