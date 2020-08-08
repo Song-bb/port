@@ -58,13 +58,15 @@
 	                                </tr>
 	                            </table>
 	                        </div>
+	                        
+	                        <form method="post" name="form">
 	                        <!-- 상품수 증가  -->
 	                        <div class="goods_count">
-	                            <form>
+	                           
 	                                <button type="button" class="btnDown" onclick="countDown();">-</button>
-	                                    <input type="text" value=1 onblur="change_price();" id="count_item">
+	                                    <input type="text" value=1 onblur="change_price();" id="count_item" name="item_order_amount">
 	                                <button type="button" class="btnUp" onclick="countUp();">+</button>
-	                            </form>
+	                            
 	                        </div>
 	                        <div class="total_goods_price">
 	                            <p>총 상품 금액</p>
@@ -76,9 +78,10 @@
 	                            </p>
 	                        </div>
 	                        <div class="goods_order">
-	                            <button class="goCart orderbutton" type="button"><a href="/myCart">장바구니</a></button>
-	                        	<button class="goOrder orderbutton" type="button" ><a href="/payment">구매하기</a></button>
-	                        </div>                  
+	                            <button class="goCart orderbutton" type="submit" onclick="javascript: form.action='/myCart_insert';"/>장바구니</button>
+	                        	<button class="goOrder orderbutton" type="submit" onclick="javascript: form.action='/payment';"/>구매하기</button>
+	                        </div>
+	                        </form>                
 	                    </div>
 	                </div>
 	            
