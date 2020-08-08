@@ -59,17 +59,17 @@
 	                            </table>
 	                        </div>
 	                        <!-- 상품수 증가  -->
-	                        <div class="goods_count">
+	                        <div class="goods_count_" style="padding-bottom: 25px;">
 
 	                            	<p>신청 옵션</p>
-	                                <select id="count_item" name="count_item" onchange="count_item();">
+	                                <select id="count_month" name="count_month" onchange="count_month();">
 	                                	<option value="1">1개월</option>
 	                                	<option value="3">3개월</option>
 	                                	<option value="6">6개월</option>
 	                                	<option value="12">12개월</option>
 	                                </select>
 	                                <p>배송 날짜</p>
-	                                <input type="text" name="week" id="week" /> 일
+	                                <input type="text" name="week" id="week" required/> 일
 
 	                        </div>
 	                        <div class="total_goods_price">
@@ -397,8 +397,8 @@
 	
 	<script>
 	
-		function count_item(){
-		    var target = document.getElementById("count_item").value;
+		function count_month(){
+		    var target = document.getElementById("count_month").value;
 		    document.getElementById("result_count").innerHTML = target;
 			var item_sale_price = document.getElementById("item_sale_price").value;
 			var result_Price = target * item_sale_price;
