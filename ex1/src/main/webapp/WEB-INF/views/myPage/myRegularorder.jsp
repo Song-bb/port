@@ -79,14 +79,16 @@
 			                        <td class="delivery_search_body_table_td delivery_search_start_end">시작날짜<br>/만료날짜</td>
 			                        <td class="delivery_search_body_table_td delivery_search_select">구독 취소</td>
 			                    </tr>
-			                    <tr class="delivery_search_body_table_tr">
-			                        <td class="delivery_search_body_table_td delivery_search_number">202007160001</td>
-			                        <td class="delivery_search_body_table_td delivery_search_content">정기배송 패키지1</td>
-			                        <td class="delivery_search_body_table_td delivery_search_price">45,000</td>
-			                        <td class="delivery_search_body_table_td delivery_search_month">1주</td>
-			                        <td class="delivery_search_body_table_td delivery_search_start_end">2020-07-16<br>/2020-08-13</td>
-			                        <td class="delivery_search_body_table_td delivery_search_select"><button>취소</button></td>
-			                    </tr>
+			                    <c:forEach items="${ regular_order_list }" var="dto">
+				                    <tr class="delivery_search_body_table_tr">
+				                        <td class="delivery_search_body_table_td delivery_search_number">${ dto.order_number }</td>
+				                        <td class="delivery_search_body_table_td delivery_search_content">${ dto.item_name }</td>
+				                        <td class="delivery_search_body_table_td delivery_search_price">${ dto.item_price }</td>
+				                        <td class="delivery_search_body_table_td delivery_search_month">${ dto.week }</td>
+				                        <td class="delivery_search_body_table_td delivery_search_start_end">${ dto.start_date }<br>/${ dto.last_date }</td>
+				                        <td class="delivery_search_body_table_td delivery_search_select"><button>취소</button></td>
+				                    </tr>
+			                    </c:forEach>
 			                </table>
 			            </div>
 			        </div>
