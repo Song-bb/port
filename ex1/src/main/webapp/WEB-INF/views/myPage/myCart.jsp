@@ -15,26 +15,28 @@
         <div id="cart_table_div">
             <table class="cart_table">
                 <tr id="cart_table_head">
-                    <td class="cart_head_select">선택</td>
+                	<td>체크</td>
                     <td></td>
                     <td class="cart_head_info">상품명</td>
                     <td class="cart_head_saleprice">가격</td>
                     <td class="cart_head_count">수량</td>
                     <td class="cart_head_count">배송비</td>
                    	<td class="cart_head_price">결제금액</td>
+                   	<td>삭제</td>
                 </tr>
                 <c:forEach items="${ cart_list }" var="cart">
                 <tr class="cart_table_item">
                     <td class="cart_select"><input type="checkbox" name="cart_item_select" /></td>
                     <td class="cart_info">
-                        <div class="cart_info_img" style="background-image:url('${ dto.item_img }')" >
+                        <div class="cart_info_img" style="background-image:url('${ cart.item_img }')" >
 	                    <a href="item_detail?idx=${ cart.item_idx }"></a></div>
                     </td>
                     <td> <div class="cart_info_name"><a href="item_detail?idx=${ cart.item_idx }">${ cart.item_name }</a></div></td>
-                    <td><div class="cart_info_saleprice"></div>25000<br>원</td>
-                    <td class="cart_count">10<br>개</td>
+                    <td><div class="cart_info_saleprice"></div>${ cart.item_sale_price }<br>원</td>
+                    <td class="cart_count">${ cart.item_order_amount }<br>개</td>
                     <td> 배송비<br> 3000원 </td>
                     <td class="cart_price">10,000원</td>
+                    <td> <a href="MyCart_delete?cart_idx=${cart.cart_idx}"> × </a> </td>
                 </tr>
                 </c:forEach>
             </table>

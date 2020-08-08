@@ -27,6 +27,7 @@ import com.example.demo.Service.FileuploadService_event;
 import com.example.demo.Service.FileuploadService_manager_item_update;
 import com.example.demo.Service.FileuploadService_personal_que;
 import com.example.demo.Service.Service_banner;
+import com.example.demo.Service.Service_cart;
 import com.example.demo.Service.Service_event;
 import com.example.demo.Service.Service_fre_ask_board;
 import com.example.demo.Service.Service_items;
@@ -72,6 +73,8 @@ public class MyContoller {
 	Service_request_item service_request;
 	@Autowired
 	Service_regular_order service_regular_order;
+	@Autowired
+	Service_cart service_cart;	
 	
 	@Autowired
 	FileuploadService_event fileUploadService_event;
@@ -192,6 +195,7 @@ public class MyContoller {
 			if( user_pw.equals( list.get(0).getUser_pw()) ) { // 비밀번호 일치
 				HttpSession session = request.getSession(); // 세션 시작
 				session.setAttribute("user_id", user_id); // id 세션 저장
+				session.setAttribute("user_index", list.get(0).getUser_index() ); // 이름 세션 저장
 				session.setAttribute("user_name", list.get(0).getUser_name() ); // 이름 세션 저장
 				session.setAttribute("user_grade", list.get(0).getUser_grade()); // 등급 세션 저장
 				session.setAttribute("user_point", list.get(0).getUser_point()); // 적립금 세션 저장
@@ -409,13 +413,66 @@ public class MyContoller {
 	}
 	
 	/*=========== /이벤트 페이지 =============*/
-	
+	/*=========== 장바구니 =============*/
 	// 장바구니메인
 	@RequestMapping("/myCart")
-	public String myCart() {
+	public String myCart(HttpServletRequest request, Model model) {
+		
+		model.addAttribute("cart_list", service_cart.cart_list());
 		
 		return "myPage/myCart";
 	}
+	
+	// 장바구니 상품추가
+	@RequestMapping(value="/myCart_insert", method = RequestMethod.POST)
+	public String cart_insert(HttpServletRequest request) {
+
+		HttpSession session = request.getSession();
+        if( session.getAttribute("user_id") == null ) { // 濡쒓렇�씤 �븞�릺�뼱�엳�쑝硫�
+        	
+        	return "redirect:myCart";
+        	
+        } else {
+        	Map<String, String> map = new HashMap<String, String>();
+    		
+    		String amount = request.getParameter("item_order_amount");
+    		map.put("item_order_amount", amount);
+    		
+    		String user = (String) session.getAttribute("user_index");
+    		map.put("user_idx", user);
+    		
+    		String item = request.getParameter("item_idx");
+    		map.put("item_idx", item);
+
+    		int nResult = service_cart.cart_itemInsert(map);
+    		
+    		if( nResult < 1) {
+    			System.out.println("상품추가실패");
+    			return "redirect:myCart";
+    		}else {
+    			System.out.println("상품추가");
+    			return "redirect:myCart";	
+    		}
+        }
+		
+	}
+	
+	// 장바구니 상품삭제
+	@RequestMapping("/MyCart_delete")
+	public String card_delete(HttpServletRequest request) {
+		String index = request.getParameter("cart_idx");
+		
+		int nResult = service_cart.cart_item_delete(index);
+		if(nResult < 1) {
+			System.out.println("삭제를 실패했습니다.");
+			return "redirect:myCart";
+		} else {
+			System.out.println("삭제를 성공했습니다.");
+			return "redirect:myCart";
+		}
+	}
+	
+	/*=========== /장바구니 =============*/
 	
 	// 과일장수소개페이지
 	@RequestMapping("/about")

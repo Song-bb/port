@@ -10,6 +10,8 @@
 	<select id="cart_listDao" resultType="com.example.demo.dto.dto_cart">
 			SELECT 
 			c.cart_idx,
+			c.user_idx,
+			c.item_idx,
 			m.user_id,
 			i.item_number,
 			i.item_name,
