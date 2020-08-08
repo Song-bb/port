@@ -465,7 +465,7 @@ public class MyContoller {
 	@RequestMapping(value="/found_id", method = RequestMethod.POST)
 	public String found_id(@RequestParam("user_name") String user_name, 
 							@RequestParam("user_email") String user_email,
-							HttpServletRequest request, HttpServletResponse response, Model model ) {
+							HttpServletRequest request, HttpServletResponse response, Model model) {
 		
 		model.addAttribute("found_id_list", service_members.found_id_list(user_name, user_email));
 		model.addAttribute("found_id", service_members.found_id(user_name, user_email));
