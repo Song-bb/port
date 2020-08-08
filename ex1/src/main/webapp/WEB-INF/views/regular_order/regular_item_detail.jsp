@@ -59,7 +59,7 @@
 	                            </table>
 	                        </div>
 	                        <!-- 상품수 증가  -->
-	                        <div class="goods_count_" style="padding-bottom: 25px;">
+	                        <div class="goods_count_" style="padding-bottom: 25px; border-bottom: 1px solid rgba(211, 211, 211, 0.486);" >
 
 	                            	<p>신청 옵션</p>
 	                                <select id="count_month" name="count_month" onchange="count_month();">
