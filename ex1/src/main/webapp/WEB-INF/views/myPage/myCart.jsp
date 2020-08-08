@@ -35,10 +35,11 @@
                     <td><div class="cart_info_saleprice"></div>${ cart.item_sale_price }<br>원</td>
                     <td class="cart_count">${ cart.item_order_amount }<br>개</td>
                     <td> 배송비<br> 3000원 </td>
-                    <td class="cart_price">10,000원</td>
+                    <td class="cart_price">${ cart.item_order_price }원</td>
                     <td> <a href="MyCart_delete?cart_idx=${cart.cart_idx}"> × </a> </td>
                 </tr>
-                </c:forEach>
+                <p>총가격 은 어디갔나... ${ cart.item_order_price }</p>
+             </c:forEach>
             </table>
             <div class="checkBoxAll">
             	<div class="selectAll">
@@ -51,7 +52,7 @@
         <div id="cart_foot">
         	<div class="cart_footer_top">
 	            <p id="cart_foot_info">총 상품 금액</p>
-	            <p id="cart_foot_price"><span>0,000</span>원</p>
+	            <p id="cart_foot_price"><span>${ cart_finalPrice }</span>원</p>
 	        </div>
            <button id=cart_btn_2 type="submit">결제하기</button>
         </div>

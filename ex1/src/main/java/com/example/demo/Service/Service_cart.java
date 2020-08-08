@@ -33,6 +33,8 @@ public class Service_cart {
 	}
 	
 	//카트 전체 상품 가격
-	
+	public String cart_item_order_finalPrice(String user_idx) {
+		return dao_cart.cart_item_order_finalPriceDao(user_idx);
+	}
 	
 }

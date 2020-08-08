@@ -21,5 +21,5 @@ public interface IDao_cart_ByUser {
 	public int cart_item_deleteDao(String cart_idx);
 	
 	//카트에 전체 주문 상품 가격
-	public int cart_order_priceDao(String user_idx);
+	public String cart_item_order_finalPriceDao(String user_idx);
 }

@@ -69,7 +69,8 @@
     width: 150px;
     height: 150px;
     background-color: pink;
-    background-position: cover;
+    background-position: center;
+    background-size: cover;
 }
 .cart_info_img > a{
     display:inline-block;

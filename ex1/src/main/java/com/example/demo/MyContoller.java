@@ -39,6 +39,7 @@ import com.example.demo.Service.Service_regular_order;
 import com.example.demo.Service.Service_request_item;
 import com.example.demo.Service.Service_review;
 import com.example.demo.Service.Service_seceded_member;
+import com.example.demo.dto.dto_cart;
 import com.example.demo.dto.dto_members;
 import com.example.demo.dto.dto_user_point;
 
@@ -418,7 +419,13 @@ public class MyContoller {
 	@RequestMapping("/myCart")
 	public String myCart(HttpServletRequest request, Model model) {
 		
+		
 		model.addAttribute("cart_list", service_cart.cart_list());
+		
+		HttpSession session = request.getSession();
+		String user = (String)session.getAttribute("user_index"); 
+		String finalPrice = service_cart.cart_item_order_finalPrice(user);
+		model.addAttribute("cart_finalPrice", finalPrice);
 		
 		return "myPage/myCart";
 	}
@@ -428,7 +435,7 @@ public class MyContoller {
 	public String cart_insert(HttpServletRequest request) {
 
 		HttpSession session = request.getSession();
-        if( session.getAttribute("user_id") == null ) { // 濡쒓렇�씤 �븞�릺�뼱�엳�쑝硫�
+        if( session.getAttribute("user_id") == null ) { // 로그인이 되어있지 않으면
         	
         	return "redirect:myCart";
         	
@@ -441,17 +448,17 @@ public class MyContoller {
     		String user = (String) session.getAttribute("user_index");
     		map.put("user_idx", user);
     		
-    		String item = request.getParameter("item_idx");
+       		String item = request.getParameter("item_idx");
     		map.put("item_idx", item);
-
+    		
     		int nResult = service_cart.cart_itemInsert(map);
     		
     		if( nResult < 1) {
     			System.out.println("상품추가실패");
-    			return "redirect:myCart";
+    			return "myPage/myCart";
     		}else {
     			System.out.println("상품추가");
-    			return "redirect:myCart";	
+    			return "myPage/myCart";	
     		}
         }
 		
@@ -465,12 +472,14 @@ public class MyContoller {
 		int nResult = service_cart.cart_item_delete(index);
 		if(nResult < 1) {
 			System.out.println("삭제를 실패했습니다.");
-			return "redirect:myCart";
+			return "myPage/myCart";
 		} else {
 			System.out.println("삭제를 성공했습니다.");
-			return "redirect:myCart";
+			return "myPage/myCart";
 		}
 	}
+	
+	//장바구니 전체 가격
 	
 	/*=========== /장바구니 =============*/
 	

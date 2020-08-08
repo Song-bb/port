@@ -17,22 +17,12 @@
 			i.item_name,
 			i.item_img,
 			i.item_sale_price,
-			c.item_order_amount
+			c.item_order_amount,
+			(item_sale_price * item_order_amount) item_order_price
 			FROM cart AS c
 			INNER JOIN items AS i ON c.item_idx = i.idx 
 			INNER JOIN members AS m ON c.user_idx = m.user_index
 	</select>
-	
-	<select id="cart_order_priceDao" resultType="com.example.demo.dto.dto_cart">
-      SELECT SUM(item_sale_price * item_order_amount)
-      FROM
-         cart AS c
-      INNER JOIN
-         items AS i
-      WHERE
-         c.item_idx = i.idx AND c.user_idx = #{user_idx}
-   <!-- user_idx를 조회해 주문하는 사람의 모든 상품의 총가격을 알아냄. -->
-   </select>
    
 	<insert id="cart_itemInsertDao">
 		INSERT INTO cart (cart_idx, user_idx, item_idx, item_order_amount, item_order_price)
@@ -42,6 +32,18 @@
 	<delete id="cart_item_deleteDao">
 		DELETE FROM cart WHERE cart_idx = #{cart_idx}
 	</delete>
+	
+	<select id="cart_item_order_finalPriceDao" resultType="String" >
+      SELECT SUM(item_sale_price * item_order_amount) item_order_price
+      FROM
+         cart AS c
+      INNER JOIN
+         items AS i
+      WHERE
+         c.item_idx = i.idx AND c.user_idx = #{user_idx}
+   <!-- user_idx를 조회해 주문하는 사람의 모든 상품의 총가격을 알아냄. -->
+   </select>
+	
 	
 	
 </mapper>
