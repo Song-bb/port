@@ -82,8 +82,8 @@
 	                            </p>
 	                        </div>
 	                        <div class="goods_order">
-	                            <button class="goCart orderbutton" type="button"><a href="/myCart">장바구니</a></button>
-	                        	<button class="goOrder orderbutton" type="button" ><a href="/payment">구매하기</a></button>
+	                            <button class="goCart orderbutton" type="button" onclick="regular_cart();"><a href="/myCart">장바구니</a></button>
+	                        	<button class="goOrder orderbutton" type="button" onclick="regular_cart();"><a href="/payment">구매하기</a></button>
 	                        </div>                  
 	                    </div>
 	                </div>
@@ -405,5 +405,50 @@
 			var result_Price_new = result_Price.toLocaleString();
 			document.getElementById("result_price").innerHTML = result_Price_new;
 		}
+		
+		function request_item(){
+    		/*
+    		 * path : 전송 URL
+    		 * params : 전송 데이터 {'q':'a','s':'b','c':'d'...}으로 묶어서 배열 입력
+    		 * method : 전송 방식(생략가능)
+    		 */
+    		/*function post_to_url(path, params, method) {
+    		    method = method || "post"; // Set method to post by default, if not specified.
+    		    // The rest of this code assumes you are not using a library.
+    		    // It can be made less wordy if you use one.
+    		    var form = document.createElement("form");
+    		    form.setAttribute("method", method);
+    		    form.setAttribute("action", path);
+    		    for(var key in params) {
+    		        var hiddenField = document.createElement("input");
+    		        hiddenField.setAttribute("type", "hidden");
+    		        hiddenField.setAttribute("name", key);
+    		        hiddenField.setAttribute("value", params[key]);
+    		        form.appendChild(hiddenField);
+    		    }
+    		    document.body.appendChild(form);
+    		    form.submit();
+    		*/
+    		var form = document.createElement("form");
+    		form.setAttribute("method", "post");
+    		form.setAttribute("action", "/regular_cart");
+    		
+    		var count_month1 = document.getElementById("count_month").value;
+    		var week1 = document.getElementById("week").value;
+    		var result_price1 = document.getElementById("result_price").value;
+    		
+    		var params = {count_month:count_month1, week:week1, result_price:result_price1}; 
+
+		    for(var key in params) {
+		        var hiddenField = document.createElement("input");
+		        hiddenField.setAttribute("type", "hidden");
+		        hiddenField.setAttribute("name", key);
+		        hiddenField.setAttribute("value", params[key]);
+		        form.appendChild(hiddenField);
+		    }   
+		    
+    		document.body.appendChild(form);
+			form.submit();
+    	}
 		
 	</script>
