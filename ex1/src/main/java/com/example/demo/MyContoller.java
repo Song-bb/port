@@ -545,22 +545,58 @@ public class MyContoller {
 							HttpServletRequest request, HttpServletResponse response, Model model) {
 		
 		model.addAttribute("found_id_list", service_members.found_id_list(user_name, user_email));
-		model.addAttribute("found_id", service_members.found_id(user_name, user_email));
 		
-		return "myPage/found_id";
+		int nResult = service_members.found_id(user_name, user_email);
+		if(nResult < 1) {
+			System.out.println("아이디 찾기를 실패하였습니다.");
+			return "myPage/myFoundId";
+		} else {
+			return "myPage/found_id";
+		}
 	}
 	// 비밀번호 찾기
-	@RequestMapping(value="/found_pw", method = RequestMethod.POST)
+	@RequestMapping(value="/update_pw", method = RequestMethod.POST)
 	public String found_pw(@RequestParam("user_id") String user_id,
 							@RequestParam("user_name") String user_name,
-							@RequestParam("user_email") String user_email, 
+							@RequestParam("user_email") String user_email,
 							HttpServletRequest request, HttpServletResponse response, Model model) {
 		
-		model.addAttribute("found_pw", service_members.found_pw(user_id, user_name, user_email));
-		
-		return "myPage/found_pw";
+		int nResult = service_members.found_pw(user_id, user_name, user_email);
+		if(nResult < 1) {
+			System.out.println("비밀번호 찾기를 실패하였습니다.");
+			return "myPage/myFoundId";
+		} else {
+			return "myPage/update_pw";
+		}
 	}
-	
+	// 비밀번호 수정
+	@RequestMapping(value="/update_pw_ok", method = RequestMethod.POST)
+	public void update_pw_ok(@RequestParam("user_pw") String user_pw,
+							@RequestParam("user_pw_ok") String user_pw_ok,
+							HttpServletResponse response, Model model) throws Exception {
+		Map<String, String> map = new HashMap<String, String>();
+		if( !(user_pw.isEmpty()) ) { 
+			if( user_pw != null && user_pw.equals(user_pw_ok) ) 
+				map.put("user_pw", user_pw);
+				int nResult = service_members.updateMember(map);
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				if( nResult < 1 ) {
+					out.println("<script>alert('비밀번호를 확인해주세요'); history.go(-1);</script>");
+					out.flush();
+				} else {
+					out.println("<script>alert('비밀번호 수정 완료 되었습니다.'); window.location.href='loginPage/loginPage_main';</script>");
+					out.flush();
+				}
+		} else { 
+			map.put("user_pw", "null");
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert('비밀번호를 입력해주세요'); history.go(-1);</script>");
+		}
+		
+		
+	}
 
 	// 자주하는질문 페이지
 	@RequestMapping("/fre_ask_questions")
