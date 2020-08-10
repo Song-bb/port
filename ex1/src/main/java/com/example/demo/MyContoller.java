@@ -211,7 +211,7 @@ public class MyContoller {
 	
 	// 로그아웃
 	@RequestMapping("/logout")
-	public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public void logout(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
         response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
