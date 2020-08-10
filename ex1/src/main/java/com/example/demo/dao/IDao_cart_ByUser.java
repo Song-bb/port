@@ -25,4 +25,7 @@ public interface IDao_cart_ByUser {
 	
 	//카트에 전체 주문 상품 가격
 	public String cart_item_order_finalPriceDao(String user_idx);
+	
+	//카트에서 같은 상품이 있으면 해당 상품의 수량을 수정한다.
+	public int cart_amount_updateDao(Map<String, String> map);
 }

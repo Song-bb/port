@@ -73,7 +73,13 @@
    <!-- user_idx를 조회해 주문하는 사람의 모든 상품의 총가격을 알아냄. -->
    </select>
 	
-	
+	   
+   <!-- 상품의 수량을 수정한다. -->
+   <update id="cart_amount_updateDao">
+   	UPDATE cart AS c 
+   	SET item_order_amount = #{count_item}
+   	WHERE c.item_idx = #{index}
+   </update>
 	
 </mapper>
 	

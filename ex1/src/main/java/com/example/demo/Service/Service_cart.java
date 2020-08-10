@@ -42,4 +42,9 @@ public class Service_cart {
 		return dao_cart.cart_item_order_finalPriceDao(user_idx);
 	}
 	
+	//카트 상품 수량 수정
+	public int cart_amount_update(Map<String, String> map) {
+		int nResult = dao_cart.cart_amount_updateDao(map);
+		return nResult;
+	}
 }

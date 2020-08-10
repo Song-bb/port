@@ -433,7 +433,7 @@ public class MyContoller {
 		HttpSession session = request.getSession();
         if( session.getAttribute("user_id") == null ) { // 로그인이 되어있지 않으면
         	
-        	return "myPage/myCart";
+        	return "loginPage/loginPage_main";
         	
         } else {
 		
@@ -456,7 +456,7 @@ public class MyContoller {
 		HttpSession session = request.getSession();
         if( session.getAttribute("user_id") == null ) { // 로그인이 되어있지 않으면
         	
-        	return "redirect:myCart";
+        	return "loginPage/loginPage_main";
         	
         } else {
         	Map<String, String> map = new HashMap<String, String>();
@@ -498,7 +498,29 @@ public class MyContoller {
 		}
 	}
 	
-	//장바구니 전체 가격
+	// 장바구니 수량 수정
+	
+	@RequestMapping("/cart_amount_update")
+	public String cart_amount_update(HttpServletRequest request) {
+		
+		Map<String, String> map = new HashMap<String, String>();
+		
+		String count_item = request.getParameter("count_item");
+		String index = request.getParameter("index");
+		
+		map.put("count_item", count_item);
+		map.put("index", index);
+		
+		int nResult = service_cart.cart_amount_update(map);
+		if(nResult < 1) {
+			System.out.println("수정을 실패했습니다.");
+			return "redirect:myCart";
+		} else {
+			System.out.println("수정을 성공했습니다.");
+			return "redirect:myCart";
+		}
+
+	}
 	
 	/*=========== /장바구니 =============*/
 	
