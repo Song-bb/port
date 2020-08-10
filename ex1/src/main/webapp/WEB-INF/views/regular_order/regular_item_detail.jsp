@@ -69,7 +69,7 @@
 	                                	<option value="12">12개월</option>
 	                                </select>
 	                                <p>배송 날짜</p>
-	                                <input type="text" name="week" id="week" required/> 일
+	                                <input type="date" name="week" id="week" required/> 일
 
 	                        </div>
 	                        <div class="total_goods_price">
@@ -82,7 +82,6 @@
 	                            </p>
 	                        </div>
 	                        <div class="goods_order">
-	                            <button class="goCart orderbutton" type="button" onclick="regular_item();"><a href="/myCart">장바구니</a></button>
 	                        	<button class="goOrder orderbutton" type="button" onclick="regular_item();"><a href="/payment">구매하기</a></button>
 	                        </div>                  
 	                    </div>
