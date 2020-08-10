@@ -605,7 +605,7 @@ public class MyContoller {
 					out.println("<script>alert('비밀번호를 확인해주세요'); history.go(-1);</script>");
 					out.flush();
 				} else {
-					out.println("<script>alert('비밀번호 수정 완료 되었습니다.'); window.location.href='loginPage/loginPage_main';</script>");
+					out.println("<script>alert('비밀번호 수정 완료 되었습니다.'); window.location.href='/loginPage_main';</script>");
 					out.flush();
 				}
 		} else { 
