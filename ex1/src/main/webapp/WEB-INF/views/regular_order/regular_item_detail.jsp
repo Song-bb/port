@@ -82,8 +82,8 @@
 	                            </p>
 	                        </div>
 	                        <div class="goods_order">
-	                            <button class="goCart orderbutton" type="button" onclick="regular_cart();"><a href="/myCart">장바구니</a></button>
-	                        	<button class="goOrder orderbutton" type="button" onclick="regular_cart();"><a href="/payment">구매하기</a></button>
+	                            <button class="goCart orderbutton" type="button" onclick="regular_item();"><a href="/myCart">장바구니</a></button>
+	                        	<button class="goOrder orderbutton" type="button" onclick="regular_item();"><a href="/payment">구매하기</a></button>
 	                        </div>                  
 	                    </div>
 	                </div>

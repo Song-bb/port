@@ -544,10 +544,10 @@
 	</update>	
 	
 	<select id="found_id" resultType="com.example.demo.dto.dto_members">
-			SELECT * FROM members WHERE user_name = '#{ user_name }' AND user_email = '#{ user_email }'
+			SELECT * FROM members WHERE user_name = '#{ param1 }' AND user_email = '#{ param2 }'
 	</select>
 	<select id="found_id_list" resultType="com.example.demo.dto.dto_members">
-			SELECT * FROM members WHERE user_name = '#{ user_name }' AND user_email = '#{ user_email }'
+			SELECT * FROM members WHERE user_name = '#{ param1 }' AND user_email = '#{ param2 }'
 	</select>
 	<select id="found_pw" resultType="com.example.demo.dto.dto_members">
 			SELECT user_pw FROM members WHERE user_name = '#{ user_name }' AND user_email = '#{ user_email }' AND user_id = '#{ user_id }'

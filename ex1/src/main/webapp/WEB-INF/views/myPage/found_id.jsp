@@ -12,6 +12,8 @@
             <c:forEach items="${ found_id_list }" var="dto">
             	회원님의 아이디는 ${ dto.user_id } 입니다.
             </c:forEach>
+            <button onclick="location.href='loginPage/loginPage_main'" class="found_btn_1">로그인 하기</button><br>
+            <button onclick="location.href='myPage/myFoundId'" class="found_btn_1">비밀번호 찾기</button><br>
         </div>
     </div>
 

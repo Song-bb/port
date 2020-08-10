@@ -539,10 +539,11 @@ public class MyContoller {
 		return "myPage/myFoundId";
 	}
 	// 아이디 찾기
-	@RequestMapping(value="/found_id", method = RequestMethod.POST)
-	public String found_id(@RequestParam("user_name") String user_name, 
-							@RequestParam("user_email") String user_email,
-							HttpServletRequest request, HttpServletResponse response, Model model) {
+	@RequestMapping("/found_id")
+	public String found_id(HttpServletRequest request, HttpServletResponse response, Model model) {
+		
+		String user_name = request.getParameter("user_name");
+		String user_email = request.getParameter("user_email");
 		
 		model.addAttribute("found_id_list", service_members.found_id_list(user_name, user_email));
 		
@@ -556,10 +557,11 @@ public class MyContoller {
 	}
 	// 비밀번호 찾기
 	@RequestMapping(value="/update_pw", method = RequestMethod.POST)
-	public String found_pw(@RequestParam("user_id") String user_id,
-							@RequestParam("user_name") String user_name,
-							@RequestParam("user_email") String user_email,
-							HttpServletRequest request, HttpServletResponse response, Model model) {
+	public String found_pw(HttpServletRequest request, HttpServletResponse response, Model model) {
+		
+		String user_id = request.getParameter("user_id");
+		String user_name = request.getParameter("user_name");
+		String user_email = request.getParameter("user_email");
 		
 		int nResult = service_members.found_pw(user_id, user_name, user_email);
 		if(nResult < 1) {
