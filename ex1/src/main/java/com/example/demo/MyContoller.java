@@ -548,7 +548,7 @@ public class MyContoller {
 		model.addAttribute("found_id_list", service_members.found_id_list(user_name, user_email));
 		
 		int nResult = service_members.found_id(user_name, user_email);
-		if(nResult < 1) {
+		if( nResult < 1 ) {
 			System.out.println("아이디 찾기를 실패하였습니다.");
 			return "myPage/myFoundId";
 		} else {
