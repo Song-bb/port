@@ -54,7 +54,7 @@
     <script>
     	function item_selectCategori(){
     		var select = document.getElementById('category').value;
-    		var url = "/items_selectCategori?categori=" + select;
+    		var url = "/items_selectCategori?categori=" + select;    		
     		document.location.href=url;
     	}
     </script>
