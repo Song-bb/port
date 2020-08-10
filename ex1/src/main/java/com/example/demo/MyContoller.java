@@ -567,7 +567,7 @@ public class MyContoller {
 		}
 	}
 	// 비밀번호 찾기
-	@RequestMapping(value="/update_pw", method = RequestMethod.POST)
+	@RequestMapping("/update_pw")
 	public String found_pw(HttpServletRequest request, HttpServletResponse response, Model model) {
 		
 		String user_id = request.getParameter("user_id");
@@ -583,10 +583,12 @@ public class MyContoller {
 		}
 	}
 	// 비밀번호 수정
-	@RequestMapping(value="/update_pw_ok", method = RequestMethod.POST)
-	public void update_pw_ok(@RequestParam("user_pw") String user_pw,
-							@RequestParam("user_pw_ok") String user_pw_ok,
-							HttpServletResponse response, Model model) throws Exception {
+	@RequestMapping("/update_pw_ok")
+	public void update_pw_ok(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
+		
+		String user_pw = request.getParameter("user_pw");
+		String user_pw_ok = request.getParameter("user_pw_ok");
+		
 		Map<String, String> map = new HashMap<String, String>();
 		if( !(user_pw.isEmpty()) ) { 
 			if( user_pw != null && user_pw.equals(user_pw_ok) ) 

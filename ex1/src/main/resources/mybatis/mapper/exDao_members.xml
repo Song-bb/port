@@ -550,7 +550,7 @@
 			SELECT * FROM members WHERE user_name = #{ param1 } AND user_email = #{ param2 }
 	</select>
 	<select id="found_pw" resultType="_int">
-			SELECT user_pw FROM members WHERE user_name = #{ user_name } AND user_email = #{ user_email } AND user_id = #{ user_id }
+			SELECT user_pw FROM members WHERE user_name = #{ param2 } AND user_email = #{ param3 } AND user_id = #{ param1 }
 	</select>
 	
 	
