@@ -46,7 +46,7 @@
 					</div>
 						<a href="/logout">로그아웃</a> | 
 						<div class="sub_nav"> 
-							<a href="/servicePage_main">고객센터</a> |
+							<a href="/servicePage_main">고객센터</a> 
 							<div class="sub_navBox">
 								<ul>
 									<li><a href="/servicePage_main">공지사항</a></li>
@@ -55,7 +55,6 @@
 								</ul>
 							</div>
 						</div>
-						<a href="/delevery_place">배송지역 검색</a>
 					<div id="management_page_div">
 						<a id="gear" href="/main">
 							<span id="gear_label">이용자페이지</span>

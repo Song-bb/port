@@ -27,7 +27,7 @@
                 </tr>
              <c:forEach items="${ cart_list }" var="cart">
                 <tr class="cart_table_item">
-                    <td class="cart_select"><input type="checkbox" name="cart_item_select" /></td>
+                    <td class="cart_select"><input type="checkbox" name="cart_item_select" onclick="check_item_cart();" value="${ cart.item_order_price }"/></td>
                     <td class="cart_info">
                         <div class="cart_info_img" style="background-image:url('${ cart.item_img }')" >
 	                    <a href="item_detail?idx=${ cart.item_idx }"></a></div>
@@ -43,7 +43,7 @@
 	                      </div>
                     </td>
                     <td class="cart_price"><fmt:formatNumber value="${ cart.item_order_price }" pattern="###,###,###" /><br>원</td>
-                    <td> <a href="MyCart_delete?cart_idx=${cart.cart_idx}"> × </a> </td>
+                    <td> <a href="MyCart_delete?cart_idx=${cart.cart_idx}"> X </a> </td>
                 </tr>
              </c:forEach>
             </table>
@@ -52,13 +52,12 @@
 	            	<input type="checkbox" id="checkall" />
 	            	<p id="checkbox_text">전체선택</p>
 	            </div>
-	            <button id=cart_btn_1>선택 삭제</button>
             </div>
         </div>
         <div id="cart_foot">
         	<div class="cart_footer_top">
 	            <p id="cart_foot_info">총 상품 금액</p>
-	            <p id="cart_foot_price"><span><fmt:formatNumber value="${ cart_finalPrice }" pattern="###,###,###" /></span>원</p>
+	            <p id="cart_foot_price"><span id="result_totlaPrice"><fmt:formatNumber value="${ cart_finalPrice }" pattern="###,###,###" /></span> 원</p>
 	        </div>
            <button id=cart_btn_2 type="submit">결제하기</button>
         </div>
@@ -74,10 +73,12 @@
 	            if($("#checkall").prop("checked")){
 	                //input태그의 name이 chk인 태그들을 찾아서 checked옵션을 true로 정의
 	                $("input[name=cart_item_select]").prop("checked",true);
+	                check_item_cart();
 	                //클릭이 안되있으면
 	            }else{
 	                //input태그의 name이 chk인 태그들을 찾아서 checked옵션을 false로 정의
 	                $("input[name=cart_item_select]").prop("checked",false);
+	                $("#result_totlaPrice").html("0");
 	            }
 	        })
 	    });
@@ -99,4 +100,18 @@
 			}    
 		</script>
 		
+		<script>
+		    function check_item_cart() {
+		        var check_count = document.getElementsByName("cart_item_select").length;
+		 		var total_price = 0;
+		        for (var i=0; i<check_count; i++) {
+		            if (document.getElementsByName("cart_item_select")[i].checked == true) {
+		                total_price += parseInt(document.getElementsByName("cart_item_select")[i].value);
+		                total_price_result = total_price.toLocaleString();
+		                document.getElementById("result_totlaPrice").innerHTML = total_price_result;
+		            }
+		        }
+		    }
+
+		</script>
 		
