@@ -82,6 +82,8 @@ public interface IDao_members {
 	public List<dto_members> found_id_list(String user_name, String user_email);
 	// 비밀번호 찾기
 	public int found_pw( String user_id, String user_name, String user_email );
+	// 비밀번호 수정
+	public int update_userpw( Map<String, String> map );
 
 		
 }

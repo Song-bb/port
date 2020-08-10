@@ -574,6 +574,8 @@ public class MyContoller {
 		String user_name = request.getParameter("user_name");
 		String user_email = request.getParameter("user_email");
 		
+		model.addAttribute("found_id_list", service_members.found_id_list(user_name, user_email));
+		
 		int nResult = service_members.found_pw(user_id, user_name, user_email);
 		if(nResult < 1) {
 			System.out.println("비밀번호 찾기를 실패하였습니다.");
@@ -584,16 +586,19 @@ public class MyContoller {
 	}
 	// 비밀번호 수정
 	@RequestMapping("/update_pw_ok")
-	public void update_pw_ok(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
+	public void update_pw_ok(@RequestParam("user_pw") String user_pw,
+							@RequestParam("user_id") String user_id,
+							HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
 		
-		String user_pw = request.getParameter("user_pw");
 		String user_pw_ok = request.getParameter("user_pw_ok");
 		
 		Map<String, String> map = new HashMap<String, String>();
+		map.put("user_id", user_id);
 		if( !(user_pw.isEmpty()) ) { 
 			if( user_pw != null && user_pw.equals(user_pw_ok) ) 
 				map.put("user_pw", user_pw);
-				int nResult = service_members.updateMember(map);
+				service_members.update_userpw(map);
+				int nResult = service_members.update_userpw(map);
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter out = response.getWriter();
 				if( nResult < 1 ) {

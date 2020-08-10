@@ -379,6 +379,10 @@ public class Service_members {
 		int nfound_pw = dao_member.found_pw(user_id, user_name, user_email);
 		return nfound_pw;
 	}
+	// 비밀번호 수정
+	public int update_userpw( Map<String, String> map ){
+		return dao_member.update_userpw(map);
+	}
 	
 
 	

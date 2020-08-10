@@ -552,7 +552,9 @@
 	<select id="found_pw" resultType="_int">
 			SELECT user_pw FROM members WHERE user_name = #{ param2 } AND user_email = #{ param3 } AND user_id = #{ param1 }
 	</select>
-	
+	<update id="update_userpw"> 
+			UPDATE members SET user_pw = #{ user_pw } WHERE user_id = #{ user_id }
+	</update>
 	
 	
 </mapper>
