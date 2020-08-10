@@ -13,7 +13,7 @@
        <div id="mycart_header">
            <h2>장바구니</h2>
        </div>
-       <form action="/payment" method="post">
+       
         <div id="cart_table_div">
             <table class="cart_table">
                 <tr id="cart_table_head">
@@ -59,9 +59,8 @@
 	            <p id="cart_foot_info">총 상품 금액</p>
 	            <p id="cart_foot_price"><span id="result_totlaPrice"><fmt:formatNumber value="${ cart_finalPrice }" pattern="###,###,###" /></span> 원</p>
 	        </div>
-           <button id=cart_btn_2 type="submit">결제하기</button>
+           <button id=cart_btn_2 type="button" onclick="payment();">결제하기</button>
         </div>
-        </form>
     </div>
 	
 	<c:import url="../footer.jsp"></c:import>
@@ -113,5 +112,40 @@
 		        }
 		    }
 
+		</script>
+		
+		<script>
+			function payment(){
+				var form = document.createElement("form");
+				form.setAttribute("method", "post");
+				form.setAttribute("action", "/payment");
+				
+		        var check_count = document.getElementsByName("cart_item_select").length;
+		        for (var i=0; i<check_count; i++) {
+		            if (document.getElementsByName("cart_item_select")[i].checked == true) {
+		                total_price += parseInt(document.getElementsByName("cart_item_select")[i].value);
+		                total_price_result = total_price.toLocaleString();
+		                document.getElementById("result_totlaPrice").innerHTML = total_price_result;
+		            }
+		        }
+				var user_id1 = document.getElementById("user_id").value;
+				var item_idx1 = document.getElementById("item_idx").value;
+				var content1 = document.getElementById("content").value;
+				
+				var params = {user_id:user_id1, item_idx:item_idx1, content:content1}; 
+
+			    for(var key in params) {
+			        var hiddenField = document.createElement("input");
+			        hiddenField.setAttribute("type", "hidden");
+			        hiddenField.setAttribute("name", key);
+			        hiddenField.setAttribute("value", params[key]);
+			        form.appendChild(hiddenField);
+			    }   
+				document.body.appendChild(form);
+				form.submit();
+				window.close();
+			}
+			}
+		
 		</script>
 		
