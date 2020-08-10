@@ -78,7 +78,7 @@
    <update id="cart_amount_updateDao">
    	UPDATE cart AS c 
    	SET item_order_amount = #{count_item}
-   	WHERE c.item_idx = #{index}
+   	WHERE c.cart_idx = #{cart_idx}
    </update>
 	
 </mapper>

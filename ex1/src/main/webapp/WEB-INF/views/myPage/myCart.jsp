@@ -36,11 +36,9 @@
                     <td><div class="cart_info_saleprice"></div><fmt:formatNumber value="${ cart.item_sale_price }" pattern="###,###,###" /><br>원</td>
                     <td class="cart_count">
                     	 <div class="goods_count">
-	                      <input type="hidden" value="${ cart.item_idx }" id="item_idx">
-		          	  	  <input type="hidden" value="${ cart.user_idx }" id="user_idx">
-                          <button type="button" class="btnDown" onclick="countDown( ${ cart.item_idx } );">-</button>
+                          <button type="button" class="btnDown" onclick="countDown( ${ cart.cart_idx }, ${ cart.item_order_amount } );">-</button>
                               <input type="text" value="${ cart.item_order_amount }" onblur="change_price();" id="count_item" name="item_order_amount">
-                          <button type="button" class="btnUp" onclick="countUp( ${ cart.item_idx } );">+</button>
+                          <button type="button" class="btnUp" onclick="countUp( ${ cart.cart_idx }, ${ cart.item_order_amount } );">+</button>
 	                            
 	                      </div>
                     </td>
@@ -84,49 +82,19 @@
 	        })
 	    });
 	    </script>
-	    <script>
-		    /* item amount */
-		    function cart_item(){
-		    
-			    var form = document.createElement("form");
-		    		form.setAttribute("method", "post");
-		    		form.setAttribute("action", "/cart_amount_update");
-		    		
-		    	var count_item = document.getElementById("count_item").value;
-		    	var user_idx1 = document.getElementById("user_idx").value;
-	    		var item_idx1 = document.getElementById("item_idx").value;
-		
-		    	var params = {user_idx:user_idx1, item_idx:item_idx1, item_order_amount:count_item};
-			    
-		    	for(var key in params) {
-			        var hiddenField = document.createElement("input");
-			        hiddenField.setAttribute("type", "hidden");
-			        hiddenField.setAttribute("name", key);
-			        hiddenField.setAttribute("value", params[key]);
-			        form.appendChild(hiddenField);
-			    }   
-				document.body.appendChild(form);
-				form.submit();
-		    }
-	    	
-		    
-/* 		    function change_price( ){
-				var count_item = document.getElementById("count_item").value;
-				document.getElementById("count_item").innerHTML = count_item;
-			} */
-		</script>
+
 		<script>
-		   	function countUp( index ){
-		   		var count_item = document.getElementById("count_item").value;
+		   	function countUp( cart_idx, item_order_amount ){
+		   		var count_item = item_order_amount;
 				count_item++;
-				location.href='/cart_amount_update?count_item=' + count_item + '&index=' + index;
+				location.href='/cart_amount_update?count_item=' + count_item + '&cart_idx=' + cart_idx;
 			};
 			
-			function countDown( index ){
-				var count_item = document.getElementById("count_item").value;
+			function countDown( cart_idx, item_order_amount ){
+				var count_item = item_order_amount;
 				if( count_item > 1 ){
 					count_item--;
-					location.href='/cart_amount_update?count_item=' + count_item + '&index=' + index;
+					location.href='/cart_amount_update?count_item=' + count_item + '&cart_idx=' + cart_idx;
 				}
 			}    
 		</script>

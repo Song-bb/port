@@ -506,10 +506,10 @@ public class MyContoller {
 		Map<String, String> map = new HashMap<String, String>();
 		
 		String count_item = request.getParameter("count_item");
-		String index = request.getParameter("index");
+		String cart_idx = request.getParameter("cart_idx");
 		
 		map.put("count_item", count_item);
-		map.put("index", index);
+		map.put("cart_idx", cart_idx);
 		
 		int nResult = service_cart.cart_amount_update(map);
 		if(nResult < 1) {
