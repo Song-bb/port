@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!-- 장바구니 -->
 
@@ -50,7 +51,7 @@
         <div id="cart_foot">
         	<div class="cart_footer_top">
 	            <p id="cart_foot_info">총 상품 금액</p>
-	            <p id="cart_foot_price"><span><fmt:formatNumber value="${ cart_finalPrice}" pattern="###,###,###" /></span>원</p>
+	            <p id="cart_foot_price"><span><fmt:formatNumber value="${ cart_finalPrice }" pattern="###,###,###" /></span><br>원</p>
 	        </div>
            <button id=cart_btn_2 type="submit">결제하기</button>
         </div>

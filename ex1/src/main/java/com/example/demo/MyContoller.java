@@ -211,10 +211,21 @@ public class MyContoller {
 	
 	// 로그아웃
 	@RequestMapping("/logout")
-	public String logout(HttpServletRequest request, HttpServletResponse response) {
+	public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		
+        response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
-        session.invalidate();
-		return "loginPage/logout";
+       
+		if( session != null ) {
+			out.println("<script>alert('로그아웃 되었습니다'); window.location.href='/main';</script>");
+			session.invalidate();
+			out.flush();
+		} else {
+			out.println("<script>window.location.href='/main';</script>");
+			out.flush();
+		}
+        
 	}
 	
 	// 회원 탈퇴
@@ -480,10 +491,10 @@ public class MyContoller {
 		int nResult = service_cart.cart_item_delete(index);
 		if(nResult < 1) {
 			System.out.println("삭제를 실패했습니다.");
-			return "myPage/myCart";
+			return "redirect:myCart";
 		} else {
 			System.out.println("삭제를 성공했습니다.");
-			return "myPage/myCart";
+			return "redirect:myCart";
 		}
 	}
 	
