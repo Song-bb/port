@@ -78,7 +78,7 @@
 						<a href="/joinPage_main">회원가입</a> | 
 						<a href="/loginPage_main">로그인</a> |
 					<div class="sub_nav"> 
-						<a href="/servicePage_main">고객센터</a> |
+						<a href="/servicePage_main">고객센터</a>
 							<div class="sub_navBox">
 								<ul>
 									<li><a href="/servicePage_main">공지사항</a></li>
@@ -87,7 +87,6 @@
 								</ul>
 							</div>
 					</div>
-						<a href="/regularOrder_main">배송지역 검색</a>
 					<% } else { %>
 						<div class="sub_nav">
 							<a href="/myPage_main?page=1">${ user_name } 님</a> |
@@ -104,7 +103,7 @@
 						</div>
 							<a href="/logout">로그아웃</a> | 
 						<div class="sub_nav"> 
-							<a href="/servicePage_main">고객센터</a> |
+							<a href="/servicePage_main">고객센터</a>
 								<div class="sub_navBox">
 									<ul>
 										<li><a href="/servicePage_main">공지사항</a></li>
@@ -113,7 +112,6 @@
 									</ul>
 								</div>
 						</div>
-						<a href="/delevery_place">배송지역 검색</a>
 						<% if( session.getAttribute("user_grade").equals("과일매니저") ){ %>
 							<div id="management_page_div">
 								<a id="gear" href="/management">
