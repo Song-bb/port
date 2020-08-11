@@ -1233,22 +1233,18 @@ public class MyContoller {
 		        	String item_name = request.getParameter("item_name" + i);
 		        	String item_img = request.getParameter("item_img" + i);
 		        	String total_price = String.valueOf(Integer.parseInt(count_item) * Integer.parseInt(item_sale_price));
-		        	
-		        	Map<String, String> str_i_map = new HashMap<String, String>();
-		        	str_i_map.put("item_index", item_index);
-		        	str_i_map.put("count_item", count_item);
-		        	str_i_map.put("item_sale_price", item_sale_price);
-		        	str_i_map.put("total_price", total_price);
-		        	str_i_map.put("item_name", item_name);
-		        	str_i_map.put("item_img", item_img);
+
+		        	model.addAttribute("item_index" + i, item_index);
+		        	model.addAttribute("count_item" + i, count_item);
+		        	model.addAttribute("item_sale_price" + i, item_sale_price);
+		        	model.addAttribute("total_price" + i, total_price);
+		        	model.addAttribute("item_name" + i, item_name);
+		        	model.addAttribute("item_img" + i, item_img);
 		        	
 		        	model.addAttribute("str_i", str_i);
-		        	model.addAttribute("str_i_map", str_i_map);
 		        	model.addAttribute("user_id", user_id);
 		        	model.addAttribute("count", count);
-		        	System.out.println("11");
-	        	}
-	        	
+	        	}   	
 	        	return "payment/payment";
 	        }
 	}

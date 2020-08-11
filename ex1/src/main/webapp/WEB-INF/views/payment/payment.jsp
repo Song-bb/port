@@ -18,21 +18,112 @@
                     <th>주문금액</th>
                     <th>총 금액</th>
                 </tr>
-                <c:forEach var="map" items="${str_i_map}">
-                <tr class="itemDB">
-                    <td>${ str_i }</td>
-                    <td>
-                       <!-- 상품 -->
-                       <a href="item_detail?idx=${ map.item_index }" class="itemSize_50"><span class="itemSize_50"><img src="${ map.item_img }"></span></a>
-                    <td class="item_name">
-                        <a href="item_detail?idx=${ map.item_index }">${ map.item_name }</a>
-                    </td>
-                    </td>
-                    <td>${ map.count_item } 개</td>
-                    <td>${ map.item_sale_price } 원</td>
-                    <td>${ map.total_price } 원</td>
-                </tr>
-                <!--  -->
+                <c:forEach var="i" begin="1" end="${ count }">
+                	<c:if test="${i == 1}">
+                		<c:set var="index" value="${item_index1}"  />
+                		<c:set var="count_item" value="${count_item1}"  />
+                		<c:set var="item_sale_price" value="${item_sale_price1}"  />
+                		<c:set var="total_price" value="${total_price1}"  />
+                		<c:set var="item_name" value="${item_name1}"  />
+                		<c:set var="item_img" value="${item_img1}"  />
+                		<tr class="itemDB">
+		                    <td>${ i }</td>
+		                    <td>
+		                       <!-- 상품 -->
+		                       <a href="item_detail?idx=${ index }" class="itemSize_50"><span class="itemSize_50"><img src="${ item_img }"></span></a>
+		                    <td class="item_name">
+		                        <a href="item_detail?idx=${ index }">${ item_name }</a>
+		                    </td>
+		                    </td>
+		                    <td>${ count_item } 개</td>
+		                    <td>${ item_sale_price } 원</td>
+		                    <td>${ total_price } 원</td>
+		                </tr>
+					</c:if>
+                	<c:if test="${i == 2}">
+                		<c:set var="index" value="${item_index2}"  />
+                		<c:set var="count_item" value="${count_item2}"  />
+                		<c:set var="item_sale_price" value="${item_sale_price2}"  />
+                		<c:set var="total_price" value="${total_price2}"  />
+                		<c:set var="item_name" value="${item_name2}"  />
+                		<c:set var="item_img" value="${item_img2}"  />
+                		<tr class="itemDB">
+		                    <td>${ i }</td>
+		                    <td>
+		                       <!-- 상품 -->
+		                       <a href="item_detail?idx=${ index }" class="itemSize_50"><span class="itemSize_50"><img src="${ item_img }"></span></a>
+		                    <td class="item_name">
+		                        <a href="item_detail?idx=${ index }">${ item_name }</a>
+		                    </td>
+		                    </td>
+		                    <td>${ count_item } 개</td>
+		                    <td>${ item_sale_price } 원</td>
+		                    <td>${ total_price } 원</td>
+		                </tr>
+					</c:if>
+					<c:if test="${i == 3}">
+                		<c:set var="index" value="${item_index3}"  />
+                		<c:set var="count_item" value="${count_item3}"  />
+                		<c:set var="item_sale_price" value="${item_sale_price3}"  />
+                		<c:set var="total_price" value="${total_price3}"  />
+                		<c:set var="item_name" value="${item_name3}"  />
+                		<c:set var="item_img" value="${item_img3}"  />
+                		<tr class="itemDB">
+		                    <td>${ i }</td>
+		                    <td>
+		                       <!-- 상품 -->
+		                       <a href="item_detail?idx=${ index }" class="itemSize_50"><span class="itemSize_50"><img src="${ item_img }"></span></a>
+		                    <td class="item_name">
+		                        <a href="item_detail?idx=${ index }">${ item_name }</a>
+		                    </td>
+		                    </td>
+		                    <td>${ count_item } 개</td>
+		                    <td>${ item_sale_price } 원</td>
+		                    <td>${ total_price } 원</td>
+		                </tr>
+					</c:if>
+					<c:if test="${i == 4}">
+                		<c:set var="index" value="${item_index4}"  />
+                		<c:set var="count_item" value="${count_item4}"  />
+                		<c:set var="item_sale_price" value="${item_sale_price4}"  />
+                		<c:set var="total_price" value="${total_price4}"  />
+                		<c:set var="item_name" value="${item_name4}"  />
+                		<c:set var="item_img" value="${item_img4}"  />
+                		<tr class="itemDB">
+		                    <td>${ i }</td>
+		                    <td>
+		                       <!-- 상품 -->
+		                       <a href="item_detail?idx=${ index }" class="itemSize_50"><span class="itemSize_50"><img src="${ item_img }"></span></a>
+		                    <td class="item_name">
+		                        <a href="item_detail?idx=${ index }">${ item_name }</a>
+		                    </td>
+		                    </td>
+		                    <td>${ count_item } 개</td>
+		                    <td>${ item_sale_price } 원</td>
+		                    <td>${ total_price } 원</td>
+		                </tr>
+					</c:if>
+					<c:if test="${i == 5}">
+                		<c:set var="index" value="${item_index5}"  />
+                		<c:set var="count_item" value="${count_item5}"  />
+                		<c:set var="item_sale_price" value="${item_sale_price5}"  />
+                		<c:set var="total_price" value="${total_price5}"  />
+                		<c:set var="item_name" value="${item_name5}"  />
+                		<c:set var="item_img" value="${item_img5}"  />
+                		<tr class="itemDB">
+		                    <td>${ i }</td>
+		                    <td>
+		                       <!-- 상품 -->
+		                       <a href="item_detail?idx=${ index }" class="itemSize_50"><span class="itemSize_50"><img src="${ item_img }"></span></a>
+		                    <td class="item_name">
+		                        <a href="item_detail?idx=${ index }">${ item_name }</a>
+		                    </td>
+		                    </td>
+		                    <td>${ count_item } 개</td>
+		                    <td>${ item_sale_price } 원</td>
+		                    <td>${ total_price } 원</td>
+		                </tr>
+					</c:if>
                 </c:forEach>
             </table>
         </div>
