@@ -57,22 +57,26 @@
 	                                <tr><td class="goods_info_title">안내사항 </td><td class="goods_info_text">식품 특성상 중량차이가 있을 수 있습니다.식품 특성상 중량차이가 있을 수 있습니다.
 	                                    식품 특성상 중량차이가 있을 수 있습니다</td>
 	                                </tr>
+	                                
+	                                <!-- 정기배송일 -->
+	                                <tr>
+		                                <td class="goods_info_title">신청 옵션</td>
+		                                <td class="goods_info_text">
+		                                	<select id="count_month" name="count_month" onchange="count_month();">
+			                                	<option value="1">1개월</option>
+			                                	<option value="3">3개월</option>
+			                                	<option value="6">6개월</option>
+			                                	<option value="12">12개월</option>
+			                                </select>
+			                            </td>
+	                                </tr>
+	                                <tr>
+		                                <td class="goods_info_title">배송날짜</td>
+		                                <td class="goods_info_text"><input type="date" name="week" id="week" required/>&nbsp; 일</td>
+	                                </tr>
 	                            </table>
 	                        </div>
-	                        <!-- 상품수 증가  -->
-	                        <div class="goods_count_" style="padding-bottom: 25px; border-bottom: 1px solid rgba(211, 211, 211, 0.486);" >
 
-	                            	<p>신청 옵션</p>
-	                                <select id="count_month" name="count_month" onchange="count_month();">
-	                                	<option value="1">1개월</option>
-	                                	<option value="3">3개월</option>
-	                                	<option value="6">6개월</option>
-	                                	<option value="12">12개월</option>
-	                                </select>
-	                                <p>배송 날짜</p>
-	                                <input type="date" name="week" id="week" required/> 일
-
-	                        </div>
 	                        <div class="total_goods_price">
 	                            <p>총 상품 금액</p>
 	                                  <!--  count -->
@@ -83,7 +87,7 @@
 	                            </p>
 	                        </div>
 	                        <div class="goods_order">
-	                        	<button class="goOrder orderbutton" type="button" onclick="regular_item();"><a href="/payment">구매하기</a></button>
+								<a href="/payment" class="orderbutton">구매하기</a></button>
 	                        </div>                  
 	                    </div>
 	                </div>
