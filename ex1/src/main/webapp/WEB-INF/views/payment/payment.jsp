@@ -16,34 +16,23 @@
                     <th>상품정보</th>
                     <th>수량</th>
                     <th>주문금액</th>
-                    <th>포인트</th>
+                    <th>총 금액</th>
                 </tr>
+                <c:forEach var="map" items="${str_i_map}">
                 <tr class="itemDB">
-                    <td>1</td>
+                    <td>${ str_i }</td>
                     <td>
                        <!-- 상품 -->
-                       <a href="#" class="itemSize_50"><span class="itemSize_50"><img src="http://placehold.it/50x50"></span></a>
+                       <a href="item_detail?idx=${ map.item_index }" class="itemSize_50"><span class="itemSize_50"><img src="${ map.item_img }"></span></a>
                     <td class="item_name">
-                        <a href="#">[워싱턴] 한입체리 500g</a>
+                        <a href="item_detail?idx=${ map.item_index }">${ map.item_name }</a>
                     </td>
                     </td>
-                    <td>1개</td>
-                    <td>10,000원</td>
-                    <td>10원</td>
+                    <td>${ map.count_item } 개</td>
+                    <td>${ map.item_sale_price } 원</td>
+                    <td>${ map.total_price } 원</td>
                 </tr>
-                <tr class="itemDB">
-                    <td>2</td>
-                    <td>
-                       <!-- 상품 -->
-                       <a href="#" class="itemSize_50"><span class="itemSize_50"><img src="http://placehold.it/50x50"></span></a>
-                    <td class="item_name">
-                        <a href="#">[워싱턴] 한입체리 500g</a>
-                    </td>
-                    </td>
-                    <td>1개</td>
-                    <td>10,000원</td>
-                    <td>10원</td>
-                </tr>
+                </c:forEach>
             </table>
         </div>
         <div id="write_orderseet">

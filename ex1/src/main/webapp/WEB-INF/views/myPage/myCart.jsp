@@ -34,7 +34,11 @@
 	                    <input type="hidden" value="${ cart.item_idx }" id="item_index_i" name="item_index_i">
 	                    <input type="hidden" value="${ cart.user_id }" id="user_id" name="user_id">
                     </td>
-                    <td> <div class="cart_info_name"><a href="item_detail?idx=${ cart.item_idx }">${ cart.item_name }</a></div></td>
+                    <td> 
+                    	<div class="cart_info_name"><a href="item_detail?idx=${ cart.item_idx }">${ cart.item_name }</a></div>
+                    	<input type="hidden" value="${ cart.item_name }" name="item_name_i">
+                    	<input type="hidden" value="${ cart.item_img }" name="item_img_i">
+                    </td>
                     <td>
                     	<div class="cart_info_saleprice"></div>
                     	<fmt:formatNumber value="${ cart.item_sale_price }" pattern="###,###,###" /><br>원
@@ -135,27 +139,35 @@
 		            if (document.getElementsByName("cart_item_select")[i].checked == true) {
 		            	
 		            	checked_count++;
-		            	json.checked_count = {item_index_i:document.getElementsByName("item_index_i")[i].value, user_id:document.getElementsByName("user_id")[i].value, count_item:document.getElementsByName("item_order_amount")[i].value, item_sale_price:document.getElementsByName("item_sale_price")[i].value}
-
+		            	json.checked_count = {item_index_i:document.getElementsByName("item_index_i")[i].value, user_id:document.getElementsByName("user_id")[i].value, count_item:document.getElementsByName("item_order_amount")[i].value, item_sale_price:document.getElementsByName("item_sale_price")[i].value, item_name:document.getElementsByName("item_name_i")[i].value, item_img:document.getElementsByName("item_img_i")[i].value}
+		            	
+	    		        for(var key in json.checked_count) {
+	    		        	var name = key + checked_count;
+	    			        var hiddenField = document.createElement("input");
+	    			        hiddenField.setAttribute("type", "hidden");
+	    			        hiddenField.setAttribute("name", name);
+	    			        hiddenField.setAttribute("value", json.checked_count[key]);
+	    			        form.appendChild(hiddenField);
+	    			    }
+	    		        
 		            } else if( document.getElementsByName("cart_item_select")[i].checked == false ){
 		            	count++;
 		            }
 		        }
 		        
-		        alert( json );
-		        
             	if( check_count == count ){
             		alert("선택된 상품이 없습니다.");
+            	} else if( checked_count > 5 ){
+            		alert("구매 가능한 아이템은 최대 5개까지 입니다.")
             	} else {
-    		        var hiddenField = document.createElement("input");
+   					var hiddenField = document.createElement("input");
     		        hiddenField.setAttribute("type", "hidden");
     		        hiddenField.setAttribute("name", "count");
     		        hiddenField.setAttribute("value", checked_count);
-    		        form.appendChild(hiddenField);
+    		        form.appendChild(hiddenField); 
             		
     				document.body.appendChild(form);
     				form.submit();
-    				window.close();
             	}
 			}
 			

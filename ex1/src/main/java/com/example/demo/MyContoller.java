@@ -34,6 +34,7 @@ import com.example.demo.Service.Service_items;
 import com.example.demo.Service.Service_members;
 import com.example.demo.Service.Service_myPage;
 import com.example.demo.Service.Service_noticeBoard;
+import com.example.demo.Service.Service_payment;
 import com.example.demo.Service.Service_personal_que;
 import com.example.demo.Service.Service_regular_order;
 import com.example.demo.Service.Service_request_item;
@@ -75,7 +76,9 @@ public class MyContoller {
 	@Autowired
 	Service_regular_order service_regular_order;
 	@Autowired
-	Service_cart service_cart;	
+	Service_cart service_cart;
+	@Autowired
+	Service_payment service_payment;
 	
 	@Autowired
 	FileuploadService_event fileUploadService_event;
@@ -1206,16 +1209,37 @@ public class MyContoller {
 	
 	// 결제 페이지
 	@RequestMapping("/payment")
-	public String payment( HttpServletRequest request ) {
+	public String payment( HttpServletRequest request, Model model ) {
 		 HttpSession session = request.getSession();
 	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
 	        	return "loginPage/loginPage_main";
 	        } else {
-	        	String count = request.getParameter("count");
-	        	String param = "item_index_i" + count;
-	        	String item_index_i = request.getParameter(param);
-	        	System.out.println(count);
-	        	System.out.println(item_index_i);
+	        	int count = Integer.parseInt(request.getParameter("count"));
+	        	for( int i=1 ; i<=count; i++) {
+	        		String str_i = String.valueOf(i);
+		        	String item_index = request.getParameter("item_index_i" + i);
+		        	String user_id = request.getParameter("user_id" + i);
+		        	String count_item = request.getParameter("count_item" + i);
+		        	String item_sale_price = request.getParameter("item_sale_price" + i);
+		        	String item_name = request.getParameter("item_name" + i);
+		        	String item_img = request.getParameter("item_img" + i);
+		        	String total_price = String.valueOf(Integer.parseInt(count_item) * Integer.parseInt(item_sale_price));
+		        	
+		        	Map<String, String> str_i_map = new HashMap<String, String>();
+		        	str_i_map.put("item_index", item_index);
+		        	str_i_map.put("count_item", count_item);
+		        	str_i_map.put("item_sale_price", item_sale_price);
+		        	str_i_map.put("total_price", total_price);
+		        	str_i_map.put("item_name", item_name);
+		        	str_i_map.put("item_img", item_img);
+		        	
+		        	model.addAttribute("str_i", str_i);
+		        	model.addAttribute("str_i_map", str_i_map);
+		        	model.addAttribute("user_id", user_id);
+		        	model.addAttribute("count", count);
+		        	System.out.println("11");
+	        	}
+	        	
 	        	return "payment/payment";
 	        }
 	}

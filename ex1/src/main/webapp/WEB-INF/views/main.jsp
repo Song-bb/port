@@ -34,11 +34,11 @@
 					<td class="main_item">
 						<div class="item_img_250320">
 							<div class="item_img" style="background-image: url('${ mainItem0.item_img }')">
-								<a href="item_detail?idx=${ mainItem0.idx }">
+								<a href="/item_detail?idx=${ mainItem0.idx }">
 							</div>
 						</div>
 						<div class="item_desc">
-							<p><a href="/item_detail">${ mainItem0.item_name }</a></p>
+							<p><a href="/item_detail?idx=${ mainItem0.idx }">${ mainItem0.item_name }</a></p>
 							<p><span><fmt:formatNumber value="${ mainItem0.item_sale_price }" pattern="###,###,###" /></span><span>원</span></p>
 							<p><span><fmt:formatNumber value="${ mainItem0.item_real_price }" pattern="###,###,###" /></span><span>원</span></p>
 						</div>
