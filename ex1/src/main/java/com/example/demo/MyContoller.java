@@ -1212,7 +1212,10 @@ public class MyContoller {
 	        	return "loginPage/loginPage_main";
 	        } else {
 	        	String count = request.getParameter("count");
+	        	String param = "item_index_i" + count;
+	        	String item_index_i = request.getParameter(param);
 	        	System.out.println(count);
+	        	System.out.println(item_index_i);
 	        	return "payment/payment";
 	        }
 	}

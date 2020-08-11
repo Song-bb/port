@@ -133,47 +133,16 @@
 		        
 		        for (var i=0; i<check_count; i++) {
 		            if (document.getElementsByName("cart_item_select")[i].checked == true) {
+		            	
 		            	checked_count++;
-		            	
-		            	json.item_index
-		            	
-		            	var item_index_i = document.getElementsByName("item_index_i")[i].value;
-		            	var name1 = item_index_i + i;
-		                var hiddenField = document.createElement("input");
-				        hiddenField.setAttribute("type", "hidden");
-				        hiddenField.setAttribute("name", name1);
-				        hiddenField.setAttribute("value", item_index_i);
-				        form.appendChild(hiddenField);
+		            	json.checked_count = {item_index_i:document.getElementsByName("item_index_i")[i].value, user_id:document.getElementsByName("user_id")[i].value, count_item:document.getElementsByName("item_order_amount")[i].value, item_sale_price:document.getElementsByName("item_sale_price")[i].value}
 
-				        var user_id = document.getElementsByName("user_id")[i].value;
-				        var name2 = user_id + i;
-		                var hiddenField = document.createElement("input");
-				        hiddenField.setAttribute("type", "hidden");
-				        hiddenField.setAttribute("name", name2);
-				        hiddenField.setAttribute("value", user_id);
-				        form.appendChild(hiddenField);
-
-				        var count_item = document.getElementsByName("item_order_amount")[i].value;
-				        var name3 = count_item + i;
-		                var hiddenField = document.createElement("input");
-				        hiddenField.setAttribute("type", "hidden");
-				        hiddenField.setAttribute("name", name3);
-				        hiddenField.setAttribute("value", count_item);
-				        form.appendChild(hiddenField);
-
-				        var item_sale_price = document.getElementsByName("item_sale_price")[i].value;
-				        var name4 = item_sale_price + i;
-		                var hiddenField = document.createElement("input");
-				        hiddenField.setAttribute("type", "hidden");
-				        hiddenField.setAttribute("name", name4);
-				        hiddenField.setAttribute("value", item_sale_price);
-				        form.appendChild(hiddenField);
-				        
-				        alert(item_index_i + user_id + count_item + item_sale_price );
 		            } else if( document.getElementsByName("cart_item_select")[i].checked == false ){
 		            	count++;
 		            }
 		        }
+		        
+		        alert( json );
 		        
             	if( check_count == count ){
             		alert("선택된 상품이 없습니다.");
