@@ -34,6 +34,7 @@
 		                       <a href="item_detail?idx=${ index }" class="itemSize_50"><span class="itemSize_50"><img src="${ item_img }"></span></a>
 		                    <td class="item_name">
 		                        <a href="item_detail?idx=${ index }">${ item_name }</a>
+		                        <input type="hidden" value="1" id="item1">
 		                    </td>
 		                    </td>
 		                    <td>${ count_item } 개</td>
@@ -55,6 +56,7 @@
 		                       <a href="item_detail?idx=${ index }" class="itemSize_50"><span class="itemSize_50"><img src="${ item_img }"></span></a>
 		                    <td class="item_name">
 		                        <a href="item_detail?idx=${ index }">${ item_name }</a>
+		                        <input type="hidden" value="2" id="item2">
 		                    </td>
 		                    </td>
 		                    <td>${ count_item } 개</td>
@@ -76,6 +78,7 @@
 		                       <a href="item_detail?idx=${ index }" class="itemSize_50"><span class="itemSize_50"><img src="${ item_img }"></span></a>
 		                    <td class="item_name">
 		                        <a href="item_detail?idx=${ index }">${ item_name }</a>
+		                        <input type="hidden" value="3" id="item3">
 		                    </td>
 		                    </td>
 		                    <td>${ count_item } 개</td>
@@ -97,6 +100,7 @@
 		                       <a href="item_detail?idx=${ index }" class="itemSize_50"><span class="itemSize_50"><img src="${ item_img }"></span></a>
 		                    <td class="item_name">
 		                        <a href="item_detail?idx=${ index }">${ item_name }</a>
+		                        <input type="hidden" value="4" id="item4">
 		                    </td>
 		                    </td>
 		                    <td>${ count_item } 개</td>
@@ -118,6 +122,7 @@
 		                       <a href="item_detail?idx=${ index }" class="itemSize_50"><span class="itemSize_50"><img src="${ item_img }"></span></a>
 		                    <td class="item_name">
 		                        <a href="item_detail?idx=${ index }">${ item_name }</a>
+		                        <input type="hidden" value="5" id="item5">
 		                    </td>
 		                    </td>
 		                    <td>${ count_item } 개</td>
@@ -129,14 +134,13 @@
             </table>
         </div>
         <div id="write_orderseet">
-            <form action="#">
             <div id="order_info_id">
   
                 <h5>주문자 정보</h5>
                 <table>
                     <tr>
                         <th>이름</th>
-                        <td>${ user_name }</td>
+                        <td>${ user_name }<input type="hidden" value="${ user_name }" id="user_name"></td>
                     </tr>
                     <tr>
                         <th>*연락처</th>
@@ -208,17 +212,16 @@
                     <tr>
                         <th>일반 결제</th>
                         <td>
-                            <label name="pay" for="pay"><input type="radio" name="pay" id="order_pay" value="card">카드결제</label>
-                            <label name="pay" for="pay"><input type="radio" name="pay" id="order_pay" value="bank1">계좌이체</label>
-                            <label name="pay" for="pay"><input type="radio" name="pay" id="order_pay" value="bank2">가상계좌</label>
+                            <label name="pay" for="pay"><input type="radio" name="pay" id="order_pay" value="신용카드">신용카드</label>
+                            <label name="pay" for="pay"><input type="radio" name="pay" id="order_pay" value="실시간계좌이체">실시간계좌이체</label>
+                            <label name="pay" for="pay"><input type="radio" name="pay" id="order_pay" value="무통장입금">무통장입금</label>
                         </td>
                     </tr>
                 </table>
             </div>
-        </form>
         </div>
         <div id="final_order">
-            <button type="submit" class="final_order_button">주문하기</button>
+            <button type="button" onclick="payment_ok();" class="final_order_button">주문하기</button>
         </div>
     </div>
 	
@@ -231,5 +234,28 @@
 			var user_point = document.getElementById("user_point").value;
 			var result_price = (all_item_price - user_point).toLocaleString();
 			document.getElementById("result_total_price").innerHTML = result_price;
+		}
+		
+		
+		function payment_ok(){
+    		var form = document.createElement("form");
+    		form.setAttribute("method", "post");
+    		form.setAttribute("action", "/payment_ok");
+    		
+    		var user_name = document.getElementById("user_name").value;
+    		var item_idx1 = document.getElementById("item_idx").value;
+    		var content1 = document.getElementById("content").value;
+    		
+    		var params = {user_id:user_id1, item_idx:item_idx1, content:content1}; 
+
+		    for(var key in params) {
+		        var hiddenField = document.createElement("input");
+		        hiddenField.setAttribute("type", "hidden");
+		        hiddenField.setAttribute("name", key);
+		        hiddenField.setAttribute("value", params[key]);
+		        form.appendChild(hiddenField);
+		    }   
+    		document.body.appendChild(form);
+			form.submit();
 		}
 	</script>
