@@ -32,6 +32,7 @@
                     <td>${ map.item_sale_price } 원</td>
                     <td>${ map.total_price } 원</td>
                 </tr>
+                <!--  -->
                 </c:forEach>
             </table>
         </div>

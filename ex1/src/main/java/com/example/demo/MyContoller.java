@@ -1215,7 +1215,7 @@ public class MyContoller {
 	        	return "myPage/withdraw_member";
 	        }
 	}
-	
+	//
 	// 결제 페이지
 	@RequestMapping("/payment")
 	public String payment( HttpServletRequest request, Model model ) {
