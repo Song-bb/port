@@ -298,6 +298,8 @@ public class MyContoller {
 		return "item/main_searchItem_high";
 	}
 	
+	/*=========== 정기배송 페이지 =============*/
+	
 	// 정기배송메인
 	@RequestMapping("/regularOrder_main")
 	public String regularOrder_main(Model model) {
@@ -307,22 +309,29 @@ public class MyContoller {
 		return "regular_order/regularOrder_main";
 	}
 	
+	// 정기배송상세
 	@RequestMapping("/regular_item_detail")
 	public String regular_item_detail(@RequestParam("idx") String idx, 
 			HttpServletRequest request, HttpServletResponse response, Model model) {
 		model.addAttribute("idx_show_detail", service_items.detail_idx_read(idx));
+		
 		String item_number = service_items.check_itemNumber(idx).get(0).getItem_number();
 		int reviewCount = service_review.itemDetail_reviewCount(item_number);
 		model.addAttribute("itemReview_count", reviewCount);
+		
 		if( reviewCount > 0 ) {
 			float average = service_review.itemDetail_reviewTotal(item_number) / reviewCount;
 			model.addAttribute("itemReview_score", average);
 		} else {
 			model.addAttribute("itemReview_score", "0");
 		}
+		
 		model.addAttribute("review_item", service_review.review_item(item_number));
 		return "regular_order/regular_item_detail";
 	}
+	
+	/*=========== /정기배송 페이지 =============*/
+	
 	
 	// 제철과일메인
 	@RequestMapping("/fruitInSeason_main")
