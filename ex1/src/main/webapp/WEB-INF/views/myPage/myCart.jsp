@@ -139,7 +139,7 @@
 		            if (document.getElementsByName("cart_item_select")[i].checked == true) {
 		            	
 		            	checked_count++;
-		            	json.checked_count = {item_index_i:document.getElementsByName("item_index_i")[i].value, user_id:document.getElementsByName("user_id")[i].value, count_item:document.getElementsByName("item_order_amount")[i].value, item_sale_price:document.getElementsByName("item_sale_price")[i].value, item_name:document.getElementsByName("item_name_i")[i].value, item_img:document.getElementsByName("item_img_i")[i].value}
+		            	json.checked_count = {item_index_i:document.getElementsByName("item_index_i")[i].value, count_item:document.getElementsByName("item_order_amount")[i].value, item_sale_price:document.getElementsByName("item_sale_price")[i].value, item_name:document.getElementsByName("item_name_i")[i].value, item_img:document.getElementsByName("item_img_i")[i].value}
 		            	
 	    		        for(var key in json.checked_count) {
 	    		        	var name = key + checked_count;

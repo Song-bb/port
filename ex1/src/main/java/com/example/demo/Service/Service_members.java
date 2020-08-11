@@ -384,6 +384,10 @@ public class Service_members {
 		return dao_member.update_userpw(map);
 	}
 	
+	/* 결제페이지 회원정보 받아오기 */
+	public List<dto_members> detail_member_pay(String user_id){
+		return dao_member.detail_member_pay(user_id);
+	}
 
 	
 }

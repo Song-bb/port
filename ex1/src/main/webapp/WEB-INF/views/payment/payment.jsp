@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!-- 주문/결제 정보 입력 페이지 -->
 
@@ -36,8 +37,8 @@
 		                    </td>
 		                    </td>
 		                    <td>${ count_item } 개</td>
-		                    <td>${ item_sale_price } 원</td>
-		                    <td>${ total_price } 원</td>
+		                    <td><fmt:formatNumber value="${ item_sale_price }" pattern="###,###,###" /> 원</td>
+		                    <td><fmt:formatNumber value="${ total_price }" pattern="###,###,###" /> 원</td>
 		                </tr>
 					</c:if>
                 	<c:if test="${i == 2}">
@@ -57,8 +58,8 @@
 		                    </td>
 		                    </td>
 		                    <td>${ count_item } 개</td>
-		                    <td>${ item_sale_price } 원</td>
-		                    <td>${ total_price } 원</td>
+		                    <td><fmt:formatNumber value="${ item_sale_price }" pattern="###,###,###" /> 원</td>
+		                    <td><fmt:formatNumber value="${ total_price }" pattern="###,###,###" /> 원</td>
 		                </tr>
 					</c:if>
 					<c:if test="${i == 3}">
@@ -78,8 +79,8 @@
 		                    </td>
 		                    </td>
 		                    <td>${ count_item } 개</td>
-		                    <td>${ item_sale_price } 원</td>
-		                    <td>${ total_price } 원</td>
+		                    <td><fmt:formatNumber value="${ item_sale_price }" pattern="###,###,###" /> 원</td>
+		                    <td><fmt:formatNumber value="${ total_price }" pattern="###,###,###" /> 원</td>
 		                </tr>
 					</c:if>
 					<c:if test="${i == 4}">
@@ -99,8 +100,8 @@
 		                    </td>
 		                    </td>
 		                    <td>${ count_item } 개</td>
-		                    <td>${ item_sale_price } 원</td>
-		                    <td>${ total_price } 원</td>
+		                    <td><fmt:formatNumber value="${ item_sale_price }" pattern="###,###,###" /> 원</td>
+		                    <td><fmt:formatNumber value="${ total_price }" pattern="###,###,###" /> 원</td>
 		                </tr>
 					</c:if>
 					<c:if test="${i == 5}">
@@ -120,8 +121,8 @@
 		                    </td>
 		                    </td>
 		                    <td>${ count_item } 개</td>
-		                    <td>${ item_sale_price } 원</td>
-		                    <td>${ total_price } 원</td>
+		                    <td><fmt:formatNumber value="${ item_sale_price }" pattern="###,###,###" /> 원</td>
+		                    <td><fmt:formatNumber value="${ total_price }" pattern="###,###,###" /> 원</td>
 		                </tr>
 					</c:if>
                 </c:forEach>
@@ -135,7 +136,7 @@
                 <table>
                     <tr>
                         <th>이름</th>
-                        <td>{회원이름}</td>
+                        <td>${ user_name }</td>
                     </tr>
                     <tr>
                         <th>*연락처</th>
@@ -154,7 +155,6 @@
                         <th>이름(회사)</th>
                         <td>
                             <input type="text" name="" id="orderId">
-                            <span>0/25자</span>
                         </td>
                     </tr>
                     <tr>
@@ -188,31 +188,29 @@
                 <table>
                     <tr>
                         <th>총 주문 금액</th>
-                        <td><span>{상품금액표기}</span> 원</td>
+                        <td><span><fmt:formatNumber value="${ all_item_price }" pattern="###,###,###" /></span> 원</td>
+                        <input type="hidden" value="${ all_item_price }" id="all_item_price">
                     </tr>
                     <tr class="order_use_point">
                         <th>포인트 사용</th>
                         <td>
                             <!-- 가지고 있는 포인트 값보다 이하의 값만 적을 수 있어야 함 -->
                             <!-- 적용 버튼을 누르면 해당 포인트 만큼 상품금액에서 빠짐 -->
-                            <input type="text" id="userId_point">
-                            <button type="button"> 적용</button>
+                            <input type="text" id="userId_point" value="<fmt:formatNumber value='${ user_point }' pattern='###,###,###' />">
+                            <input type="hidden" value="${ user_point }" id="user_point">
+                            <button type="button" onclick="use_point();"> 적용</button>
                         </td>
                     </tr>
                     <tr>
-                        <th>배송비</th>
-                        <td><span>{배송비}</span> 원(택배발송)</td>
-                    </tr>
-                    <tr>
                         <th>총 결제 금액</th>
-                        <td><span>{총결제금액 표기}</span> 원</td>
+                        <td><span id="result_total_price"><fmt:formatNumber value="${ all_item_price }" pattern="###,###,###" /></span> 원</td>
                     </tr>
                     <tr>
                         <th>일반 결제</th>
                         <td>
-                            <label name="pay"><input type="radio" name="pay" id="order_pay" value="card">카드결제</label>
-                            <label name="pay"><input type="radio" name="pay" id="order_pay" value="bank1">계좌이체</label>
-                            <label name="pay"><input type="radio" name="pay" id="order_pay" value="bank2">가상계좌</label>
+                            <label name="pay" for="pay"><input type="radio" name="pay" id="order_pay" value="card">카드결제</label>
+                            <label name="pay" for="pay"><input type="radio" name="pay" id="order_pay" value="bank1">계좌이체</label>
+                            <label name="pay" for="pay"><input type="radio" name="pay" id="order_pay" value="bank2">가상계좌</label>
                         </td>
                     </tr>
                 </table>
@@ -225,3 +223,13 @@
     </div>
 	
 	<c:import url="../footer.jsp"></c:import>
+	
+	
+	<script>
+		function use_point(){
+			var all_item_price = document.getElementById("all_item_price").value;
+			var user_point = document.getElementById("user_point").value;
+			var result_price = (all_item_price - user_point).toLocaleString();
+			document.getElementById("result_total_price").innerHTML = result_price;
+		}
+	</script>

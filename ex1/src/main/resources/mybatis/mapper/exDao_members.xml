@@ -556,5 +556,9 @@
 			UPDATE members SET user_pw = #{ user_pw } WHERE user_id = #{ user_id }
 	</update>
 	
+	<select id="detail_member_pay" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members WHERE user_id = #{param1}
+	</select>
+	
 	
 </mapper>

@@ -85,6 +85,8 @@ public interface IDao_members {
 	// 비밀번호 수정
 	public int update_userpw( Map<String, String> map );
 
+	// 결제페이지 회원정보 받아오기
+	public List<dto_members> detail_member_pay(String user_id);
 		
 }
 

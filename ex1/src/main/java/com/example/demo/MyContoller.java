@@ -1223,17 +1223,20 @@ public class MyContoller {
 	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
 	        	return "loginPage/loginPage_main";
 	        } else {
+	        	String user_id = session.getAttribute("user_id").toString();
 	        	int count = Integer.parseInt(request.getParameter("count"));
+	        	int all_item_price = 0;
 	        	for( int i=1 ; i<=count; i++) {
 	        		String str_i = String.valueOf(i);
 		        	String item_index = request.getParameter("item_index_i" + i);
-		        	String user_id = request.getParameter("user_id" + i);
 		        	String count_item = request.getParameter("count_item" + i);
 		        	String item_sale_price = request.getParameter("item_sale_price" + i);
 		        	String item_name = request.getParameter("item_name" + i);
 		        	String item_img = request.getParameter("item_img" + i);
 		        	String total_price = String.valueOf(Integer.parseInt(count_item) * Integer.parseInt(item_sale_price));
-
+		        	
+		        	all_item_price += Integer.parseInt(total_price);
+		        	
 		        	model.addAttribute("item_index" + i, item_index);
 		        	model.addAttribute("count_item" + i, count_item);
 		        	model.addAttribute("item_sale_price" + i, item_sale_price);
@@ -1242,9 +1245,15 @@ public class MyContoller {
 		        	model.addAttribute("item_img" + i, item_img);
 		        	
 		        	model.addAttribute("str_i", str_i);
-		        	model.addAttribute("user_id", user_id);
 		        	model.addAttribute("count", count);
-	        	}   	
+
+		        	}
+	        	model.addAttribute("all_item_price", String.valueOf(all_item_price));
+	        	
+	        	List<dto_members> list = service_members.detail_member_pay(user_id);
+	        	model.addAttribute("user_name", list.get(0).getUser_name());
+	        	model.addAttribute("user_point", list.get(0).getUser_point());
+	        	
 	        	return "payment/payment";
 	        }
 	}
