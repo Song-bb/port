@@ -7,6 +7,7 @@
 
 
 	<c:import url="../header.jsp"></c:import>
+	
 	<c:forEach items="${ idx_show_detail }" var="dto">
 	    <div id="item_detail_wrap">
 	        	<div class="item_detail_titleLink">

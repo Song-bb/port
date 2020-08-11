@@ -96,7 +96,7 @@ public class MyContoller {
 	@RequestMapping("/main")
 	public String mainPage(Model model) {
 		model.addAttribute("dtoB_mainBanner", service_banner.banner_list());
-		model.addAttribute("dtoB_mainItem0_ListAll", service_items.All_viewDao_new());
+		model.addAttribute("dtoB_mainItem0_ListAll", service_items.main_viewDao_new());
 		model.addAttribute("dtoB_mainItem1_Fallen", service_items.fallen_list_new());
 		model.addAttribute("dtoB_mainItem2_season", service_items.season_list_new());
 		model.addAttribute("dtoB_mainItem3_Imported", service_items.imported_list_new());

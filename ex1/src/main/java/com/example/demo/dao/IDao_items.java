@@ -57,6 +57,9 @@ public interface IDao_items {
 	public List<dto_items> All_viewDao_new();
 	public int all_countDao();
 	
+	//메인 신상품 보기
+	public List<dto_items> main_viewDao_new();
+	
 	// 메인 상품검색
 	public List<dto_items> mainSerch(String search);
 	public int mainSerch_count(String search);

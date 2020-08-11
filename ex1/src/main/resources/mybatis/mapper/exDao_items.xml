@@ -102,6 +102,11 @@
 	<select id="All_viewDao_new" resultType="com.example.demo.dto.dto_items">
 		SELECT * FROM items ORDER BY idx DESC;
 	</select>
+	
+	<!-- 전체상품 - 메인등록리스트 -->
+	<select id="main_viewDao_new" resultType="com.example.demo.dto.dto_items">
+		SELECT * FROM items WHERE `item_category`="낙과채널" OR `item_category`="수입과일" OR `item_category`="제철과일" ORDER BY idx DESC
+	</select>
 
 	<select id="all_countDao" resultType="_int">
 		SELECT COUNT(*) FROM items;

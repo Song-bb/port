@@ -14,7 +14,7 @@
         </div>
         <form>
         	<!-- 정기배송 패키지 상품 상세페이지로 연동 -->
-            <button onclick="location.href='/regular_item_detail'"><a href="/regular_item_detail">정기배송 신청하기</a></button>
+            <button><a href="/regular_item_detail?idx=${ dto.idx }">정기배송 신청하기</a></button>
         </form>
         <div id="Month_delivery_item">
             <h3>[ 이번달 정기배송 패키지 상품 ]</h3>
