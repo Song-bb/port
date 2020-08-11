@@ -7,16 +7,15 @@
 
 
 	<c:import url="../header.jsp"></c:import>
-	
 	<c:forEach items="${ idx_show_detail }" var="dto">
 	    <div id="item_detail_wrap">
 	        	<div class="item_detail_titleLink">
 		        	<ul>
 		                <!-- 해상 상품 카테고리 페이지 이동 -->
-		                <li><a href="#"> ${ dto.item_category }</a></li>
+		                <li><a href="/regularOrder_main"> ${ dto.item_category }</a></li>
 		                <li> > </li>
 		                <!-- 해당 상품 이름 -->
-		                <li><a href="#"> ${ dto.item_name }</a></li>
+		                <li><a href="/regular_item_detail?idx=${ dto.idx }"> ${ dto.item_name }</a></li>
 		            </ul>
 		        </div>
 	        <!-- 상세페이지 상단-주문 -->
@@ -49,6 +48,7 @@
 	                                <input type="hidden" id="item_sale_price" value="${ dto.item_sale_price }">
 	                            </p>
 	                        </div>
+	                        <form method="post" action="">
 	                        <div id="goods_info">
 	                            <table>
 	                                <tr><td class="goods_info_title">판매단위 </td><td class="goods_info_text">${ dto.sale_unit } / ${ dto.item_weight }</td></tr>
@@ -87,8 +87,9 @@
 	                            </p>
 	                        </div>
 	                        <div class="goods_order">
-								<a href="/payment" class="orderbutton">구매하기</a></button>
-	                        </div>                  
+	                        	<input type="submit" class="orderbutton" value="구매하기">
+	                        </div>
+	                        </form>                  
 	                    </div>
 	                </div>
 	            
