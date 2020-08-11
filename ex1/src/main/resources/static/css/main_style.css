@@ -160,6 +160,7 @@ div.sub_navBox > a {
 }
 #search_form input[type=text] {
 	position: absolute;
+	padding-left: 12px;
   	width: 230px;
   	height: 30px;
   	background: rgb(239,239,239);
