@@ -52,18 +52,18 @@
        		<h3>[ 지난달 정기배송 패키지 상품 모음 ]</h3>
 			<div class="swiper-container">
 			    <div class="swiper-wrapper">
-			    	<div class="swiper-slide"><a href="#"><img src="img/lastPack2.jpg"></a></div>
-					<div class="swiper-slide"><a href="#"><img src="img/lastPack3.jpg"></a></div>
-					<div class="swiper-slide"><a href="#"><img src="img/lastPack4.jpg"></a></div>
-					<div class="swiper-slide"><a href="#"><img src="img/lastPack5.jpg"></a></div>
-					<div class="swiper-slide"><a href="#"><img src="img/lastPack6.jpg"></a></div>
+			    <c:forEach items="${ delivery_listview }" var="dto" begin="0" end="4">
+			    	<div class="swiper-slide">
+			    		<a href="/regular_item_detail?idx=${ dto.idx }"><span><img src="${ dto.item_img }"></span></a>
+			    	</div>
+	   			</c:forEach>
 			    </div>
 			    <!-- Add Pagination -->
 			    <div class="swiper-pagination swiper-pagination-white"></div>
 			    <!-- Add Arrows -->
 			    <div class="swiper-button-next swiper-button-white"></div>
 			    <div class="swiper-button-prev swiper-button-white"></div>
-			  </div>
+			 </div>
        	</div><!-- /lastMonth_delivery -->
     </div><!-- /regularOrder_main -->
 	
