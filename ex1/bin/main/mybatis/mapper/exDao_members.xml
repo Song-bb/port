@@ -560,5 +560,12 @@
 			SELECT * FROM members WHERE user_id = #{param1}
 	</select>
 	
+	<select id="check_point" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members WHERE user_id = #{param1}
+	</select>
+	
+	<select id="check_memberIdx" resultType="com.example.demo.dto.dto_members"> 
+			SELECT * FROM members WHERE user_id = #{param1}
+	</select>	
 	
 </mapper>

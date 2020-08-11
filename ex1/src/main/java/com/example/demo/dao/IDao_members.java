@@ -87,7 +87,12 @@ public interface IDao_members {
 
 	// 결제페이지 회원정보 받아오기
 	public List<dto_members> detail_member_pay(String user_id);
-		
+	
+	// 마이페이지 적립금
+	public List<dto_members> check_point(String user_id);
+	
+	public List<dto_members> check_memberIdx(String user_id);
+	
 }
 
 

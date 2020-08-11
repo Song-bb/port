@@ -14,5 +14,6 @@ public class dto_user_point {
 	private int point_rate;
 	private int point;
 	private int total_point;
+	private String edit;
 	
 }

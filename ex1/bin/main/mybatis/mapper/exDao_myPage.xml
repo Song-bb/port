@@ -61,5 +61,10 @@
 	<select id="orderDetail" resultType="com.example.demo.dto.dto_myPage"> 
          SELECT * FROM order_list WHERE order_number = #{param1}
    </select>
+
+   	<insert id="editPoint"> 
+			INSERT INTO user_point (idx, user_id, date, order_number, item_name, price, point_rate, point, total_point, edit) 
+			VALUES ( 0, #{param1}, default, #{param2}, #{param3}, #{param4}, 0, #{param5}, #{param6}, "minus")
+	</insert>
 	
 </mapper>

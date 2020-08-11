@@ -81,6 +81,7 @@
 			                    <c:forEach items="${ pointList }" var="dto">
 			                    <c:set var = "string1" value = "${ dto.date }"/>
                           		<c:set var = "string2" value = "${fn:substring(string1, 0, 10)}" />
+				                    <c:if test="${ dto.edit eq 'plus' }" >
 				                    <tr class="point_table_tr">
 				                        <td class="point_table_td">${ string2 }</td>
 				                        <td class="point_table_td point_table_td_content">
@@ -90,6 +91,18 @@
 				                        </td>
 				                        <td class="point_table_td"><fmt:formatNumber value="${ dto.point }" pattern="###,###,###" /> 원</td>
 				                    </tr>
+				                    </c:if>
+				                    <c:if test="${ dto.edit eq 'minus' }" >
+				                    <tr class="point_table_tr">
+				                        <td class="point_table_td">${ string2 }</td>
+				                        <td class="point_table_td point_table_td_content">
+				                            상품명 : ${ dto.item_name }<br>
+				                            주문번호 : ${ dto.order_number }<br>
+				                            주문금액 : <fmt:formatNumber value="${ dto.price }" pattern="###,###,###" /> 원 사용
+				                        </td>
+				                        <td class="point_table_td"><fmt:formatNumber value="${ dto.point }" pattern="###,###,###" /> 원</td>
+				                    </tr>
+				                    </c:if>
 			                    </c:forEach>
 			                </table>
 			            </div>

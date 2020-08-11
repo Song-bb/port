@@ -42,6 +42,7 @@ import com.example.demo.Service.Service_review;
 import com.example.demo.Service.Service_seceded_member;
 import com.example.demo.dto.dto_cart;
 import com.example.demo.dto.dto_members;
+import com.example.demo.dto.dto_payment;
 import com.example.demo.dto.dto_user_point;
 
 
@@ -202,7 +203,6 @@ public class MyContoller {
 				session.setAttribute("user_index", list.get(0).getUser_index() ); // 이름 세션 저장
 				session.setAttribute("user_name", list.get(0).getUser_name() ); // 이름 세션 저장
 				session.setAttribute("user_grade", list.get(0).getUser_grade()); // 등급 세션 저장
-				session.setAttribute("user_point", list.get(0).getUser_point()); // 적립금 세션 저장
 				session.setAttribute("user_email", list.get(0).getUser_email()); // 이메일 세션 저장
 				session.setAttribute("user_phone", list.get(0).getUser_phone()); // 휴대폰번호 세션 저장
 				return "redirect:main";
@@ -236,11 +236,12 @@ public class MyContoller {
 	public String leave_gwailJangsu(@RequestParam("user_pw") String user_pw, 
 									@RequestParam(value="reason", required=false) String reason, 
 									@RequestParam(value="delete_content", required=false) String content, 
-									HttpServletRequest request, HttpServletResponse response) throws Exception {
+									HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
 		HttpSession session = request.getSession();
 		String user_id = session.getAttribute("user_id").toString();
 		List<dto_members> list = service_members.check_pw( user_id, user_pw );
 		if( list.isEmpty() ) { // 아이디 없음
+			model.addAttribute("user_point", service_members.check_point(user_id).get(0).getUser_point());
 			return "myPage/withdraw_member_fail";
 		} else { // 아이디 있음
 			if( user_pw.equals( list.get(0).getUser_pw()) ) { // 비밀번호 일치
@@ -251,6 +252,7 @@ public class MyContoller {
 		        
 				int nResult = service_seced_member.leave_member( map );
 				if( nResult < 1 ) {
+					model.addAttribute("user_point", service_members.check_point(user_id).get(0).getUser_point());
 					return "myPage/withdraw_member_fail";
 				}
 		        session.invalidate(); // 로그아웃처리 
@@ -860,6 +862,7 @@ public class MyContoller {
         } else {
         	String user_id = session.getAttribute("user_id").toString();
         	model.addAttribute("my_order", service_myPage.order_list_main(user_id));
+        	model.addAttribute("user_point", service_myPage.pointList(user_id).get(0).getTotal_point());
     		
         	int count = service_myPage.countOrder(user_id);
     		
@@ -927,7 +930,8 @@ public class MyContoller {
         } else {
         	String user_id = session.getAttribute("user_id").toString();
         	model.addAttribute("my_order", service_myPage.order_list(user_id, year, page));
-    		
+        	model.addAttribute("user_point", service_myPage.pointList(user_id).get(0).getTotal_point());
+        	
         	int count = service_myPage.countOrder(user_id);
     		
     		int index = 10; // 한 페이지에 나타내는 글 수
@@ -991,7 +995,9 @@ public class MyContoller {
         if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
         	return "loginPage/loginPage_main";
         } else {
+        	String user_id = session.getAttribute("user_id").toString();
         	model.addAttribute("my_order", service_myPage.orderDetail(orderNumber));
+        	model.addAttribute("user_point", service_myPage.pointList(user_id).get(0).getTotal_point());
         	return "myPage/myOrder";
         }
 	}
@@ -1018,6 +1024,7 @@ public class MyContoller {
 	        } else {
 	        	String user_id = session.getAttribute("user_id").toString();
 	        	model.addAttribute("regular_order_list", service_regular_order.regular_order_list(user_id));
+	        	model.addAttribute("user_point", service_myPage.pointList(user_id).get(0).getTotal_point());
 	        	return "myPage/myRegularorder";
 	        }
 	}
@@ -1031,6 +1038,7 @@ public class MyContoller {
 	        } else {
 	        	String user_id = session.getAttribute("user_id").toString();
 	        	model.addAttribute("myReview", service_review.viewReview(user_id));
+	        	model.addAttribute("user_point", service_myPage.pointList(user_id).get(0).getTotal_point());
 	        	return "myPage/myReview";
 	        }
 	}
@@ -1099,6 +1107,7 @@ public class MyContoller {
 	        	String user_id = session.getAttribute("user_id").toString();
 	        	List<dto_members> list = service_members.memberDetail(user_id);
 	        	model.addAttribute("member_detail", list);
+	        	model.addAttribute("user_point", service_myPage.pointList(user_id).get(0).getTotal_point());
 	        	return "myPage/updateInform";
 	        }
 	}
@@ -1112,6 +1121,7 @@ public class MyContoller {
         } else {
         	String user_id = session.getAttribute("user_id").toString();
         	model.addAttribute("my_order", service_myPage.order_list_main(user_id));
+        	model.addAttribute("user_point", service_myPage.pointList(user_id).get(0).getTotal_point());
         	return "myPage/check_password";
         }
 	}
@@ -1125,6 +1135,7 @@ public class MyContoller {
 		if( user_pw.equals( list.get(0).getUser_pw()) ) { // 비밀번호 일치
 			return "redirect:updateInform";
 		} else { // 비밀번호 불일치
+			model.addAttribute("user_point", service_myPage.pointList(user_id).get(0).getTotal_point());
 			return "myPage/check_password_fail";
 		}
 	}
@@ -1207,11 +1218,13 @@ public class MyContoller {
 	//
 	// 회원탈퇴
 	@RequestMapping("/withdraw_member")
-	public String withdraw_member( HttpServletRequest request ) {
+	public String withdraw_member( HttpServletRequest request, Model model ) {
 		 HttpSession session = request.getSession();
 	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
 	        	return "loginPage/loginPage_main";
 	        } else {
+	        	String user_id = session.getAttribute("user_id").toString();
+	        	model.addAttribute("user_point", service_myPage.pointList(user_id).get(0).getTotal_point());
 	        	return "myPage/withdraw_member";
 	        }
 	}
@@ -1252,7 +1265,8 @@ public class MyContoller {
 	        	
 	        	List<dto_members> list = service_members.detail_member_pay(user_id);
 	        	model.addAttribute("user_name", list.get(0).getUser_name());
-	        	model.addAttribute("user_point", list.get(0).getUser_point());
+	        	model.addAttribute("user_id", list.get(0).getUser_id());
+	        	model.addAttribute("user_point", service_myPage.pointList(user_id).get(0).getTotal_point());
 	        	
 	        	return "payment/payment";
 	        }
@@ -1260,10 +1274,80 @@ public class MyContoller {
 	
 	// 결제 완료 페이지
 	@RequestMapping("/payment_ok")
-	public String payment_ok() {
-		return "payment/payment_ok";
+	public String payment_ok(HttpServletRequest request, Model model) {
+		HttpSession session = request.getSession();
+        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
+        	return "loginPage/loginPage_main";
+        } else {
+        	Map<String, String> map = new HashMap<String, String>();
+        	String user_id = request.getParameter("user_id");
+        	String order_person_name = request.getParameter("order_person_name");
+        	String order_person_phone = request.getParameter("order_person_phone");
+        	String receiver_name = request.getParameter("receiver_name");
+        	String receiver_postcode = request.getParameter("receiver_postcode");
+        	String receiver_address = request.getParameter("receiver_address");
+        	String receiver_phone = request.getParameter("receiver_phone");
+        	String memo = request.getParameter("memo");
+        	String total_price = request.getParameter("total_price");
+        	String used_point = request.getParameter("user_point");
+        	String result_total_price = request.getParameter("result_total_price");
+        	String result_point = request.getParameter("result_point");
+        	String payment = request.getParameter("payment");
+        	map.put("user_id", user_id);
+        	map.put("order_person_name", order_person_name);
+        	map.put("order_person_phone", order_person_phone);
+        	map.put("receiver_name", receiver_name);
+        	map.put("receiver_postcode", receiver_postcode);
+        	map.put("receiver_address", receiver_address);
+        	map.put("receiver_phone", receiver_phone);
+        	map.put("memo", memo);
+        	map.put("total_price", total_price);
+        	map.put("used_point", used_point);
+        	map.put("result_total_price", result_total_price);
+        	map.put("result_point", result_point);
+        	map.put("payment", payment);
+        	
+        	int count = Integer.parseInt(request.getParameter("count"));
+        	map.put("count", String.valueOf(count));
+        	for( int i=1 ; i<=count; i++) {
+	        	String item_index = request.getParameter("item_index" + i);
+	        	String item_img = request.getParameter("item_img" + i);
+	        	String item_name = request.getParameter("item_name" + i);
+	        	String item_count = request.getParameter("item_count" + i);
+	        	String item_sellingPrice = request.getParameter("item_sellingPrice" + i);
+	        	String item_total_price = request.getParameter("item_total_price" + i);
+
+	        	map.put("item_index" + i, item_index);
+	        	map.put("item_img" + i, item_img);
+	        	map.put("item_name" + i, item_name);
+	        	map.put("item_count" + i, item_count);
+	        	map.put("item_sellingPrice" + i, item_sellingPrice);
+	        	map.put("item_total_price" + i, item_total_price);
+
+	        	}
+        	int nResult = service_payment.insertPayment( map );
+        	if( nResult < 1 ) {
+        		return "payment/payment_fail";
+        	} else {
+        		List<dto_payment> list = service_payment.view( user_id );
+        		model.addAttribute("list", list);
+        		model.addAttribute("order_number", list.get(0).getOrder_number());
+        		model.addAttribute("order_person_name", list.get(0).getOrder_person_name());
+        		model.addAttribute("order_person_phone", list.get(0).getOrder_person_phone());
+        		model.addAttribute("receiver_name", list.get(0).getReceiver_name());
+        		model.addAttribute("receiver_postcode", list.get(0).getReceiver_postcode());
+        		model.addAttribute("receiver_address", list.get(0).getReceiver_address());
+        		model.addAttribute("receiver_phone", list.get(0).getReceiver_phone());
+        		model.addAttribute("memo", list.get(0).getMemo());
+        		model.addAttribute("total_price", list.get(0).getTotal_price());
+        		model.addAttribute("used_point", list.get(0).getUsed_point());
+        		model.addAttribute("result_total_price", list.get(0).getResult_total_price());
+        		model.addAttribute("payment", list.get(0).getPayment());
+        		return "payment/payment_success";
+        	}
+        }
 	}
-	
+
 	/*=========== 관리자 페이지 =============*/
 	
 	// 카페관리페이지(관리자전용)
@@ -1779,6 +1863,7 @@ public class MyContoller {
         
 		int nResult = service_seced_member.leave_member( map );
 		if( nResult < 1 ) {
+			model.addAttribute("user_point", service_myPage.pointList(user_id).get(0).getTotal_point());
 			return "manager/member_withdraw_member_fail";
 		}
 	return "redirect:member";
@@ -1814,6 +1899,7 @@ public class MyContoller {
 	        	
 	    		int nResult = service_members.update_point( member_index, point );
 	    		if( nResult < 1 ) {
+	    			model.addAttribute("user_point", service_members.check_point(user_id).get(0).getUser_point());
 	    			return "manager/member_withdraw_member_fail";
 	    		} else {
 	    			return "redirect:member";
@@ -1852,6 +1938,7 @@ public class MyContoller {
 	        	
 	    		int nResult = service_members.update_grade( member_index, grade );
 	    		if( nResult < 1 ) {
+	    			model.addAttribute("user_point", service_members.check_point(user_id).get(0).getUser_point());
 	    			return "manager/member_withdraw_member_fail";
 	    		} else {
 	    			return "redirect:member";

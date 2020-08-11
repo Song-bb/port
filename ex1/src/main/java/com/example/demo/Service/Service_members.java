@@ -388,6 +388,11 @@ public class Service_members {
 	public List<dto_members> detail_member_pay(String user_id){
 		return dao_member.detail_member_pay(user_id);
 	}
+	
+	/* 적립금 확인 */
+	public List<dto_members> check_point(String user_id){
+		return dao_member.check_point(user_id);
+	}
 
 	
 }

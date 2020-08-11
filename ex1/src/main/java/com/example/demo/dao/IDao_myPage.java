@@ -24,6 +24,7 @@ public interface IDao_myPage {
 	public List<dto_myPage> myOrder_review(String orderNumber);
 	public List<dto_user_point> pointList(String user_id);
 	public List<dto_myPage> orderDetail(String orderNumber);
+	public int editPoint(String user_id, String order_number, String item_name, String total_price, String used_point, String result_point);
 	
 	
 }
