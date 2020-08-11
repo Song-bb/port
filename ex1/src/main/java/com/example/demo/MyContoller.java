@@ -1211,6 +1211,7 @@ public class MyContoller {
 	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
 	        	return "loginPage/loginPage_main";
 	        } else {
+	        	System.out.println("11");
 	        	return "payment/payment";
 	        }
 	}

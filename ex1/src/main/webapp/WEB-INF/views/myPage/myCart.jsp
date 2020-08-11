@@ -120,14 +120,6 @@
 				form.setAttribute("method", "post");
 				form.setAttribute("action", "/payment");
 				
-		        var check_count = document.getElementsByName("cart_item_select").length;
-		        for (var i=0; i<check_count; i++) {
-		            if (document.getElementsByName("cart_item_select")[i].checked == true) {
-		                total_price += parseInt(document.getElementsByName("cart_item_select")[i].value);
-		                total_price_result = total_price.toLocaleString();
-		                document.getElementById("result_totlaPrice").innerHTML = total_price_result;
-		            }
-		        }
 				var user_id1 = document.getElementById("user_id").value;
 				var item_idx1 = document.getElementById("item_idx").value;
 				var content1 = document.getElementById("content").value;
@@ -140,12 +132,29 @@
 			        hiddenField.setAttribute("name", key);
 			        hiddenField.setAttribute("value", params[key]);
 			        form.appendChild(hiddenField);
-			    }   
+			    }
+			    
+		        var check_count = document.getElementsByName("cart_item_select").length;
+		        for (var i=0; i<check_count; i++) {
+		            if (document.getElementsByName("cart_item_select")[i].checked == true) {
+		                total_price = document.getElementsByName("cart_item_select")[i].value;
+				        
+		                var hiddenField = document.createElement("input");
+				        hiddenField.setAttribute("type", "hidden");
+				        hiddenField.setAttribute("name", i);
+				        hiddenField.setAttribute("value", total_price);
+				        form.appendChild(hiddenField);
+				        
+				        alert("1");
+		            }
+		        }
+				alert("1");
+		        
 				document.body.appendChild(form);
 				form.submit();
 				window.close();
 			}
-			}
+			
 		
 		</script>
 		
