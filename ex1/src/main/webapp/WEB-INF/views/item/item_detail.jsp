@@ -15,7 +15,7 @@
 		                <li><a href="#"> ${ dto.item_category }</a></li>
 		                <li> > </li>
 		                <!-- 해당 상품 이름 -->
-		                <li><a href="#"> ${ dto.item_name }</a></li>
+		                <li><a href="/item_detail?idx=${ dto.idx }"> ${ dto.item_name }</a></li>
 		            </ul>
 		        </div>
 	        <!-- 상세페이지 상단-주문 -->
@@ -60,28 +60,31 @@
 	                        </div>
 	                        
 	                        <form method="post" name="form">
-	                        <input type="hidden" name="item_idx" value="${dto.idx}" >
-	                        <!-- 상품수 증가  -->
-	                        <div class="goods_count">
-	                           
-	                                <button type="button" class="btnDown" onclick="countDown();">-</button>
-	                                    <input type="text" value=1 onblur="change_price();" id="count_item" name="item_order_amount">
-	                                <button type="button" class="btnUp" onclick="countUp();">+</button>
-	                            
-	                        </div>
-	                        <div class="total_goods_price">
-	                            <p>총 상품 금액</p>
-	                                  <!--  count -->
-	                            <p>
-	                                <span>총 수량 <span id="resule_count"></span> 개</span>&nbsp;&nbsp;
-	                            						<!-- dcPrice*count -->
-	                                <span class="total_price" id="result_price"><fmt:formatNumber value="${ dto.item_sale_price }" pattern="###,###,###" /></span> 원
-	                            </p>
-	                        </div>
-	                        <div class="goods_order">
-	                            <button class="goCart orderbutton" type="submit" onclick="javascript: form.action='/myCart_insert';"/>장바구니</button>
-	                        	<button class="goOrder orderbutton" type="submit" onclick="javascript: form.action='/payment';"/>구매하기</button>
-	                        </div>
+		                        <input type="hidden" name="item_idx" value="${dto.idx}" >
+		                        <!-- 상품수 증가  -->
+		                        <div class="goods_count">
+		                           
+		                                <button type="button" class="btnDown" onclick="countDown();">-</button>
+		                                    <input type="text" value=1 onblur="change_price();" id="count_item" name="item_order_amount">
+		                                <button type="button" class="btnUp" onclick="countUp();">+</button>
+		                            
+		                        </div>
+		                        
+		                        
+		                        
+		                        <div class="total_goods_price">
+		                            <p>총 상품 금액</p>
+		                                  <!--  count -->
+		                            <p>
+		                                <span>총 수량 <span id="resule_count"></span> 개</span>&nbsp;&nbsp;
+		                            						<!-- dcPrice*count -->
+		                                <span class="total_price" id="result_price"><fmt:formatNumber value="${ dto.item_sale_price }" pattern="###,###,###" /></span> 원
+		                            </p>
+		                        </div>
+		                        <div class="goods_order">
+		                            <button class="goCart orderbutton" type="submit" onclick="javascript: form.action='/myCart_insert';">장바구니</button>
+		                        	<button class="goOrder orderbutton" type="submit" onclick="javascript: form.action='/payment';">구매하기</button>
+		                        </div>
 	                        </form>                
 	                    </div>
 	                </div>

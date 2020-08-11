@@ -19,7 +19,7 @@
 	</select>
 	
 	<select id="fruitInSeason_newviewDao" resultType="com.example.demo.dto.dto_items">
-		SELECT * FROM items WHERE item_category='제철과일' ORDER BY category_idx DESC;
+		SELECT * FROM items WHERE item_category='제철과일' ORDER BY idx DESC;
 	</select>
 	
 	<select id="fruitInSeason_countDao" resultType="_int">
@@ -40,7 +40,7 @@
 	</select>
 	
 	<select id="importedFruit_newviewDao" resultType="com.example.demo.dto.dto_items">
-		SELECT * FROM items WHERE item_category='수입과일' ORDER BY category_idx DESC;
+		SELECT * FROM items WHERE item_category='수입과일' ORDER BY idx DESC;
 	</select>
 	
 	<select id="importedFruit_countDao" resultType="_int">
@@ -61,7 +61,7 @@
 	</select>
 	
 	<select id="fallenFruit_newviewDao" resultType="com.example.demo.dto.dto_items">
-		SELECT * FROM items WHERE item_category='낙과채널' ORDER BY category_idx DESC;
+		SELECT * FROM items WHERE item_category='낙과채널' ORDER BY idx DESC;
 	</select>
 	
 	<select id="fallenFruit_countDao" resultType="_int">
@@ -83,7 +83,7 @@
 	
 	<!-- 정기배송 카테고리 상품만 최신순 -->
 	<select id="Delivery_newDao" resultType="com.example.demo.dto.dto_items">
-		SELECT * FROM items WHERE item_category='정기배송' ORDER BY category_idx DESC;
+		SELECT * FROM items WHERE item_category='정기배송' ORDER BY idx DESC;
 	</select>
 	
 	<select id="Delivery_countDao" resultType="_int">
@@ -115,7 +115,14 @@
 	
 	
 	<insert id="item_insert">
-		INSERT INTO items (idx, category_idx, item_number, item_name, item_category, item_origin, item_img, item_discount_rate, item_real_price, item_sale_price, item_weight, item_season, item_farm, item_state, sale_unit, delivery_sale, item_description ) VALUES (0, #{ categori_idx }, #{ item_number }, #{ item_name }, #{ item_category }, #{ item_origin }, #{ file }, #{ item_sale_discount }, #{ item_real_price }, #{ item_sale_price }, #{ item_weight }, #{ item_season }, #{ item_farm }, #{ item_state }, #{ sale_unit }, #{ delivery_sale }, #{ item_description } );
+		INSERT INTO items 
+		(idx, category_idx, item_number, item_name, item_category, item_origin, item_img, 
+		item_discount_rate, item_real_price, item_sale_price, item_weight, item_season, item_farm, item_state, 
+		sale_unit, delivery_sale, item_description ) 
+		VALUES 
+		(0, #{ categori_idx }, #{ item_number }, #{ item_name }, #{ item_category }, #{ item_origin }, #{ file }, 
+		#{ item_sale_discount }, #{ item_real_price }, #{ item_sale_price }, #{ item_weight }, #{ item_season }, #{ item_farm }, #{ item_state }, 
+		#{ sale_unit }, #{ delivery_sale }, #{ item_description } );
 	</insert>
 	
 	<select id="categori_count" resultType="_int">
@@ -149,7 +156,7 @@
 	
 	<!-- 관리자페이지 - 상품보기(카테고리 선택) -->
 	<select id="season_categoriView" resultType="com.example.demo.dto.dto_items">
-		SELECT * FROM items WHERE item_category = #{param1} ORDER BY category_idx DESC;
+		SELECT * FROM items WHERE item_category = #{param1} ORDER BY idx DESC;
 	</select>
 	
 	<select id="season_categoriCount" resultType="_int">

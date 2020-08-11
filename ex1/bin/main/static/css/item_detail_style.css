@@ -113,6 +113,13 @@
     display: inline-block;
 
 }
+/* 정기배송 */
+td.goods_info_text select#count_month{
+	width: 150px;
+}
+td.goods_info_text input[type="date"]{
+	width: 150px;
+}
 
 #goods_info tr > td.goods_info_title{
     width: 100px;
@@ -122,13 +129,14 @@
 }
 #goods_info tr > td.goods_info_text{
     min-width: 350px;
-    display: inline-block;
     font-size: 0.8em;
 }
 #goods_info tr:last-child{
     margin:0;
 }
 /* ----------/goods_info */
+
+
 
 
 
@@ -182,6 +190,18 @@ button.goCart{
 	color: #459356;
 	font-weight: bold;
 	border: 2px solid #459356;
+}
+
+.goods_order input[type="submit"].orderbutton{
+	width: 50%;
+	height: 50px;
+	color: white;
+	display:inline-block;
+	border:none;
+	background-color: #459356;
+	cursor: pointer;
+	text-align: center;
+	line-height: 50px;
 }
 
 
