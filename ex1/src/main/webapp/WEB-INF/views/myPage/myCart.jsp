@@ -31,9 +31,15 @@
                     <td class="cart_info">
                         <div class="cart_info_img" style="background-image:url('${ cart.item_img }')" >
 	                    <a href="item_detail?idx=${ cart.item_idx }"></a></div>
+	                    <input type="hidden" value="${ cart.item_idx }" id="item_index_i" name="item_index_i">
+	                    <input type="hidden" value="${ cart.user_id }" id="user_id" name="user_id">
                     </td>
                     <td> <div class="cart_info_name"><a href="item_detail?idx=${ cart.item_idx }">${ cart.item_name }</a></div></td>
-                    <td><div class="cart_info_saleprice"></div><fmt:formatNumber value="${ cart.item_sale_price }" pattern="###,###,###" /><br>원</td>
+                    <td>
+                    	<div class="cart_info_saleprice"></div>
+                    	<fmt:formatNumber value="${ cart.item_sale_price }" pattern="###,###,###" /><br>원
+                    	<input type="hidden" value="${ cart.item_sale_price }" id="item_sale_price" name="item_sale_price">
+                    </td>
                     <td class="cart_count">
                     	 <div class="goods_count">
                           <button type="button" class="btnDown" onclick="countDown( ${ cart.cart_idx }, ${ cart.item_order_amount } );">-</button>
@@ -50,7 +56,7 @@
             <div class="checkBoxAll">
             	<div class="selectAll">
 	            	<input type="checkbox" id="checkall" />
-	            	<p id="checkbox_text">전체선택</p>
+	            	<p id="checkbox_text"><label for="checkall">전체선택</label></p>
 	            </div>
             </div>
         </div>
@@ -119,40 +125,69 @@
 				var form = document.createElement("form");
 				form.setAttribute("method", "post");
 				form.setAttribute("action", "/payment");
-				
-				var user_id1 = document.getElementById("user_id").value;
-				var item_idx1 = document.getElementById("item_idx").value;
-				var content1 = document.getElementById("content").value;
-				
-				var params = {user_id:user_id1, item_idx:item_idx1, content:content1}; 
 
-			    for(var key in params) {
-			        var hiddenField = document.createElement("input");
-			        hiddenField.setAttribute("type", "hidden");
-			        hiddenField.setAttribute("name", key);
-			        hiddenField.setAttribute("value", params[key]);
-			        form.appendChild(hiddenField);
-			    }
-			    
 		        var check_count = document.getElementsByName("cart_item_select").length;
+		        var count = 0;
+		        var checked_count = 0;
+		        var json = {};
+		        
 		        for (var i=0; i<check_count; i++) {
 		            if (document.getElementsByName("cart_item_select")[i].checked == true) {
-		                total_price = document.getElementsByName("cart_item_select")[i].value;
-				        
+		            	checked_count++;
+		            	
+		            	json.item_index
+		            	
+		            	var item_index_i = document.getElementsByName("item_index_i")[i].value;
+		            	var name1 = item_index_i + i;
 		                var hiddenField = document.createElement("input");
 				        hiddenField.setAttribute("type", "hidden");
-				        hiddenField.setAttribute("name", i);
-				        hiddenField.setAttribute("value", total_price);
+				        hiddenField.setAttribute("name", name1);
+				        hiddenField.setAttribute("value", item_index_i);
+				        form.appendChild(hiddenField);
+
+				        var user_id = document.getElementsByName("user_id")[i].value;
+				        var name2 = user_id + i;
+		                var hiddenField = document.createElement("input");
+				        hiddenField.setAttribute("type", "hidden");
+				        hiddenField.setAttribute("name", name2);
+				        hiddenField.setAttribute("value", user_id);
+				        form.appendChild(hiddenField);
+
+				        var count_item = document.getElementsByName("item_order_amount")[i].value;
+				        var name3 = count_item + i;
+		                var hiddenField = document.createElement("input");
+				        hiddenField.setAttribute("type", "hidden");
+				        hiddenField.setAttribute("name", name3);
+				        hiddenField.setAttribute("value", count_item);
+				        form.appendChild(hiddenField);
+
+				        var item_sale_price = document.getElementsByName("item_sale_price")[i].value;
+				        var name4 = item_sale_price + i;
+		                var hiddenField = document.createElement("input");
+				        hiddenField.setAttribute("type", "hidden");
+				        hiddenField.setAttribute("name", name4);
+				        hiddenField.setAttribute("value", item_sale_price);
 				        form.appendChild(hiddenField);
 				        
-				        alert("1");
+				        alert(item_index_i + user_id + count_item + item_sale_price );
+		            } else if( document.getElementsByName("cart_item_select")[i].checked == false ){
+		            	count++;
 		            }
 		        }
-				alert("1");
 		        
-				document.body.appendChild(form);
-				form.submit();
-				window.close();
+            	if( check_count == count ){
+            		alert("선택된 상품이 없습니다.");
+            	} else {
+    		        var hiddenField = document.createElement("input");
+    		        hiddenField.setAttribute("type", "hidden");
+    		        hiddenField.setAttribute("name", "count");
+    		        hiddenField.setAttribute("value", checked_count);
+    		        form.appendChild(hiddenField);
+            		
+    				document.body.appendChild(form);
+    				form.submit();
+    				window.close();
+            	}
 			}
 			
 		
