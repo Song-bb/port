@@ -81,6 +81,7 @@
 		SELECT * FROM items WHERE item_category='정기배송' ORDER BY item_sale_price DESC;
 	</select>
 	
+	<!-- 정기배송 카테고리 상품만 최신순 -->
 	<select id="Delivery_newDao" resultType="com.example.demo.dto.dto_items">
 		SELECT * FROM items WHERE item_category='정기배송' ORDER BY category_idx DESC;
 	</select>

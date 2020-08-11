@@ -12,10 +12,15 @@
         <div>
             <img src="img/regularOrder_img.jpg" alt="배송">
         </div>
-        <form>
-        	<!-- 정기배송 패키지 상품 상세페이지로 연동 -->
-            <button><a href="/regular_item_detail?idx=${ dto.idx }">정기배송 신청하기</a></button>
-        </form>
+        	<c:forEach items="${ delivery_listview }" var="dto" begin="0" end="0">
+	        	<!-- 정기배송 패키지 상품 상세페이지로 연동 -->
+	            <button>
+	            <div>
+	            	<a href="/regular_item_detail?idx=${ dto.idx }">정기배송 신청하기</a>
+	            </div>
+	            </button>
+            </c:forEach>
+            
         <div id="Month_delivery_item">
             <h3>[ 이번달 정기배송 패키지 상품 ]</h3>
             <div>

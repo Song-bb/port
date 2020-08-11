@@ -302,7 +302,7 @@ public class MyContoller {
 	@RequestMapping("/regularOrder_main")
 	public String regularOrder_main(Model model) {
 		model.addAttribute("delivery_count", service_items.nDeliveryCount());
-		model.addAttribute("delivery_listview", service_items.Delivery_list());
+		model.addAttribute("delivery_listview", service_items.Delivery_list_new());
 		model.addAttribute("regularItem", service_items.regularItem());
 		return "regular_order/regularOrder_main";
 	}
