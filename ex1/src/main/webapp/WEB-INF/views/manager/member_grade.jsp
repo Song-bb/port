@@ -97,8 +97,8 @@
                 </tr>
                 <tr>
                     <th>현재 적립금</th>
-                    <td><fmt:formatNumber value="${ member_point }" pattern="###,###,###" /></td>
-                    <input type="hidden" id="current_point" value="${ member_point }">
+                    <td><fmt:formatNumber value="${ dto.user_point }" pattern="###,###,###" /></td>
+                    <input type="hidden" id="current_point" value="${ dto.user_point }">
                 </tr>
                 <tr>
                     <th>회원등급</th>

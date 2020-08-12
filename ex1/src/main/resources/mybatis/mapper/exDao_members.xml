@@ -392,164 +392,150 @@
 	
 		<!-- 회원조건에서 클릭 카테고리 user_name, 등급 조건 추가 - 첫페이지 10개 -->
 	<select id="detail_search_name2_next1" resultType="com.example.demo.dto.dto_members"> 
-			SELECT m.user_index, m.user_id, m.user_pw, m.user_id, m.user_name, m.user_email, m.user_phone, m.user_address, m.postcode, m.user_grade, m.user_gender, m.user_birth, m.buying_price, m.join_date, p.total_point
-			FROM members AS m LEFT JOIN user_point AS p ON m.user_id = p.user_id
-			AND m.join_date BETWEEN #{param1} AND #{param2}
-			AND m.buying_price BETWEEN #{param3} AND #{param4} 
-			AND p.total_point BETWEEN #{param6} AND #{param7}
-			AND m.user_grade = #{param5}
-			AND m.user_name like CONCAT('%',#{param9},'%')
-			ORDER BY m.user_index desc LIMIT 0, 10
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_grade = #{param5}
+			AND user_name like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc LIMIT 0, 10
 	</select>
 	
 	<!-- 회원조건에서 클릭 카테고리 user_name, 등급 조건 추가 - 다음페이지 10개 -->
 	<select id="detail_search_name2_next2" resultType="com.example.demo.dto.dto_members"> 
-			SELECT m.user_index, m.user_id, m.user_pw, m.user_id, m.user_name, m.user_email, m.user_phone, m.user_address, m.postcode, m.user_grade, m.user_gender, m.user_birth, m.buying_price, m.join_date, p.total_point
-			FROM members AS m LEFT JOIN user_point AS p ON m.user_id = p.user_id
-			AND m.join_date BETWEEN #{param1} AND #{param2}
-			AND m.buying_price BETWEEN #{param3} AND #{param4} 
-			AND p.total_point BETWEEN #{param6} AND #{param7}
-			AND m.user_grade = #{param5}
-			AND m.user_name like CONCAT('%',#{param9},'%')
-			ORDER BY m.user_index desc LIMIT #{param10}, 10
+			SELECT * FROM members
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_grade = #{param5}
+			AND user_name like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc LIMIT #{param10}, 10
 	</select>
 	
 		<!-- 회원조건에서 클릭 카테고리 user_id, 등급 null일때 - 첫페이지 10개 -->
 	<select id="detail_search_id1_next1" resultType="com.example.demo.dto.dto_members"> 
-			SELECT m.user_index, m.user_id, m.user_pw, m.user_id, m.user_name, m.user_email, m.user_phone, m.user_address, m.postcode, m.user_grade, m.user_gender, m.user_birth, m.buying_price, m.join_date, p.total_point
-			FROM members AS m LEFT JOIN user_point AS p ON m.user_id = p.user_id
-			AND m.join_date BETWEEN #{param1} AND #{param2}
-			AND m.buying_price BETWEEN #{param3} AND #{param4} 
-			AND p.total_point BETWEEN #{param6} AND #{param7}
-			AND m.user_id like CONCAT('%',#{param9},'%')
-			ORDER BY m.user_index desc LIMIT 0, 10
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_id like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc LIMIT 0, 10
 	</select>
 	
 	<!-- 회원조건에서 클릭 카테고리 user_id, 등급 null일때 - 다음페이지 10개 -->
 	<select id="detail_search_id1_next2" resultType="com.example.demo.dto.dto_members"> 
-			SELECT m.user_index, m.user_id, m.user_pw, m.user_id, m.user_name, m.user_email, m.user_phone, m.user_address, m.postcode, m.user_grade, m.user_gender, m.user_birth, m.buying_price, m.join_date, p.total_point
-			FROM members AS m LEFT JOIN user_point AS p ON m.user_id = p.user_id
-			AND m.join_date BETWEEN #{param1} AND #{param2}
-			AND m.buying_price BETWEEN #{param3} AND #{param4} 
-			AND p.total_point BETWEEN #{param6} AND #{param7}
-			AND m.user_id like CONCAT('%',#{param9},'%')
-			ORDER BY m.user_index desc LIMIT #{param10}, 10
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_id like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc LIMIT #{param10}, 10
 	</select>
 		
 	<!-- 회원조건에서 클릭 카테고리 user_id, 등급 조건 추가 - 첫페이지 10개 -->
 	<select id="detail_search_id2_next1" resultType="com.example.demo.dto.dto_members"> 
-			SELECT m.user_index, m.user_id, m.user_pw, m.user_id, m.user_name, m.user_email, m.user_phone, m.user_address, m.postcode, m.user_grade, m.user_gender, m.user_birth, m.buying_price, m.join_date, p.total_point
-			FROM members AS m LEFT JOIN user_point AS p ON m.user_id = p.user_id
-			AND m.join_date BETWEEN #{param1} AND #{param2}
-			AND m.buying_price BETWEEN #{param3} AND #{param4} 
-			AND p.total_point BETWEEN #{param6} AND #{param7}
-			AND m.user_grade = #{param5}
-			AND m.user_id like CONCAT('%',#{param9},'%')
-			ORDER BY m.user_index desc LIMIT 0, 10
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_grade = #{param5}
+			AND user_id like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc LIMIT 0, 10
 	</select>
 	
 	<!-- 회원조건에서 클릭 카테고리 user_id, 등급 조건 추가 - 다음페이지 10개 -->
 	<select id="detail_search_id2_next2" resultType="com.example.demo.dto.dto_members"> 
-			SELECT m.user_index, m.user_id, m.user_pw, m.user_id, m.user_name, m.user_email, m.user_phone, m.user_address, m.postcode, m.user_grade, m.user_gender, m.user_birth, m.buying_price, m.join_date, p.total_point
-			FROM members AS m LEFT JOIN user_point AS p ON m.user_id = p.user_id
-			AND m.join_date BETWEEN #{param1} AND #{param2}
-			AND m.buying_price BETWEEN #{param3} AND #{param4} 
-			AND p.total_point BETWEEN #{param6} AND #{param7}
-			AND m.user_grade = #{param5}
-			AND m.user_id like CONCAT('%',#{param9},'%')
-			ORDER BY m.user_index desc LIMIT #{param10}, 10
+			SELECT * FROM members
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_grade = #{param5}
+			AND user_id like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc LIMIT #{param10}, 10
 	</select>
 	
 		<!-- 회원조건에서 클릭 카테고리 user_phone, 등급 null일때 - 첫페이지 10개 -->
 	<select id="detail_search_phone1_next1" resultType="com.example.demo.dto.dto_members"> 
-			SELECT m.user_index, m.user_id, m.user_pw, m.user_id, m.user_name, m.user_email, m.user_phone, m.user_address, m.postcode, m.user_grade, m.user_gender, m.user_birth, m.buying_price, m.join_date, p.total_point
-			FROM members AS m LEFT JOIN user_point AS p ON m.user_id = p.user_id
-			AND m.join_date BETWEEN #{param1} AND #{param2}
-			AND m.buying_price BETWEEN #{param3} AND #{param4} 
-			AND p.total_point BETWEEN #{param6} AND #{param7}
-			AND m.user_phone like CONCAT('%',#{param9},'%')
-			ORDER BY m.user_index desc LIMIT 0, 10
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_phone like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc LIMIT 0, 10
 	</select>
 	
 	<!-- 회원조건에서 클릭 카테고리 user_phone, 등급 null일때 - 다음페이지 10개 -->
 	<select id="detail_search_phone1_next2" resultType="com.example.demo.dto.dto_members"> 
-			SELECT m.user_index, m.user_id, m.user_pw, m.user_id, m.user_name, m.user_email, m.user_phone, m.user_address, m.postcode, m.user_grade, m.user_gender, m.user_birth, m.buying_price, m.join_date, p.total_point
-			FROM members AS m LEFT JOIN user_point AS p ON m.user_id = p.user_id
-			AND m.join_date BETWEEN #{param1} AND #{param2}
-			AND m.buying_price BETWEEN #{param3} AND #{param4} 
-			AND p.total_point BETWEEN #{param6} AND #{param7}
-			AND m.user_phone like CONCAT('%',#{param9},'%')
-			ORDER BY m.user_index desc LIMIT #{param10}, 10
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_phone like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc LIMIT #{param10}, 10
 	</select>
 	
 		<!-- 회원조건에서 클릭 카테고리 user_phone, 등급 조건 추가 - 첫페이지 10개 -->
 	<select id="detail_search_phone2_next1" resultType="com.example.demo.dto.dto_members"> 
-			SELECT m.user_index, m.user_id, m.user_pw, m.user_id, m.user_name, m.user_email, m.user_phone, m.user_address, m.postcode, m.user_grade, m.user_gender, m.user_birth, m.buying_price, m.join_date, p.total_point
-			FROM members AS m LEFT JOIN user_point AS p ON m.user_id = p.user_id
-			AND m.join_date BETWEEN #{param1} AND #{param2}
-			AND m.buying_price BETWEEN #{param3} AND #{param4} 
-			AND p.total_point BETWEEN #{param6} AND #{param7}
-			AND m.user_grade = #{param5}
-			AND m.user_phone like CONCAT('%',#{param9},'%')
-			ORDER BY m.user_index desc LIMIT 0, 10
+			SELECT * FROM members
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_grade = #{param5}
+			AND user_phone like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc LIMIT 0, 10
 	</select>
 	
 	<!-- 회원조건에서 클릭 카테고리 user_phone, 등급 조건 추가 - 다음페이지 10개 -->
 	<select id="detail_search_phone2_next2" resultType="com.example.demo.dto.dto_members"> 
-			SELECT m.user_index, m.user_id, m.user_pw, m.user_id, m.user_name, m.user_email, m.user_phone, m.user_address, m.postcode, m.user_grade, m.user_gender, m.user_birth, m.buying_price, m.join_date, p.total_point
-			FROM members AS m LEFT JOIN user_point AS p ON m.user_id = p.user_id
-			AND m.join_date BETWEEN #{param1} AND #{param2}
-			AND m.buying_price BETWEEN #{param3} AND #{param4} 
-			AND p.total_point BETWEEN #{param6} AND #{param7}
-			AND m.user_grade = #{param5}
-			AND m.user_phone like CONCAT('%',#{param9},'%')
-			ORDER BY m.user_index desc LIMIT #{param10}, 10
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_grade = #{param5}
+			AND user_phone like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc LIMIT #{param10}, 10
 	</select>
 	
 		<!-- 회원조건에서 클릭 카테고리 user_birth, 등급 null일때 - 첫페이지 10개 -->
 	<select id="detail_search_birth1_next1" resultType="com.example.demo.dto.dto_members"> 
-			SELECT m.user_index, m.user_id, m.user_pw, m.user_id, m.user_name, m.user_email, m.user_phone, m.user_address, m.postcode, m.user_grade, m.user_gender, m.user_birth, m.buying_price, m.join_date, p.total_point
-			FROM members AS m LEFT JOIN user_point AS p ON m.user_id = p.user_id
-			AND m.join_date BETWEEN #{param1} AND #{param2}
-			AND m.buying_price BETWEEN #{param3} AND #{param4} 
-			AND p.total_point BETWEEN #{param6} AND #{param7}
-			AND m.user_birth like CONCAT('%',#{param9},'%')
-			ORDER BY m.user_index desc LIMIT 0, 10
+			SELECT * FROM members
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_birth like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc LIMIT 0, 10
 	</select>
 	
 	<!-- 회원조건에서 클릭 카테고리 user_birth, 등급 null일때 - 다음페이지 10개 -->
 	<select id="detail_search_birth1_next2" resultType="com.example.demo.dto.dto_members"> 
-			SELECT m.user_index, m.user_id, m.user_pw, m.user_id, m.user_name, m.user_email, m.user_phone, m.user_address, m.postcode, m.user_grade, m.user_gender, m.user_birth, m.buying_price, m.join_date, p.total_point
-			FROM members AS m LEFT JOIN user_point AS p ON m.user_id = p.user_id
-			AND m.join_date BETWEEN #{param1} AND #{param2}
-			AND m.buying_price BETWEEN #{param3} AND #{param4} 
-			AND p.total_point BETWEEN #{param6} AND #{param7}
-			AND m.user_birth like CONCAT('%',#{param9},'%')
-			ORDER BY m.user_index desc LIMIT #{param10}, 10
+			SELECT * FROM members
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_birth like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc LIMIT #{param10}, 10
 	</select>
 	
 		<!-- 회원조건에서 클릭 카테고리 user_birth, 등급 조건 추가 - 첫페이지 10개 -->
 	<select id="detail_search_birth2_next1" resultType="com.example.demo.dto.dto_members"> 
-			SELECT m.user_index, m.user_id, m.user_pw, m.user_id, m.user_name, m.user_email, m.user_phone, m.user_address, m.postcode, m.user_grade, m.user_gender, m.user_birth, m.buying_price, m.join_date, p.total_point
-			FROM members AS m LEFT JOIN user_point AS p ON m.user_id = p.user_id
-			AND m.join_date BETWEEN #{param1} AND #{param2}
-			AND m.buying_price BETWEEN #{param3} AND #{param4} 
-			AND p.total_point BETWEEN #{param6} AND #{param7}
-			AND m.user_grade = #{param5}
-			AND m.user_birth like CONCAT('%',#{param9},'%')
-			ORDER BY m.user_index desc LIMIT 0, 10
+			SELECT * FROM members 
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_grade = #{param5}
+			AND user_birth like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc LIMIT 0, 10
 	</select>
 	
 	<!-- 회원조건에서 클릭 카테고리 user_birth, 등급 조건 추가 - 다음페이지 10개 -->
 	<select id="detail_search_birth2_next2" resultType="com.example.demo.dto.dto_members"> 
-			SELECT m.user_index, m.user_id, m.user_pw, m.user_id, m.user_name, m.user_email, m.user_phone, m.user_address, m.postcode, m.user_grade, m.user_gender, m.user_birth, m.buying_price, m.join_date, p.total_point
-			FROM members AS m LEFT JOIN user_point AS p ON m.user_id = p.user_id
-			AND m.join_date BETWEEN #{param1} AND #{param2}
-			AND m.buying_price BETWEEN #{param3} AND #{param4} 
-			AND p.total_point BETWEEN #{param6} AND #{param7}
-			AND m.user_grade = #{param5}
-			AND m.user_birth like CONCAT('%',#{param9},'%')
-			ORDER BY m.user_index desc LIMIT #{param10}, 10
+			SELECT * FROM members
+			WHERE join_date BETWEEN #{param1} AND #{param2}
+			AND buying_price BETWEEN #{param3} AND #{param4} 
+			AND user_point BETWEEN #{param6} AND #{param7}
+			AND user_grade = #{param5}
+			AND user_birth like CONCAT('%',#{param9},'%')
+			ORDER BY user_index desc LIMIT #{param10}, 10
 	</select>
 	
 	

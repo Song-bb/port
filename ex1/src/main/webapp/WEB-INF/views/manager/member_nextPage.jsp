@@ -80,7 +80,7 @@
                         <td class="member_search_list_td member_search_list_td4"><a href="/member_detail?user_index=${dto.user_index}">${dto.user_grade}</a></td>
                         <td class="member_search_list_td member_search_list_td4"><a href="/member_detail?user_index=${dto.user_index}">${dto.user_birth}</a></td>
                         <td class="member_search_list_td member_search_list_td4"><a href="/member_detail?user_index=${dto.user_index}"><fmt:formatNumber value="${dto.buying_price}" pattern="###,###,###" /></a></td>
-                        <td class="member_search_list_td member_search_list_td4"><a href="/member_detail?user_index=${dto.user_index}"><fmt:formatNumber value="${dto.total_point}" pattern="###,###,###" /></a></td>
+                        <td class="member_search_list_td member_search_list_td4"><a href="/member_detail?user_index=${dto.user_index}"><fmt:formatNumber value="${dto.user_point}" pattern="###,###,###" /></a></td>
                         <td class="member_search_list_td member_search_list_td4"><a href="/member_detail?user_index=${dto.user_index}">${dto.user_email}</a></td>
                         <td class="member_search_list_td member_search_list_td4"><a href="/member_detail?user_index=${dto.user_index}">${dto.user_phone}</a></td>
                     </tr>

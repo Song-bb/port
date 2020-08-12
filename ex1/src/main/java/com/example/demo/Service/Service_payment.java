@@ -28,6 +28,7 @@ public class Service_payment {
 	IDao_members dao_members;
 	@Autowired
 	IDao_cart_ByUser dao_cart;
+
 	
 	@Autowired
 	PlatformTransactionManager transactionManager;
@@ -86,6 +87,7 @@ public class Service_payment {
 			}
 			
 			dao_myPage.editPoint(user_id, order_number, item_name, total_price, used_point, result_point);
+			dao_members.editPoint()
 			
 			transactionManager.commit(status);
 			return 1;

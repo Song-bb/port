@@ -3,7 +3,6 @@ package com.example.demo.Service;
 import java.util.List;
 import java.util.Map;
 
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -11,6 +10,7 @@ import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
 
 import com.example.demo.dao.IDao_members;
+import com.example.demo.dao.IDao_myPage;
 import com.example.demo.dto.dto_members;
 
 @Service
@@ -18,6 +18,8 @@ public class Service_members {
 
 	@Autowired
 	IDao_members dao_member;
+	@Autowired
+	IDao_myPage dao_myPage;
 
 	@Autowired
 	PlatformTransactionManager transactionManager;
@@ -308,8 +310,20 @@ public class Service_members {
 	}
 	
 	/* 회원 적립금 추가/삭제 */
-	public int update_point( String member_index, String point ) {
-		return dao_member.update_point(member_index, point);
+	public int update_point( String member_index, String point, String user_id, String add_point ) {
+		
+		TransactionStatus status = transactionManager.getTransaction(definition);
+		
+		try {
+			dao_member.update_point(member_index, point);
+			dao_myPage.update_point(user_id, add_point, point);
+			
+			return 1;
+		} catch(Exception e) {
+			transactionManager.rollback(status);
+			System.out.println(e);
+			return 0;
+		}
 	}
 	
 	/* 회원 등급 변경 */

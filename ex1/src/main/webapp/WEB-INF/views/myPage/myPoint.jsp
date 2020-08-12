@@ -103,6 +103,16 @@
 				                        <td class="point_table_td"><fmt:formatNumber value="${ dto.point }" pattern="###,###,###" /> 원</td>
 				                    </tr>
 				                    </c:if>
+				                    <c:if test="${ dto.edit eq 'manager' }" >
+				                    <tr class="point_table_tr">
+				                        <td class="point_table_td">${ string2 }</td>
+				                        <td class="point_table_td point_table_td_content">
+				                            ${ dto.item_name }<br>
+				                            내용 : 관리자 권한으로 적립금 추가/차감
+				                        </td>
+				                        <td class="point_table_td"><fmt:formatNumber value="${ dto.point }" pattern="###,###,###" /> 원</td>
+				                    </tr>
+				                    </c:if>
 			                    </c:forEach>
 			                </table>
 			            </div>

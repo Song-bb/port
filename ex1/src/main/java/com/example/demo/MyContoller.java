@@ -1892,6 +1892,7 @@ public class MyContoller {
 	@RequestMapping("/member_point_ok")
 	public String member_point_ok(@RequestParam("user_index") String member_index, 
 									@RequestParam("point") String point, 
+									@RequestParam("add_point") String add_point,
 									HttpServletRequest request, Model model ) {
 		 HttpSession session = request.getSession();
 	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
@@ -1899,7 +1900,7 @@ public class MyContoller {
 	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
 	        	String user_id = session.getAttribute("user_id").toString();
 	        	
-	    		int nResult = service_members.update_point( member_index, point );
+	    		int nResult = service_members.update_point( member_index, point, user_id, add_point );
 	    		if( nResult < 1 ) {
 	    			return "manager/member_withdraw_member_fail";
 	    		} else {
