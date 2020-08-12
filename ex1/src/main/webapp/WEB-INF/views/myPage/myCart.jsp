@@ -45,7 +45,7 @@
                     	<input type="hidden" value="${ cart.item_sale_price }" id="item_sale_price" name="item_sale_price">
                     </td>
                     <td class="cart_count">
-                    	 <div class="goods_count">
+                    	 <div class="goods_countInCart">
                           <button type="button" class="btnDown" onclick="countDown( ${ cart.cart_idx }, ${ cart.item_order_amount } );">-</button>
                               <input type="text" value="${ cart.item_order_amount }" onblur="change_price();" id="count_item" name="item_order_amount">
                           <button type="button" class="btnUp" onclick="countUp( ${ cart.cart_idx }, ${ cart.item_order_amount } );">+</button>

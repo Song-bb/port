@@ -248,9 +248,9 @@
                     <tr>
                         <th>일반 결제</th>
                         <td>
-                            <label name="pay" for="pay"><input type="radio" name="pay" id="order_pay" value="신용카드">신용카드</label>
-                            <label name="pay" for="pay"><input type="radio" name="pay" id="order_pay" value="실시간계좌이체">실시간계좌이체</label>
-                            <label name="pay" for="pay"><input type="radio" name="pay" id="order_pay" value="무통장입금">무통장입금</label>
+                            <label name="pay" for="order_pay1" style="cursor:pointer"><input type="radio" name="pay" id="order_pay1" value="신용카드">신용카드</label>
+                            <label name="pay" for="order_pay2" style="cursor:pointer"><input type="radio" name="pay" id="order_pay2" value="실시간계좌이체">실시간계좌이체</label>
+                            <label name="pay" for="order_pay3" style="cursor:pointer"><input type="radio" name="pay" id="order_pay3" value="무통장입금">무통장입금</label>
                         </td>
                     </tr>
                 </table>

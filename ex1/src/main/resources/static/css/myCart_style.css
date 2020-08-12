@@ -84,7 +84,22 @@
     width: 10%;
 }
 
-
+.cart_count .goods_countInCart button {
+    width: 30px;
+    height: 30px;
+    border:none;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: #459356;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+}
+.cart_count .goods_countInCart input{
+    border:none;
+    text-align: center;
+    width: 50px;
+}
 
 #cart_foot{
     width: 100%;
