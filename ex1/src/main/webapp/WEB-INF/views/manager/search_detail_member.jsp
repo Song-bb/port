@@ -80,7 +80,7 @@
                         <td class="member_search_list_td member_search_list_td4">${dto.user_grade}</td>
                         <td class="member_search_list_td member_search_list_td4">${dto.user_birth}</td>
                         <td class="member_search_list_td member_search_list_td4"><fmt:formatNumber value="${dto.buying_price}" pattern="###,###,###" /></td>
-                        <td class="member_search_list_td member_search_list_td4"><fmt:formatNumber value="${dto.user_point}" pattern="###,###,###" /></td>
+                        <td class="member_search_list_td member_search_list_td4"><fmt:formatNumber value="${dto.total_point}" pattern="###,###,###" /></td>
                         <td class="member_search_list_td member_search_list_td4">${dto.user_email}</td>
                         <td class="member_search_list_td member_search_list_td4">${dto.user_phone}</td>
                     </tr>

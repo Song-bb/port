@@ -241,7 +241,6 @@ public class MyContoller {
 		String user_id = session.getAttribute("user_id").toString();
 		List<dto_members> list = service_members.check_pw( user_id, user_pw );
 		if( list.isEmpty() ) { // 아이디 없음
-			model.addAttribute("user_point", service_members.check_point(user_id).get(0).getUser_point());
 			return "myPage/withdraw_member_fail";
 		} else { // 아이디 있음
 			if( user_pw.equals( list.get(0).getUser_pw()) ) { // 비밀번호 일치
@@ -252,7 +251,6 @@ public class MyContoller {
 		        
 				int nResult = service_seced_member.leave_member( map );
 				if( nResult < 1 ) {
-					model.addAttribute("user_point", service_members.check_point(user_id).get(0).getUser_point());
 					return "myPage/withdraw_member_fail";
 				}
 		        session.invalidate(); // 로그아웃처리 
@@ -817,8 +815,8 @@ public class MyContoller {
 		} else { // 리뷰 없으면
 			model.addAttribute("itemReview_score", "0");
 		}
-		model.addAttribute("review_item", service_review.review_item(item_number)); // 리뷰 정보 4개까지
-		model.addAttribute("review_allIitem", service_review.review_allIitem(item_number)); // 리뷰정보 all
+		model.addAttribute("review_item", service_review.review_item(idx)); // 리뷰 정보 4개까지
+		model.addAttribute("review_allIitem", service_review.review_allIitem(idx)); // 리뷰정보 all
 		model.addAttribute("question_item", service_request.view_question(idx));
 		return "item/item_detail";
 	}
@@ -861,7 +859,9 @@ public class MyContoller {
         	return "loginPage/loginPage_main";
         } else {
         	String user_id = session.getAttribute("user_id").toString();
-        	model.addAttribute("my_order", service_myPage.order_list_main(user_id));
+			/* model.addAttribute("my_order", service_myPage.order_list_main(user_id)); */
+        	
+        	model.addAttribute("paymentList", service_payment.myPage_main(user_id));
         	model.addAttribute("user_point", service_myPage.pointList(user_id).get(0).getTotal_point());
     		
         	int count = service_myPage.countOrder(user_id);
@@ -921,7 +921,7 @@ public class MyContoller {
 
 	// 마이페이지 메인 - 년도별 선택
 	@RequestMapping("/myPage_main_selectYear")
-	public String myPage_main_selectYear( @RequestParam(value="year", required=false) int year, 
+	public String myPage_main_selectYear( @RequestParam(value="year", required=false) String year, 
 										@RequestParam(value="page", required=false) int page, 
 										HttpServletRequest request, HttpServletResponse response, Model model ) {
         HttpSession session = request.getSession();
@@ -929,8 +929,9 @@ public class MyContoller {
         	return "loginPage/loginPage_main";
         } else {
         	String user_id = session.getAttribute("user_id").toString();
-        	model.addAttribute("my_order", service_myPage.order_list(user_id, year, page));
+			/* model.addAttribute("my_order", service_myPage.order_list(user_id, year, page)); */
         	model.addAttribute("user_point", service_myPage.pointList(user_id).get(0).getTotal_point());
+        	model.addAttribute("paymentList", service_payment.myPage_main_year(user_id, year));
         	
         	int count = service_myPage.countOrder(user_id);
     		
@@ -1051,14 +1052,14 @@ public class MyContoller {
 	        if( session.getAttribute("user_id") == null ) { // 로그인 안되어있으면
 	        	return "loginPage/loginPage_main";
 	        } else {
-	        	model.addAttribute("myOrder_review", service_myPage.myOrder_review(orderNumber));
+	        	model.addAttribute("myOrder_review", service_payment.myOrder_review(orderNumber));
 	        	return "myPage/myReview_write";
 	        }
 	}
 	
 	// 상품후기작성중
 	@RequestMapping("/myReview_write_ok")
-	public String myReview_write_ok(@RequestParam(value="itemN", required=false) String item_number,
+	public String myReview_write_ok(@RequestParam(value="itemD", required=false) String item_idx,
 									@RequestParam(value="itemI", required=false) String item_img,
 									@RequestParam(value="itemE", required=false) String item_name,
 									@RequestParam(value="orderN", required=false) String order_number,
@@ -1069,7 +1070,7 @@ public class MyContoller {
 									@RequestParam(value="id", required=false) String user_id,
 									 Model model) {
 		Map <String, String> map = new HashMap<String, String>();
-		map.put("item_number", item_number);
+		map.put("item_idx", item_idx);
 		map.put("item_img", item_img);
 		map.put("item_name", item_name);
 		map.put("order_number", order_number);
@@ -1459,7 +1460,8 @@ public class MyContoller {
 	        	String user_id = session.getAttribute("user_id").toString();
 	        	
 	        	model.addAttribute("member_detail", service_members.member_detail( user_index ));
-	    		return "manager/member_detail";
+	    		model.addAttribute("member_point", service_myPage.memberPoint(user_id).get(0).getTotal_point());
+	        	return "manager/member_detail";
 	        } else {
 	        	return "manager/notAccess";
 	        }
@@ -1899,7 +1901,6 @@ public class MyContoller {
 	        	
 	    		int nResult = service_members.update_point( member_index, point );
 	    		if( nResult < 1 ) {
-	    			model.addAttribute("user_point", service_members.check_point(user_id).get(0).getUser_point());
 	    			return "manager/member_withdraw_member_fail";
 	    		} else {
 	    			return "redirect:member";
@@ -1917,7 +1918,7 @@ public class MyContoller {
 	        	return "loginPage/loginPage_main";
 	        } else if( session.getAttribute("user_id") != null && session.getAttribute("user_grade").equals("과일매니저") ){
 	        	String user_id = session.getAttribute("user_id").toString();
-	        	
+	        	model.addAttribute("member_point", service_myPage.memberPoint(user_id).get(0).getTotal_point());
 	        	model.addAttribute("withdraw_member_select", service_members.member_detail( member_index ));
 	    		return "manager/member_grade";
 	        } else {
@@ -1938,7 +1939,6 @@ public class MyContoller {
 	        	
 	    		int nResult = service_members.update_grade( member_index, grade );
 	    		if( nResult < 1 ) {
-	    			model.addAttribute("user_point", service_members.check_point(user_id).get(0).getUser_point());
 	    			return "manager/member_withdraw_member_fail";
 	    		} else {
 	    			return "redirect:member";

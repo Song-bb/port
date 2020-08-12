@@ -28,4 +28,12 @@ public interface IDao_cart_ByUser {
 	
 	//카트에서 같은 상품이 있으면 해당 상품의 수량을 수정한다.
 	public int cart_amount_updateDao(Map<String, String> map);
+	
+	public int deleteCart1(String item_index1);
+	public int deleteCart2(String item_index2);
+	public int deleteCart3(String item_index3);
+	public int deleteCart4(String item_index4);
+	public int deleteCart5(String item_index5);
+	
+	
 }

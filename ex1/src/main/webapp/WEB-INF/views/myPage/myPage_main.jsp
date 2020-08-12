@@ -79,34 +79,35 @@
                                 <td class="order_board_table_td order_td1 order_td6">주문번호</td>
                                 <td class="order_board_table_td order_td2 order_td6">상품정보</td>
                                 <td class="order_board_table_td order_td3 order_td7">상품금액<br>(수량)</td>
-                                <td class="order_board_table_td order_td4 order_td7">배송비</td>
-                                <td class="order_board_table_td order_td5 order_td6">진행상태</td>
+                                <td class="order_board_table_td order_td4 order_td7">총금액</td>
+                                <td class="order_board_table_td order_td5 order_td6">결제정보</td>
                             </tr>
-                            <c:forEach items="${ my_order }" var="dto">
+                            <c:forEach items="${ paymentList }" var="dto">
                             <tr class="order_board_table_tr">
                                 <td class="order_board_table_td order_td1 order_td6"><a href="/myOrder?orderNumber=${dto.order_number}">${ dto.order_number }</a></td>
                                 <td class="order_board_table_td order_td2">
                                     <div class="order_td2_1">
-                                        <a href="/myOrder?orderNumber=${dto.order_number}"><img id="order_td2_1_img" src="${ dto.item_img }"></a>
+                                        <a href="/myOrder?orderNumber=${dto.order_number}"><img id="order_td2_1_img" src="${ dto.item_img1 }"></a>
                                     </div>
                                     <div class="order_td2_2">
-                                        <a href="/myOrder?orderNumber=${dto.order_number}">${ dto.item_text }</a>
+                                        <a href="/myOrder?orderNumber=${dto.order_number}">${ dto.item_name1 }</a>
                                     </div>
                                 </td>
-                                <td class="order_board_table_td order_td3 order_td7"><fmt:formatNumber value="${ dto.price_actual }" pattern="###,###,###" /> 원<br>(${ dto.count }개)</td>
-                                <td class="order_board_table_td order_td4 order_td7"><fmt:formatNumber value="${ dto.price_delivery }" pattern="###,###,###" /> 원</td>
+                                <td class="order_board_table_td order_td3 order_td7"><fmt:formatNumber value="${ dto.item_sellingPrice1 }" pattern="###,###,###" /> 원<br>(${ dto.item_count1 }개)</td>
+                                <td class="order_board_table_td order_td4 order_td7"><fmt:formatNumber value="${ dto.item_total_price1 }" pattern="###,###,###" /> 원</td>
                                 <td class="order_board_table_td order_td5">
                                     <div class="order_td5_2">
                                         <button class="order_td5_2_1" type="button" onclick="reviewPop(${dto.order_number});">리뷰쓰기</button>
                                         <button class="order_td5_2_1" type="button" onclick="location.href='/myOrder?orderNumber=${dto.order_number}'">주문상세</button>
                                     </div>
-                                    <div class="order_td5_1">${ dto.statement }</div>
+                                    <div class="order_td5_1">${ dto.payment }</div>
                                 </td>
                             </tr>
                             </c:forEach>
                         </table>
                     </div>
-                    <div class="member_manager_select_page">
+                    
+<%--                     <div class="member_manager_select_page">
 			            <table class="member_manager_select_page_table">
 			                <tr>
 			               		<td class="member_manager_select_page_td"><a href="/myPage_main?page=1"><<</a></td>
@@ -122,7 +123,8 @@
 								<td class="member_manager_select_page_td"><a href="/myPage_main?page=${lastPage}">>></a></td>
 			                </tr>
 			            </table>
-        			</div> 
+        			</div>  --%>
+        			
                 </div><!-- servicePage_right -->
             </div><!-- pageWrap -->
             <div id="servicePage_main_end"></div>

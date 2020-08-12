@@ -7,7 +7,7 @@
 <mapper namespace="com.example.demo.dao.IDao_review">
 
 	<insert id="addReview"> 
-			INSERT INTO review (idx, user_index, user_id, item_number, item_img, item_name, order_number, Buy_price, Buy_date, review_content, review_score, write_date) VALUES (0, #{user_index}, #{user_id}, #{item_number}, #{item_img}, #{item_name}, #{order_number}, #{Buy_price}, #{Buy_date}, #{review_content}, #{review_score}, default)
+			INSERT INTO review (idx, user_index, user_id, item_idx, item_img, item_name, order_number, Buy_price, Buy_date, review_content, review_score, write_date) VALUES (0, #{user_index}, #{user_id}, #{item_idx}, #{item_img}, #{item_name}, #{order_number}, #{Buy_price}, #{Buy_date}, #{review_content}, #{review_score}, default)
 	</insert>
 	
 	<select id="count_user" resultType="_int"> 
@@ -19,19 +19,19 @@
 	</select>
 	
 	<select id="itemDetail_reviewCount" resultType="_int"> 
-			SELECT COUNT(*) FROM review WHERE item_number = #{param1}
+			SELECT COUNT(*) FROM review WHERE item_idx = #{param1}
 	</select>
 	
 	<select id="itemReview_point" resultType="com.example.demo.dto.dto_review"> 
-			SELECT review_score FROM review WHERE item_number = #{param1}
+			SELECT review_score FROM review WHERE item_idx = #{param1}
 	</select>
 	
 	<select id="review_item" resultType="com.example.demo.dto.dto_review"> 
-			SELECT * FROM review WHERE item_number = #{param1} ORDER BY user_index desc LIMIT 0,4
+			SELECT * FROM review WHERE item_idx = #{param1} ORDER BY user_index desc LIMIT 0,4
 	</select>
 
 	<select id="review_allIitem" resultType="com.example.demo.dto.dto_review"> 
-			SELECT * FROM review WHERE item_number = #{param1} ORDER BY user_index desc
+			SELECT * FROM review WHERE item_idx = #{param1} ORDER BY user_index desc
 	</select>
 
 	

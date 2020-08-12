@@ -67,4 +67,8 @@
 			VALUES ( 0, #{param1}, default, #{param2}, #{param3}, #{param4}, 0, #{param5}, #{param6}, "minus")
 	</insert>
 	
+	<select id="memberPoint" resultType="com.example.demo.dto.dto_user_point"> 
+			SELECT * FROM user_point WHERE user_id = #{param1} ORDER BY idx desc
+	</select>
+	
 </mapper>

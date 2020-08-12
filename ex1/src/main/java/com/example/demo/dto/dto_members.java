@@ -13,8 +13,8 @@ public class dto_members {
 	private String user_phone;
 	private String user_address;
 	private String postcode;
-	private String user_grade;
 	private String user_point;
+	private String user_grade;
 	private String user_gender;
 	private String user_birth;
 	private String buying_price;

@@ -8,7 +8,7 @@ public class dto_review {
 	private String idx;
 	private int user_index;
 	private String user_id;
-	private String item_number;
+	private String item_idx;
 	private String item_img;
 	private String item_name;
 	private String order_number;

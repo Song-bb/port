@@ -29,5 +29,18 @@
 	<select id="view" resultType="com.example.demo.dto.dto_payment"> 
 			SELECT * FROM payment WHERE user_id = #{param1} ORDER BY idx desc LIMIT 0,1
 	</select>
+	
+	<select id="myPage_main" resultType="com.example.demo.dto.dto_payment"> 
+			SELECT * FROM payment WHERE user_id = #{param1} ORDER BY idx desc
+	</select>
+	
+	<select id="myPage_main_year" resultType="com.example.demo.dto.dto_payment"> 
+			SELECT * FROM payment WHERE user_id = #{param1} AND date BETWEEN #{param2} AND #{param3} ORDER BY idx desc
+	</select>
+
+	<select id="myOrder_review" resultType="com.example.demo.dto.dto_payment"> 
+         SELECT * FROM payment WHERE order_number = #{param1}
+   </select>
+	
 
 </mapper>

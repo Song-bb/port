@@ -80,6 +80,26 @@
    	SET item_order_amount = #{count_item}
    	WHERE c.cart_idx = #{cart_idx}
    </update>
+   
+   	<delete id="deleteCart1">
+		DELETE FROM cart WHERE item_idx = #{param1}
+	</delete>
+	
+	<delete id="deleteCart2">
+		DELETE FROM cart WHERE item_idx = #{param1}
+	</delete>
+	
+	<delete id="deleteCart3">
+		DELETE FROM cart WHERE item_idx = #{param1}
+	</delete>
+	
+	<delete id="deleteCart4">
+		DELETE FROM cart WHERE item_idx = #{param1}
+	</delete>
+	
+	<delete id="deleteCart5">
+		DELETE FROM cart WHERE item_idx = #{param1}
+	</delete>
 	
 </mapper>
 	

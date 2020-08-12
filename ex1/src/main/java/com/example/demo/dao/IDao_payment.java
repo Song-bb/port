@@ -16,5 +16,9 @@ public interface IDao_payment {
 	public int addPayment4(Map<String, String> map);
 	public int addPayment5(Map<String, String> map);
 	public List<dto_payment> view(String user_id);
+	public List<dto_payment> myPage_main(String user_id);
+	public List<dto_payment> myPage_main_year(String user_id, String newYear_min, String newYear_max);
+	public List<dto_payment> myOrder_review(String orderNumber);
+
 	
 }

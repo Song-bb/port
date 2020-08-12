@@ -132,6 +132,10 @@ public class Service_myPage {
 		return dao_myPage.orderDetail(orderNumber);
 	}
 	
+	public List<dto_user_point> memberPoint(String user_id){
+		return dao_myPage.memberPoint(user_id);
+	}
+	
 	
 	
 	

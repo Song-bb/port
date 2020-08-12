@@ -29,17 +29,17 @@
             <tr>
                 <td>${ dto.order_number }</td>
                 <td class="write_itemInfo">
-                    <p><img src="${ dto.item_img }"></p>
-                    <span>${ dto.item_text }</span>
+                    <p><img src="${ dto.item_img1 }"></p>
+                    <span>${ dto.item_name1 }</span>
                 </td>
-                <td><fmt:formatNumber value="${ dto.price_actual }" pattern="###,###,###" /> 원</td>
+                <td><fmt:formatNumber value="${ dto.item_total_price1 }" pattern="###,###,###" /> 원</td>
                 <td>${ string2 }</td>
             </tr>
             	<input type="hidden" value="${ dto.order_number }" id="order_number">
-            	<input type="hidden" value="${ dto.item_img }" id="item_img">
-            	<input type="hidden" value="${ dto.item_text }" id="item_name">
-            	<input type="hidden" value="${ dto.item_number }" id="item_number">
-            	<input type="hidden" value="${ dto.price_actual }" id="Buy_price">
+            	<input type="hidden" value="${ dto.item_img1 }" id="item_img">
+            	<input type="hidden" value="${ dto.item_name1 }" id="item_name">
+            	<input type="hidden" value="${ dto.item_idx1 }" id="item_idx1">
+            	<input type="hidden" value="${ dto.item_total_price1 }" id="Buy_price">
             	<input type="hidden" value="${ dto.date }" id="date">
             	<input type="hidden" value="${ dto.user_id }" id="user_id">
             </c:forEach>
@@ -65,7 +65,7 @@
     
     <script>
     	function review_write_ok(){
-    		var item_number = document.getElementById('item_number').value;
+    		var item_idx = document.getElementById('item_idx1').value;
     		var item_img = document.getElementById('item_img').value;
     		var item_name = document.getElementById('item_name').value;
     		var order_number = document.getElementById('order_number').value;
@@ -83,7 +83,7 @@
 			if( score == undefined ){
 				alert("별점을 체크해주세요.");
 			} else {
-	    		var url = "/myReview_write_ok?itemN=" + item_number + "&itemI=" + item_img + "&itemE=" + item_name + "&orderN=" + order_number + "&priceB=" + Buy_price + "&dateB=" + Buy_date + "&content=" + review_content + "&id=" + user_id + "&score=" + score;
+	    		var url = "/myReview_write_ok?itemD=" + item_idx + "&itemI=" + item_img + "&itemE=" + item_name + "&orderN=" + order_number + "&priceB=" + Buy_price + "&dateB=" + Buy_date + "&content=" + review_content + "&id=" + user_id + "&score=" + score;
 	    		opener.location.href = url;
 	    		alert("상품 리뷰가 등록되었습니다.");
 	    		window.close();
