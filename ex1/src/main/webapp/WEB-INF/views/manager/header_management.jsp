@@ -84,11 +84,10 @@
 	                    <ul class="sub_nav2">
 	                    	<li><a href="/items">상품관리</a></li>
 	                        <li><a href="/item_update">상품등록</a></li>
-	                        <li><a href="/review">상품후기</a></li>
 	                    </ul>
 	                </li>
 	                <li>
-	                    <a href="/notice_board">게시판 관리</a>
+	                    <a href="/notice_board_manager">게시판 관리</a>
 	                    <ul class="sub_nav2">
 	                        <li><a href="/notice_board_manager">공지사항 관리</a></li>
 	                        <li><a href="/fre_ask_board">자주하는질문</a></li>
