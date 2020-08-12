@@ -55,7 +55,7 @@
 	</select>
 	
 	<update id="update_point"> 
-			UPDATE members SET user_point = #{param2} WHERE user_index = #{param1}
+			UPDATE members SET user_point = #{param2} WHERE user_id = #{param1}
 	</update>
 	
 	<update id="update_grade"> 

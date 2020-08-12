@@ -65,7 +65,7 @@ public interface IDao_members {
 	public int checkId( String user_id );
 	public int checkEmail( String user_email );
 	public List<dto_members> member_detail(String user_index);
-	public int update_point(String member_index, String point);
+	public int update_point(String user_id, String point);
 	public int update_grade(String member_index, String grade);
 	public List<dto_members> memberDetail(String user_id);
 	public int update_userId(String user_id, String user_pw); // 비밀번호 변경

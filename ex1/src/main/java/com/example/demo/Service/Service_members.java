@@ -315,13 +315,13 @@ public class Service_members {
 		TransactionStatus status = transactionManager.getTransaction(definition);
 		
 		try {
-			dao_member.update_point(member_index, point);
+			dao_member.update_point(user_id, point);
 			dao_myPage.update_point(user_id, add_point, point);
 			
 			return 1;
 		} catch(Exception e) {
-			transactionManager.rollback(status);
 			System.out.println(e);
+			transactionManager.rollback(status);
 			return 0;
 		}
 	}
