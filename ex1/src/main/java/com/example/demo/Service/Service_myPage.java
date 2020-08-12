@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.IDao_myPage;
 import com.example.demo.dto.dto_myPage;
+import com.example.demo.dto.dto_payment;
 import com.example.demo.dto.dto_user_point;
 
 @Service
@@ -128,7 +129,7 @@ public class Service_myPage {
 		return dao_myPage.pointList(user_id);
 	}
 	
-	public List<dto_myPage> orderDetail(String orderNumber) {
+	public List<dto_payment> orderDetail(String orderNumber) {
 		return dao_myPage.orderDetail(orderNumber);
 	}
 	

@@ -105,19 +105,81 @@
                                 </td>
                                 <td class="detail_order_board_table_td detail_order_td4 detail_order_td7">구매 일자</td>
                             </tr>
-                            <tr class="detail_order_board_table_tr">
-                                <td class="detail_order_board_table_td detail_order_td1 detail_order_td6">${ dto.order_number }</td>
-                                <td class="detail_order_board_table_td detail_order_td2">
-                                    <div class="detail_order_td2_1">
-                                        <a href=""><img img id="order_td2_1_img" src="${ dto.item_img }"></a>
-                                    </div>
-                                    <div class="detail_order_td2_2">
-                                        <a href="">${ dto.item_text }</a>
-                                    </div>
-                                </td>
-                                <td class="detail_order_board_table_td detail_detail_order_td3 detail_order_td7"><fmt:formatNumber value="${ dto.price_item }" pattern="###,###,###" /> 원<br>(${ dto.count }개)</td>
-                                <td class="detail_detail_order_board_table_td detail_detail_order_td4 detail_order_td7 detail_order_board_table_td">${ dto.date }</td>
-                            </tr>
+                            <c:if test="${dto.item_idx1 ne 'null'}">
+	                            <tr class="detail_order_board_table_tr">
+	                                <td class="detail_order_board_table_td detail_order_td1 detail_order_td6">${ dto.order_number }</td>
+	                                <td class="detail_order_board_table_td detail_order_td2">
+	                                    <div class="detail_order_td2_1">
+	                                        <a href="item_detail?idx=${ dto.item_idx1 }"><img img id="order_td2_1_img" src="${ dto.item_img1 }"></a>
+	                                    </div>
+	                                    <div class="detail_order_td2_2">
+	                                        <a href="item_detail?idx=${ dto.item_idx1 }">${ dto.item_name1 }</a>
+	                                    </div>
+	                                </td>
+	                                <td class="detail_order_board_table_td detail_detail_order_td3 detail_order_td7"><fmt:formatNumber value="${ dto.item_sellingPrice1 }" pattern="###,###,###" /> 원<br>(${ dto.item_count1 }개)</td>
+	                                <td class="detail_detail_order_board_table_td detail_detail_order_td4 detail_order_td7 detail_order_board_table_td">${ dto.date }</td>
+	                            </tr>
+                            </c:if>
+                            <c:if test="${dto.item_idx2 ne 'null'}">
+	                            <tr class="detail_order_board_table_tr">
+	                                <td class="detail_order_board_table_td detail_order_td1 detail_order_td6">${ dto.order_number }</td>
+	                                <td class="detail_order_board_table_td detail_order_td2">
+	                                    <div class="detail_order_td2_1">
+	                                        <a href="item_detail?idx=${ dto.item_idx2 }"><img img id="order_td2_1_img" src="${ dto.item_img2 }"></a>
+	                                    </div>
+	                                    <div class="detail_order_td2_2">
+	                                        <a href="item_detail?idx=${ dto.item_idx2 }">${ dto.item_name2 }</a>
+	                                    </div>
+	                                </td>
+	                                <td class="detail_order_board_table_td detail_detail_order_td3 detail_order_td7"><fmt:formatNumber value="${ dto.item_sellingPrice2 }" pattern="###,###,###" /> 원<br>(${ dto.item_count2 }개)</td>
+	                                <td class="detail_detail_order_board_table_td detail_detail_order_td4 detail_order_td7 detail_order_board_table_td">${ dto.date }</td>
+	                            </tr>
+                            </c:if>
+                            <c:if test="${dto.item_idx3 ne 'null'}">
+	                            <tr class="detail_order_board_table_tr">
+	                                <td class="detail_order_board_table_td detail_order_td1 detail_order_td6">${ dto.order_number }</td>
+	                                <td class="detail_order_board_table_td detail_order_td2">
+	                                    <div class="detail_order_td2_1">
+	                                        <a href="item_detail?idx=${ dto.item_idx3 }"><img img id="order_td2_1_img" src="${ dto.item_img3 }"></a>
+	                                    </div>
+	                                    <div class="detail_order_td2_2">
+	                                        <a href="item_detail?idx=${ dto.item_idx3 }">${ dto.item_name3 }</a>
+	                                    </div>
+	                                </td>
+	                                <td class="detail_order_board_table_td detail_detail_order_td3 detail_order_td7"><fmt:formatNumber value="${ dto.item_sellingPrice3 }" pattern="###,###,###" /> 원<br>(${ dto.item_count3 }개)</td>
+	                                <td class="detail_detail_order_board_table_td detail_detail_order_td4 detail_order_td7 detail_order_board_table_td">${ dto.date }</td>
+	                            </tr>
+                            </c:if>
+                            <c:if test="${dto.item_idx4 ne 'null'}">
+	                            <tr class="detail_order_board_table_tr">
+	                                <td class="detail_order_board_table_td detail_order_td1 detail_order_td6">${ dto.order_number }</td>
+	                                <td class="detail_order_board_table_td detail_order_td2">
+	                                    <div class="detail_order_td2_1">
+	                                        <a href="item_detail?idx=${ dto.item_idx4 }"><img img id="order_td2_1_img" src="${ dto.item_img4 }"></a>
+	                                    </div>
+	                                    <div class="detail_order_td2_2">
+	                                        <a href="item_detail?idx=${ dto.item_idx4 }">${ dto.item_name4 }</a>
+	                                    </div>
+	                                </td>
+	                                <td class="detail_order_board_table_td detail_detail_order_td3 detail_order_td7"><fmt:formatNumber value="${ dto.item_sellingPrice4 }" pattern="###,###,###" /> 원<br>(${ dto.item_count4 }개)</td>
+	                                <td class="detail_detail_order_board_table_td detail_detail_order_td4 detail_order_td7 detail_order_board_table_td">${ dto.date }</td>
+	                            </tr>
+                            </c:if>
+                            <c:if test="${dto.item_idx5 ne 'null'}">
+	                            <tr class="detail_order_board_table_tr">
+	                                <td class="detail_order_board_table_td detail_order_td1 detail_order_td6">${ dto.order_number }</td>
+	                                <td class="detail_order_board_table_td detail_order_td2">
+	                                    <div class="detail_order_td2_1">
+	                                        <a href="item_detail?idx=${ dto.item_idx5 }"><img img id="order_td2_1_img" src="${ dto.item_img5 }"></a>
+	                                    </div>
+	                                    <div class="detail_order_td2_2">
+	                                        <a href="item_detail?idx=${ dto.item_idx5 }">${ dto.item_name5 }</a>
+	                                    </div>
+	                                </td>
+	                                <td class="detail_order_board_table_td detail_detail_order_td3 detail_order_td7"><fmt:formatNumber value="${ dto.item_sellingPrice5 }" pattern="###,###,###" /> 원<br>(${ dto.item_count5 }개)</td>
+	                                <td class="detail_detail_order_board_table_td detail_detail_order_td4 detail_order_td7 detail_order_board_table_td">${ dto.date }</td>
+	                            </tr>
+                            </c:if>                                                                                                               
                         </table>
                     </div>
                     <div id="mypage_detail_order_info">
@@ -134,28 +196,16 @@
                                     <td class="order_info_table_td order_info_table_td_title">${ dto.payment }</td>
                                 </tr>
                                 <tr class="order_info_table_tr">
-                                    <td class="order_info_table_td_1">은행명</td>
-                                    <td class="order_info_table_td_2">${ dto.bank }</td>
-                                </tr>
-                                <tr class="order_info_table_tr">
                                     <td class="order_info_table_td_1">총 상품 가격</td>
-                                    <td class="order_info_table_td_2"><fmt:formatNumber value="${ dto.price_item }" pattern="###,###,###" /> 원</td>
+                                    <td class="order_info_table_td_2"><fmt:formatNumber value="${ dto.total_price }" pattern="###,###,###" /> 원</td>
                                 </tr>
                                 <tr class="order_info_table_tr">
                                     <td class="order_info_table_td_1">할인 후 금액</td>
-                                    <td class="order_info_table_td_2"><fmt:formatNumber value="${ dto.price_sale }" pattern="###,###,###" /> 원</td>
-                                </tr>
-                                <tr class="order_info_table_tr order_info_table_tr_last">
-                                    <td class="order_info_table_td_1">배송비</td>
-                                    <td class="order_info_table_td_2"><fmt:formatNumber value="${ dto.price_delivery }" pattern="###,###,###" /> 원</td>
-                                </tr>
-                                <tr class="order_info_table_tr">
-                                    <td class="order_info_table_td_1"></td>
-                                    <td class="order_info_table_td_2"><fmt:formatNumber value="${ dto.price_actual }" pattern="###,###,###" /> 원</td>
+                                    <td class="order_info_table_td_2"><fmt:formatNumber value="${ dto.result_total_price }" pattern="###,###,###" /> 원</td>
                                 </tr>
                                 <tr class="order_info_table_tr order_info_table_tr_result">
                                     <td class="order_info_table_td_1"><strong>총 결제 금액</strong></td>
-                                    <td class="order_info_table_td_2"><strong><fmt:formatNumber value="${ dto.price_actual }" pattern="###,###,###" /> 원</strong></td>
+                                    <td class="order_info_table_td_2"><strong><fmt:formatNumber value="${ dto.result_total_price }" pattern="###,###,###" /> 원</strong></td>
                                 </tr>
                             </table>
                         </div>
@@ -180,7 +230,7 @@
                                 </tr>
                                 <tr class="box_info_table_tr box_info_table_tr_result">
                                     <td class="box_info_table_td_1">배송 요청 사항</td>
-                                    <td class="box_info_table_td_2">${ dto.delivery_memo }</td>
+                                    <td class="box_info_table_td_2">${ dto.memo }</td>
                                 </tr>
                             </table>
                         </div>

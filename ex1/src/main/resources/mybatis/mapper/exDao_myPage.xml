@@ -58,8 +58,8 @@
 			SELECT * FROM user_point WHERE user_id = #{param1} ORDER BY idx desc
 	</select>
 	
-	<select id="orderDetail" resultType="com.example.demo.dto.dto_myPage"> 
-         SELECT * FROM order_list WHERE order_number = #{param1}
+	<select id="orderDetail" resultType="com.example.demo.dto.dto_payment"> 
+         SELECT * FROM payment WHERE order_number = #{param1}
    </select>
 
    	<insert id="editPoint"> 

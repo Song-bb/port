@@ -108,11 +108,11 @@
 	                </tr>
 	                <tr>
 	                    <td class="cashReceipt_th">상품명</td>
-	                    <td class="cashReceipt_td">${ dto.item_text }</td>
+	                    <td class="cashReceipt_td">${ dto.item_name1 }</td>
 	                </tr>
 	                <tr>
 	                    <td class="cashReceipt_th">합계</td>
-	                    <td class="cashReceipt_td"><b><fmt:formatNumber value="${ dto.price_actual }" pattern="###,###,###" /></b> 원</td>
+	                    <td class="cashReceipt_td"><b><fmt:formatNumber value="${ dto.result_total_price }" pattern="###,###,###" /></b> 원</td>
 	                </tr>
 	                <tr>
 	                    <td class="cashReceipt_th">회사명</td>
