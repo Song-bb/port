@@ -538,5 +538,10 @@
 			ORDER BY user_index desc LIMIT #{param10}, 10
 	</select>
 	
+	<update id="edit_memberPoint"> 
+			UPDATE members SET user_point = #{param2} WHERE user_id = #{param1}
+	</update>
+	
+	
 	
 </mapper>

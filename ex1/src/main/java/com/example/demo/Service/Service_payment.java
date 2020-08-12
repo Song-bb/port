@@ -87,7 +87,7 @@ public class Service_payment {
 			}
 			
 			dao_myPage.editPoint(user_id, order_number, item_name, total_price, used_point, result_point);
-			dao_members.editPoint()
+			int result = dao_members.edit_memberPoint(user_id, result_point);
 			
 			transactionManager.commit(status);
 			return 1;

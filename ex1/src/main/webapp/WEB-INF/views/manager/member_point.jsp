@@ -137,7 +137,7 @@
 		var user_index = document.getElementById('user_index').value;
 		var add_point = document.getElementById('add_point').value;
 		var point = removeComma(document.getElementById('amend_point').innerText);
-        var url = "/member_point_ok?user_index=" + user_index + "&point=" + point + "&add_point=" + add_point;
+		var url = "/member_point_ok?user_index=" + user_index + "&point=" + point + "&add_point=" + add_point;
         opener.document.location.href=url;
 		window.close();
 	}

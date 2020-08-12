@@ -92,6 +92,7 @@ public interface IDao_members {
 	public List<dto_members> check_point(String user_id);
 	
 	public List<dto_members> check_memberIdx(String user_id);
+	public int edit_memberPoint(String user_id, String result_point);
 	
 }
 
