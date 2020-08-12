@@ -27,27 +27,24 @@
             </div>
             <table>
                 <tr class="managerlist_tr">
-                    <td class="managerlist_td_check">선택</td>
                     <td class="managerlist_td_index">인덱스</td>
                     <td class="managerlist_td_category">카테고리</td>
                     <td class="managerlist_td_img">상품이미지</td>
                     <td class="managerlist_td_name">상품이름</td>
                     <td class="managerlist_td_price">상품가격</td>
+                    <td> 삭제 </td>
                 </tr>
                 <c:forEach items="${ all_listview }" var="dto">
 	                <tr class="managerlist_tr">
-	                    <td class="managerlist_td_check"><input type="checkbox"></td>
 	                    <td class="managerlist_td_index">${ dto.category_idx }</td>
 	                    <td class="managerlist_td_category">${ dto.item_category }</td>
-	                    <td class="managerlist_td_img"><img src="${ dto.item_img }" height="160px" width="125px"></td>
+	                    <td class="managerlist_td_img" ><span style="background-image:url('${ dto.item_img }')"></span></td>
 	                    <td class="managerlist_td_name"><a href="item_amend?idx=${ dto.idx }">${ dto.item_name }</a></td>
 	                    <td class="managerlist_td_price"><fmt:formatNumber value="${ dto.item_sale_price }" pattern="###,###,###" /> 원</td>
+	                    <td><a href=""> × </a></td>
 	                </tr>
                 </c:forEach>
             </table>
-            <div class="managerlist_table_div">
-                <button>선택한 상품 삭제</button>
-            </div>
         </div>
     </div>
     
