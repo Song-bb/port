@@ -113,6 +113,16 @@
 				                        <td class="point_table_td"><fmt:formatNumber value="${ dto.point }" pattern="###,###,###" /> 원</td>
 				                    </tr>
 				                    </c:if>
+				                    <c:if test="${ dto.edit eq 'join' }" >
+				                    <tr class="point_table_tr">
+				                        <td class="point_table_td">${ string2 }</td>
+				                        <td class="point_table_td point_table_td_content">
+				                            ${ dto.order_number }<br>
+				                            ${ dto.item_name }<br>
+				                        </td>
+				                        <td class="point_table_td"><fmt:formatNumber value="${ dto.point }" pattern="###,###,###" /> 원</td>
+				                    </tr>
+				                    </c:if>
 			                    </c:forEach>
 			                </table>
 			            </div>

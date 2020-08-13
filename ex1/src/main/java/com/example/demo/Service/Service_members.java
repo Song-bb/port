@@ -43,8 +43,19 @@ public class Service_members {
 	
 	/* 회원가입 */
 	public int join_ok(Map<String, String> map) {
-		int nResult = dao_member.join_ok(map);
-		return nResult;
+		TransactionStatus status = transactionManager.getTransaction(definition);
+		String user_id = map.get("user_id").toString();
+		
+		try {
+			dao_member.join_ok(map);
+			dao_myPage.join_point(user_id);
+			
+			return 1;
+		} catch(Exception e) {
+			System.out.println(e);
+			transactionManager.rollback(status);
+			return 0;
+		}
 	}
 	
 	/* 비밀번호재확인 */

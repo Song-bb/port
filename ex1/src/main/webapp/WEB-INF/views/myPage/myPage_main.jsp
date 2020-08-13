@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <!-- 마이페이지 메인 -->
 
@@ -90,7 +91,7 @@
                                         <a href="/myOrder?orderNumber=${dto.order_number}"><img id="order_td2_1_img" src="${ dto.item_img1 }"></a>
                                     </div>
                                     <div class="order_td2_2">
-                                        <a href="/myOrder?orderNumber=${dto.order_number}">${ dto.item_name1 }</a>
+                                        <a href="/myOrder?orderNumber=${dto.order_number}">${ dto.item_name1 }<c:if test="${ dto.item_name2 ne 'null' }"> 외</c:if></a>
                                     </div>
                                 </td>
                                 <td class="order_board_table_td order_td3 order_td7"><fmt:formatNumber value="${ dto.item_sellingPrice1 }" pattern="###,###,###" /> 원<br>(${ dto.item_count1 }개)</td>

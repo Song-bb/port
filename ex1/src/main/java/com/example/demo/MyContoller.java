@@ -861,8 +861,11 @@ public class MyContoller {
         	String user_id = session.getAttribute("user_id").toString();
 			/* model.addAttribute("my_order", service_myPage.order_list_main(user_id)); */
         	
+        	System.out.println( user_id );
+        	List<dto_user_point> list = service_myPage.pointList(user_id);
+        	System.out.println(list);
         	model.addAttribute("paymentList", service_payment.myPage_main(user_id));
-        	model.addAttribute("user_point", service_myPage.pointList(user_id).get(0).getTotal_point());
+        	model.addAttribute("user_point", list.get(0).getTotal_point());
     		
         	int count = service_myPage.countOrder(user_id);
     		

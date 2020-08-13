@@ -63,8 +63,8 @@
    </select>
 
    	<insert id="editPoint"> 
-			INSERT INTO user_point (idx, user_id, date, order_number, item_name, price, point_rate, point, total_point, edit) 
-			VALUES ( 0, #{param1}, default, #{param2}, #{param3}, #{param4}, 0, #{param5}, #{param6}, "minus")
+			INSERT INTO `user_point` (idx, user_id, date, order_number, item_name, price, point_rate, point, total_point, edit) 
+			VALUES ( 0, #{param1}, default, #{param2}, #{param3}, #{param4}, 0, #{param5}, #{param6}, "minus");
 	</insert>
 	
 	<select id="memberPoint" resultType="com.example.demo.dto.dto_user_point"> 
@@ -73,7 +73,12 @@
 	
 	<insert id="update_point"> 
 			INSERT INTO user_point (idx, user_id, date, order_number, item_name, price, point_rate, point, total_point, edit) 
-			VALUES ( 0, #{param1}, default, "운영자 권한 지급", "운영자 권한 지급", 0, 0, #{param2}, #{param3}, "manager")
+			VALUES (0, #{param1}, DEFAULT, '운영자 권한 지급', '운영자 권한 지급', 0, 0, #{param2}, #{param3}, 'manager')
+	</insert>
+	
+	<insert id="join_point"> 
+			INSERT INTO user_point (idx, user_id, date, order_number, item_name, price, point_rate, point, total_point, edit) 
+			VALUES (0, #{param1}, DEFAULT, '가입기념선물', '500 포인트 증정', 0, 0, 500, 500, 'join');
 	</insert>
 	
 	

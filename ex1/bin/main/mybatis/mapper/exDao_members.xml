@@ -11,7 +11,7 @@
 	</select>
 
 	<insert id="join_ok"> 
-			INSERT INTO members (user_index, user_id, user_pw, user_name, user_email, user_phone, user_address, postcode, user_grade, user_gender, user_birth, buying_price, join_date) VALUES (0, #{user_id}, #{user_pw}, #{user_name}, #{user_email}, #{user_address}, #{user_postcode}, "앵두", 0, #{user_gender},#{user_birth}, 0, default)
+			INSERT INTO members (user_index, user_id, user_pw, user_name, user_email, user_phone, user_address, postcode, user_point, user_grade, user_gender, user_birth, buying_price, join_date) VALUES (0, #{user_id}, #{user_pw}, #{user_name}, #{user_email}, #{user_phone}, #{user_address}, #{user_postcode}, 0, "앵두", #{user_gender},#{user_birth}, 0, default);
 	</insert>
 
 	<select id="check_pw" resultType="com.example.demo.dto.dto_members"> 
