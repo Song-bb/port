@@ -806,11 +806,10 @@ public class MyContoller {
 	public String item_detail(@RequestParam("idx") String idx, 
 				HttpServletRequest request, HttpServletResponse response, Model model) {
 		model.addAttribute("idx_show_detail", service_items.detail_idx_read(idx)); // 상품 상세정보
-		String item_number = service_items.check_itemNumber(idx).get(0).getItem_number(); // 상품번호 받아오기
-		int reviewCount = service_review.itemDetail_reviewCount(item_number); // 리뷰 갯수 받아오기
+		int reviewCount = service_review.itemDetail_reviewCount(idx); // 리뷰 갯수 받아오기
 		model.addAttribute("itemReview_count", reviewCount);
 		if( reviewCount > 0 ) { // 리뷰 있으면
-			float average = service_review.itemDetail_reviewTotal(item_number) / reviewCount;
+			float average = service_review.itemDetail_reviewTotal(idx) / reviewCount;
 			model.addAttribute("itemReview_score", average);
 		} else { // 리뷰 없으면
 			model.addAttribute("itemReview_score", "0");
