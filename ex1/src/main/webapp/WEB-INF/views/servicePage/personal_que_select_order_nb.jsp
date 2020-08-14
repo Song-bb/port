@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  
     
 <!DOCTYPE html>
 <html>
@@ -32,12 +33,14 @@
                         <th>주문금액</th>
                     </tr>
                     <c:forEach items="${ order_number }" var="dto">
+                    <c:set var = "string1" value = "${ dto.date }"/>
+                    <c:set var = "string2" value = "${fn:substring(string1, 0, 10)}" />
                     <tr>
                         <td><a href='javascript:close_select_pop();'>${ dto.order_number }</a></td>
-                        <td><a href='javascript:close_select_pop();'>${ dto.date }</a></td>
-                        <td><a href='javascript:close_select_pop();'>${ dto.item_text }</a></td>
-                        <td><a href='javascript:close_select_pop();'>${ dto.count }</a></td>
-                        <td><a href='javascript:close_select_pop();'>${ dto.price_actual } 원</a></td>
+                        <td><a href='javascript:close_select_pop();'>${ string2 }</a></td>
+                        <td><a href='javascript:close_select_pop();'>${ dto.item_name1 }</a></td>
+                        <td><a href='javascript:close_select_pop();'>${ dto.item_count1 }</a></td>
+                        <td><a href='javascript:close_select_pop();'>${ dto.result_total_price } 원</a></td>
                         <input type="hidden" id="order_number" value="${ dto.order_number }">
                     </tr>
                     </c:forEach>
